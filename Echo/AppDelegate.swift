@@ -8,15 +8,47 @@
 
 import UIKit
 
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    let ClientID = "782ed7079eef47cdb3d0d21df4cc9db3"
+    let CallbackURL = "echo://returnAfterLogin"
+    let kTokenSwapURL = "http://mysterious-waters-9692.herokuapp.com/swap"
+    let kTokenRefreshServiceURL = "http://mysterious-waters-9692.herokuapp.com/refresh"
+    
     var window: UIWindow?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
         return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        if SPTAuth.defaultInstance().canHandleURL(url, withDeclaredRedirectURL: NSURL(string: CallbackURL)) {
+            SPTAuth.defaultInstance().handleAuthCallbackWithTriggeredAuthURL(url, tokenSwapServiceEndpointAtURL: NSURL(string: kTokenSwapURL), callback: { (error:NSError!, session:SPTSession!) -> Void in
+                if error != nil {
+                    println("AUTHENTICATION ERROR")
+                    println(error)
+                    return
+                }
+                
+                let userDefaults = NSUserDefaults.standardUserDefaults()
+                
+                let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
+                
+                userDefaults.setObject(sessionData, forKey: "SpotifySession")
+                
+                userDefaults.synchronize()
+                
+                NSNotificationCenter.defaultCenter().postNotificationName("loginSuccessfull", object: nil)
+                
+            })
+        }
+        return false
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
