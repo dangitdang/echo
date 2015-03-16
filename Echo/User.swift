@@ -16,20 +16,21 @@ class User {
     var displayName: String
     var email: String
     var spid: String
-    var pic: UIImage?
+    var picURL: String?
     var musicCollection: MusicCollection
-    //var preferences: [Int]
-    //var matches: [String]
+    var preferences: [Int]
+    var matches: [String]
     
     init(
         displayName : String,
         email : String,
         spid: String,
         musicCollection: MusicCollection,
-        
+        preferences: [Int],
+        matches: [String] = [],
         birthdate: String? = nil,
         country: String? = nil,
-        pic: UIImage? = nil
+        picURL: String? =  nil
     ){
         self.displayName = displayName
         self.email = email
@@ -37,7 +38,9 @@ class User {
         self.musicCollection = musicCollection
         self.birthdate = birthdate
         self.country = country
-        self.pic = pic
+        self.picURL = picURL
+        self.matches = matches
+        self.preferences = preferences
     }
     
     /*
@@ -51,14 +54,13 @@ class User {
         user.setObject(self.spid, forKey: "spid")
         user.setObject(self.birthdate, forKey: "birthdate")
         user.setObject(self.country, forKey: "country")
+        user.setObject(self.matches, forKey: "mathces")
+        user.setObject(self.preferences, forKey: "preferences")
         
-        var music_data = NSKeyedArchiver.archivedDataWithRootObject(self.musicCollection)
-        user.setObject(music_data, forKey: "music_collection")
-        //save image
-        var imageData = UIImageJPEGRepresentation(self.pic, 0.8);
-        var picFile = PFFile(data: imageData)
-        picFile.saveInBackground()
-        user.setObject(picFile, forKey: "pic")
+        var musicJSON = self.musicCollection.toJSON()
+        user.setObject(musicJSON, forKey: "music_collection")
+        
+        user.setObject(self.picURL, forKey: "pic")
         
         user.saveInBackground()
     }
@@ -77,16 +79,17 @@ class User {
             return nil
         } else {
             var user = objects[0] as PFObject
-            var picFile = user.valueForKey("pic") as PFFile
-            var pic = UIImage(data: picFile.getData())
+            var music = MusicCollection(json: user.valueForKey("musicCollection") as String)
             return User(displayName: user.valueForKey("displayName") as String,
                 email: user.valueForKey("email") as String,
                 spid: user.valueForKey("spid") as String,
-                musicCollection: user.valueForKey("musicCollection") as MusicCollection,
+                musicCollection: music,
+                preferences: user.valueForKey("preferences") as [Int],
+                matches: user.valueForKey("matches") as [String],
                 birthdate: user.valueForKey("birthdate") as String?,
                 country: user.valueForKey("country") as String?,
-                pic: pic)
-            
+                picURL: user.valueForKey("picURL") as String?
+            )
         }
     }
     
@@ -104,17 +107,18 @@ class MusicCollection {
         self.artists = artists
         self.songCounts = songCounts
         self.albums = albums
-        
+        self.weights =  [String: Float?]()
+    }
+    
+    func initializeWeights() -> Void {
         var sum = 0
         for (artist, soungCount) in self.songCounts {
             sum += soungCount
         }
-        self.weights =  [String: Float?]()
         for (artist, songCount) in self.songCounts {
             self.weights[artist] = Float(songCount)/Float(sum)
         }
     }
-    
     func getWeight(artist:String) -> Float{
         return self.weights[artist]!!
     }
@@ -143,6 +147,19 @@ class MusicCollection {
         return commonAlbums
     }
     
+    func toJSON() -> String {
+        var json: [String: AnyObject] = ["artists": self.artists, "albums": self.albums, "songCounts": self.songCounts]
+        return JSONStringify(json, prettyPrinted: false)
+    }
+    
+    init(json: String){
+        var dict = JSONParseDictionary(json)
+        self.artists = dict["artists"] as [String]
+        self.albums = dict["albums"] as [String: [String]]
+        self.songCounts = dict["songCounts"] as [String: Int]
+        self.initializeWeights()
+    }
+    
     /*
     Returns a integer - matching score from 0 to 5
     */
@@ -158,8 +175,5 @@ class MusicCollection {
         return match_score
     }
     
-    func encodeWithCoder(aCoder: NSCoder) -> Void {
-        aCoder.encodeObject(artists)
-    }
-    //class Func
+  
 }
