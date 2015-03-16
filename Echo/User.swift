@@ -18,12 +18,15 @@ class User {
     var spid: String
     var pic: UIImage?
     var musicCollection: MusicCollection
+    //var preferences: [Int]
+    //var matches: [String]
     
     init(
         displayName : String,
         email : String,
         spid: String,
         musicCollection: MusicCollection,
+        
         birthdate: String? = nil,
         country: String? = nil,
         pic: UIImage? = nil
