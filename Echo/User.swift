@@ -91,6 +91,18 @@ class User {
 }
 
 
+//func spotifyToUser(spotifyUser: SPTUser) -> User {
+//    return User(
+//        displayName: spotifyUser.displayName,
+//        email: spotifyUser.emailAddress,
+//        spid: spotifyUser.uri,
+//        musicCollection: <#MusicCollection#>,
+//        birthdate: <#String?#>,
+//        country: spotifyUser.territory,
+//        pic: spotifyUser.largestImage.imageURL)
+//}
+
+
 class MusicCollection {
     var artists: [String] // list of artist names
     var songCounts: [String: Int] // Map artist -> song count
