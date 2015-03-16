@@ -27,6 +27,8 @@
 		DC3FD5A21AB4FF84005ED64D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD5971AB4FF84005ED64D /* StoreKit.framework */; };
 		DC3FD5A31AB4FF84005ED64D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD5981AB4FF84005ED64D /* SystemConfiguration.framework */; };
 		DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A51AB4FFBC005ED64D /* ParseImporter.m */; };
+		DC3FD5A81AB50BD3005ED64D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A71AB50BD3005ED64D /* User.swift */; };
+		DC3FD5AA1AB50D68005ED64D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A91AB50D68005ED64D /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		DC3FD5981AB4FF84005ED64D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DC3FD5A41AB4FFBB005ED64D /* Echo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Echo-Bridging-Header.h"; sourceTree = "<group>"; };
 		DC3FD5A51AB4FFBC005ED64D /* ParseImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParseImporter.m; path = Echo/ParseImporter.m; sourceTree = "<group>"; };
+		DC3FD5A71AB50BD3005ED64D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DC3FD5A91AB50D68005ED64D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */,
+				DC3FD5A71AB50BD3005ED64D /* User.swift */,
+				DC3FD5A91AB50D68005ED64D /* Utils.swift */,
 				AA2009261AA40D7B00E9BB8B /* ViewController.swift */,
 				AA2009281AA40D7B00E9BB8B /* Main.storyboard */,
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
@@ -277,6 +283,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3FD5AA1AB50D68005ED64D /* Utils.swift in Sources */,
+				DC3FD5A81AB50BD3005ED64D /* User.swift in Sources */,
 				AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */,
 				AA2009251AA40D7B00E9BB8B /* AppDelegate.swift in Sources */,
 				DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */,
