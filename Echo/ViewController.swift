@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     
     
     var session:SPTSession!
+    var user: SPTUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,10 +64,16 @@ class ViewController: UIViewController {
             let sessionDataObj = sessionObj as NSData
             let firstTimeSession = NSKeyedUnarchiver.unarchiveObjectWithData(sessionDataObj) as SPTSession
             self.session = firstTimeSession
-            print(self.session.canonicalUsername)
+            SPTRequest.userInformationForUserInSession(self.session, callback:
+                {(error: NSError!, userInfo: AnyObject!) -> Void in
+                    self.user = userInfo as SPTUser
+                    println(self.user.displayName)
+                    println(self.user.followerCount)
+                    println(self.user.largestImage.imageURL)
+                })
         }
     }
-        
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -76,7 +83,7 @@ class ViewController: UIViewController {
     @IBAction func loginWithSpotify(sender: AnyObject) {
         let auth = SPTAuth.defaultInstance()
         
-        let loginURL = auth.loginURLForClientId(ClientID, declaredRedirectURL: NSURL(string: CallbackURL), scopes: [SPTAuthStreamingScope])
+        let loginURL = auth.loginURLForClientId(ClientID, declaredRedirectURL: NSURL(string: CallbackURL), scopes: [SPTAuthStreamingScope,SPTAuthUserReadEmailScope,SPTAuthUserLibraryReadScope,SPTAuthUserReadPrivateScope,SPTAuthPlaylistReadPrivateScope])
         
         UIApplication.sharedApplication().openURL(loginURL)
     }
