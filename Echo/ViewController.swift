@@ -76,8 +76,9 @@ class ViewController: UIViewController {
 //            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Matches")as UIViewController
 //            sideMenuController()?.setContentViewController(destViewController)
 
-            let vc : AnyObject! = self.storyboard?.instantiateViewControllerWithIdentifier("NavController")
-            self.showViewController(vc as UIViewController, sender: vc)
+//            let vc : AnyObject! = self.storyboard?.instantiateViewControllerWithIdentifier("NavController")
+//            self.showViewController(vc as UIViewController, sender: vc)
+            performSegueWithIdentifier("leaveLogIn", sender: nil)
         }
     }
     
