@@ -1,6 +1,13 @@
+////
+////  User.swift
+////  Echo
+////
+////  Created by aivanov on 14.03.15.
+////  Copyright (c) 2015 Quartet. All rights reserved.
+////
 //
-//  User.swift
-//  Echo
+//import Foundation
+//import Darwin
 //
 //  Created by aivanov on 14.03.15.
 //  Copyright (c) 2015 Quartet. All rights reserved.
