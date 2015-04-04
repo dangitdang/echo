@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		3A98892B1AD0AFCC004D4D3C /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9889291AD0AFCC004D4D3C /* ENSideMenu.swift */; };
 		3A98892C1AD0AFCC004D4D3C /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A98892A1AD0AFCC004D4D3C /* ENSideMenuNavigationController.swift */; };
+		3A9889301AD0B03C004D4D3C /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A98892E1AD0B03C004D4D3C /* ViewControllerWNav.swift */; };
+		3A9889331AD0B0A8004D4D3C /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9889311AD0B0A8004D4D3C /* MyMenuTableViewController.swift */; };
+		3A9889341AD0B0A8004D4D3C /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9889321AD0B0A8004D4D3C /* MyNavigationController.swift */; };
+		3A9889361AD0B0F7004D4D3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9889351AD0B0F7004D4D3C /* ViewController.swift */; };
 		AA2009251AA40D7B00E9BB8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
-		AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009261AA40D7B00E9BB8B /* ViewController.swift */; };
 		AA20092A1AA40D7B00E9BB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2009281AA40D7B00E9BB8B /* Main.storyboard */; };
 		AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA20092B1AA40D7B00E9BB8B /* Images.xcassets */; };
 		AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */; };
@@ -38,7 +41,6 @@
 		DCE31D8A1AD09D8800223E69 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5AB1AB6A518005ED64D /* SwiftyJSON.swift */; };
 		DCE31D8B1AD09D9200223E69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		DCE31D8C1AD09D9200223E69 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A91AB50D68005ED64D /* Utils.swift */; };
-		DCE31D8D1AD09D9200223E69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009261AA40D7B00E9BB8B /* ViewController.swift */; };
 		DCE31D921AD0A09400223E69 /* Echo-Bridgin-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE31D911AD0A09400223E69 /* Echo-Bridgin-Header.m */; };
 /* End PBXBuildFile section */
 
@@ -55,10 +57,13 @@
 /* Begin PBXFileReference section */
 		3A9889291AD0AFCC004D4D3C /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		3A98892A1AD0AFCC004D4D3C /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
+		3A98892E1AD0B03C004D4D3C /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
+		3A9889311AD0B0A8004D4D3C /* MyMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyMenuTableViewController.swift; sourceTree = "<group>"; };
+		3A9889321AD0B0A8004D4D3C /* MyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
+		3A9889351AD0B0F7004D4D3C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AA20091F1AA40D7B00E9BB8B /* Echo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Echo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2009231AA40D7B00E9BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AA2009261AA40D7B00E9BB8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AA2009291AA40D7B00E9BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA20092B1AA40D7B00E9BB8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AA20092E1AA40D7B00E9BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -150,8 +155,11 @@
 				DC3FD5A71AB50BD3005ED64D /* User.swift */,
 				3A9889291AD0AFCC004D4D3C /* ENSideMenu.swift */,
 				3A98892A1AD0AFCC004D4D3C /* ENSideMenuNavigationController.swift */,
+				3A9889311AD0B0A8004D4D3C /* MyMenuTableViewController.swift */,
+				3A9889321AD0B0A8004D4D3C /* MyNavigationController.swift */,
+				3A9889351AD0B0F7004D4D3C /* ViewController.swift */,
+				3A98892E1AD0B03C004D4D3C /* ViewControllerWNav.swift */,
 				DC3FD5A91AB50D68005ED64D /* Utils.swift */,
-				AA2009261AA40D7B00E9BB8B /* ViewController.swift */,
 				AA2009281AA40D7B00E9BB8B /* Main.storyboard */,
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
 				AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */,
@@ -313,9 +321,12 @@
 				DC3FD5AA1AB50D68005ED64D /* Utils.swift in Sources */,
 				DC3FD5A81AB50BD3005ED64D /* User.swift in Sources */,
 				3A98892B1AD0AFCC004D4D3C /* ENSideMenu.swift in Sources */,
-				AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */,
+				3A9889361AD0B0F7004D4D3C /* ViewController.swift in Sources */,
 				DC3FD5AC1AB6A518005ED64D /* SwiftyJSON.swift in Sources */,
+				3A9889331AD0B0A8004D4D3C /* MyMenuTableViewController.swift in Sources */,
 				AA2009251AA40D7B00E9BB8B /* AppDelegate.swift in Sources */,
+				3A9889341AD0B0A8004D4D3C /* MyNavigationController.swift in Sources */,
+				3A9889301AD0B03C004D4D3C /* ViewControllerWNav.swift in Sources */,
 				DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +340,6 @@
 				DCE31D871AD09C0900223E69 /* MusicCollectionTests.swift in Sources */,
 				AA20093B1AA40D7B00E9BB8B /* EchoTests.swift in Sources */,
 				DCE31D8B1AD09D9200223E69 /* AppDelegate.swift in Sources */,
-				DCE31D8D1AD09D9200223E69 /* ViewController.swift in Sources */,
 				DCE31D8A1AD09D8800223E69 /* SwiftyJSON.swift in Sources */,
 				DCE31D8C1AD09D9200223E69 /* Utils.swift in Sources */,
 			);
