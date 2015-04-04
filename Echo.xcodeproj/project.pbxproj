@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A947ED11AD06B6100BDD5E4 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A947ED01AD06B6100BDD5E4 /* SWRevealViewController.m */; };
+		3A947ED31AD06D7D00BDD5E4 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A947ED21AD06D7D00BDD5E4 /* MenuController.swift */; };
 		AA2009251AA40D7B00E9BB8B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009261AA40D7B00E9BB8B /* ViewController.swift */; };
 		AA20092A1AA40D7B00E9BB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2009281AA40D7B00E9BB8B /* Main.storyboard */; };
@@ -44,6 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A947ECF1AD06B6100BDD5E4 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.h"; sourceTree = "<group>"; };
+		3A947ED01AD06B6100BDD5E4 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = "../../../SWRevealViewController-master/SWRevealViewController/SWRevealViewController.m"; sourceTree = "<group>"; };
+		3A947ED21AD06D7D00BDD5E4 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuController.swift; path = ../../../SidebarMenu/SidebarMenu/MenuController.swift; sourceTree = "<group>"; };
 		AA20091F1AA40D7B00E9BB8B /* Echo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Echo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2009231AA40D7B00E9BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A947ECE1AD06B2700BDD5E4 /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3A947ED01AD06B6100BDD5E4 /* SWRevealViewController.m */,
+				3A947ECF1AD06B6100BDD5E4 /* SWRevealViewController.h */,
+			);
+			name = SWRevealViewController;
+			sourceTree = "<group>";
+		};
 		AA2009161AA40D7B00E9BB8B = {
 			isa = PBXGroup;
 			children = (
@@ -131,10 +145,12 @@
 		AA2009211AA40D7B00E9BB8B /* Echo */ = {
 			isa = PBXGroup;
 			children = (
+				3A947ECE1AD06B2700BDD5E4 /* SWRevealViewController */,
 				DC3FD5AB1AB6A518005ED64D /* SwiftyJSON.swift */,
 				AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */,
 				DC3FD5A71AB50BD3005ED64D /* User.swift */,
 				DC3FD5A91AB50D68005ED64D /* Utils.swift */,
+				3A947ED21AD06D7D00BDD5E4 /* MenuController.swift */,
 				AA2009261AA40D7B00E9BB8B /* ViewController.swift */,
 				AA2009281AA40D7B00E9BB8B /* Main.storyboard */,
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
@@ -290,6 +306,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A947ED31AD06D7D00BDD5E4 /* MenuController.swift in Sources */,
+				3A947ED11AD06B6100BDD5E4 /* SWRevealViewController.m in Sources */,
 				DC3FD5AA1AB50D68005ED64D /* Utils.swift in Sources */,
 				DC3FD5A81AB50BD3005ED64D /* User.swift in Sources */,
 				AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */,
