@@ -9,13 +9,13 @@
 import Foundation
 import Darwin
 
+
 class User {
     var id: String = ""
     var birthdate: String?
     var country: String?
     var displayName: String
     var email: String
-    var spid: String
     var picURL: String?
     var musicCollection: MusicCollection
     var preferences: [Int]
@@ -34,7 +34,6 @@ class User {
     ){
         self.displayName = displayName
         self.email = email
-        self.spid = spid
         self.musicCollection = musicCollection
         self.birthdate = birthdate
         self.country = country
@@ -51,14 +50,13 @@ class User {
         user.setObject(self.displayName, forKey: "display_name")
         
         user.setObject(self.email, forKey: "email")
-        user.setObject(self.spid, forKey: "spid")
         user.setObject(self.birthdate, forKey: "birthdate")
         user.setObject(self.country, forKey: "country")
         user.setObject(self.matches, forKey: "mathces")
         user.setObject(self.preferences, forKey: "preferences")
         
         var musicJSON = self.musicCollection.toJSON()
-        user.setObject(musicJSON, forKey: "music_collection")
+        user.setObject(musicJSON, forKey: "music")
         
         user.setObject(self.picURL, forKey: "pic")
         
@@ -71,9 +69,9 @@ class User {
         - nil if user doesn't exist
         - User Object if user exists
     */
-    class func checkIfUserExists(spid: String) -> User? {
+    class func checkIfUserExists(email: String) -> User? {
         var query = PFQuery(className: "User")
-        query.whereKey("spid", equalTo: spid)
+        query.whereKey("email", equalTo: email)
         var objects = query.findObjects()
         if (objects.count == 0) {
             return nil
@@ -131,6 +129,7 @@ class MusicCollection {
             self.weights[artist] = Float(songCount)/Float(sum)
         }
     }
+
     func getWeight(artist:String) -> Float{
         return self.weights[artist]!!
     }
@@ -160,32 +159,50 @@ class MusicCollection {
     }
     
     func toJSON() -> String {
-        var json: [String: AnyObject] = ["artists": self.artists, "albums": self.albums, "songCounts": self.songCounts]
-        return JSONStringify(json, prettyPrinted: false)
+        var object: [String: AnyObject] = ["artists": self.artists, "albums": self.albums, "songCounts": self.songCounts]
+        var json = JSON(object)
+        return json.description
     }
     
     init(json: String){
-        var dict = JSONParseDictionary(json)
-        self.artists = dict["artists"] as [String]
-        self.albums = dict["albums"] as [String: [String]]
-        self.songCounts = dict["songCounts"] as [String: Int]
+        var dict = JSON(json)
+        self.artists = [String]()
+        if let artist_array = dict["artists"].arrayValue as [JSON]? {
+            for artist in artist_array{
+                self.artists.append(artist.stringValue)
+            }
+        }
+        self.albums = [String:[String]]()
+        for artist in self.artists {
+            self.albums[artist] = [String]()
+            if let album_array = dict["albums"][artist].arrayValue as [JSON]?{
+                for album in album_array{
+                    self.albums[artist]?.append(album.stringValue)
+                }
+            }
+        }
+        self.songCounts = [String: Int]()
+        for artist in self.artists{
+            self.songCounts[artist] = dict["songCounts"][artist].intValue
+        }
+        self.weights =  [String: Float?]()
         self.initializeWeights()
     }
     
     /*
     Returns a integer - matching score from 0 to 5
     */
-    func match_score(other: MusicCollection) -> Int {
-        var commonArtists = self.artistsInCommon(other)
-        var score1: Float = 0.0; var score2 : Float = 0.0
-        for artist in commonArtists {
-            score1 += self.getWeight(artist)
-            score2 += other.getWeight(artist)
-        }
-        var score = min(score1, score2)
-        var match_score = min(Int(floor(score/0.06)),5)
-        return match_score
-    }
+//    func match_score(other: MusicCollection) -> Int {
+//        var commonArtists = self.artistsInCommon(other)
+//        var score1: Float = 0.0; var score2 : Float = 0.0
+//        for artist in commonArtists {
+//            score1 += self.getWeight(artist)
+//            score2 += other.getWeight(artist)
+//        }
+//        var score = min(score1, score2)
+//        var match_score = min(Int(floor(score/0.06)),5)
+//        return match_score
+//    }
     
   
 }
