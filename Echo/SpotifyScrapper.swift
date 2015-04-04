@@ -52,6 +52,7 @@ class Scrapper {
                 println("error retrieving saved songs")
             } else {
                 self.savedSongs = saved as SPTListPage
+                self.extractArtistsFromSaved()
             }
         })
     }
@@ -75,7 +76,6 @@ class Scrapper {
         println(firstTracks)
         println(firstTracks.hasNextPage)
         var songs = firstTracks as SPTListPage
-        
         println(songs.items)
         for song in songs.items {
             var track = song as SPTPartialTrack
