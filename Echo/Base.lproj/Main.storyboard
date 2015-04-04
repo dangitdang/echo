@@ -16,8 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
                                 <rect key="frame" x="194" y="278" width="213" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Cc2-px-gZq"/>
+                                    <constraint firstAttribute="width" constant="213" id="IgO-zj-3qY"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="log_in_spotify">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -25,17 +29,12 @@
                                     <action selector="loginWithSpotify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="L0q-fY-ylo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEc-T7-pJG">
-                                <rect key="frame" x="100" y="102" width="32" height="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3d9-Xg-z6h" kind="show" id="oQ8-SL-CGz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CvU-Jk-rBj" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Jx9-YK-eAd"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CvU-Jk-rBj" secondAttribute="bottom" constant="279" id="Ngz-Xm-AUz"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -45,7 +44,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="eaA-XI-jxF">
             <objects>
-                <navigationController id="3d9-Xg-z6h" customClass="MyNavigationController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavController" id="3d9-Xg-z6h" customClass="MyNavigationController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ha9-3Z-MAN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

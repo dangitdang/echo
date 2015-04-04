@@ -69,8 +69,15 @@ class ViewController: UIViewController {
                     self.user = userInfo as SPTUser
                     println(self.user.displayName)
                     println(self.user.followerCount)
-                    println(self.user.largestImage.imageURL)
+                    //println(self.user.largestImage.imageURL)
                 })
+//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+//            var destViewController : UIViewController
+//            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Matches")as UIViewController
+//            sideMenuController()?.setContentViewController(destViewController)
+
+            let vc : AnyObject! = self.storyboard?.instantiateViewControllerWithIdentifier("NavController")
+            self.showViewController(vc as UIViewController, sender: vc)
         }
     }
     
