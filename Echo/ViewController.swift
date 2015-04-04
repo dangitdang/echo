@@ -70,6 +70,11 @@ class ViewController: UIViewController {
                     println(self.user.displayName)
                     println(self.user.followerCount)
                     println(self.user.largestImage.imageURL)
+                    println(self.user.emailAddress)
+                    println(self.session.accessToken)
+                    var scraper = Scrapper(session: self.session, user: self.user)
+                    scraper.retrieveStarred()
+                    println(scraper.getArtists())
                 })
         }
     }
