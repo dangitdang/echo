@@ -473,7 +473,7 @@
 		DC6D12311AD19FEE00BB8723 /* PNConnectionChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PNConnectionChannel.m; sourceTree = "<group>"; };
 		DC6D12331AD19FEE00BB8723 /* PNLoggerSymbols.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PNLoggerSymbols.plist; sourceTree = "<group>"; };
 		DC6D129C1AD1B69A00BB8723 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
-		DCE31D861AD09C0900223E69 /* MusicCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionTests.swift; sourceTree = "<group>"; };
+		DCE31D861AD09C0900223E69 /* MusicCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionTests.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		DCE31D901AD0A09300223E69 /* EchoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EchoTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		DCE31D911AD0A09400223E69 /* Echo-Bridgin-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Echo-Bridgin-Header.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */

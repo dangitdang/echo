@@ -11,16 +11,15 @@ import Foundation
 import UIKit
 import XCTest
 
+var music_dang = MusicCollection(json: "aaa")
+var music_hansa = MusicCollection(json: "hansa")
+
+var dang_user = User(displayName: "Dang", email: "dang@gay.com",
+    musicCollection: music_dang, preferences: [1,2])
+var hansa_user=User(displayName: "Dang", email: "dang@gay.com",
+    musicCollection:music_hansa, preferences: [1,2])
 
 class MusicCollectionTests: XCTestCase {
-    
-    var music_dang = MusicCollection(json: "aaa");
-    var music_hansa = MusicCollection(json: "hansa");
-    var dang_user = User(displayName: "Dang", email: "dang@gay.com",
-        musicCollection: MusicCollection(artists: ["aa"], songCounts: ["aa":3], albums: ["aa":["aa"]]), preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string: "https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983"))
-    var hansa_user=User(displayName: "Dang", email: "dang@gay.com",
-        musicCollection:MusicCollection(json: "hansa"), preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983"));
-    
     override func setUp() {
         super.setUp()
         var artists = ["andrei", "hansa", "dang"]
@@ -38,7 +37,7 @@ class MusicCollectionTests: XCTestCase {
     }
     
     func testToJSON(){
-       println(music_dang.toJSON())
+        println(music_dang.toJSON())
     }
     
     func testFromJSON(){
@@ -53,10 +52,8 @@ class MusicCollectionTests: XCTestCase {
     }
     
     func testMatches(){
-       dang_user.getMatches()
+        dang_user.getMatches()
         println(dang_user.matches)
     }
     
-    
 }
-
