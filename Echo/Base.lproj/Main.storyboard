@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="-349" y="-464"/>
         </scene>
-        <!--View ControllerW Nav-->
+        <!--Profile View-->
         <scene sceneID="ypW-0h-f4p">
             <objects>
-                <viewController storyboardIdentifier="Profile" id="FZ7-nX-ehb" customClass="ViewControllerWNav" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="FZ7-nX-ehb" customClass="ProfileView" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aKw-Cx-RLo"/>
                         <viewControllerLayoutGuide type="bottom" id="IpQ-7M-ghs"/>
@@ -83,12 +83,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvW-5d-lsr">
-                                <rect key="frame" x="69" y="136" width="49" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuT-TR-aT0">
+                                <rect key="frame" x="332" y="106" width="167" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-Cc-RmG">
+                                <rect key="frame" x="120" y="48" width="168" height="154"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -99,6 +102,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profPic" destination="SnJ-Cc-RmG" id="jVB-Ed-CuZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBV-1F-NC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEz-Yw-3hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394" y="-882"/>
+            <point key="canvasLocation" x="414" y="-890"/>
         </scene>
         <!--View ControllerW Nav-->
         <scene sceneID="rOl-CZ-oZZ">

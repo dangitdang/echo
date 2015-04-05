@@ -39,7 +39,7 @@ class MyMenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 4
+        return 3
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -58,16 +58,16 @@ class MyMenuTableViewController: UITableViewController {
         
         switch (indexPath.row) {
         case 0:
-            cell!.textLabel?.text = "Menu"
+            cell!.textLabel?.text = "Matches"
             break
         case 1:
-            cell!.textLabel?.text = "  Matches"
+            cell!.textLabel?.text = "Messages"
             break
         case 2:
-            cell!.textLabel?.text = "  Messages"
+            cell!.textLabel?.text = "Profile"
             break
         default:
-            cell!.textLabel?.text = "  Profile"
+            cell!.textLabel?.text = "Matches"
             break
         }
         //cell!.textLabel?.text = "ViewController #\(indexPath.row+1)"
@@ -93,16 +93,14 @@ class MyMenuTableViewController: UITableViewController {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            break
-        case 1:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Matches")as UIViewController
             sideMenuController()?.setContentViewController(destViewController)
             break
-        case 2:
+        case 1:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Messages")as UIViewController
             sideMenuController()?.setContentViewController(destViewController)
             break
-        case 3:
+        case 2:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Profile")as UIViewController
             sideMenuController()?.setContentViewController(destViewController)
             break

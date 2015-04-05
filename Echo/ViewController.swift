@@ -71,14 +71,13 @@ class ViewController: UIViewController {
                     println(self.user.followerCount)
                     //println(self.user.largestImage.imageURL)
                 })
-//            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-//            var destViewController : UIViewController
-//            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Matches")as UIViewController
-//            sideMenuController()?.setContentViewController(destViewController)
 
-//            let vc : AnyObject! = self.storyboard?.instantiateViewControllerWithIdentifier("NavController")
-//            self.showViewController(vc as UIViewController, sender: vc)
             performSegueWithIdentifier("leaveLogIn", sender: nil)
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            appDelegate.session = self.session
+           
+            
+            
         }
     }
     
