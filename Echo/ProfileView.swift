@@ -12,24 +12,24 @@ class ProfileView: ViewControllerWNav{
     
     @IBOutlet weak var profPic: UIImageView!
     
+    @IBOutlet weak var name: UILabel!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let session = appDelegate.session
+        let user = appDelegate.user as User!
         
-        SPTRequest.userInformationForUserInSession(session, callback:
-            {(error: NSError!, userInfo: AnyObject!) -> Void in
-//                self.user = userInfo as SPTUser
-//                println(self.user.displayName)
-//                println(self.user.followerCount)
-//                //println(self.user.largestImage.imageURL)
-        })
+        name.text = user.displayName
         
-//        let url = NSURL(string: image.url)
-//        let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-//        profPic.image = UIImage(data: data!)
+        println(user.picURL)
+        let url = user.picURL as NSURL!
+        if (url != nil) {
+            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
+            profPic.image = UIImage(data: data!)
+        }
+        
     }
     
 }

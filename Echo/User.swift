@@ -8,7 +8,7 @@ class User {
     var country: String?
     var displayName: String
     var email: String
-    var picURL: String?
+    var picURL: NSURL?
     var musicCollection: MusicCollection
     var preferences: [Int]
     var matches: [String]
@@ -21,7 +21,7 @@ class User {
         matches: [String] = [],
         birthdate: String? = nil,
         country: String? = nil,
-        picURL: String? =  nil
+        picURL: NSURL? =  nil
     ){
         self.displayName = displayName
         self.email = email
@@ -77,7 +77,7 @@ class User {
                 matches: user.valueForKey("matches") as [String],
                 birthdate: user.valueForKey("birthdate") as String?,
                 country: user.valueForKey("country") as String?,
-                picURL: user.valueForKey("picURL") as String?
+                picURL: user.valueForKey("picURL") as NSURL?
             )
         }
     }

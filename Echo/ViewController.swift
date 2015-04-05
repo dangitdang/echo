@@ -70,12 +70,24 @@ class ViewController: UIViewController {
                     println(self.user.displayName)
                     println(self.user.followerCount)
                     //println(self.user.largestImage.imageURL)
+                    
+                    
+                    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                    appDelegate.session = self.session
+                    var prefs: [Int] = []
+                    var a: [String] = []
+                    var sc: [String: Int] = ["":0]
+                    var alb: [String: [String]] = ["":[]]
+                    var musicCollec = MusicCollection(artists: a, songCounts: sc, albums: alb);
+                    appDelegate.user = User(displayName: self.user.displayName, email: self.user.emailAddress, musicCollection: musicCollec, preferences: prefs);
+                    
+                    if (self.user.largestImage.imageURL != nil){
+                        appDelegate.user?.picURL = self.user.largestImage.imageURL
+                    }
                 })
 
             performSegueWithIdentifier("leaveLogIn", sender: nil)
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            appDelegate.session = self.session
-           
+            
             
             
         }
