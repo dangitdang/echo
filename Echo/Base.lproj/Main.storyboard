@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
-                                <rect key="frame" x="194" y="278" width="213" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
+                                <rect key="frame" x="194" y="368" width="213" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CvU-Jk-rBj" secondAttribute="height" multiplier="213:43" id="Wre-Ab-kr8"/>
+                                    <constraint firstAttribute="height" constant="43" id="if6-Pt-3tA"/>
+                                    <constraint firstAttribute="width" constant="213" id="omS-Ql-0ce"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="log_in_spotify">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -25,18 +31,25 @@
                                     <action selector="loginWithSpotify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="L0q-fY-ylo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEc-T7-pJG">
-                                <rect key="frame" x="100" y="102" width="32" height="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3d9-Xg-z6h" kind="show" id="oQ8-SL-CGz"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="mRV-lO-4aZ">
+                                <rect key="frame" x="152" y="125" width="297" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="297" id="LMQ-Zq-XgO"/>
+                                    <constraint firstAttribute="width" secondItem="mRV-lO-4aZ" secondAttribute="height" multiplier="297:160" id="vrM-ri-vub"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mRV-lO-4aZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="105" id="7xl-0p-U4F"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CvU-Jk-rBj" secondAttribute="bottom" constant="189" id="MiH-lY-0Ue"/>
+                            <constraint firstItem="mRV-lO-4aZ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="iJQ-Oc-TeC"/>
+                            <constraint firstItem="CvU-Jk-rBj" firstAttribute="centerX" secondItem="mRV-lO-4aZ" secondAttribute="centerX" id="z7z-vQ-AhM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="3d9-Xg-z6h" kind="show" identifier="leaveLogIn" id="LzK-H5-wwq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +58,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="eaA-XI-jxF">
             <objects>
-                <navigationController id="3d9-Xg-z6h" customClass="MyNavigationController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavController" id="3d9-Xg-z6h" customClass="MyNavigationController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ha9-3Z-MAN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -160,5 +173,6 @@
     </scenes>
     <resources>
         <image name="log_in_spotify" width="488" height="88"/>
+        <image name="logo1" width="1283" height="705"/>
     </resources>
 </document>
