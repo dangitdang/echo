@@ -41,7 +41,8 @@ class User: Hashable {
     }
     
     /*
-    Saves the user to the database
+    Saves the user to the 
+        database
     */
     func store() -> Void {
         var user = PFObject(className: "EchoUser")
