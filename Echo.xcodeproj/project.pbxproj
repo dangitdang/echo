@@ -131,6 +131,7 @@
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
+		DC39B2A41AD1EE1000CEF932 /* MessengerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */; };
 		DC3FD58C1AB4FF24005ED64D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58A1AB4FF24005ED64D /* Bolts.framework */; };
 		DC3FD58D1AB4FF24005ED64D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58B1AB4FF24005ED64D /* Parse.framework */; };
 		DC3FD5991AB4FF84005ED64D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58E1AB4FF84005ED64D /* AudioToolbox.framework */; };
@@ -460,6 +461,7 @@
 		AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
 		DC39B2A11AD1DA6100CEF932 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
+		DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerController.swift; sourceTree = "<group>"; };
 		DC3FD58A1AB4FF24005ED64D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		DC3FD58B1AB4FF24005ED64D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DC3FD58E1AB4FF84005ED64D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -938,6 +940,7 @@
 				3A81339D1AD1CF40000D95D0 /* PubNub */,
 				3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */,
 				DC39B2A11AD1DA6100CEF932 /* Messenger.swift */,
+				DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */,
 				3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */,
 				3A8133951AD1C5B3000D95D0 /* MyMenuTableViewController.swift */,
 				3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */,
@@ -1160,6 +1163,7 @@
 				3A8134E31AD1CF40000D95D0 /* PNAccessRightOptions.m in Sources */,
 				3A8135171AD1CF40000D95D0 /* PNMessagePostRequest.m in Sources */,
 				3A8134F61AD1CF40000D95D0 /* PNResponse.m in Sources */,
+				DC39B2A41AD1EE1000CEF932 /* MessengerController.swift in Sources */,
 				3A8135071AD1CF40000D95D0 /* PNAccessRightsAuditRequest.m in Sources */,
 				3A8134D91AD1CF40000D95D0 /* PNClientStateUpdateResponseParser.m in Sources */,
 				3A8134F91AD1CF40000D95D0 /* NSArray+PNAdditions.m in Sources */,
