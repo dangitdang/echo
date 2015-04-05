@@ -1,8 +1,10 @@
 import Foundation
 import Darwin
 
-
-class User {
+func ==(lhs:User, rhs:User) -> Bool {
+    return lhs.id == rhs.id
+}
+class User: Hashable {
     var id: String = ""
     var birthdate: String?
     var country: String?
@@ -12,7 +14,9 @@ class User {
     var musicCollection: MusicCollection
     var preferences: [Int]
     var matches: [Int: [String]]
-    
+    var hashValue: Int {
+        get{ return id.hashValue}
+    }
     init(
         displayName : String,
         email : String,
@@ -52,7 +56,7 @@ class User {
         user.setObject(self.picURL, forKey: "pic")
         
         user.save()
-        
+        self.id = user.objectId
     }
     
     func isMatchesEmpty() ->Bool {
@@ -90,17 +94,28 @@ class User {
             return nil
         } else {
             var user = objects[0] as PFObject
-            var music = MusicCollection(json: user.valueForKey("musicCollection") as String)
-            return User(displayName: user.valueForKey("displayName") as String,
-                email: user.valueForKey("email") as String,
-                musicCollection: music,
-                preferences: user.valueForKey("preferences") as [Int],
-                matches: user.valueForKey("matches") as [Int:[String]],
-                birthdate: user.valueForKey("birthdate") as String?,
-                country: user.valueForKey("country") as String?,
-                picURL: user.valueForKey("picURL") as NSURL?
-            )
+            return User(pfo:user)
         }
+    }
+    
+    class func userFromID(id: String) -> User? {
+        var query = PFQuery(className: "EchoUser")
+        var user = query.getObjectWithId(id)
+        return User(pfo:user)
+    }
+    convenience init(pfo: PFObject) {
+        var user = pfo
+        var music = MusicCollection(json: user.valueForKey("musicCollection") as String)
+        self.init(displayName: user.valueForKey("displayName") as String,
+            email: user.valueForKey("email") as String,
+            musicCollection: music,
+            preferences: user.valueForKey("preferences") as [Int],
+            matches: user.valueForKey("matches") as [Int:[String]],
+            birthdate: user.valueForKey("birthdate") as String?,
+            country: user.valueForKey("country") as String?,
+            picURL: user.valueForKey("picURL") as NSURL?
+        )
+        self.id = user.objectId
     }
     
     

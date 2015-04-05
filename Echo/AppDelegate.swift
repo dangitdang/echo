@@ -11,13 +11,13 @@ import UIKit
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     
     let ClientID = "782ed7079eef47cdb3d0d21df4cc9db3"
     let CallbackURL = "echo://returnAfterLogin"
     let kTokenSwapURL = "http://mysterious-waters-9692.herokuapp.com/swap"
     let kTokenRefreshServiceURL = "http://mysterious-waters-9692.herokuapp.com/refresh"
-    
+    var pubNub: PubNub?
     var session:SPTSession?
     var user: User?
     
@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
+        self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("error")})
         return true
     }
     
@@ -50,6 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             })
         }
+        var a = PNMessage()
         return false
         
     }
@@ -76,6 +78,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
+        var channel_name = message.channel.name
+        var sender = message.valueForKey("sender") as String
+        var song = message.valueForKey("song") as String?
+        var text = message.message as String?
+        if (channel_name == self.user?.id){
+            
+        }
+    }
 
 }
 
