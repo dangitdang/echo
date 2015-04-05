@@ -67,6 +67,7 @@ class ViewController: UIViewController {
             SPTRequest.userInformationForUserInSession(self.session, callback:
                 {(error: NSError!, userInfo: AnyObject!) -> Void in
                     self.user = userInfo as SPTUser
+                    println(self.user)
                     println(self.user.displayName)
                     println(self.user.followerCount)
                     //println(self.user.largestImage.imageURL)
@@ -79,9 +80,19 @@ class ViewController: UIViewController {
                     var sc: [String: Int] = ["":0]
                     var alb: [String: [String]] = ["":[]]
                     var musicCollec = MusicCollection(artists: a, songCounts: sc, albums: alb);
-                    appDelegate.user = User(displayName: self.user.displayName, email: self.user.emailAddress, musicCollection: musicCollec, preferences: prefs);
+                    println(self.user.emailAddress)
                     
-                    if (self.user.largestImage.imageURL != nil){
+                    var username: String
+                    if (self.user.displayName == "<null>") {
+                        println("here")
+                        println(self.user.canonicalUserName)
+                         username = self.user.canonicalUserName
+                    } else {
+                        username = self.user.displayName
+                    }
+                    appDelegate.user = User(displayName: username, email: self.user.emailAddress, musicCollection: musicCollec, preferences: prefs);
+                    
+                    if (self.user.largestImage != nil){
                         appDelegate.user?.picURL = self.user.largestImage.imageURL
                     }
                 })
