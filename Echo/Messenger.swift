@@ -82,3 +82,7 @@ class Messenger {
         return self.requests.keys.array
     }
 }
+
+func NEW_REQUEST(request:Message) {
+    
+}
