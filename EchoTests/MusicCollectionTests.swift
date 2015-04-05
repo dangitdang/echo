@@ -37,11 +37,9 @@ class MusicCollectionTests: XCTestCase {
         hansa_user = User(displayName: "Hansa", email: "hansa@gay.com", musicCollection: music_hansa, preferences: [0,1],  birthdate: "02/11/1994", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/555962_316795711748415_1804005466_n.jpg?oh=d271e112f4e7680d88e2ada9ea30ea7c&oe=559CF53F"))
     }
     
-    func testJSON(){
-
-        let artists = ["andrei", "hansa", "dang"]
-        let albums = ["andrei": ["benim ol", "pazar kahvaltisi"], "dang":["i'm gay"]]
-
+    func testToJSON(){
+       println(music_dang.toJSON())
+    }
     
     func testFromJSON(){
         let music:String = "{ \"albums\" : { \"dang\" : [\"i'm gay\"],\"andrei\" : [\"benim ol\",\"pazar kahvaltisi\"],\"hansa\" :[\"dang,dang\",\"love\",\"poop\"]},\"songCounts\" : {\"dang\" : 2,\"andrei\" : 3,\"hansa\" : 15},\"artists\" : [\"andrei\",\"hansa\",\"dang\"]}"
