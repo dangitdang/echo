@@ -72,34 +72,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
                     println(self.user.followerCount)
                     //println(self.user.largestImage.imageURL)
                     
-                    
-                    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-                    appDelegate.session = self.session
-                    var prefs: [Int] = []
-                    var a: [String] = []
-                    var sc: [String: Int] = ["":0]
-                    var alb: [String: [String]] = ["":[]]
-                    var musicCollec = MusicCollection(artists: a, songCounts: sc, albums: alb);
-                    println(self.user.emailAddress)
-                    
-                    var username: String
-                    if (self.user.displayName == "<null>") {
-                        println("here")
-                        println(self.user.canonicalUserName)
-                         username = self.user.canonicalUserName
-                    } else {
-                        username = self.user.displayName
-                    }
-                    appDelegate.user = User(displayName: username, email: self.user.emailAddress, musicCollection: musicCollec, preferences: prefs);
-                    
-                    if (self.user.largestImage != nil){
-                        appDelegate.user?.picURL = self.user.largestImage.imageURL
-                    }
-                })
-
-            performSegueWithIdentifier("leaveLogIn", sender: nil)
-            
-            
+                    })
             
         }
     }
@@ -133,12 +106,36 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
             } else {
                 self.user = user as SPTUser
                 println(self.user.emailAddress)
-                var scrapper = Scrapper(session: self.session, user: self.user)
-                scrapper.retrievePlaylists()
+                //var scrapper = Scrapper(session: self.session, user: self.user)
+                //scrapper.retrievePlaylists()
                 
+                let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                appDelegate.session = self.session
+                var prefs: [Int] = []
+                var a: [String] = []
+                var sc: [String: Int] = ["":0]
+                var alb: [String: [String]] = ["":[]]
+                var musicCollec = MusicCollection(artists: a, songCounts: sc, albums: alb);
+                println(self.user.emailAddress)
                 
+                var username: String
+                if (self.user.displayName == "<null>") {
+                    println("here")
+                    println(self.user.canonicalUserName)
+                    username = self.user.canonicalUserName
+                } else {
+                    username = self.user.displayName
+                }
+                appDelegate.user = User(displayName: username, email: self.user.emailAddress, musicCollection: musicCollec, preferences: prefs);
+                
+                if (self.user.largestImage != nil){
+                    appDelegate.user?.picURL = self.user.largestImage.imageURL
+                }
+
             }
         })
+        performSegueWithIdentifier("leaveLogIn", sender: nil)
+
 
     }
     
