@@ -130,6 +130,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationField" destination="mLd-gh-hdA" id="sOe-Jl-EVS"/>
                         <outlet property="name" destination="8BY-eA-4Uz" id="hbW-PY-vBJ"/>
                         <outlet property="profPic" destination="SnJ-Cc-RmG" id="jVB-Ed-CuZ"/>
                     </connections>

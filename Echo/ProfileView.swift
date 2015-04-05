@@ -14,6 +14,8 @@ class ProfileView: ViewControllerWNav{
     
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var locationField: UITextField!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
