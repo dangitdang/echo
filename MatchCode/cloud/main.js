@@ -4,17 +4,20 @@ Parse.Cloud.define("findMatches", function(request, response) {
         var sum = 0
         var weights = {}
         for (var artist in music.songCounts) {
-            sum += music.soungCounts(artist)
+            sum += music.songCounts[artist]
         }
         for (var artist in music.songCounts) {
-            weights[artist] = parseFloat(songCount)/sum
+            weights[artist] = parseFloat(music.songCounts[artist])/sum
         }
         return weights
     }
     var common_elements = function(arr1, arr2) {
         var common= []
-        for (var a1 in arr1) {
-            for (var  a2 in arr2) {
+
+        for (var i=0; i<arr1.length; i++) {
+            a1 = arr1[i]
+            for (var  j=0; j<arr2.length; j++) {
+                a2 = arr2[j]
                 if (a1 == a2) {
                     common.push(a1)
                 }
@@ -29,7 +32,8 @@ Parse.Cloud.define("findMatches", function(request, response) {
         var weights2 = weights(music2)
         var score1 = 0.0
         var score2 = 0.0
-        for (var artist in commonArtists) {
+        for (var i=0; i< commonArtists.length; i++) {
+            artist = commonArtists[i]
             score1 += weights1[artist]
             score2 += weights2[artist]
         }
@@ -51,13 +55,16 @@ Parse.Cloud.define("findMatches", function(request, response) {
     var findMatches = function(user, potential_matches) {
         var matches = []
         var last_date = new Date(0)
-        for (var potential_match in potential_matches){
+        for (var i=0; i<potential_matches.length; i++){
+            var potential_match = potential_matches[i]
             var score = matchScore(user, potential_match)
-            if (score>0) {
-                matches.push([potential_match.get("id"), score])
+            console.log(potential_match.createdAt)
+            if (score>0 && potential_match.get("email")!=user.get("email")) {
+                matches.push([potential_match.id, score])
             }
-            if (potential_match.get("createdAt") > last_date) {
-                last_date = potential_match.get("createdAt")
+
+            if (potential_match.createdAt > last_date) {
+                last_date = potential_match.createdAt
             }
         }
         return [matches, last_date]
@@ -65,21 +72,25 @@ Parse.Cloud.define("findMatches", function(request, response) {
 
 
     var email = request.params.email
-    var query = new Parse.Query("User");
+    var echouser = Parse.Object.extend("EchoUser");
+    var query = new Parse.Query(echouser);
+    console.log(email)
     query.equalTo("email", email)
     query.find({
         success: function(results) {
             var user = results[0]
             var lastTime = results[0].get("lastTimeMatched")
-            var query = new Parse.Query("User");
+            var echouser = Parse.Object.extend("EchoUser");
+            var query = new Parse.Query(echouser);
             query.greaterThan("createdAt", lastTime)
             //***
             query.find({
                 success: function(results) {
                     var output = findMatches(user, results)
+                    console.log(output)
                     var matches = output[0]
                     var last_date = output[1]
-                    response.success(match)
+                    response.success(matches)
                     user.set("lastTimeMatched", last_date)
                     user.save()
                 },

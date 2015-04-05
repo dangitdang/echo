@@ -11,14 +11,14 @@ class User {
     var picURL: String?
     var musicCollection: MusicCollection
     var preferences: [Int]
-    var matches: [String]
+    var matches: [Int: [String]]
     
     init(
         displayName : String,
         email : String,
         musicCollection: MusicCollection,
         preferences: [Int],
-        matches: [String] = [],
+        matches: [Int: [String]] = [Int: [String]](),
         birthdate: String? = nil,
         country: String? = nil,
         picURL: String? =  nil
@@ -37,7 +37,7 @@ class User {
     Saves the user to the database
     */
     func store() -> Void {
-        var user = PFObject(className: "User")
+        var user = PFObject(className: "EchoUser")
         user.setObject(self.displayName, forKey: "display_name")
         
         user.setObject(self.email, forKey: "email")
@@ -55,6 +55,27 @@ class User {
         
     }
     
+    func isMatchesEmpty() ->Bool {
+        for (score, list) in self.matches {
+            if (!list.isEmpty) {
+                return false
+            }
+        }
+        return true
+    }
+    
+    func getMatches() -> Void {
+        var output: NSArray = PFCloud.callFunction("findMatches", withParameters: ["email": self.email]) as NSArray
+        for element in output {
+            var user_id = element[0] as String
+            var score = element[1] as Int
+            if self.matches[score] == nil {
+                self.matches[score] = [user_id]
+            } else {
+                self.matches[score]?.append(user_id)
+            }
+        }
+    }
     /*
     Check if a user with given Spotify ID exists.
     Returns:
@@ -62,7 +83,7 @@ class User {
         - User Object if user exists
     */
     class func checkIfUserExists(email: String) -> User? {
-        var query = PFQuery(className: "User")
+        var query = PFQuery(className: "EchoUser")
         query.whereKey("email", equalTo: email)
         var objects = query.findObjects()
         if (objects.count == 0) {
@@ -74,7 +95,7 @@ class User {
                 email: user.valueForKey("email") as String,
                 musicCollection: music,
                 preferences: user.valueForKey("preferences") as [Int],
-                matches: user.valueForKey("matches") as [String],
+                matches: user.valueForKey("matches") as [Int:[String]],
                 birthdate: user.valueForKey("birthdate") as String?,
                 country: user.valueForKey("country") as String?,
                 picURL: user.valueForKey("picURL") as String?
@@ -154,6 +175,8 @@ class MusicCollection {
         var json = JSON(object)
         return json.description
     }
+    
+
     
     init(json: String){
         let data = json.dataUsingEncoding(NSUTF8StringEncoding)
