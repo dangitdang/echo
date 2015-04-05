@@ -13,10 +13,12 @@ import XCTest
 
 
 class MusicCollectionTests: XCTestCase {
+    
     var music_dang = MusicCollection(json: "aaa");
     var music_hansa = MusicCollection(json: "hansa");
-    var dang_user: User;
-    var hansa_user:User;
+    var dang_user: User? = nil;
+    var hansa_user:User? = nil;
+    
     override func setUp() {
         super.setUp()
         var artists = ["andrei", "hansa", "dang"]
