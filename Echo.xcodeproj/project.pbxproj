@@ -127,6 +127,7 @@
 		AAAC43641AD0A68F00796CDB /* Echo-Bridgin-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC43631AD0A68F00796CDB /* Echo-Bridgin-Header.m */; };
 		AAAC43691AD0A6A200796CDB /* MusicCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC43671AD0A6A200796CDB /* MusicCollectionTests.swift */; };
 		AAAC436B1AD0DBAA00796CDB /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC436A1AD0DBAA00796CDB /* Spotify.framework */; };
+		AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA31AD1D345008900B9 /* Alamofire.swift */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC3FD58C1AB4FF24005ED64D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58A1AB4FF24005ED64D /* Bolts.framework */; };
@@ -453,6 +454,8 @@
 		AAAC43651AD0A6A200796CDB /* EchoTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EchoTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		AAAC43671AD0A6A200796CDB /* MusicCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionTests.swift; sourceTree = "<group>"; };
 		AAAC436A1AD0DBAA00796CDB /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		AADEDBA21AD1D345008900B9 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
+		AADEDBA31AD1D345008900B9 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
 		DC3FD58A1AB4FF24005ED64D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -926,6 +929,8 @@
 				DC3FD5A71AB50BD3005ED64D /* User.swift */,
 				DC3FD5A91AB50D68005ED64D /* Utils.swift */,
 				AA2009261AA40D7B00E9BB8B /* ViewController.swift */,
+				AADEDBA21AD1D345008900B9 /* Alamofire.h */,
+				AADEDBA31AD1D345008900B9 /* Alamofire.swift */,
 				AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */,
 				3A8133911AD1C596000D95D0 /* MusicCollection.swift */,
 				3A81339D1AD1CF40000D95D0 /* PubNub */,
@@ -1157,6 +1162,7 @@
 				3A8134E21AD1CF40000D95D0 /* PNWhereNowResponseParser.m in Sources */,
 				3A8134D61AD1CF40000D95D0 /* PNChannelHistoryParser.m in Sources */,
 				3A8135021AD1CF40000D95D0 /* NSObject+PNAdditions.m in Sources */,
+				AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */,
 				3A8134CA1AD1CF40000D95D0 /* PNWriteBuffer.m in Sources */,
 				3A8135121AD1CF40000D95D0 /* PNHeartbeatRequest.m in Sources */,
 				3A8134F01AD1CF40000D95D0 /* PNHereNow.m in Sources */,
