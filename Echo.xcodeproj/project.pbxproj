@@ -12,7 +12,6 @@
 		AA20092A1AA40D7B00E9BB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2009281AA40D7B00E9BB8B /* Main.storyboard */; };
 		AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA20092B1AA40D7B00E9BB8B /* Images.xcassets */; };
 		AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */; };
-		AA20093B1AA40D7B00E9BB8B /* EchoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20093A1AA40D7B00E9BB8B /* EchoTests.swift */; };
 		AA4CBA4C1AB692EE00AD6BCC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4CBA4B1AB692EE00AD6BCC /* Spotify.framework */; };
 		DC3FD58C1AB4FF24005ED64D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58A1AB4FF24005ED64D /* Bolts.framework */; };
 		DC3FD58D1AB4FF24005ED64D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58B1AB4FF24005ED64D /* Parse.framework */; };
@@ -319,7 +318,6 @@
 				DCE31D851AD09AA400223E69 /* User.swift in Sources */,
 				DCE31D921AD0A09400223E69 /* Echo-Bridgin-Header.m in Sources */,
 				DCE31D871AD09C0900223E69 /* MusicCollectionTests.swift in Sources */,
-				AA20093B1AA40D7B00E9BB8B /* EchoTests.swift in Sources */,
 				DCE31D8B1AD09D9200223E69 /* AppDelegate.swift in Sources */,
 				DCE31D8D1AD09D9200223E69 /* ViewController.swift in Sources */,
 				DCE31D8A1AD09D8800223E69 /* SwiftyJSON.swift in Sources */,

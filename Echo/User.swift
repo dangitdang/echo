@@ -1,18 +1,3 @@
-////
-////  User.swift
-////  Echo
-////
-////  Created by aivanov on 14.03.15.
-////  Copyright (c) 2015 Quartet. All rights reserved.
-////
-//
-//import Foundation
-//import Darwin
-//
-//  Created by aivanov on 14.03.15.
-//  Copyright (c) 2015 Quartet. All rights reserved.
-//
-
 import Foundation
 import Darwin
 
@@ -31,7 +16,6 @@ class User {
     init(
         displayName : String,
         email : String,
-        spid: String,
         musicCollection: MusicCollection,
         preferences: [Int],
         matches: [String] = [],
@@ -61,13 +45,14 @@ class User {
         user.setObject(self.country, forKey: "country")
         user.setObject(self.matches, forKey: "mathces")
         user.setObject(self.preferences, forKey: "preferences")
-        
+        user.setObject(Date.from(year: 2000, month: 1, day: 1), forKey: "lastTimeMatched")
         var musicJSON = self.musicCollection.toJSON()
         user.setObject(musicJSON, forKey: "music")
         
         user.setObject(self.picURL, forKey: "pic")
         
-        user.saveInBackground()
+        user.save()
+        
     }
     
     /*
@@ -87,7 +72,6 @@ class User {
             var music = MusicCollection(json: user.valueForKey("musicCollection") as String)
             return User(displayName: user.valueForKey("displayName") as String,
                 email: user.valueForKey("email") as String,
-                spid: user.valueForKey("spid") as String,
                 musicCollection: music,
                 preferences: user.valueForKey("preferences") as [Int],
                 matches: user.valueForKey("matches") as [String],
@@ -172,9 +156,12 @@ class MusicCollection {
     }
     
     init(json: String){
-        var dict = JSON(json)
+        let data = json.dataUsingEncoding(NSUTF8StringEncoding)
+        var dict = JSON(data:data!)
         self.artists = [String]()
+        println(dict["artists"].arrayValue)
         if let artist_array = dict["artists"].arrayValue as [JSON]? {
+            println(artist_array)
             for artist in artist_array{
                 self.artists.append(artist.stringValue)
             }
