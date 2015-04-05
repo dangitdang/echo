@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +18,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
-                                <rect key="frame" x="194" y="278" width="213" height="43"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="mRV-lO-4aZ">
+                                <rect key="frame" x="152" y="125" width="297" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="297" id="LMQ-Zq-XgO"/>
+                                    <constraint firstAttribute="width" secondItem="mRV-lO-4aZ" secondAttribute="height" multiplier="297:160" id="vrM-ri-vub"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
+                                <rect key="frame" x="194" y="368" width="213" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="CvU-Jk-rBj" secondAttribute="height" multiplier="213:43" id="Wre-Ab-kr8"/>
+                                    <constraint firstAttribute="height" constant="43" id="if6-Pt-3tA"/>
+                                    <constraint firstAttribute="width" constant="213" id="omS-Ql-0ce"/>
+                                </constraints>
                                 <state key="normal" backgroundImage="log_in_spotify">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -25,18 +39,18 @@
                                     <action selector="loginWithSpotify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="L0q-fY-ylo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nEc-T7-pJG">
-                                <rect key="frame" x="100" y="102" width="32" height="30"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="3d9-Xg-z6h" kind="show" id="oQ8-SL-CGz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mRV-lO-4aZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="105" id="7xl-0p-U4F"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CvU-Jk-rBj" secondAttribute="bottom" constant="189" id="MiH-lY-0Ue"/>
+                            <constraint firstItem="mRV-lO-4aZ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="iJQ-Oc-TeC"/>
+                            <constraint firstItem="CvU-Jk-rBj" firstAttribute="centerX" secondItem="mRV-lO-4aZ" secondAttribute="centerX" id="z7z-vQ-AhM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="3d9-Xg-z6h" kind="show" identifier="leaveLogIn" id="LzK-H5-wwq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,7 +59,7 @@
         <!--My Navigation Controller-->
         <scene sceneID="eaA-XI-jxF">
             <objects>
-                <navigationController id="3d9-Xg-z6h" customClass="MyNavigationController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavController" id="3d9-Xg-z6h" customClass="MyNavigationController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ha9-3Z-MAN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -58,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="-349" y="-464"/>
         </scene>
-        <!--View ControllerW Nav-->
+        <!--Profile View-->
         <scene sceneID="ypW-0h-f4p">
             <objects>
-                <viewController storyboardIdentifier="Profile" id="FZ7-nX-ehb" customClass="ViewControllerWNav" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile" id="FZ7-nX-ehb" customClass="ProfileView" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aKw-Cx-RLo"/>
                         <viewControllerLayoutGuide type="bottom" id="IpQ-7M-ghs"/>
@@ -70,14 +84,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvW-5d-lsr">
-                                <rect key="frame" x="69" y="136" width="49" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BY-eA-4Uz">
+                                <rect key="frame" x="144" y="70" width="141" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-Cc-RmG">
+                                <rect key="frame" x="40" y="54" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="4CX-VW-cal"/>
+                                    <constraint firstAttribute="width" secondItem="SnJ-Cc-RmG" secondAttribute="height" multiplier="1:1" id="eVR-UJ-SeK"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Age" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44b-9x-7ky">
+                                <rect key="frame" x="40" y="146" width="70" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-gh-hdA">
+                                <rect key="frame" x="144" y="146" width="126" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'm interested in..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-MB-iEr">
+                                <rect key="frame" x="40" y="195" width="138" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8BY-eA-4Uz" firstAttribute="leading" secondItem="SnJ-Cc-RmG" secondAttribute="trailing" constant="34" id="4hd-YQ-60o"/>
+                            <constraint firstItem="8BY-eA-4Uz" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" constant="50" id="WTz-o1-vPO"/>
+                            <constraint firstItem="SnJ-Cc-RmG" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" constant="34" id="kfy-c4-r6G"/>
+                            <constraint firstItem="SnJ-Cc-RmG" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leadingMargin" constant="24" id="tB4-NG-Sse"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="foB-fC-t5m">
                         <barButtonItem key="leftBarButtonItem" title="=" id="oEn-7q-q4j">
@@ -86,6 +129,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="locationField" destination="mLd-gh-hdA" id="sOe-Jl-EVS"/>
+                        <outlet property="name" destination="8BY-eA-4Uz" id="hbW-PY-vBJ"/>
+                        <outlet property="profPic" destination="SnJ-Cc-RmG" id="jVB-Ed-CuZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBV-1F-NC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KEz-Yw-3hc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="394" y="-882"/>
+            <point key="canvasLocation" x="414" y="-890"/>
         </scene>
         <!--View ControllerW Nav-->
         <scene sceneID="rOl-CZ-oZZ">
@@ -160,5 +208,7 @@
     </scenes>
     <resources>
         <image name="log_in_spotify" width="488" height="88"/>
+        <image name="logo1" width="1283" height="705"/>
+        <image name="userIcon" width="264" height="280"/>
     </resources>
 </document>

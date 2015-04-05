@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Echo": {
+            "applicationId": "MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", 
+            "masterKey": "Y4iMOTCgxo4hcXLZCYroEVwTYLcgOgMMGzg9ntmU"
+        }, 
+        "_default": {
+            "link": "Echo"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.4.0"
+    }
+}
