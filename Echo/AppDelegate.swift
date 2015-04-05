@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let kTokenSwapURL = "http://mysterious-waters-9692.herokuapp.com/swap"
     let kTokenRefreshServiceURL = "http://mysterious-waters-9692.herokuapp.com/refresh"
     
+    var session:SPTSession?
+    var user: User?
+    
     var window: UIWindow?
 
 
@@ -72,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
 
 }
 
