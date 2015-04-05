@@ -13,7 +13,10 @@ class User: Hashable {
     var picURL: NSURL?
     var musicCollection: MusicCollection
     var preferences: [Int]
-    var matches: [Int: [String]]
+    var matches: [Int: [String]]!
+    var messenger: Messenger?
+    var parse: PFObject?
+    
     var hashValue: Int {
         get{ return id.hashValue}
     }
@@ -22,7 +25,7 @@ class User: Hashable {
         email : String,
         musicCollection: MusicCollection,
         preferences: [Int],
-        matches: [Int: [String]] = [Int: [String]](),
+        matches: [Int: [String]] = [1:[], 2:[], 3:[], 4:[], 5:[]],
         birthdate: String? = nil,
         country: String? = nil,
         picURL: NSURL? =  nil
@@ -38,7 +41,8 @@ class User: Hashable {
     }
     
     /*
-    Saves the user to the database
+    Saves the user to the 
+        database
     */
     func store() -> Void {
         var user = PFObject(className: "EchoUser")
@@ -57,6 +61,7 @@ class User: Hashable {
         
         user.save()
         self.id = user.objectId
+        self.parse = user
     }
     
     func isMatchesEmpty() ->Bool {
@@ -68,17 +73,32 @@ class User: Hashable {
         return true
     }
     
+    func getLatestMatch() -> User? {
+        var scores = [5,4,3,2,1]
+        for score in scores {
+            var arr = self.matches[score]!
+            if let id = arr[0] as String? {
+                return User.userFromID(id)            }
+        }
+        return nil
+    }
+    
+    func removeLastMatch(){
+        var scores = [5,4,3,2,1]
+        for score in scores {
+            self.matches[score]!.removeAtIndex(0)
+        }
+    }
+    
     func getMatches() -> Void {
         var output: NSArray = PFCloud.callFunction("findMatches", withParameters: ["email": self.email]) as NSArray
         for element in output {
             var user_id = element[0] as String
             var score = element[1] as Int
-            if self.matches[score] == nil {
-                self.matches[score] = [user_id]
-            } else {
-                self.matches[score]?.append(user_id)
-            }
+            self.matches[score]?.append(user_id)
         }
+        self.parse?.setValue(self.matches, forKey: "matches")
+        self.parse?.saveInBackground()
     }
     /*
     Check if a user with given Spotify ID exists.
@@ -116,6 +136,7 @@ class User: Hashable {
             picURL: user.valueForKey("picURL") as NSURL?
         )
         self.id = user.objectId
+        self.parse = user
     }
     
     
