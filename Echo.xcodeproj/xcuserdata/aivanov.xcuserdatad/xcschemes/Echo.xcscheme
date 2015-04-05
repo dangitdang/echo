@@ -53,7 +53,13 @@
             </BuildableReference>
             <SkippedTests>
                <Test
+                  Identifier = "MusicCollectionTests/testFromJSON()">
+               </Test>
+               <Test
                   Identifier = "MusicCollectionTests/testSaveUser()">
+               </Test>
+               <Test
+                  Identifier = "MusicCollectionTests/testToJSON()">
                </Test>
             </SkippedTests>
          </TestableReference>
