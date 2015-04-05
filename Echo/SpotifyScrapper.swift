@@ -22,9 +22,9 @@ class Scrapper {
     init(session: SPTSession, user:SPTUser){
         self.session = session
         self.user = user
-        self.retrievePlaylists()
-        self.retrieveSavedSongs()
-        self.retrieveStarred()
+//        self.retrievePlaylists()
+//        self.retrieveSavedSongs()
+//        self.retrieveStarred()
     }
     
     func retrievePlaylists() -> Void {
@@ -34,6 +34,7 @@ class Scrapper {
                 println("error retrieving playlist")
             } else {
                 self.playlists = playlists as SPTPlaylistList
+                self.extractArtistsFromPlaylists()
             }
         })
     }
@@ -52,7 +53,10 @@ class Scrapper {
                 println("error retrieving saved songs")
             } else {
                 self.savedSongs = saved as SPTListPage
-                self.extractArtistsFromSaved()
+                self.savedSongs.requestNextPageWithSession(self.session, callback: {(error: NSError!, savedtracks: AnyObject!) -> Void in
+                    self.savedSongs = savedtracks as SPTListPage
+                    self.extractArtistsFromSaved()
+                })
             }
         })
     }
@@ -71,12 +75,9 @@ class Scrapper {
     }
     
     func scrapePlaylist(playlist: SPTPlaylistSnapshot) -> Void {
-        println(playlist);
+        println(playlist)
         var firstTracks = playlist.firstTrackPage
-        println(firstTracks)
-        println(firstTracks.hasNextPage)
         var songs = firstTracks as SPTListPage
-        println(songs.items)
         for song in songs.items {
             var track = song as SPTPartialTrack
             for artist in track.artists {
@@ -84,21 +85,24 @@ class Scrapper {
             }
         }
     }
-    
-    func retrieveStarred() -> Void {
-        SPTRequest.starredListForUserInSession(self.session, callback: { (error:NSError!, starred: AnyObject!) -> Void in
-            if error != nil {
-                println("error retrieving starred playlist")
-            } else {
-                self.starred = starred as SPTPlaylistSnapshot
-                self.extractStarredSongs()
-            }
-        })
-    }
+//    
+//    func retrieveStarred() -> Void {
+//        SPTRequest.sta(self.session, callback: { (error:NSError!, starred: AnyObject!) -> Void in
+//            if error != nil {
+//                println("error retrieving starred playlist")
+//            } else {
+//                self.starred = starred as SPTPlaylistSnapshot
+//                self.extractStarredSongs()
+//            }
+//        })
+//    }
     
     func extractArtistsFromSaved() -> Void {
-        var savedItems = savedSongs.items
-        for item in savedItems{
+        println(savedSongs)
+        
+        var savedItems = savedSongs
+        println(savedItems.range)
+        for item in savedItems.items{
             var song = item as SPTSavedTrack
             var songArtists = song.artists
             for singer in songArtists {
@@ -120,6 +124,7 @@ class Scrapper {
     
     func extractArtistsFromPlaylists() -> Void {
         var userPlaylists = playlists.items
+        println(userPlaylists)
         for item in userPlaylists {
             var curItem = item as SPTPartialPlaylist
             SPTRequest.requestItemFromPartialObject(curItem, withSession: session, callback:
@@ -134,6 +139,6 @@ class Scrapper {
     }
     
     func extractStarredSongs() -> Void {
-        self.scrapePlaylist(starred)
+        self.scrapePlaylist(self.starred)
     }
 }

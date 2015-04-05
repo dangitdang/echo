@@ -21,7 +21,7 @@ class MusicCollectionTests: XCTestCase {
 
         let artists = ["andrei", "hansa", "dang"]
         let albums = ["andrei": ["benim ol", "pazar kahvaltisi"], "dang":["i'm gay"]]
-        let musc = MusicCollection(json:"sfsf")
+
     
     }
     

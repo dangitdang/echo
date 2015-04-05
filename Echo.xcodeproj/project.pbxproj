@@ -13,8 +13,13 @@
 		AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA20092B1AA40D7B00E9BB8B /* Images.xcassets */; };
 		AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */; };
 		AA20093B1AA40D7B00E9BB8B /* EchoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA20093A1AA40D7B00E9BB8B /* EchoTests.swift */; };
-		AA4CBA4C1AB692EE00AD6BCC /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA4CBA4B1AB692EE00AD6BCC /* Spotify.framework */; };
 		AA4CBA501AB6A6A600AD6BCC /* SpotifyScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */; };
+		AAAC43641AD0A68F00796CDB /* Echo-Bridgin-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = AAAC43631AD0A68F00796CDB /* Echo-Bridgin-Header.m */; };
+		AAAC43691AD0A6A200796CDB /* MusicCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC43671AD0A6A200796CDB /* MusicCollectionTests.swift */; };
+		AAAC436B1AD0DBAA00796CDB /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC436A1AD0DBAA00796CDB /* Spotify.framework */; };
+		AAAC436C1AD0DBAA00796CDB /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC436A1AD0DBAA00796CDB /* Spotify.framework */; };
+		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
+		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC3FD58C1AB4FF24005ED64D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58A1AB4FF24005ED64D /* Bolts.framework */; };
 		DC3FD58D1AB4FF24005ED64D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58B1AB4FF24005ED64D /* Parse.framework */; };
 		DC3FD5991AB4FF84005ED64D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58E1AB4FF84005ED64D /* AudioToolbox.framework */; };
@@ -54,8 +59,14 @@
 		AA2009341AA40D7B00E9BB8B /* EchoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EchoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA2009391AA40D7B00E9BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA20093A1AA40D7B00E9BB8B /* EchoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoTests.swift; sourceTree = "<group>"; };
-		AA4CBA4B1AB692EE00AD6BCC /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyScrapper.swift; sourceTree = "<group>"; };
+		AAAC43621AD0A68F00796CDB /* EchoTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EchoTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAAC43631AD0A68F00796CDB /* Echo-Bridgin-Header.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Echo-Bridgin-Header.m"; sourceTree = "<group>"; };
+		AAAC43651AD0A6A200796CDB /* EchoTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "EchoTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAAC43671AD0A6A200796CDB /* MusicCollectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionTests.swift; sourceTree = "<group>"; };
+		AAAC436A1AD0DBAA00796CDB /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
+		AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
 		DC3FD58A1AB4FF24005ED64D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		DC3FD58B1AB4FF24005ED64D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DC3FD58E1AB4FF84005ED64D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -89,7 +100,7 @@
 				DC3FD59F1AB4FF84005ED64D /* MobileCoreServices.framework in Frameworks */,
 				DC3FD5A01AB4FF84005ED64D /* QuartzCore.framework in Frameworks */,
 				DC3FD5A11AB4FF84005ED64D /* Security.framework in Frameworks */,
-				AA4CBA4C1AB692EE00AD6BCC /* Spotify.framework in Frameworks */,
+				AAAC436B1AD0DBAA00796CDB /* Spotify.framework in Frameworks */,
 				DC3FD5A21AB4FF84005ED64D /* StoreKit.framework in Frameworks */,
 				DC3FD5A31AB4FF84005ED64D /* SystemConfiguration.framework in Frameworks */,
 				DC3FD58D1AB4FF24005ED64D /* Parse.framework in Frameworks */,
@@ -101,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAC436C1AD0DBAA00796CDB /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +149,8 @@
 				AA2009261AA40D7B00E9BB8B /* ViewController.swift */,
 				AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */,
 				AA2009281AA40D7B00E9BB8B /* Main.storyboard */,
+				AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */,
+				AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */,
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
 				AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */,
 				AA2009221AA40D7B00E9BB8B /* Supporting Files */,
@@ -155,8 +169,12 @@
 		AA2009371AA40D7B00E9BB8B /* EchoTests */ = {
 			isa = PBXGroup;
 			children = (
+				AAAC43631AD0A68F00796CDB /* Echo-Bridgin-Header.m */,
 				AA20093A1AA40D7B00E9BB8B /* EchoTests.swift */,
+				AAAC43651AD0A6A200796CDB /* EchoTests-Bridging-Header.h */,
+				AAAC43671AD0A6A200796CDB /* MusicCollectionTests.swift */,
 				AA2009381AA40D7B00E9BB8B /* Supporting Files */,
+				AAAC43621AD0A68F00796CDB /* EchoTests-Bridging-Header.h */,
 			);
 			path = EchoTests;
 			sourceTree = "<group>";
@@ -172,7 +190,7 @@
 		DC3FD5891AB4FF0C005ED64D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AA4CBA4B1AB692EE00AD6BCC /* Spotify.framework */,
+				AAAC436A1AD0DBAA00796CDB /* Spotify.framework */,
 				DC3FD58E1AB4FF84005ED64D /* AudioToolbox.framework */,
 				DC3FD58F1AB4FF84005ED64D /* CFNetwork.framework */,
 				DC3FD5901AB4FF84005ED64D /* CoreGraphics.framework */,
@@ -295,6 +313,8 @@
 				AA4CBA501AB6A6A600AD6BCC /* SpotifyScrapper.swift in Sources */,
 				AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */,
 				AA2009251AA40D7B00E9BB8B /* AppDelegate.swift in Sources */,
+				AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */,
+				AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */,
 				DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAAC43691AD0A6A200796CDB /* MusicCollectionTests.swift in Sources */,
 				AA20093B1AA40D7B00E9BB8B /* EchoTests.swift in Sources */,
+				AAAC43641AD0A68F00796CDB /* Echo-Bridgin-Header.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -465,6 +488,8 @@
 				INFOPLIST_FILE = EchoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EchoTests/EchoTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Echo.app/Echo";
 			};
 			name = Debug;
@@ -473,6 +498,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -481,6 +507,7 @@
 				INFOPLIST_FILE = EchoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EchoTests/EchoTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Echo.app/Echo";
 			};
 			name = Release;
