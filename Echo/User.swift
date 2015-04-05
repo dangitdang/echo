@@ -14,6 +14,8 @@ class User: Hashable {
     var musicCollection: MusicCollection
     var preferences: [Int]
     var matches: [Int: [String]]
+    var messenger: Messenger?
+    
     var hashValue: Int {
         get{ return id.hashValue}
     }

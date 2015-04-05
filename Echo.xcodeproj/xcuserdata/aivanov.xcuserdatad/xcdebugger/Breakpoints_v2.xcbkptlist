@@ -15,8 +15,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
             endingLineNumber = "57"
-            landmarkName = "User"
-            landmarkType = "3">
+            landmarkName = "store()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -89,7 +89,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
             endingLineNumber = "106"
-            landmarkName = "checkIfUserExists(_:)"
+            landmarkName = "init(pfo:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
