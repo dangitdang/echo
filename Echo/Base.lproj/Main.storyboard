@@ -3,6 +3,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,6 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="mRV-lO-4aZ">
+                                <rect key="frame" x="152" y="125" width="297" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="297" id="LMQ-Zq-XgO"/>
+                                    <constraint firstAttribute="width" secondItem="mRV-lO-4aZ" secondAttribute="height" multiplier="297:160" id="vrM-ri-vub"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
                                 <rect key="frame" x="194" y="368" width="213" height="43"/>
                                 <constraints>
@@ -31,13 +39,6 @@
                                     <action selector="loginWithSpotify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="L0q-fY-ylo"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="mRV-lO-4aZ">
-                                <rect key="frame" x="152" y="125" width="297" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="297" id="LMQ-Zq-XgO"/>
-                                    <constraint firstAttribute="width" secondItem="mRV-lO-4aZ" secondAttribute="height" multiplier="297:160" id="vrM-ri-vub"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -83,30 +84,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BY-eA-4Uz">
-                                <rect key="frame" x="125" y="227" width="167" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="167" id="qt3-3H-eta"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BY-eA-4Uz">
+                                <rect key="frame" x="144" y="70" width="141" height="37"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-Cc-RmG">
-                                <rect key="frame" x="140" y="47" width="105" height="101"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-Cc-RmG">
+                                <rect key="frame" x="40" y="54" width="70" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="101" id="or2-Lp-AXf"/>
-                                    <constraint firstAttribute="width" constant="105" id="tTC-un-Sfb"/>
+                                    <constraint firstAttribute="width" constant="70" id="4CX-VW-cal"/>
+                                    <constraint firstAttribute="width" secondItem="SnJ-Cc-RmG" secondAttribute="height" multiplier="1:1" id="eVR-UJ-SeK"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Age" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="44b-9x-7ky">
+                                <rect key="frame" x="40" y="146" width="70" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mLd-gh-hdA">
+                                <rect key="frame" x="144" y="146" width="126" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I'm interested in..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-MB-iEr">
+                                <rect key="frame" x="40" y="195" width="138" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="8BY-eA-4Uz" firstAttribute="top" secondItem="SnJ-Cc-RmG" secondAttribute="bottom" constant="79" id="2ke-Bf-7Ba"/>
-                            <constraint firstItem="8BY-eA-4Uz" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leading" constant="125" id="5Zd-S3-Gk4"/>
-                            <constraint firstItem="SnJ-Cc-RmG" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leading" constant="140" id="Q4Q-4X-6os"/>
-                            <constraint firstItem="IpQ-7M-ghs" firstAttribute="top" secondItem="8BY-eA-4Uz" secondAttribute="bottom" constant="336" id="kND-YP-J6U"/>
-                            <constraint firstItem="SnJ-Cc-RmG" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" constant="27" id="vLe-ib-6ZI"/>
+                            <constraint firstItem="8BY-eA-4Uz" firstAttribute="leading" secondItem="SnJ-Cc-RmG" secondAttribute="trailing" constant="34" id="4hd-YQ-60o"/>
+                            <constraint firstItem="8BY-eA-4Uz" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" constant="50" id="WTz-o1-vPO"/>
+                            <constraint firstItem="SnJ-Cc-RmG" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" constant="34" id="kfy-c4-r6G"/>
+                            <constraint firstItem="SnJ-Cc-RmG" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leadingMargin" constant="24" id="tB4-NG-Sse"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="foB-fC-t5m">
@@ -117,6 +130,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="locationField" destination="mLd-gh-hdA" id="sOe-Jl-EVS"/>
                         <outlet property="name" destination="8BY-eA-4Uz" id="hbW-PY-vBJ"/>
                         <outlet property="profPic" destination="SnJ-Cc-RmG" id="jVB-Ed-CuZ"/>
                     </connections>
@@ -195,5 +209,6 @@
     <resources>
         <image name="log_in_spotify" width="488" height="88"/>
         <image name="logo1" width="1283" height="705"/>
+        <image name="userIcon" width="264" height="280"/>
     </resources>
 </document>

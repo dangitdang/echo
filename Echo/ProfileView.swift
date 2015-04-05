@@ -14,6 +14,8 @@ class ProfileView: ViewControllerWNav{
     
     @IBOutlet weak var name: UILabel!
     
+    @IBOutlet weak var locationField: UITextField!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -23,7 +25,6 @@ class ProfileView: ViewControllerWNav{
         
         name.text = user.displayName
         
-        println(user.picURL)
         let url = user.picURL as NSURL!
         if (url != nil) {
             let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
