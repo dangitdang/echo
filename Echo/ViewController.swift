@@ -131,6 +131,10 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
+                var accessToken = self.session.accessToken
+                request(.GET , "https://api.spotify.com/v1/me/tracks", parameters: ["Authorization" : "Bearer \(accessToken)"]).response {(request,response,data,error) in
+                        println(response)
+                }
 
             }
         })

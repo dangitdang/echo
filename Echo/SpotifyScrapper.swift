@@ -18,10 +18,11 @@ class Scrapper {
     var artists: [String] = [String]() // list of artist names
     var songCounts: [String: Int] = [String : Int]() // Map artist -> song count
     var albums: [String: [String]] = [String: [String]]() // Artist -> albums
-    
+    var accessToken :String
     init(session: SPTSession, user:SPTUser){
         self.session = session
         self.user = user
+        self.accessToken = session.accessToken
 //        self.retrievePlaylists()
 //        self.retrieveSavedSongs()
 //        self.retrieveStarred()
@@ -47,18 +48,18 @@ class Scrapper {
     
     
     func retrieveSavedSongs() -> Void {
-        SPTRequest.savedTracksForUserInSession(self.session, callback: {
-            (error:NSError!, saved:AnyObject!) -> Void in
-            if error != nil {
-                println("error retrieving saved songs")
-            } else {
-                self.savedSongs = saved as SPTListPage
-                self.savedSongs.requestNextPageWithSession(self.session, callback: {(error: NSError!, savedtracks: AnyObject!) -> Void in
-                    self.savedSongs = savedtracks as SPTListPage
-                    self.extractArtistsFromSaved()
-                })
-            }
-        })
+//        SPTRequest.savedTracksForUserInSession(self.session, callback: {
+//            (error:NSError!, saved:AnyObject!) -> Void in
+//            if error != nil {
+//                println("error retrieving saved songs")
+//            } else {
+//                self.savedSongs = saved as SPTListPage
+//                self.savedSongs.requestNextPageWithSession(self.session, callback: {(error: NSError!, savedtracks: AnyObject!) -> Void in
+//                    self.savedSongs = savedtracks as SPTListPage
+//                    self.extractArtistsFromSaved()
+//                })
+//            }
+//        })
     }
     func updateSongsCount(artist: SPTPartialArtist) -> Void {
         var id = artist.identifier
