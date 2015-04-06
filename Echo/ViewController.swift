@@ -24,6 +24,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     
     var session:SPTSession!
     var user: SPTUser!
+    var collection: MusicCollection!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +107,8 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
             } else {
                 self.user = user as SPTUser
                 println(self.user.emailAddress)
+                var scrapper = Scrapper(session: self.session, user: self.user)
+                
                 //var scrapper = Scrapper(session: self.session, user: self.user)
                 //scrapper.retrievePlaylists()
                 
@@ -131,10 +134,8 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
-                var accessToken = self.session.accessToken
-                request(.GET , "https://api.spotify.com/v1/me/tracks", parameters: ["Authorization" : "Bearer \(accessToken)"]).response {(request,response,data,error) in
-                        println(response)
-                }
+                scrapper.scrape(appDelegate.user)
+                
 
             }
         })
