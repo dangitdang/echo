@@ -13,19 +13,23 @@ class ChooseSongViewController: ViewController {
 
     @IBOutlet weak var songTextField: UITextField!
     var songText: String!
-    var searchResults: SPTListPage!
+    var searchResults: [[String]]!
     var currentSession:SPTSession?
-    
+    var myScraper:Scrapper!
 
     @IBOutlet weak var songTableView: UITableView!
     
     override func viewDidLoad() {
+        println("View Did Load")
         super.viewDidLoad()
         println("loadded")
         let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
         navigationItem.leftBarButtonItem = backButton
         getSession()
         self.songTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "songCell")
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.myScraper = appDelegate.scraper
+        
         //self.songText = self.songTextField.text
         // Do any additional setup after loading the view.
     }
@@ -34,47 +38,27 @@ class ChooseSongViewController: ViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        if self.searchResults == nil {
+        if self.searchResults == nil{
             return 0
         }
-        
-        return Int(self.searchResults.totalListLength)
+        return Int(self.searchResults.count)
     
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.songTableView.dequeueReusableCellWithIdentifier("songCell") as UITableViewCell
         
-        cell.textLabel?.text = self.searchResults.items[indexPath.row] as String
+        cell.textLabel?.text = self.searchResults[indexPath.row][1] as String
         
         return cell
     }
     
     @IBAction func songTextFieldChanged(sender: AnyObject) {
-        println(currentSession)
-        
-        
-        request(.GET, "https://api.spotify.com/v1/search?q=Blank&type=track", encoding: .JSON)
-            .responseJSON { (request, response, data, error) in
-                println(response)
-        }
-        
-        
-        
-        
-//        SPTRequest.performSearchWithQuery(self.songTextField.text, queryType:SPTSearchQueryType.QueryTypeTrack,  offset:1, session:currentSession, market:nil, callback:{(error:NSError!, resultList:AnyObject!) -> Void in if error != nil {
-//            println("error sadface")
-//            println(error)
-//        } else {
-//            resultList.requestNextPageWithSession(self.currentSession, callback: { (error:
-//                NSError!, resultPage:AnyObject!) -> Void in
-//                self.searchResults = resultPage as SPTListPage
-//                println(self.searchResults.items)
-//            })
-//
-//            }
-//        })
-        
+        self.myScraper.querySong(self.songTextField.text, completion: {(data:AnyObject!) -> Void in
+            println(data)
+            self.searchResults = data as [[String]]
+    
+        })
     }
     
 
