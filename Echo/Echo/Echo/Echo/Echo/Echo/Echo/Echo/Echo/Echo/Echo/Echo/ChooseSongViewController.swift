@@ -17,40 +17,21 @@ class ChooseSongViewController: ViewController {
     var currentSession:SPTSession?
     
 
-    @IBOutlet weak var songTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
         navigationItem.leftBarButtonItem = backButton
         getSession()
-        self.songTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "songCell")
         self.songText = self.songTextField.text
         // Do any additional setup after loading the view.
     }
 
-
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        if self.searchResults == nil {
-            return 0
-        }
-        
-        return Int(self.searchResults.totalListLength)
     
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.songTableView.dequeueReusableCellWithIdentifier("songCell") as UITableViewCell
-        
-        cell.textLabel?.text = self.searchResults.items[indexPath.row] as String
-        
-        return cell
-    }
     
-    @IBAction func songTextFieldChanged(sender: AnyObject) {
-        SPTRequest.performSearchWithQuery(self.songTextField.text, queryType:SPTSearchQueryType.QueryTypeTrack,  offset:1, session:currentSession, market:nil, callback:{(error:NSError!, resultList:AnyObject!) -> Void in if error != nil {
+    
+    @IBAction func songInputChanged(sender: UITextField) {
+        SPTRequest.performSearchWithQuery(self.songText, queryType:SPTSearchQueryType.QueryTypeTrack,  offset:1, session:currentSession, market:nil, callback:{(error:NSError!, resultList:AnyObject!) -> Void in if error != nil {
             println("error sadface")
         } else {
             self.searchResults = resultList as SPTListPage
@@ -58,7 +39,6 @@ class ChooseSongViewController: ViewController {
         })
     }
     
-
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
