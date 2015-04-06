@@ -21,7 +21,7 @@ class MatchesMusicTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(title: "< Back", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
         navigationItem.leftBarButtonItem = backButton
         
         loadInCommonMusic()
@@ -61,7 +61,6 @@ class MatchesMusicTableViewController: UITableViewController {
     
     func goBack() {
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     func loadInCommonMusic() {
