@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="-349" y="-464"/>
         </scene>
-        <!--View ControllerW Nav-->
+        <!--Requests Controller-->
         <scene sceneID="cVs-aO-hyT">
             <objects>
-                <viewController storyboardIdentifier="Requests" id="xQ5-Gl-hcq" customClass="ViewControllerWNav" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Requests" id="xQ5-Gl-hcq" customClass="RequestsController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M0O-cg-Z7k"/>
                         <viewControllerLayoutGuide type="bottom" id="mxS-f4-4qZ"/>
