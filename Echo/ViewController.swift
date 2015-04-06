@@ -130,13 +130,10 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
                     username = self.user.displayName
                 }
                 appDelegate.user = User(displayName: username, email: self.user.emailAddress, musicCollection: musicCollec, preferences: prefs);
-                
+                scrapper.scrape(appDelegate.user!)
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
-                scrapper.scrape(appDelegate.user)
-                
-
             }
         })
         performSegueWithIdentifier("leaveLogIn", sender: nil)
