@@ -103,6 +103,7 @@ class MusicCollection {
         }
         return commonAlbums
     }
+    
     func toObject() -> [String:AnyObject] {
         var object: [String: AnyObject] = ["artists": self.artists, "albums": self.albums, "songCounts": self.songCounts, "artistPhotos": self.artistPhotos!, "albumCovers": self.albumCovers!]
         return object

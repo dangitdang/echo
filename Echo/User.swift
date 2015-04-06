@@ -43,6 +43,7 @@ class User: Hashable {
     
     func setMusicCollection(m:MusicCollection){
         self.musicCollection = m
+        self.store()
     }
     /*
     Saves the user to the 

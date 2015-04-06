@@ -24,6 +24,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     
     var session:SPTSession!
     var user: SPTUser!
+    var collection: MusicCollection!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,6 +107,8 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
             } else {
                 self.user = user as SPTUser
                 println(self.user.emailAddress)
+                var scrapper = Scrapper(session: self.session, user: self.user)
+                
                 //var scrapper = Scrapper(session: self.session, user: self.user)
                 //scrapper.retrievePlaylists()
                 
@@ -126,12 +129,11 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
                 } else {
                     username = self.user.displayName
                 }
-                appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs);
-                
+                appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs)
+                scrapper.scrape(appDelegate.user!)
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
-
             }
         })
         performSegueWithIdentifier("leaveLogIn", sender: nil)
