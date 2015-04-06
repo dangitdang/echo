@@ -13,9 +13,9 @@ class ChooseSongViewController: ViewController {
 
     @IBOutlet weak var songTextField: UITextField!
     var songText: String!
-    var searchResults: SPTListPage!
+    var searchResults: NSArray!
     var currentSession:SPTSession?
-    
+    var myScraper:Scrapper!
 
     @IBOutlet weak var songTableView: UITableView!
     
@@ -26,6 +26,9 @@ class ChooseSongViewController: ViewController {
         navigationItem.leftBarButtonItem = backButton
         getSession()
         self.songTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "songCell")
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.myScraper = appDelegate.scraper
+        
         //self.songText = self.songTextField.text
         // Do any additional setup after loading the view.
     }
@@ -38,43 +41,22 @@ class ChooseSongViewController: ViewController {
             return 0
         }
         
-        return Int(self.searchResults.totalListLength)
+        return Int(self.searchResults.count)
     
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.songTableView.dequeueReusableCellWithIdentifier("songCell") as UITableViewCell
         
-        cell.textLabel?.text = self.searchResults.items[indexPath.row] as String
+        cell.textLabel?.text = self.searchResults[indexPath.row] as String
         
         return cell
     }
     
     @IBAction func songTextFieldChanged(sender: AnyObject) {
-        println(currentSession)
-        
-        
-        request(.GET, "https://api.spotify.com/v1/search?q=Blank&type=track", encoding: .JSON)
-            .responseJSON { (request, response, data, error) in
-                println(response)
-        }
-        
-        
-        
-        
-//        SPTRequest.performSearchWithQuery(self.songTextField.text, queryType:SPTSearchQueryType.QueryTypeTrack,  offset:1, session:currentSession, market:nil, callback:{(error:NSError!, resultList:AnyObject!) -> Void in if error != nil {
-//            println("error sadface")
-//            println(error)
-//        } else {
-//            resultList.requestNextPageWithSession(self.currentSession, callback: { (error:
-//                NSError!, resultPage:AnyObject!) -> Void in
-//                self.searchResults = resultPage as SPTListPage
-//                println(self.searchResults.items)
-//            })
-//
-//            }
-//        })
-        
+        self.myScraper.querySong(self.songTextField.text, completion: {(data:AnyObject!) -> Void in
+            self.searchResults = data as NSArray!
+        })
     }
     
 

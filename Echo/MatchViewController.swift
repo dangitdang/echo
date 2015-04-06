@@ -22,7 +22,6 @@ class MatchViewController: ViewControllerWNav {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD
         //setUser()
         //getCurrentMatch()
         //self.matchNameLabel.text = self.currentMatch.displayName
@@ -36,15 +35,11 @@ class MatchViewController: ViewControllerWNav {
             sideMenuController()?.setContentViewController(destViewController)
             sideMenuController()?.sideMenu?.hideSideMenu()
         }
-=======
-        setUser()
-        getCurrentMatch()
-        self.matchNameLabel.text = self.currentMatch.displayName
->>>>>>> match view
+
         
-        self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
+        //self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
         
-        //self.matchNameLabel.text = "Match's Name"
+        self.matchNameLabel.text = "Match's Name"
         self.musicButton.setTitle("Match's Music", forState: UIControlState.Normal)
         // Do any additional setup after loading the view.
     }
