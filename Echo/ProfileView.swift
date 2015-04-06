@@ -18,18 +18,13 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var checkbox2: UIButton!
     @IBOutlet weak var checkbox3: UIButton!
     @IBOutlet weak var blurb: UITextView!
-    @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
 
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardNotification:", name: UIKeyboardWillChangeFrameNotification, object: nil)
 
-
-        
         checkbox1.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox2.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox3.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
@@ -38,10 +33,6 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
         blurb.layer.borderWidth = 0.8
         blurb.layer.cornerRadius = 1
         
-        //locationField.returnKeyType = UIReturnKeyDone
-        //ageField.returnKeyType = UIReturnKeyDone
-        //blurb.returnKeyType = UIReturnKeyDone
-
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
         
@@ -102,26 +93,6 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     
     @IBAction func checkbox3(sender: AnyObject) {
         doCheckboxPress(MUSICIANS, box: checkbox3)
-    }
-    
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self);
-    }
-    
-    func keyboardNotification(notification: NSNotification) {
-        if let userInfo = notification.userInfo {
-            let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.CGRectValue()
-            let duration:NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-            let animationCurveRawNSN = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-            let animationCurveRaw = animationCurveRawNSN?.unsignedLongValue ?? UIViewAnimationOptions.CurveEaseInOut.rawValue
-            let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
-            self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
-            UIView.animateWithDuration(duration,
-                delay: NSTimeInterval(0),
-                options: animationCurve,
-                animations: { self.view.layoutIfNeeded() },
-                completion: nil)
-        }
     }
     
     
