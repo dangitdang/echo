@@ -61,7 +61,6 @@ class MatchesMusicTableViewController: UITableViewController {
     
     func goBack() {
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     func loadInCommonMusic() {

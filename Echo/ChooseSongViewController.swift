@@ -33,6 +33,10 @@ class ChooseSongViewController: ViewController {
     }
     
 
+    func goBack() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
     /*
     // MARK: - Navigation
 

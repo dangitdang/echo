@@ -561,7 +561,7 @@
                                 </state>
                                 <connections>
                                     <action selector="musicButtonPressed:" destination="F8Q-9z-ORo" eventType="touchUpInside" id="v59-eD-gAC"/>
-                                    <segue destination="IRs-wC-Wqv" kind="show" id="D8I-tt-zgX"/>
+                                    <segue destination="IRs-wC-Wqv" kind="presentation" id="IQr-bo-rK2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gP-y6-70F">
@@ -582,7 +582,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sendASong:" destination="F8Q-9z-ORo" eventType="touchUpInside" id="2eq-2s-LJm"/>
-                                    <segue destination="a0f-gw-3Ll" kind="show" id="vLh-lH-rG9"/>
+                                    <segue destination="a0f-gw-3Ll" kind="presentation" id="ToL-aH-ewx"/>
                                 </connections>
                             </button>
                         </subviews>
