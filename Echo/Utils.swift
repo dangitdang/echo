@@ -8,6 +8,11 @@
 
 import Foundation
 
+
+let MUSICIANS = 0
+let NEARBY = 1
+let CONCERTS = 2
+
 class Date {
     
     class func from(#year:Int, month:Int, day:Int) -> NSDate? {
@@ -27,11 +32,4 @@ class Date {
         dateFmt.dateFormat = format
         return dateFmt.dateFromString(dateStr)
     }
-}
-
-class Preferences {
-    let MUSICIANS = 0
-    let NEARBY = 1
-    let CONCERTS = 2
-    let number = 3
 }

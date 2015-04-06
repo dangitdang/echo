@@ -16,6 +16,7 @@ class User: Hashable {
     var matches: [String: [String]]!
     var messenger: Messenger
     var parse: PFObject?
+    var blurb: String?
     
     var hashValue: Int {
         get{ return id.hashValue}
@@ -25,9 +26,10 @@ class User: Hashable {
         email : String,
         preferences: [Int],
         matches: [String: [String]] = ["1":[], "2":[], "3":[], "4":[], "5":[]],
-        birthdate: String? = nil,
-        country: String? = nil,
-        picURL: NSURL? =  nil,
+        birthdate: String? = "",
+        country: String? = "",
+        picURL: NSURL? =  NSURL(string:""),
+        blurb: String? = "",
         messenger: Messenger = Messenger()
     ){
         self.displayName = displayName
@@ -38,10 +40,13 @@ class User: Hashable {
         self.matches = matches
         self.preferences = preferences
         self.messenger = Messenger()
+        self.blurb = blurb
+
     }
     
     func setMusicCollection(m:MusicCollection){
         self.musicCollection = m
+        self.store()
     }
     /*
     Saves the user to the 

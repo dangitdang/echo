@@ -8,20 +8,64 @@
 
 import UIKit
 
-class ProfileView: ViewControllerWNav{
+class ProfileView: ViewControllerWNav, UITextFieldDelegate {
     
     @IBOutlet weak var profPic: UIImageView!
-    
     @IBOutlet weak var name: UILabel!
-    
     @IBOutlet weak var locationField: UITextField!
+    @IBOutlet weak var ageField: UITextField!
+    @IBOutlet weak var checkbox1: UIButton!
+    @IBOutlet weak var checkbox2: UIButton!
+    @IBOutlet weak var checkbox3: UIButton!
+    @IBOutlet weak var blurb: UITextView!
+    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        checkbox1.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
+        checkbox2.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
+        checkbox3.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
+
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
+        
+        for preference in appDelegate.user!.preferences {
+            switch (preference){
+            case 0:
+                checkbox3.selected = true
+                break
+            case 1:
+                checkbox1.selected = true
+                break
+            case 2:
+                checkbox2.selected = true
+                break
+            default:
+                break
+            }
+            
+        }
+        
+        if (user.blurb == nil) {
+            blurb.text = "Type here!"
+            blurb.textColor = UIColor.lightGrayColor()
+        } else {
+            blurb.text = user.blurb
+        }
+        
+        if (user.country == nil) {
+            locationField.placeholder = "Location"
+        } else {
+            locationField.placeholder = user.country
+        }
+        
+        if (user.birthdate == nil) {
+            ageField.placeholder = "Age"
+        } else {
+            ageField.placeholder = user.birthdate
+        }
         
         name.text = user.displayName
         
@@ -31,6 +75,53 @@ class ProfileView: ViewControllerWNav{
             profPic.image = UIImage(data: data!)
         }
         
+    }
+    
+    @IBAction func checkbox1(sender: AnyObject) {
+        doCheckboxPress(NEARBY, box: checkbox1)
+    }
+    
+    @IBAction func checkbox2(sender: AnyObject) {
+        doCheckboxPress(CONCERTS, box: checkbox2)
+    }
+    
+    @IBAction func checkbox3(sender: AnyObject) {
+        doCheckboxPress(MUSICIANS, box: checkbox3)
+    }
+    
+    func doCheckboxPress(boxId: Int, box: UIButton) {
+        box.selected = !box.selected
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if (box.selected) {
+            appDelegate.user?.preferences.append(boxId)
+        } else {
+            if let index = find(appDelegate.user!.preferences, boxId) {
+                appDelegate.user?.preferences.removeAtIndex(index)
+            }
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        //let user = appDelegate.user as User!
+        
+        if (textField == locationField) {
+            println("LOCATIONFIELD")
+            println(textField.text)
+            locationField.placeholder = textField.text
+            appDelegate.user?.country = textField.text
+            println(appDelegate.user?.country)
+        }
+        if (textField == ageField) {
+            println("AGEFIELD")
+            println(textField.text)
+            ageField.placeholder = textField.text
+            appDelegate.user?.birthdate = textField.text
+            println(appDelegate.user?.birthdate)
+        }
+        return false
     }
     
 }
