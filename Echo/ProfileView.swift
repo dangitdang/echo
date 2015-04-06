@@ -154,6 +154,8 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
             appDelegate.user?.blurb = textView.text
         }
+        var point = CGPoint(x: 0.0, y: 0.0)
+        scrollView.contentOffset = point
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
