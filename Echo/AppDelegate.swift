@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     var pubNub: PubNub?
     var session:SPTSession?
     var user: User?
+    var player: SPTAudioStreamingController?
     
     var window: UIWindow?
 
