@@ -515,7 +515,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="songTableView" destination="kd4-d0-oyg" id="gaA-7Y-SVj"/>
-                        <outlet property="songTextField" destination="N5z-Rg-FRd" id="3wg-TU-3Q5"/>
+                        <outlet property="songTextField" destination="gZZ-Ms-Q4Q" id="OSP-ZX-RVI"/>
                         <outlet property="view" destination="kd4-d0-oyg" id="PkY-Jg-3EW"/>
                     </connections>
                 </viewController>
