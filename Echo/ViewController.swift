@@ -124,7 +124,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 println(self.user.emailAddress)
                 
                 var username: String
-                if (self.user.displayName == "<null>") {
+                if (self.user.displayName == nil || self.user.displayName == "<null>") {
                     println("here")
                     println(self.user.canonicalUserName)
                     username = self.user.canonicalUserName
