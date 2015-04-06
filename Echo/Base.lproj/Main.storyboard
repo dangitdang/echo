@@ -140,12 +140,6 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I'm interested in..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-MB-iEr">
-                                        <rect key="frame" x="20" y="145" width="138" height="21"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SnJ-Cc-RmG">
                                         <rect key="frame" x="20" y="5" width="70" height="70"/>
                                         <constraints>
@@ -177,8 +171,14 @@
                                             <outlet property="delegate" destination="FZ7-nX-ehb" id="8h0-AO-XDB"/>
                                         </connections>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="I'm interested in..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZWG-MB-iEr">
+                                        <rect key="frame" x="20" y="140" width="138" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hmW-ZG-9m8">
-                                        <rect key="frame" x="20" y="255" width="25" height="25"/>
+                                        <rect key="frame" x="20" y="250" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="wJh-XY-q6N"/>
                                             <constraint firstAttribute="width" constant="25" id="xzU-N4-Z5Q"/>
@@ -191,7 +191,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKl-oU-KJ2">
-                                        <rect key="frame" x="20" y="174" width="25" height="25"/>
+                                        <rect key="frame" x="20" y="169" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="Afe-yy-Cjh"/>
                                             <constraint firstAttribute="height" constant="25" id="cXW-s3-a2F"/>
@@ -204,7 +204,7 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Type here" translatesAutoresizingMaskIntoConstraints="NO" id="4AF-gC-dDy">
-                                        <rect key="frame" x="20" y="336" width="245" height="131"/>
+                                        <rect key="frame" x="20" y="331" width="245" height="131"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="4AF-gC-dDy" secondAttribute="height" multiplier="15:8" id="E6J-sN-HGT"/>
                                         </constraints>
@@ -218,13 +218,13 @@
                                         </connections>
                                     </textView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Going to concerts!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ct-yy-YF0">
-                                        <rect key="frame" x="53" y="217" width="142" height="21"/>
+                                        <rect key="frame" x="53" y="212" width="142" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A little bit about me..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2f2-7k-MMD">
-                                        <rect key="frame" x="20" y="296" width="164" height="21"/>
+                                        <rect key="frame" x="20" y="291" width="164" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="2f2-7k-MMD" secondAttribute="height" multiplier="164:21" id="u7B-zx-cc5"/>
                                         </constraints>
@@ -233,19 +233,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meeting people!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4T-DN-j8U">
-                                        <rect key="frame" x="53" y="176" width="124" height="21"/>
+                                        <rect key="frame" x="53" y="171" width="124" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meeting fellow musicians!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxG-mq-auZ">
-                                        <rect key="frame" x="53" y="255" width="188" height="21"/>
+                                        <rect key="frame" x="53" y="250" width="188" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTw-21-Tte">
-                                        <rect key="frame" x="20" y="215" width="25" height="25"/>
+                                        <rect key="frame" x="20" y="210" width="25" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="ab4-Ge-TXN"/>
                                             <constraint firstAttribute="height" constant="25" id="tzr-dQ-B4e"/>
