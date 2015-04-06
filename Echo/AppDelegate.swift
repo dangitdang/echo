@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     var session:SPTSession?
     var user: User!
     var player: SPTAudioStreamingController?
-
+    var scraper: Scrapper!
+    
     var window: UIWindow?
 
 
