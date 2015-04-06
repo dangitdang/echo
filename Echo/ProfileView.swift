@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
+class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -34,7 +34,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
         blurb.layer.borderWidth = 0.8
         blurb.layer.cornerRadius = 1
         
-        //blurb.returnKeyType = UIReturnKeyType.Done
+        blurb.returnKeyType = UIReturnKeyType.Done
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
@@ -139,7 +139,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        var point = textView.frame.origin as CGPoint
+        var point = checkbox1.frame.origin as CGPoint
         scrollView.contentOffset = point
         textView.textColor = UIColor.blackColor()
         if (textView.text == "Type here!"){
@@ -150,11 +150,25 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     func textViewDidEndEditing(textView: UITextView) {
         if (textView.text == ""){
             textView.text = "Type here!"
+        } else {
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            appDelegate.user?.blurb = textView.text
         }
+        var point = CGPoint(x: 0.0, y: 0.0)
+        scrollView.contentOffset = point
     }
     
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.view.endEditing(true)
+        blurb.resignFirstResponder()
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n"){
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
     
 }
