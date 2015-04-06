@@ -227,7 +227,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" text="Type here" translatesAutoresizingMaskIntoConstraints="NO" id="4AF-gC-dDy">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Type here" translatesAutoresizingMaskIntoConstraints="NO" id="4AF-gC-dDy">
                                 <rect key="frame" x="40" y="386" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="4AF-gC-dDy" secondAttribute="height" multiplier="15:8" id="E6J-sN-HGT"/>
@@ -242,6 +242,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eTw-21-Tte" firstAttribute="top" secondItem="ZKl-oU-KJ2" secondAttribute="bottom" constant="16" id="2p0-Lo-GoZ"/>
+                            <constraint firstItem="IpQ-7M-ghs" firstAttribute="top" secondItem="4AF-gC-dDy" secondAttribute="bottom" constant="86" id="7eY-xZ-Gb1"/>
                             <constraint firstItem="ZWG-MB-iEr" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leadingMargin" constant="24" id="BbF-4s-QSU"/>
                             <constraint firstItem="ZKl-oU-KJ2" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leadingMargin" constant="24" id="CKA-sZ-Hrw"/>
                             <constraint firstItem="8BY-eA-4Uz" firstAttribute="leading" secondItem="SnJ-Cc-RmG" secondAttribute="trailing" constant="34" id="D1P-gw-mX0"/>
@@ -280,9 +281,12 @@
                     <connections>
                         <outlet property="ageField" destination="44b-9x-7ky" id="kKI-3e-NVT"/>
                         <outlet property="blurb" destination="4AF-gC-dDy" id="tkz-o6-hHA"/>
+                        <outlet property="bottomConstraing" destination="7eY-xZ-Gb1" id="XlV-YL-KaF"/>
+                        <outlet property="bottomConstraint" destination="7eY-xZ-Gb1" id="d5D-dA-OTI"/>
                         <outlet property="checkbox1" destination="ZKl-oU-KJ2" id="Vrh-PC-I8n"/>
                         <outlet property="checkbox2" destination="eTw-21-Tte" id="GYG-dN-ABt"/>
                         <outlet property="checkbox3" destination="hmW-ZG-9m8" id="28J-DL-xWZ"/>
+                        <outlet property="keyboardHeightLayoutConstraint" destination="7eY-xZ-Gb1" id="Kxa-pL-2Xx"/>
                         <outlet property="locationField" destination="mLd-gh-hdA" id="sOe-Jl-EVS"/>
                         <outlet property="name" destination="8BY-eA-4Uz" id="hbW-PY-vBJ"/>
                         <outlet property="profPic" destination="SnJ-Cc-RmG" id="jVB-Ed-CuZ"/>
