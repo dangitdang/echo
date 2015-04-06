@@ -7,7 +7,13 @@
 //
 
 import Foundation
-
+extension String
+{
+    func replace(target: String, withString: String) -> String
+    {
+        return self.stringByReplacingOccurrencesOfString(target, withString: withString, options: NSStringCompareOptions.LiteralSearch, range: nil)
+    }
+}
 
 class Scrapper {
     var session:SPTSession
@@ -18,6 +24,8 @@ class Scrapper {
     var artists: [String] = [String]() // list of artist names
     var songCounts: [String: Int] = [String : Int]() // Map artist -> song count
     var albums: [String: [String]] = [String: [String]]() // Artist -> albums
+    var albumCovers: [String : String] = [String : String]() // Album -> imageURL
+    var artistCovers: [String: String] = [String : String]()
     var JSONSerializationError: NSError? = nil
     var accessToken :String
     var userID:String
@@ -31,9 +39,6 @@ class Scrapper {
         self.user = user
         self.accessToken = session.accessToken
         self.userID = user.canonicalUserName
-//        self.retrievePlaylists()
-//        self.retrieveSavedSongs()
-//        self.retrieveStarred()
     }
     
     func getArtists() -> [String] {
@@ -57,6 +62,12 @@ class Scrapper {
         }
         objc_sync_exit(self.albums[artist])
     }
+    
+    func updateAlbumCover(album:String, cover:String) {
+        if self.albumCovers[album] == nil {
+            self.albumCovers[album] = cover
+        }
+    }
     func retrieveSavedSongsHelper(url:NSURL, user:User) -> Void {
         var mutableURLRequest = NSMutableURLRequest(URL: url)
         mutableURLRequest.HTTPMethod = "GET"
@@ -67,10 +78,26 @@ class Scrapper {
                 for song in songs {
                     var name = song["track"]["name"].stringValue
                     var album = song["track"]["album"]["name"].stringValue
+                    var index = find(album,".")
+                    while (index != nil) {
+                            album.removeAtIndex(index!)
+                            println("there was a dot")
+                            index = find(album,".")
+                    }
+                    album = album.replace("$", withString:"S")
+                    var albumCover = song["track"]["album"]["images"][1]["url"].stringValue
+                    self.updateAlbumCover(album, cover: albumCover)
                     var allArtists:[String] = []
                     if let artists = song["track"]["artists"].arrayValue as [JSON]?{
                         for artist in artists {
                             var artistName = artist["name"].stringValue
+                            var index = find(artistName,".")
+                            while (index != nil) {
+                                    artistName.removeAtIndex(index!)
+                                    println("there was a dot")
+                                    index = find(artistName,".")
+                            }
+                            artistName = artistName.replace("$", withString:"S")
                             allArtists.append(artistName)
                         }
                     }
@@ -121,10 +148,26 @@ class Scrapper {
                 for song in songs {
                     var name = song["track"]["name"].stringValue
                     var album = song["track"]["album"]["name"].stringValue
+                    var index = find(album,".")
+                    while (index != nil) {
+                            album.removeAtIndex(index!)
+                            println("there was a dot")
+                            index = find(album,".")
+                    }
+                    var albumCover = song["track"]["album"]["images"][1]["url"].stringValue
+                    album = album.replace("$", withString:"S")
+                    self.updateAlbumCover(album, cover: albumCover)
                     var allArtists:[String] = []
                     if let artists = song["track"]["artists"].arrayValue as [JSON]?{
                         for artist in artists {
                             var artistName = artist["name"].stringValue
+                            var index = find(artistName,".")
+                            while (index != nil) {
+                                artistName.removeAtIndex(index!)
+                                println("there was a dot")
+                                index = find(artistName,".")
+                            }
+                            artistName = artistName.replace("$", withString:"S")
                             allArtists.append(artistName)
                         }
                     }
@@ -139,9 +182,13 @@ class Scrapper {
                     self.getTracksHelper(nextURL!, ID: ID,user :user)
             } else {
                     if ID == self.lastKey {
-                        println(self.artists)
                         self.collection = self.createCollection()
-                        user.musicCollection = self.collection!
+                        self.updateArtistCover()
+                        self.collection?.addPhotos(self.artistCovers, albums: self.albumCovers)
+                        println(self.artists)
+                        println("Done with collection")
+                        user.setMusicCollection(self.collection!)
+                        println(self.albumCovers)
                     }
             }
 
@@ -196,5 +243,16 @@ class Scrapper {
     func createCollection() -> MusicCollection{
             return MusicCollection(artists: artists, songCounts: songCounts, albums: albums)
     }
-
+    
+    
+    func updateArtistCover() -> Void {
+        for artist in self.artists {
+            var album = albums[artist]?.last
+            if album == nil {
+                artistCovers[artist] = "no pic"
+            } else {
+                artistCovers[artist] = albumCovers[album!]
+            }
+        }
+    }
 }
