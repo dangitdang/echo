@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileView: ViewControllerWNav, UITextFieldDelegate {
+class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var profPic: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -26,8 +26,14 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
         checkbox1.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox2.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox3.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
-
+       
+        blurb.layer.borderColor = UIColor.blackColor().CGColor;
+        blurb.layer.borderWidth = 0.8
         
+        //locationField.returnKeyType = UIReturnKeyDone
+        //ageField.returnKeyType = UIReturnKeyDone
+        //blurb.returnKeyType = UIReturnKeyDone
+
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
         
@@ -124,4 +130,14 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
         return false
     }
     
+    func textViewDidBeginEditing(textView: UITextView) {
+        textView.textColor = UIColor.blackColor()
+        if (textView.text == "Type here!"){
+            textView.text = ""
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        textView.resignFirstResponder()
+    }
 }
