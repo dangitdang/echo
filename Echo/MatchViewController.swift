@@ -33,6 +33,7 @@ class MatchViewController: ViewControllerWNav {
             appDelegate.user.newUser = false
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Profile") as UIViewController
             sideMenuController()?.setContentViewController(destViewController)
+            sideMenuController()?.sideMenu?.hideSideMenu()
         }
         
         //self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
