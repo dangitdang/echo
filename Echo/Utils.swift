@@ -13,6 +13,23 @@ let MUSICIANS = 0
 let NEARBY = 1
 let CONCERTS = 2
 
+extension Array {
+    mutating func removeObject<U: Equatable>(object: U) {
+        var index: Int?
+        for (idx, objectToCompare) in enumerate(self) {
+            if let to = objectToCompare as? U {
+                if object == to {
+                    index = idx
+                }
+            }
+        }
+        
+        if(index != nil) {
+            self.removeAtIndex(index!)
+        }
+    }
+}
+
 class Date {
     
     class func from(#year:Int, month:Int, day:Int) -> NSDate? {

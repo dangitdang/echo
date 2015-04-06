@@ -16,9 +16,9 @@ class MusicCollectionTests: XCTestCase {
     
     var music_dang = MusicCollection(json: "aaa");
     var music_hansa = MusicCollection(json: "hansa");
-    var dang_user = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string: "https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983"))
+    var dang_user = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string: "https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983")!)
     var hansa_user=User(displayName: "Dang", email: "dang@gay.com",
-        preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983"));
+        preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983")!);
     
     override func setUp() {
         super.setUp()
@@ -36,8 +36,8 @@ class MusicCollectionTests: XCTestCase {
         counts = ["andrei": 10, "dang":1]
         music_hansa = MusicCollection(artists: artists, songCounts: counts, albums: albums)
         music_hansa.addPhotos(ar, albums: cov)
-        dang_user = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983"))
-        hansa_user = User(displayName: "Hansa", email: "hansa@gay.com",  preferences: [0,1],  birthdate: "02/11/1994", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/555962_316795711748415_1804005466_n.jpg?oh=d271e112f4e7680d88e2ada9ea30ea7c&oe=559CF53F"))
+        dang_user = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983")!)
+        hansa_user = User(displayName: "Hansa", email: "hansa@gay.com",  preferences: [0,1],  birthdate: "02/11/1994", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/555962_316795711748415_1804005466_n.jpg?oh=d271e112f4e7680d88e2ada9ea30ea7c&oe=559CF53F")!)
         dang_user.setMusicCollection(music_dang)
         hansa_user.setMusicCollection(music_hansa)
     }

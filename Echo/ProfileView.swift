@@ -48,20 +48,20 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
             
         }
         
-        if (user.blurb == nil) {
+        if (user.blurb == "") {
             blurb.text = "Type here!"
             blurb.textColor = UIColor.lightGrayColor()
         } else {
             blurb.text = user.blurb
         }
         
-        if (user.country == nil) {
+        if (user.country == "") {
             locationField.placeholder = "Location"
         } else {
             locationField.placeholder = user.country
         }
         
-        if (user.birthdate == nil) {
+        if (user.birthdate == "") {
             ageField.placeholder = "Age"
         } else {
             ageField.placeholder = user.birthdate
@@ -70,7 +70,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
         name.text = user.displayName
         
         let url = user.picURL as NSURL!
-        if (url != nil) {
+        if (url.description != "") {
             let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
             profPic.image = UIImage(data: data!)
         }

@@ -6,8 +6,8 @@ func ==(lhs:User, rhs:User) -> Bool {
 }
 class User: Hashable {
     var id: String = ""
-    var birthdate: String?
-    var country: String?
+    var birthdate: String
+    var country: String
     var displayName: String
     var email: String
     var picURL: NSURL?
@@ -16,7 +16,8 @@ class User: Hashable {
     var matches: [String: [String]]!
     var messenger: Messenger
     var parse: PFObject?
-    var blurb: String?
+    var blurb: String
+    var lastLogOut: NSDate
     
     var hashValue: Int {
         get{ return id.hashValue}
@@ -26,11 +27,11 @@ class User: Hashable {
         email : String,
         preferences: [Int],
         matches: [String: [String]] = ["1":[], "2":[], "3":[], "4":[], "5":[]],
-        birthdate: String? = "",
-        country: String? = "",
-        picURL: NSURL? =  NSURL(string:""),
-        blurb: String? = "",
-        messenger: Messenger = Messenger()
+        birthdate: String = "",
+        country: String = "",
+        picURL: NSURL =  NSURL(string:"")!,
+        blurb: String = "",
+        lastLogOut: NSDate = Date.from(year: 2000, month: 1, day: 1)!
     ){
         self.displayName = displayName
         self.email = email
@@ -41,12 +42,30 @@ class User: Hashable {
         self.preferences = preferences
         self.messenger = Messenger()
         self.blurb = blurb
-
+        self.lastLogOut = lastLogOut
+    }
+    
+    convenience init(pfo: PFObject) {
+        var user = pfo
+        var music = MusicCollection(obj: user.valueForKey("musicCollection") as [String:AnyObject])
+        self.init(displayName: user.valueForKey("displayName") as String,
+            email: user["email"] as String,
+            preferences: user["preferences"] as [Int],
+            matches: user["matches"] as [String:[String]],
+            birthdate: user["birthdate"] as String,
+            country: user["country"] as String,
+            picURL: NSURL(string: user["picURL"] as String)!,
+            blurb: user["blurb"] as String,
+            lastLogOut: user["lastLogOut"] as NSDate)
+        self.id = user.objectId
+        self.setMusicCollection(music)
+        self.parse = user
+        self.messenger.setUser(self)
+        
     }
     
     func setMusicCollection(m:MusicCollection){
         self.musicCollection = m
-        self.store()
     }
     /*
     Saves the user to the 
@@ -62,7 +81,9 @@ class User: Hashable {
         user.setObject(self.preferences, forKey: "preferences")
         user.setObject([], forKey: "requests")
         user.setObject([], forKey: "conversations")
+        user.setObject(self.blurb, forKey: "blurb")
         user.setObject(Date.from(year: 2000, month: 1, day: 1), forKey: "lastTimeMatched")
+        user.setObject(self.lastLogOut, forKey: "lastLogOut")
         var musicJSON = self.musicCollection?.toObject()
         
         user.setObject(musicJSON, forKey: "music")
@@ -72,6 +93,18 @@ class User: Hashable {
         user.save()
         self.id = user.objectId
         self.parse = user
+        self.messenger.setUser(self)
+    }
+    
+    func save() {
+        self.parse!["display_name"] = self.displayName
+        self.parse!["email"] = self.email
+        self.parse!["birthdate"] = self.birthdate
+        self.parse!["country"] = self.country
+        self.parse!["matches"] = self.matches
+        self.parse!["preferences"] = self.preferences
+        self.parse!["blurb"] = self.blurb
+        self.parse!["lastLogOut"] = NSDate()
     }
     
     func isMatchesEmpty() ->Bool {
@@ -135,34 +168,9 @@ class User: Hashable {
         var user = query.getObjectWithId(id)
         return User(pfo:user)
     }
-    convenience init(pfo: PFObject) {
-        var user = pfo
-        var music = MusicCollection(obj: user.valueForKey("musicCollection") as [String:AnyObject])
-        self.init(displayName: user.valueForKey("displayName") as String,
-            email: user.valueForKey("email") as String,
-            preferences: user.valueForKey("preferences") as [Int],
-            matches: user.valueForKey("matches") as [String:[String]],
-            birthdate: user.valueForKey("birthdate") as String?,
-            country: user.valueForKey("country") as String?,
-            picURL: user.valueForKey("picURL") as NSURL?
-        )
-        self.id = user.objectId
-        self.parse = user
-    }
+    
     
     
 }
-
-
-//func spotifyToUser(spotifyUser: SPTUser) -> User {
-//    return User(
-//        displayName: spotifyUser.displayName,
-//        email: spotifyUser.emailAddress,
-//        spid: spotifyUser.uri,
-//        musicCollection: <#MusicCollection#>,
-//        birthdate: <#String?#>,
-//        country: spotifyUser.territory,
-//        pic: spotifyUser.largestImage.imageURL)
-//}
 
 

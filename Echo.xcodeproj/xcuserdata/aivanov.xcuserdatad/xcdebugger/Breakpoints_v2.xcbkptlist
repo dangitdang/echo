@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/User.swift"
-            timestampString = "449973216.445823"
+            timestampString = "450006238.456026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "User"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/User.swift"
-            timestampString = "449974530.877511"
+            timestampString = "450006238.456026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "removeLastMatch()"
             landmarkType = "5">
          </BreakpointContent>
@@ -70,11 +70,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/User.swift"
-            timestampString = "449974530.877511"
+            timestampString = "450006238.456026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "User"
             landmarkType = "3">
          </BreakpointContent>
@@ -202,12 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/User.swift"
-            timestampString = "449971921.378642"
+            timestampString = "450006238.456026"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "init(displayName:email:preferences:matches:birthdate:country:picURL:blurb:messenger:)"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "init(displayName:email:preferences:matches:birthdate:country:picURL:blurb:lastLogOut:)"
             landmarkType = "5">
             <Locations>
                <Location
@@ -244,17 +244,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/ViewController.swift"
-            timestampString = "449990860.948411"
+            timestampString = "449998596.738544"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "authenticationViewController(_:didLoginWithSession:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Echo/MessengerController.swift"
+            timestampString = "450000230.225402"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "APPROVED_REQUEST(_:_:_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

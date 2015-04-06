@@ -188,6 +188,7 @@ class Scrapper {
                         println(self.artists)
                         println("Done with collection")
                         user.setMusicCollection(self.collection!)
+                        user.store()
                         println(self.albumCovers)
                     }
             }

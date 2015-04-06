@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
         self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("error")})
+
         return true
     }
     
@@ -49,12 +50,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
-        var channel_name = message.channel.name
-        var sender = message.valueForKey("sender") as String
-        var song = message.valueForKey("song") as String?
-        var text = message.message as String?
-        if (channel_name == self.user?.id){
-            
+        println("GOOOOOOOOOOOOOOT A MESSAAAAAAAAGE####$$!!!!!!!!")
+        var sender = message.message.valueForKey("sender") as String
+        var type = message.message.valueForKey("type") as String
+        var song = message.message.valueForKey("song") as String
+        if (type == "request") {
+            NEW_REQUEST(self.user!, sender, song)
+        } else if (type == "approve") {
+            APPROVED_REQUEST(self.user!, sender, song)
+        } else if (type == "message") {
+            var text = message.message.valueForKey("text") as String
+            RECEIVED_MESSAGE(self.user!, sender, song, text)
         }
     }
 

@@ -37,7 +37,7 @@ Parse.Cloud.define("findMatches", function(request, response) {
             score1 += weights1[artist]
             score2 += weights2[artist]
         }
-        var score = Math.min(score1, score2)
+        var score = Math.max(score1, score2)
         var matchScore = Math.min(parseInt(Math.ceil(score/0.06)),5)
         return matchScore
     }
