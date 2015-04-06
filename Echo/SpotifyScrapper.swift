@@ -237,6 +237,35 @@ class Scrapper {
         self.retrieveSavedSongs(user)
     }
     
+    func querySong(query:String, completion : (data: AnyObject!) -> Void) -> Void {
+        var escapedQuery = query.replace(" ", withString: "+")
+        var queryURL = NSURL(string: "search/?q=\(escapedQuery)&type=track", relativeToURL: spotifyURL)
+        var mutableURLRequest = NSMutableURLRequest(URL: queryURL!)
+        mutableURLRequest.HTTPMethod = "GET"
+        mutableURLRequest.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
+        request(mutableURLRequest).responseJSON { (request, response, result, error) -> Void in
+            var raw = JSON(result!)
+            var trackArrs:[[String]] = []
+            if let tracks = raw["tracks"]["items"].arrayValue as [JSON]? {
+                for track in tracks {
+                    var trackName = track["name"].stringValue
+                    var allArtists:[String] = []
+                    if let artists = track["artists"].arrayValue as [JSON]?{
+                        for artist in artists {
+                            var artistName = artist["name"].stringValue
+                            var index = find(artistName,".")
+                            allArtists.append(artistName)
+                        }
+                    }
+                    var artistNames = ", ".join(allArtists)
+                    var id = track["id"].stringValue
+                    trackArrs.append([trackName,artistNames,id])
+                }
+            }
+            completion(data:trackArrs as AnyObject)
+        }
+    }
+    
     func retrievePlaylist(user: User) -> Void {
         var playlistsURL = NSURL(string: "users/\(self.userID)/playlists", relativeToURL: spotifyURL)
         retrievePlaylistsHelper(playlistsURL!, user: user)

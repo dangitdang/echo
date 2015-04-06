@@ -52,6 +52,7 @@
                     </view>
                     <connections>
                         <segue destination="3d9-Xg-z6h" kind="show" identifier="leaveLogIn" id="LzK-H5-wwq"/>
+                        <segue destination="FZ7-nX-ehb" kind="show" identifier="ProfileSegue" id="OX2-qy-NqW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -120,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="86f-Mf-v3w">
-                                <rect key="frame" x="16" y="20" width="285" height="500"/>
+                                <rect key="frame" x="16" y="20" width="285" height="572"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8BY-eA-4Uz">
                                         <rect key="frame" x="124" y="21" width="141" height="37"/>
@@ -251,9 +252,7 @@
                                     <constraint firstItem="hxG-mq-auZ" firstAttribute="leading" secondItem="hmW-ZG-9m8" secondAttribute="trailing" constant="8" id="0Yt-I5-BBc"/>
                                     <constraint firstItem="hxG-mq-auZ" firstAttribute="leading" secondItem="hmW-ZG-9m8" secondAttribute="trailing" constant="8" id="2QP-yD-4eU"/>
                                     <constraint firstItem="SnJ-Cc-RmG" firstAttribute="leading" secondItem="86f-Mf-v3w" secondAttribute="leading" constant="20" id="37m-SD-AFa"/>
-                                    <constraint firstAttribute="height" constant="500" id="3be-dK-HIa"/>
                                     <constraint firstItem="6ct-yy-YF0" firstAttribute="leading" secondItem="eTw-21-Tte" secondAttribute="trailing" constant="8" id="3mJ-HG-Lsf"/>
-                                    <constraint firstAttribute="bottom" secondItem="4AF-gC-dDy" secondAttribute="bottom" constant="17" id="5Jh-we-AzH"/>
                                     <constraint firstItem="6ct-yy-YF0" firstAttribute="top" secondItem="ZKl-oU-KJ2" secondAttribute="bottom" constant="18" id="84I-SD-E9v"/>
                                     <constraint firstItem="44b-9x-7ky" firstAttribute="leading" secondItem="86f-Mf-v3w" secondAttribute="leading" constant="20" id="BlS-2F-XPi"/>
                                     <constraint firstItem="8BY-eA-4Uz" firstAttribute="top" secondItem="86f-Mf-v3w" secondAttribute="top" constant="21" id="CI1-rG-e90"/>
@@ -273,6 +272,7 @@
                                     <constraint firstItem="mLd-gh-hdA" firstAttribute="top" secondItem="SnJ-Cc-RmG" secondAttribute="bottom" constant="22" id="WyR-WU-KQw"/>
                                     <constraint firstItem="eTw-21-Tte" firstAttribute="leading" secondItem="86f-Mf-v3w" secondAttribute="leading" constant="20" id="Xvo-QW-Wvx"/>
                                     <constraint firstItem="ZKl-oU-KJ2" firstAttribute="top" secondItem="ZWG-MB-iEr" secondAttribute="bottom" constant="8" id="a3E-M2-atx"/>
+                                    <constraint firstAttribute="height" constant="572" id="cP1-Nt-z2k"/>
                                     <constraint firstItem="ZKl-oU-KJ2" firstAttribute="leading" secondItem="86f-Mf-v3w" secondAttribute="leading" constant="20" id="dAI-Pw-sPi"/>
                                     <constraint firstAttribute="centerY" secondItem="4AF-gC-dDy" secondAttribute="centerY" constant="-159" id="e0C-7Y-h72"/>
                                     <constraint firstItem="eTw-21-Tte" firstAttribute="top" secondItem="ZKl-oU-KJ2" secondAttribute="bottom" constant="16" id="efm-Qq-dbn"/>
@@ -285,11 +285,15 @@
                                     <constraint firstAttribute="centerY" secondItem="hmW-ZG-9m8" secondAttribute="centerY" constant="-33.5" id="wbf-7p-CI4"/>
                                     <constraint firstItem="6ct-yy-YF0" firstAttribute="leading" secondItem="eTw-21-Tte" secondAttribute="trailing" constant="8" id="yd3-dd-eZm"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="FZ7-nX-ehb" id="Fw3-cL-RBY"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="86f-Mf-v3w" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leadingMargin" id="78P-R8-D0n"/>
+                            <constraint firstItem="IpQ-7M-ghs" firstAttribute="top" secondItem="86f-Mf-v3w" secondAttribute="bottom" constant="8" id="MUV-M4-T3y"/>
                             <constraint firstItem="86f-Mf-v3w" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" id="mvs-iO-mJ9"/>
                         </constraints>
                     </view>
@@ -334,24 +338,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VU3-9d-pR4">
-                                <rect key="frame" x="29" y="227" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwF-fd-caG">
-                                <rect key="frame" x="29" y="265" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1F9-nT-4Zj">
-                                <rect key="frame" x="29" y="303" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXq-Qr-P0F">
                                 <rect key="frame" x="29" y="189" width="126" height="30"/>
                                 <state key="normal" title="Too Little Too Late">
@@ -439,7 +425,7 @@
                     <navigationItem key="navigationItem" id="tr1-F0-Dvy">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ha6-Ir-3uH">
-                            <rect key="frame" x="159" y="8" width="283" height="28"/>
+                            <rect key="frame" x="158.5" y="8" width="283" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="In Common With You"/>
@@ -492,7 +478,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Song:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzG-xu-hBw">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="25" y="78" width="350" height="56"/>
@@ -828,7 +814,7 @@
     </scenes>
     <resources>
         <image name="1984" width="333" height="500"/>
-        <image name="Checkbox" width="50" height="50"/>
+        <image name="Checkbox" width="40" height="40"/>
         <image name="agaetis-byrjun" width="333" height="500"/>
         <image name="log_in_spotify" width="488" height="88"/>
         <image name="logo1" width="1283" height="705"/>

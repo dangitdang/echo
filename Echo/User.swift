@@ -18,6 +18,7 @@ class User: Hashable {
     var parse: PFObject?
     var blurb: String
     var lastLogOut: NSDate
+    var newUser: Bool
     
     var hashValue: Int {
         get{ return id.hashValue}
@@ -31,7 +32,8 @@ class User: Hashable {
         country: String = "",
         picURL: NSURL =  NSURL(string:"")!,
         blurb: String = "",
-        lastLogOut: NSDate = Date.from(year: 2000, month: 1, day: 1)!
+        lastLogOut: NSDate = Date.from(year: 2000, month: 1, day: 1)!,
+        newUser: Bool = true
     ){
         self.displayName = displayName
         self.email = email
@@ -43,6 +45,7 @@ class User: Hashable {
         self.messenger = Messenger()
         self.blurb = blurb
         self.lastLogOut = lastLogOut
+        self.newUser = newUser
     }
     
     convenience init(pfo: PFObject) {
