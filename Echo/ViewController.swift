@@ -114,6 +114,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 //scrapper.retrievePlaylists()
                 
                 let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                
                 appDelegate.session = self.session
                 var prefs: [Int] = []
                 var a: [String] = []

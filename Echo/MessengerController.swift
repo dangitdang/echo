@@ -6,7 +6,28 @@
 //  Copyright (c) 2015 Quartet. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MessengerController: ViewControllerWNav {
+    
+    @IBOutlet weak var Button1: UIButton!
+    
+    var player: SPTAudioStreamingController!
+    override func viewDidLoad() {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.player = appDelegate.player
+    }
+    
+    @IBAction func playSong(sender: AnyObject) {
+        playSong("spotify:track:5EsUREDLx9m60wzBhyo3Nj")
+    }
+    func playSong(uri:String) {
+        player.playURIs([NSURL(string: uri)!], withOptions: nil, callback: nil)
+    }
+    
+
+    
+}
 
 
 func NEW_REQUEST(user:User, other_id: String, song:String){
@@ -41,3 +62,4 @@ func RECEIVED_MESSAGE(user:User, other_id: String, song: String, text:String){
 func receivedMessageUpdateUI(current_user: User, other_user: User, message:Message){
     //UI FOLKS: TODO
 }
+
