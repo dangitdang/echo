@@ -986,6 +986,7 @@
 				3A8133911AD1C596000D95D0 /* MusicCollection.swift */,
 				3A81339D1AD1CF40000D95D0 /* PubNub */,
 				3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */,
+				3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */,
 				DC39B2A11AD1DA6100CEF932 /* Messenger.swift */,
 				DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */,
 				3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */,
@@ -1004,7 +1005,6 @@
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
 				AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */,
 				AA2009221AA40D7B00E9BB8B /* Supporting Files */,
-				3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */,
 			);
 			path = Echo;
 			sourceTree = "<group>";
