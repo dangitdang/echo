@@ -97,7 +97,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="n5a-Ca-wAp">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="N3t-aR-jIY">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="N3t-aR-jIY">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="xQ5-Gl-hcq" id="8mO-vZ-B8c"/>
                             </connections>
@@ -298,7 +298,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="foB-fC-t5m">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="oEn-7q-q4j">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="oEn-7q-q4j">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="FZ7-nX-ehb" id="byF-RO-hK9"/>
                             </connections>
@@ -354,7 +354,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pjd-zA-wa5">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="h0z-kT-5az">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="h0z-kT-5az">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="9hL-yG-r5T" id="Djc-5s-1Ze"/>
                             </connections>
@@ -424,6 +424,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="tr1-F0-Dvy">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="Backbutton" id="q9t-mn-Fyq"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ha6-Ir-3uH">
                             <rect key="frame" x="158.5" y="8" width="283" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -437,6 +438,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="q9t-mn-Fyq" id="dDT-r5-qtY"/>
                         <outlet property="segmentedControl" destination="ha6-Ir-3uH" id="Y7V-IT-y0U"/>
                         <outlet property="songTableView" destination="4kn-gq-IIW" id="Nqa-Zg-wpt"/>
                     </connections>
@@ -795,7 +797,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="dQM-L8-gyS">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="itR-6l-26N">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="itR-6l-26N">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="F8Q-9z-ORo" id="mQG-Uw-vXf"/>
                             </connections>
@@ -814,7 +816,9 @@
     </scenes>
     <resources>
         <image name="1984" width="333" height="500"/>
+        <image name="Backbutton" width="13" height="14"/>
         <image name="Checkbox" width="40" height="40"/>
+        <image name="Menu" width="15" height="10"/>
         <image name="agaetis-byrjun" width="333" height="500"/>
         <image name="log_in_spotify" width="488" height="88"/>
         <image name="logo1" width="1283" height="705"/>

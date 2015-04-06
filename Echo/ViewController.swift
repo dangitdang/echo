@@ -154,13 +154,11 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 println("Couldn't login with session: \(error)")
                 return
             }
-            println("Logged in successful")
             self.useLoggedInPermissions()
         })
     }
     
     func useLoggedInPermissions() {
-        println("L")
         let spotifyURI = "spotify:track:1WJk986df8mpqpktoktlce"
         player!.playURIs([NSURL(string: spotifyURI)!], withOptions: nil, callback: nil)
     }
