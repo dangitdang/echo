@@ -82,13 +82,13 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         if (user.country == "") {
             locationField.placeholder = "Location"
         } else {
-            locationField.placeholder = user.country
+            locationField.text = user.country
         }
         
         if (user.birthdate == "") {
             ageField.placeholder = "Age"
         } else {
-            ageField.placeholder = user.birthdate
+            ageField.text = user.birthdate
         }
         
         name.text = user.displayName
