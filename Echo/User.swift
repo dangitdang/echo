@@ -50,16 +50,23 @@ class User: Hashable {
     
     convenience init(pfo: PFObject) {
         var user = pfo
-        var music = MusicCollection(obj: user.valueForKey("musicCollection") as [String:AnyObject])
-        self.init(displayName: user.valueForKey("displayName") as String,
+        println(user.objectId)
+        var music = MusicCollection(obj: user.valueForKey("music") as [String:AnyObject])
+        var obj = user["mathces"] as [String:AnyObject]
+        var matches = [String:[String]]()
+        for (score, p) in obj {
+            matches[score] = p as? [String]
+        }
+        self.init(displayName: user.valueForKey("display_name") as String,
             email: user["email"] as String,
             preferences: user["preferences"] as [Int],
-            matches: user["matches"] as [String:[String]],
+            matches: matches,
             birthdate: user["birthdate"] as String,
             country: user["country"] as String,
-            picURL: NSURL(string: user["picURL"] as String)!,
-            blurb: user["blurb"] as String,
-            lastLogOut: user["lastLogOut"] as NSDate)
+            picURL: NSURL(string: user["pic"] as String)!
+            //blurb: user["blurb"] as String,
+            //lastLogOut: user["lastLogOut"] as NSDate
+        )
         self.id = user.objectId
         self.setMusicCollection(music)
         self.parse = user
@@ -108,6 +115,8 @@ class User: Hashable {
         self.parse!["preferences"] = self.preferences
         self.parse!["blurb"] = self.blurb
         self.parse!["lastLogOut"] = NSDate()
+        self.messenger.updateRequests()
+        self.parse?.save()
     }
     
     func isMatchesEmpty() ->Bool {
@@ -155,6 +164,7 @@ class User: Hashable {
         - User Object if user exists
     */
     class func checkIfUserExists(email: String) -> User? {
+        println("START METHOD")
         var query = PFQuery(className: "EchoUser")
         query.whereKey("email", equalTo: email)
         var objects = query.findObjects()

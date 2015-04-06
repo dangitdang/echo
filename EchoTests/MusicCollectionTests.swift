@@ -62,6 +62,11 @@ class MusicCollectionTests: XCTestCase {
         println(dang_user.matches)
     }
     
+    func testPulling(){
+        var user: User = User.checkIfUserExists("aivanov@mit.edu")!
+        println(user.displayName)
+    }
+    
     
 }
 

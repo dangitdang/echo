@@ -8,6 +8,20 @@
 
 import UIKit
 
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+    
+    convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+    }
+}
+
 class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var profPic: UIImageView!
@@ -25,14 +39,16 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        var point = CGPoint(x: 0.0, y: 0.0)
+        scrollView.contentOffset = point
 
         checkbox1.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox2.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox3.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
        
-        blurb.layer.borderColor = UIColor.lightGrayColor().CGColor;
+        blurb.layer.borderColor = UIColor(red: 0xC8, green: 0xC9, blue: 0xC8).CGColor
         blurb.layer.borderWidth = 0.8
-        blurb.layer.cornerRadius = 1
+        blurb.layer.cornerRadius = 8
         
         blurb.returnKeyType = UIReturnKeyType.Done
         
@@ -66,13 +82,13 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         if (user.country == "") {
             locationField.placeholder = "Location"
         } else {
-            locationField.placeholder = user.country
+            locationField.text = user.country
         }
         
         if (user.birthdate == "") {
             ageField.placeholder = "Age"
         } else {
-            ageField.placeholder = user.birthdate
+            ageField.text = user.birthdate
         }
         
         name.text = user.displayName
@@ -150,6 +166,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
     func textViewDidEndEditing(textView: UITextView) {
         if (textView.text == ""){
             textView.text = "Type here!"
+            blurb.textColor = UIColor.lightGrayColor()
         } else {
             let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
             appDelegate.user?.blurb = textView.text
