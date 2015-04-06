@@ -105,6 +105,8 @@ class User: Hashable {
         self.parse!["preferences"] = self.preferences
         self.parse!["blurb"] = self.blurb
         self.parse!["lastLogOut"] = NSDate()
+        self.messenger.updateRequests()
+        self.parse?.save()
     }
     
     func isMatchesEmpty() ->Bool {

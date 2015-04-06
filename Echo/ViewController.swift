@@ -137,6 +137,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 self.setupSpotifyPlayer()
                 appDelegate.player = self.player
                 self.loginWithSpotifySession(self.session)
+                println("done authentification")
             }
         })
         performSegueWithIdentifier("leaveLogIn", sender: nil)

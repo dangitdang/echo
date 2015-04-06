@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
         self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("error")})
-
+        PNLogger.loggerEnabled(false)
         return true
     }
     
@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     }
 
     func applicationWillTerminate(application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        self.user?.save()
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
