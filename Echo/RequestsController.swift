@@ -8,15 +8,17 @@
 
 import UIKit
 
-class RequestsController: ViewControllerWNav {
+class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableViewDelegate {
+    var userList: [User] = []
+    var songRequests: [User: Message] = []:[]
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        var userList: [User] = appDelegate.user.messenger.getPeopleRequested()
-        var songRequests: [User: Message] = appDelegate.user.messenger.getRequests()
+        userList = appDelegate.user.messenger.getPeopleRequested()
+        songRequests = appDelegate.user.messenger.getRequests()
         
     }
     
@@ -26,4 +28,11 @@ class RequestsController: ViewControllerWNav {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userList.count
+    }
+ 
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
 }
