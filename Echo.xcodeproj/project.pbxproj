@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383C44051AD1FC92002E2E38 /* MatchesMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */; };
+		383C44071AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */; };
+		383C44091AD1FCA7002E2E38 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44081AD1FCA7002E2E38 /* MatchViewController.swift */; };
 		3A8133921AD1C596000D95D0 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
 		3A8133981AD1C5B3000D95D0 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */; };
 		3A8133991AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */; };
@@ -177,6 +180,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewController.swift; sourceTree = "<group>"; };
+		383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewCell.swift; sourceTree = "<group>"; };
+		383C44081AD1FCA7002E2E38 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		3A8133911AD1C596000D95D0 /* MusicCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollection.swift; sourceTree = "<group>"; };
 		3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
@@ -958,10 +964,13 @@
 				DC39B2A11AD1DA6100CEF932 /* Messenger.swift */,
 				DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */,
 				3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */,
+				383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */,
 				3A8133951AD1C5B3000D95D0 /* MyMenuTableViewController.swift */,
 				3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */,
 				3A8133971AD1C5B3000D95D0 /* ProfileView.swift */,
 				AA2009281AA40D7B00E9BB8B /* Main.storyboard */,
+				383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */,
+				383C44081AD1FCA7002E2E38 /* MatchViewController.swift */,
 				AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */,
 				AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */,
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
@@ -1186,6 +1195,7 @@
 				3A8134E21AD1CF40000D95D0 /* PNWhereNowResponseParser.m in Sources */,
 				3A8134D61AD1CF40000D95D0 /* PNChannelHistoryParser.m in Sources */,
 				3A8135021AD1CF40000D95D0 /* NSObject+PNAdditions.m in Sources */,
+				383C44091AD1FCA7002E2E38 /* MatchViewController.swift in Sources */,
 				AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */,
 				3A8134CA1AD1CF40000D95D0 /* PNWriteBuffer.m in Sources */,
 				3A8135121AD1CF40000D95D0 /* PNHeartbeatRequest.m in Sources */,
@@ -1199,6 +1209,7 @@
 				3A81351C1AD1CF40000D95D0 /* PNTimeTokenRequest.m in Sources */,
 				3A8135001AD1CF40000D95D0 /* NSMutableSet+PNAdditions.m in Sources */,
 				3A8134BF1AD1CF40000D95D0 /* PubNub+ChannelRegistry.m in Sources */,
+				383C44051AD1FC92002E2E38 /* MatchesMusicTableViewController.swift in Sources */,
 				3A8134C01AD1CF40000D95D0 /* PubNub+Cipher.m in Sources */,
 				3A8134C21AD1CF40000D95D0 /* PubNub+Messaging.m in Sources */,
 				3A8134CB1AD1CF40000D95D0 /* PNChannel.m in Sources */,
@@ -1222,6 +1233,7 @@
 				3A8134D41AD1CF40000D95D0 /* PNChannelGroupRemoveResponseParser.m in Sources */,
 				3A8134E41AD1CF40000D95D0 /* PNAccessRightsCollection.m in Sources */,
 				3A8134FD1AD1CF40000D95D0 /* NSError+PNAdditions.m in Sources */,
+				383C44071AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift in Sources */,
 				3A8134E91AD1CF40000D95D0 /* PNChannelGroupChange.m in Sources */,
 				3A8134C81AD1CF40000D95D0 /* PubNub+Time.m in Sources */,
 				3A81350D1AD1CF40000D95D0 /* PNChannelGroupsRequest.m in Sources */,
