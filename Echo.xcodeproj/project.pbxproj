@@ -131,6 +131,7 @@
 		AAAC43691AD0A6A200796CDB /* MusicCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAC43671AD0A6A200796CDB /* MusicCollectionTests.swift */; };
 		AAAC436B1AD0DBAA00796CDB /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAAC436A1AD0DBAA00796CDB /* Spotify.framework */; };
 		AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA31AD1D345008900B9 /* Alamofire.swift */; };
+		AADEDBA61AD24084008900B9 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA51AD24084008900B9 /* SongManager.swift */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
@@ -480,6 +481,7 @@
 		AAAC436A1AD0DBAA00796CDB /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Spotify.framework; sourceTree = "<group>"; };
 		AADEDBA21AD1D345008900B9 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
 		AADEDBA31AD1D345008900B9 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
+		AADEDBA51AD24084008900B9 /* SongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 		AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
 		DC39B2A11AD1DA6100CEF932 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
@@ -973,6 +975,7 @@
 				383C44081AD1FCA7002E2E38 /* MatchViewController.swift */,
 				AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */,
 				AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */,
+				AADEDBA51AD24084008900B9 /* SongManager.swift */,
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
 				AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */,
 				AA2009221AA40D7B00E9BB8B /* Supporting Files */,
@@ -1221,6 +1224,7 @@
 				3A8134F71AD1CF40000D95D0 /* PNTimer.m in Sources */,
 				3A8134F31AD1CF40000D95D0 /* PNMessagesHistory.m in Sources */,
 				3A8134D81AD1CF40000D95D0 /* PNClientStateResponseParser.m in Sources */,
+				AADEDBA61AD24084008900B9 /* SongManager.swift in Sources */,
 				3A8134C41AD1CF40000D95D0 /* PubNub+Presence.m in Sources */,
 				3A8135151AD1CF40000D95D0 /* PNLeaveRequest.m in Sources */,
 				3A8135111AD1CF40000D95D0 /* PNClientStateUpdateRequest.m in Sources */,
