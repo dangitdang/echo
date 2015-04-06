@@ -18,22 +18,21 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var checkbox2: UIButton!
     @IBOutlet weak var checkbox3: UIButton!
     @IBOutlet weak var blurb: UITextView!
+
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+
         checkbox1.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox2.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox3.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
        
-        blurb.layer.borderColor = UIColor.blackColor().CGColor;
+        blurb.layer.borderColor = UIColor.lightGrayColor().CGColor;
         blurb.layer.borderWidth = 0.8
+        blurb.layer.cornerRadius = 1
         
-        //locationField.returnKeyType = UIReturnKeyDone
-        //ageField.returnKeyType = UIReturnKeyDone
-        //blurb.returnKeyType = UIReturnKeyDone
-
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
         
@@ -83,6 +82,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
         
     }
     
+    
     @IBAction func checkbox1(sender: AnyObject) {
         doCheckboxPress(NEARBY, box: checkbox1)
     }
@@ -95,6 +95,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
         doCheckboxPress(MUSICIANS, box: checkbox3)
     }
     
+    
     func doCheckboxPress(boxId: Int, box: UIButton) {
         box.selected = !box.selected
         
@@ -106,6 +107,10 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
                 appDelegate.user?.preferences.removeAtIndex(index)
             }
         }
+    }
+    
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        self.view.endEditing(true)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -138,6 +143,10 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        textView.resignFirstResponder()
+        if (textView.text == ""){
+            textView.text = "Type here!"
+        }
     }
+    
+    
 }
