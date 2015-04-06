@@ -26,10 +26,12 @@ class User: Hashable {
         email : String,
         preferences: [Int],
         matches: [String: [String]] = ["1":[], "2":[], "3":[], "4":[], "5":[]],
-        birthdate: String? = nil,
-        country: String? = nil,
-        picURL: NSURL? =  nil,
-        blurb: String? = nil
+        birthdate: String? = "",
+        country: String? = "",
+        picURL: NSURL? =  NSURL(string:""),
+        
+        
+        blurb: String? = ""
     ){
         self.displayName = displayName
         self.email = email
