@@ -13,7 +13,6 @@
 		3886CBDA1AD241B300826E9B /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3886CBD91AD241B300826E9B /* Spotify.framework */; };
 		3886CBE51AD2434B00826E9B /* MusicCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBE01AD2426A00826E9B /* MusicCollectionTests.swift */; };
 		3886CBE61AD2435000826E9B /* EchoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBDE1AD2426A00826E9B /* EchoTests.swift */; };
-		3886CBE71AD2435400826E9B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3886CBDF1AD2426A00826E9B /* Info.plist */; };
 		3886CBEA1AD2436500826E9B /* Echo-Bridgin-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBDC1AD2426A00826E9B /* Echo-Bridgin-Header.m */; };
 		3886CBEE1AD2E32500826E9B /* ChooseSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */; };
 		3A5E5D271AD33715005C1383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E5D251AD33715005C1383 /* Main.storyboard */; };
@@ -1078,7 +1077,7 @@
 		AA2009171AA40D7B00E9BB8B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = Quartet;
 				TargetAttributes = {
 					AA20091E1AA40D7B00E9BB8B = {
@@ -1125,7 +1124,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3886CBE71AD2435400826E9B /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

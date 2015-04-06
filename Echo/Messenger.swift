@@ -176,6 +176,7 @@ class Messenger {
     func updateConversations(){
         var pfo = self.user!.parse
         var convs = pfo!.valueForKey("conversations") as [PFObject]
+        var foundUsers = [User]()
         for convo in convs {
             var out = [[String]]()
             var users = convo.valueForKey("users") as [String]
@@ -187,7 +188,7 @@ class Messenger {
             }
             for (user, chat) in self.chats {
                 if user.id == other_id {
-                    
+                    foundUsers.append(user)
                 }
             var messages = convo.valueForKey("messages") as [[AnyObject]]
             for message in messages {
