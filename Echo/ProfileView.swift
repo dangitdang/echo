@@ -158,11 +158,13 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         blurb.resignFirstResponder()
     }
     
-//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-//        if (textField.text == "\n"){
-//            textField.resignFirstResponder()
-//        }
-//        return false
-//    }
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n"){
+            println("UNICORNS AND RAINBOWS")
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     
 }
