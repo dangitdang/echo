@@ -150,6 +150,9 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
     func textViewDidEndEditing(textView: UITextView) {
         if (textView.text == ""){
             textView.text = "Type here!"
+        } else {
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            appDelegate.user?.blurb = textView.text
         }
     }
     
@@ -160,7 +163,6 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if (text == "\n"){
-            println("UNICORNS AND RAINBOWS")
             textView.resignFirstResponder()
             return false
         }
