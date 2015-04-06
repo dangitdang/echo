@@ -127,9 +127,6 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 
             }
         })
-
-
-
     }
     
     func authenticationViewControllerDidCancelLogin(authenticationViewController: SPTAuthViewController!) {
