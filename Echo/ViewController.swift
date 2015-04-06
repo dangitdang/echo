@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 
 
-class ViewController: UIViewController, SPTAuthViewDelegate {
+class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPlaybackDelegate {
     
     
     let ClientID = "782ed7079eef47cdb3d0d21df4cc9db3"
@@ -25,13 +26,13 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     var session:SPTSession!
     var user: SPTUser!
     var collection: MusicCollection!
-    
+    var player: SPTAudioStreamingController!
     override func viewDidLoad() {
         super.viewDidLoad()
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAfterFirstLogin", name: "loginSuccessfull", object: nil)
 //        
 //        let userDefaults = NSUserDefaults.standardUserDefaults()
-//        
+//
 //        if let sessionObj:AnyObject = userDefaults.objectForKey("SpotifySession") { // session available
 //            let sessionDataObj = sessionObj as NSData
 //            
@@ -130,10 +131,12 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
                     username = self.user.displayName
                 }
                 appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs)
-                scrapper.scrape(appDelegate.user!)
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
+                self.setupSpotifyPlayer()
+                appDelegate.player = self.player
+                self.loginWithSpotifySession(self.session)
             }
         })
         performSegueWithIdentifier("leaveLogIn", sender: nil)
@@ -148,7 +151,28 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
     func authenticationViewController(authenticationViewController: SPTAuthViewController!, didFailToLogin error: NSError!) {
         println("login failed")
     }
-
+    
+    
+    func setupSpotifyPlayer() {
+        self.player = SPTAudioStreamingController(clientId: ClientID)
+        self.player!.playbackDelegate = self
+        self.player!.diskCache = SPTDiskCache(capacity: 1024 * 1024 * 64)
+    }
+    
+    func loginWithSpotifySession(session: SPTSession) {
+        player!.loginWithSession(session, callback: { (error: NSError!) in
+            if error != nil {
+                println("Couldn't login with session: \(error)")
+                return
+            }
+            self.useLoggedInPermissions()
+        })
+    }
+    
+    func useLoggedInPermissions() {
+        let spotifyURI = "spotify:track:1WJk986df8mpqpktoktlce"
+        player!.playURIs([NSURL(string: spotifyURI)!], withOptions: nil, callback: nil)
+    }
 
 
 }
