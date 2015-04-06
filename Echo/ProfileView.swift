@@ -34,6 +34,8 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
         blurb.layer.borderWidth = 0.8
         blurb.layer.cornerRadius = 1
         
+        //blurb.returnKeyType = UIReturnKeyType.Done
+        
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
         
@@ -151,5 +153,8 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
         }
     }
     
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
     
 }
