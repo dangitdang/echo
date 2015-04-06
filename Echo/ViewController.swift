@@ -9,9 +9,6 @@
 import UIKit
 import AVFoundation
 
-
-
-
 class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPlaybackDelegate {
     
     
@@ -29,34 +26,6 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
     var player: SPTAudioStreamingController!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAfterFirstLogin", name: "loginSuccessfull", object: nil)
-//        
-//        let userDefaults = NSUserDefaults.standardUserDefaults()
-//
-//        if let sessionObj:AnyObject = userDefaults.objectForKey("SpotifySession") { // session available
-//            let sessionDataObj = sessionObj as NSData
-//            
-//            let session = NSKeyedUnarchiver.unarchiveObjectWithData(sessionDataObj) as SPTSession
-//            
-//            if !session.isValid() {
-//                SPTAuth.defaultInstance().renewSession(session, callback: { (error:NSError!, renewdSession:SPTSession!) -> Void in
-//                    if error == nil {
-//                        let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
-//                        userDefaults.setObject(sessionData, forKey: "SpotifySession")
-//                        userDefaults.synchronize()
-//                        self.session = renewdSession
-//                    }else{
-//                        println("error refreshing session")
-//                    }
-//                })
-//            }else{
-//                println("session valid")
-//                self.session = session
-//            }
-//        }else{
-//        }
-        
-        
     }
     
     func updateAfterFirstLogin () {
@@ -131,13 +100,21 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 } else {
                     username = self.user.displayName
                 }
+                
                 appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs)
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
+                
                 self.setupSpotifyPlayer()
                 appDelegate.player = self.player
                 self.loginWithSpotifySession(self.session)
+                
+                
+                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
+                    println(data as [[String]])
+                })
+                
             }
         })
         performSegueWithIdentifier("leaveLogIn", sender: nil)
@@ -161,16 +138,19 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
     }
     
     func loginWithSpotifySession(session: SPTSession) {
+        println(player)
         player!.loginWithSession(session, callback: { (error: NSError!) in
             if error != nil {
                 println("Couldn't login with session: \(error)")
                 return
             }
+            println("Logged in successful")
             self.useLoggedInPermissions()
         })
     }
     
     func useLoggedInPermissions() {
+        println("L")
         let spotifyURI = "spotify:track:1WJk986df8mpqpktoktlce"
         player!.playURIs([NSURL(string: spotifyURI)!], withOptions: nil, callback: nil)
     }
