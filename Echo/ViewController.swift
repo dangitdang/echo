@@ -135,14 +135,14 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
-                self.setupSpotifyPlayer()
-                appDelegate.player = self.player
-                self.loginWithSpotifySession(self.session)
+                //self.setupSpotifyPlayer()
+                //appDelegate.player = self.player
+                //self.loginWithSpotifySession(self.session)
                 println("done authentification")
             }
         })
         performSegueWithIdentifier("leaveLogIn", sender: nil)
-
+        println("left login")
 
     }
     
