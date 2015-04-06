@@ -135,7 +135,6 @@
 		AA4CBA501AB6A6A600AD6BCC /* SpotifyScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */; };
 		AA967B811AD3146B00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA967B821AD3158E00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
-		AA967B851AD332B100A7C901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA967B831AD332B100A7C901 /* Main.storyboard */; };
 		AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA31AD1D345008900B9 /* Alamofire.swift */; };
 		AADEDBA61AD24084008900B9 /* SongManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA51AD24084008900B9 /* SongManager.swift */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
@@ -485,7 +484,6 @@
 		AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyScrapper.swift; sourceTree = "<group>"; };
-		AA967B841AD332B100A7C901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AADEDBA21AD1D345008900B9 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
 		AADEDBA31AD1D345008900B9 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		AADEDBA51AD24084008900B9 /* SongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
@@ -993,7 +991,6 @@
 				3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */,
 				3A8133971AD1C5B3000D95D0 /* ProfileView.swift */,
 				383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */,
-				AA967B831AD332B100A7C901 /* Main.storyboard */,
 				3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */,
 				383C44081AD1FCA7002E2E38 /* MatchViewController.swift */,
 				AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */,
@@ -1121,7 +1118,6 @@
 				3A8135241AD1CF40000D95D0 /* PNLoggerSymbols.plist in Resources */,
 				AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */,
 				3A5E5D271AD33715005C1383 /* Main.storyboard in Resources */,
-				AA967B851AD332B100A7C901 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1318,14 +1314,6 @@
 				AA20092E1AA40D7B00E9BB8B /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		AA967B831AD332B100A7C901 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA967B841AD332B100A7C901 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
