@@ -50,6 +50,7 @@ class MusicCollection {
         self.initializeWeights()
     }
     
+    
     init( obj: [String:AnyObject]) {
         self.artists = obj["artists"] as [String]
         self.albums = obj["albums"] as [String: [String]]
@@ -59,6 +60,7 @@ class MusicCollection {
         self.weights =  [String: Float?]()
         
     }
+    
     func addPhotos(artists: [String:String], albums: [String:String]){
         self.artistPhotos = artists
         self.albumCovers = albums

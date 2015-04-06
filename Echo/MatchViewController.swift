@@ -35,6 +35,7 @@ class MatchViewController: ViewControllerWNav {
             sideMenuController()?.setContentViewController(destViewController)
             sideMenuController()?.sideMenu?.hideSideMenu()
         }
+
         
         //self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
         
@@ -56,7 +57,8 @@ class MatchViewController: ViewControllerWNav {
     
     
     func getCurrentMatch() {
-        self.currentMatch = self.user.getLatestMatch()
+        //self.currentMatch = self.user.getLatestMatch()
+        self.currentMatch = User.checkIfUserExists("aivanov@mit.edu")
     }
     
     func setUser() {

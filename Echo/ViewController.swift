@@ -83,7 +83,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 //scrapper.retrievePlaylists()
                 
                 let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-                
+                appDelegate.scraper = scrapper
                 appDelegate.session = self.session
                 var prefs: [Int] = []
                 var a: [String] = []
@@ -105,6 +105,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
+
                 
                 var userOb = User.checkIfUserExists(self.user.emailAddress) as User?
                 if (userOb == nil) {
@@ -125,6 +126,11 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     println(data as [[String]])
                 })
                 
+                //self.setupSpotifyPlayer()
+                //println("after setup method")
+                //appDelegate.player = self.player
+                //println(self.session)
+                //self.loginWithSpotifySession(self.session)
             }
         })
     }
@@ -145,8 +151,8 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
     }
     
     func loginWithSpotifySession(session: SPTSession) {
-        println(player)
-        player!.loginWithSession(session, callback: { (error: NSError!) in
+        self.player!.loginWithSession(session, callback: { (error: NSError!) in
+
             if error != nil {
                 println("Couldn't login with session: \(error)")
                 return
