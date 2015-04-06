@@ -11,9 +11,9 @@ class User: Hashable {
     var displayName: String
     var email: String
     var picURL: NSURL?
-    var musicCollection: MusicCollection
+    var musicCollection: MusicCollection?
     var preferences: [Int]
-    var matches: [Int: [String]]!
+    var matches: [String: [String]]!
     var messenger: Messenger?
     var parse: PFObject?
     
@@ -23,16 +23,14 @@ class User: Hashable {
     init(
         displayName : String,
         email : String,
-        musicCollection: MusicCollection,
         preferences: [Int],
-        matches: [Int: [String]] = [1:[], 2:[], 3:[], 4:[], 5:[]],
+        matches: [String: [String]] = ["1":[], "2":[], "3":[], "4":[], "5":[]],
         birthdate: String? = nil,
         country: String? = nil,
         picURL: NSURL? =  nil
     ){
         self.displayName = displayName
         self.email = email
-        self.musicCollection = musicCollection
         self.birthdate = birthdate
         self.country = country
         self.picURL = picURL
@@ -40,6 +38,9 @@ class User: Hashable {
         self.preferences = preferences
     }
     
+    func setMusicCollection(m:MusicCollection){
+        self.musicCollection = m
+    }
     /*
     Saves the user to the 
         database
@@ -47,17 +48,19 @@ class User: Hashable {
     func store() -> Void {
         var user = PFObject(className: "EchoUser")
         user.setObject(self.displayName, forKey: "display_name")
-        
         user.setObject(self.email, forKey: "email")
         user.setObject(self.birthdate, forKey: "birthdate")
         user.setObject(self.country, forKey: "country")
         user.setObject(self.matches, forKey: "mathces")
         user.setObject(self.preferences, forKey: "preferences")
+        user.setObject([], forKey: "requests")
+        user.setObject([], forKey: "conversations")
         user.setObject(Date.from(year: 2000, month: 1, day: 1), forKey: "lastTimeMatched")
-        var musicJSON = self.musicCollection.toJSON()
+        var musicJSON = self.musicCollection.toObject()
+        
         user.setObject(musicJSON, forKey: "music")
         
-        user.setObject(self.picURL, forKey: "pic")
+        user.setObject(self.picURL?.description, forKey: "pic")
         
         user.save()
         self.id = user.objectId
@@ -74,7 +77,7 @@ class User: Hashable {
     }
     
     func getLatestMatch() -> User? {
-        var scores = [5,4,3,2,1]
+        var scores = ["5","4","3","2","1"]
         for score in scores {
             var arr = self.matches[score]!
             if let id = arr[0] as String? {
@@ -84,7 +87,7 @@ class User: Hashable {
     }
     
     func removeLastMatch(){
-        var scores = [5,4,3,2,1]
+        var scores = ["5","4","3","2","1"]
         for score in scores {
             self.matches[score]!.removeAtIndex(0)
         }
@@ -92,9 +95,11 @@ class User: Hashable {
     
     func getMatches() -> Void {
         var output: NSArray = PFCloud.callFunction("findMatches", withParameters: ["email": self.email]) as NSArray
+       
         for element in output {
+             println(element)
             var user_id = element[0] as String
-            var score = element[1] as Int
+            var score = element[1] as String
             self.matches[score]?.append(user_id)
         }
         self.parse?.setValue(self.matches, forKey: "matches")
@@ -125,12 +130,12 @@ class User: Hashable {
     }
     convenience init(pfo: PFObject) {
         var user = pfo
-        var music = MusicCollection(json: user.valueForKey("musicCollection") as String)
+        var music = MusicCollection(obj: user.valueForKey("musicCollection") as [String:AnyObject])
         self.init(displayName: user.valueForKey("displayName") as String,
             email: user.valueForKey("email") as String,
             musicCollection: music,
             preferences: user.valueForKey("preferences") as [Int],
-            matches: user.valueForKey("matches") as [Int:[String]],
+            matches: user.valueForKey("matches") as [String:[String]],
             birthdate: user.valueForKey("birthdate") as String?,
             country: user.valueForKey("country") as String?,
             picURL: user.valueForKey("picURL") as NSURL?

@@ -47,8 +47,8 @@ Parse.Cloud.define("findMatches", function(request, response) {
         if (common_prefs.length == 0) {
             return -1;
         }
-        var music1 = JSON.parse(user1.get("music"))
-        var music2 = JSON.parse(user2.get("music"))
+        var music1 = user1.get("music")
+        var music2 = user2.get("music")
         return musicScore(music1, music2)
     }
 
@@ -60,7 +60,7 @@ Parse.Cloud.define("findMatches", function(request, response) {
             var score = matchScore(user, potential_match)
             console.log(potential_match.createdAt)
             if (score>0 && potential_match.get("email")!=user.get("email")) {
-                matches.push([potential_match.id, score])
+                matches.push([potential_match.id, String(score)])
             }
 
             if (potential_match.createdAt > last_date) {
@@ -87,9 +87,10 @@ Parse.Cloud.define("findMatches", function(request, response) {
             query.find({
                 success: function(results) {
                     var output = findMatches(user, results)
-                    console.log(output)
+                    
                     var matches = output[0]
                     var last_date = output[1]
+                    console.log(matches)
                     response.success(matches)
                     user.set("lastTimeMatched", last_date)
                     user.save()

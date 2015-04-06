@@ -13,7 +13,8 @@ class MusicCollection {
     var songCounts: [String: Int] // Map artist -> song count
     var albums: [String: [String]] // Map artist -> array of albums
     var weights: [String: Float?]
-    
+    var albumCovers: [String: String]?
+    var artistPhotos: [String:String]?
     init(artists: [String], songCounts: [String: Int], albums: [String: [String]]){
         self.artists = artists
         self.songCounts = songCounts
@@ -46,6 +47,21 @@ class MusicCollection {
             self.songCounts[artist] = dict["songCounts"][artist].intValue
         }
         self.weights =  [String: Float?]()
+        self.initializeWeights()
+    }
+    
+    init( obj: [String:AnyObject]) {
+        self.artists = obj["artists"] as [String]
+        self.albums = obj["albums"] as [String: [String]]
+        self.songCounts = obj["songCounts"] as [String: Int]
+        self.artistPhotos = obj["artistPhotos"] as [String:String]?
+        self.albumCovers = obj["albumCovers"] as [String: String]?
+        self.weights =  [String: Float?]()
+        
+    }
+    func addPhotos(artists: [String:String], albums: [String:String]){
+        self.artistPhotos = artists
+        self.albumCovers = albums
         self.initializeWeights()
     }
 
@@ -86,6 +102,10 @@ class MusicCollection {
             }
         }
         return commonAlbums
+    }
+    func toObject() -> [String:AnyObject] {
+        var object: [String: AnyObject] = ["artists": self.artists, "albums": self.albums, "songCounts": self.songCounts, "artistPhotos": self.artistPhotos!, "albumCovers": self.albumCovers!]
+        return object
     }
     
     func toJSON() -> String {

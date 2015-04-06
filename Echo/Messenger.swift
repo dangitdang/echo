@@ -25,10 +25,14 @@ class Message {
         self.song = song
     }
     
-    init(arr: [String]){
-        self.text = arr[0]
-        self.song = arr[1]
-        self.sender = User.userFromID(arr[2])
+    init(arr: [Any]){
+        self.text = arr[0] as? String
+        self.song = arr[1] as? String
+        self.sender = User(pfo: arr[2] as PFObject)
+    }
+    
+    func toArr() -> [Any] {
+        return [self.text, self.song, self.sender?.parse]
     }
     
     func isSong() -> Bool {
@@ -44,6 +48,7 @@ class Messenger {
         self.chats = [User:[Message]]()
         self.requests = [User:Message]()
     }
+    
     
     func addRequest(user:User, request:Message){
         self.requests[user] = request
@@ -81,8 +86,9 @@ class Messenger {
     func getPeopleRequested() -> [User]{
         return self.requests.keys.array
     }
-}
-
-func NEW_REQUEST(request:Message) {
+    
+    
+    
     
 }
+
