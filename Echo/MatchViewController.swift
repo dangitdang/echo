@@ -25,6 +25,15 @@ class MatchViewController: ViewControllerWNav {
         //setUser()
         //getCurrentMatch()
         //self.matchNameLabel.text = self.currentMatch.displayName
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+        var destViewController : UIViewController
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+
+        if (appDelegate.user.newUser) {
+            appDelegate.user.newUser = false
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Profile") as UIViewController
+            sideMenuController()?.setContentViewController(destViewController)
+        }
         
         //self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
         
