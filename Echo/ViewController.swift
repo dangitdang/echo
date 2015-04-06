@@ -106,6 +106,15 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
                 
+                var userOb = User.checkIfUserExists(self.user.emailAddress) as User?
+                if (userOb == nil) {
+                    appDelegate.user?.newUser = true
+                } else {
+                    appDelegate.user?.newUser = false
+                    appDelegate.user = userOb
+                }
+                self.performSegueWithIdentifier("leaveLogIn", sender: nil)
+                
                 self.setupSpotifyPlayer()
                 appDelegate.player = self.player
                 self.loginWithSpotifySession(self.session)
