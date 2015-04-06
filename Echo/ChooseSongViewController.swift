@@ -26,7 +26,7 @@ class ChooseSongViewController: ViewController {
         navigationItem.leftBarButtonItem = backButton
         getSession()
         self.songTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "songCell")
-        self.songText = self.songTextField.text
+        //self.songText = self.songTextField.text
         // Do any additional setup after loading the view.
     }
 
@@ -51,12 +51,30 @@ class ChooseSongViewController: ViewController {
     }
     
     @IBAction func songTextFieldChanged(sender: AnyObject) {
-        SPTRequest.performSearchWithQuery(self.songTextField.text, queryType:SPTSearchQueryType.QueryTypeTrack,  offset:1, session:currentSession, market:nil, callback:{(error:NSError!, resultList:AnyObject!) -> Void in if error != nil {
-            println("error sadface")
-        } else {
-            self.searchResults = resultList as SPTListPage
-            }
-        })
+        println(currentSession)
+        
+        
+        request(.GET, "https://api.spotify.com/v1/search?q=Blank&type=track", encoding: .JSON)
+            .responseJSON { (request, response, data, error) in
+                println(response)
+        }
+        
+        
+        
+        
+//        SPTRequest.performSearchWithQuery(self.songTextField.text, queryType:SPTSearchQueryType.QueryTypeTrack,  offset:1, session:currentSession, market:nil, callback:{(error:NSError!, resultList:AnyObject!) -> Void in if error != nil {
+//            println("error sadface")
+//            println(error)
+//        } else {
+//            resultList.requestNextPageWithSession(self.currentSession, callback: { (error:
+//                NSError!, resultPage:AnyObject!) -> Void in
+//                self.searchResults = resultPage as SPTListPage
+//                println(self.searchResults.items)
+//            })
+//
+//            }
+//        })
+        
     }
     
 
