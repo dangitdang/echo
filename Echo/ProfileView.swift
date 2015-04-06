@@ -18,6 +18,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var checkbox2: UIButton!
     @IBOutlet weak var checkbox3: UIButton!
     @IBOutlet weak var blurb: UITextView!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     
     
@@ -112,7 +113,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         self.view.endEditing(true)
     }
-    
+        
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -136,6 +137,8 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
+        var point = textView.frame.origin as CGPoint
+        scrollView.contentOffset = point
         textView.textColor = UIColor.blackColor()
         if (textView.text == "Type here!"){
             textView.text = ""
