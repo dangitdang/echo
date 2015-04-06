@@ -52,7 +52,6 @@
                     </view>
                     <connections>
                         <segue destination="3d9-Xg-z6h" kind="show" identifier="leaveLogIn" id="LzK-H5-wwq"/>
-                        <segue destination="FZ7-nX-ehb" kind="show" identifier="ProfileSegue" id="OX2-qy-NqW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -87,17 +86,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Requests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEJ-Hf-56h">
-                                <rect key="frame" x="98" y="124" width="73" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Requests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEJ-Hf-56h">
+                                <rect key="frame" x="46" y="44" width="262" height="25"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="owc-lx-YxM">
+                                <rect key="frame" x="16" y="77" width="568" height="503"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uEJ-Hf-56h" firstAttribute="leading" secondItem="hbB-CG-sNm" secondAttribute="leadingMargin" constant="30" id="14f-oa-urv"/>
+                            <constraint firstItem="owc-lx-YxM" firstAttribute="top" secondItem="uEJ-Hf-56h" secondAttribute="bottom" constant="8" id="6an-8I-ggs"/>
+                            <constraint firstItem="uEJ-Hf-56h" firstAttribute="top" secondItem="M0O-cg-Z7k" secondAttribute="bottom" constant="24" id="ZL2-aT-Bhu"/>
+                            <constraint firstItem="owc-lx-YxM" firstAttribute="trailing" secondItem="hbB-CG-sNm" secondAttribute="trailingMargin" id="cQl-5Y-GVj"/>
+                            <constraint firstItem="owc-lx-YxM" firstAttribute="leading" secondItem="hbB-CG-sNm" secondAttribute="leadingMargin" id="utc-Jx-ix8"/>
+                            <constraint firstItem="mxS-f4-4qZ" firstAttribute="top" secondItem="owc-lx-YxM" secondAttribute="bottom" constant="20" id="zZX-4H-Yzu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="n5a-Ca-wAp">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="N3t-aR-jIY">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="N3t-aR-jIY">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="xQ5-Gl-hcq" id="8mO-vZ-B8c"/>
                             </connections>
@@ -106,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Lc-QX-MLN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="403" y="-2266"/>
+            <point key="canvasLocation" x="431" y="-2256"/>
         </scene>
         <!--Profile View-->
         <scene sceneID="ypW-0h-f4p">
@@ -301,7 +312,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="foB-fC-t5m">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="oEn-7q-q4j">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="oEn-7q-q4j">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="FZ7-nX-ehb" id="byF-RO-hK9"/>
                             </connections>
@@ -357,7 +368,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pjd-zA-wa5">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="h0z-kT-5az">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="h0z-kT-5az">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="9hL-yG-r5T" id="Djc-5s-1Ze"/>
                             </connections>
@@ -427,8 +438,9 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="tr1-F0-Dvy">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="Backbutton" id="q9t-mn-Fyq"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ha6-Ir-3uH">
-                            <rect key="frame" x="158.5" y="8" width="283" height="28"/>
+                            <rect key="frame" x="159" y="8" width="283" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="In Common With You"/>
@@ -440,6 +452,7 @@
                         </segmentedControl>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="q9t-mn-Fyq" id="dDT-r5-qtY"/>
                         <outlet property="segmentedControl" destination="ha6-Ir-3uH" id="Y7V-IT-y0U"/>
                         <outlet property="songTableView" destination="4kn-gq-IIW" id="Nqa-Zg-wpt"/>
                     </connections>
@@ -798,7 +811,7 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="dQM-L8-gyS">
-                        <barButtonItem key="leftBarButtonItem" title="=" id="itR-6l-26N">
+                        <barButtonItem key="leftBarButtonItem" image="Menu" id="itR-6l-26N">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="F8Q-9z-ORo" id="mQG-Uw-vXf"/>
                             </connections>
@@ -817,7 +830,9 @@
     </scenes>
     <resources>
         <image name="1984" width="333" height="500"/>
+        <image name="Backbutton" width="13" height="14"/>
         <image name="Checkbox" width="40" height="40"/>
+        <image name="Menu" width="15" height="10"/>
         <image name="agaetis-byrjun" width="333" height="500"/>
         <image name="log_in_spotify" width="488" height="88"/>
         <image name="logo1" width="1283" height="705"/>

@@ -18,12 +18,15 @@ class MatchesMusicTableViewController: UITableViewController {
     var matchesMusicData: [String] = []
     
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        //let backButton = UIBarButtonItem(, style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        //navigationItem.leftBarButtonItem = backButton
+        backButton.action = "goBack"
+        backButton.target = self
         navigationItem.leftBarButtonItem = backButton
-        
         loadInCommonMusic()
         
         //self.tablewView.registerClass:MatchesMusicTableViewCell forCellReuse

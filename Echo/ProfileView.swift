@@ -48,7 +48,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
        
         blurb.layer.borderColor = UIColor(red: 0xC8, green: 0xC9, blue: 0xC8).CGColor
         blurb.layer.borderWidth = 0.8
-        blurb.layer.cornerRadius = 8
+        blurb.layer.cornerRadius = 7
         
         blurb.returnKeyType = UIReturnKeyType.Done
         
@@ -82,13 +82,13 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         if (user.country == "") {
             locationField.placeholder = "Location"
         } else {
-            locationField.placeholder = user.country
+            locationField.text = user.country
         }
         
         if (user.birthdate == "") {
             ageField.placeholder = "Age"
         } else {
-            ageField.placeholder = user.birthdate
+            ageField.text = user.birthdate
         }
         
         name.text = user.displayName
