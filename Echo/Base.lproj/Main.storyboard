@@ -419,7 +419,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yZ-ZE-QmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1519.5" y="-493.5"/>
+            <point key="canvasLocation" x="1681.5" y="-670.5"/>
         </scene>
         <!--Choose Song View Controller-->
         <scene sceneID="OYU-dW-jiv">
@@ -501,7 +501,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7z-BF-qPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684.5" y="378.75"/>
+            <point key="canvasLocation" x="1444.5" y="477.75"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="dB2-gd-dgY">
@@ -606,7 +606,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="a0f-gw-3Ll" kind="presentation" id="uxH-DH-zVS"/>
+                                    <segue destination="a0f-gw-3Ll" kind="presentation" id="pz1-f5-KEg"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -768,101 +768,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paj-0s-vIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="523.5" y="-93"/>
-        </scene>
-        <!--Matches Music Table View Controller-->
-        <scene sceneID="MVd-NR-W4F">
-            <objects>
-                <tableViewController id="2bd-e9-37z" customClass="MatchesMusicTableViewController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="22" sectionFooterHeight="22" id="srJ-d7-1fQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MatchesMusicTableViewCell" rowHeight="94" id="lPA-Zw-IUb" customClass="MatchesMusicTableViewCell" customModule="Echo" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lPA-Zw-IUb" id="GYy-dS-SGZ">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pink Floyd" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oiy-Qi-S5e">
-                                            <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Oiy-Qi-S5e" firstAttribute="leading" secondItem="GYy-dS-SGZ" secondAttribute="leading" constant="50" id="hgA-nC-5ab"/>
-                                        <constraint firstItem="Oiy-Qi-S5e" firstAttribute="top" secondItem="GYy-dS-SGZ" secondAttribute="top" constant="36" id="s7w-rm-dyr"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="subviews">
-                                            <exclude reference="Oiy-Qi-S5e"/>
-                                        </mask>
-                                        <mask key="constraints">
-                                            <exclude reference="hgA-nC-5ab"/>
-                                            <exclude reference="s7w-rm-dyr"/>
-                                        </mask>
-                                    </variation>
-                                    <variation key="heightClass=regular-widthClass=compact">
-                                        <mask key="subviews">
-                                            <include reference="Oiy-Qi-S5e"/>
-                                        </mask>
-                                        <mask key="constraints">
-                                            <include reference="hgA-nC-5ab"/>
-                                            <include reference="s7w-rm-dyr"/>
-                                        </mask>
-                                    </variation>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="artistNameLabel" destination="Oiy-Qi-S5e" id="8Nw-lo-e7N"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="2bd-e9-37z" id="ps1-5P-mm1"/>
-                            <outlet property="delegate" destination="2bd-e9-37z" id="cKi-zT-Cny"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="2a6-GB-HC2">
-                        <nil key="title"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="AP1-Za-LHy">
-                            <rect key="frame" x="159" y="8" width="283" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="In Common With You"/>
-                                <segment title="Unique To Match"/>
-                            </segments>
-                            <connections>
-                                <action selector="indexChanged:" destination="2bd-e9-37z" eventType="valueChanged" id="a51-J5-3b9"/>
-                            </connections>
-                        </segmentedControl>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="segmentedControl" destination="AP1-Za-LHy" id="dBw-xo-Quy"/>
-                        <outlet property="songTableView" destination="srJ-d7-1fQ" id="iIC-Hy-HiF"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CUC-Gb-1cg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2431.5" y="-328.5"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8S9-Re-amd">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="155-4T-5x2" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ES3-Ra-37I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2bd-e9-37z" kind="relationship" relationship="rootViewController" id="aCL-Ff-De2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qlN-D1-PIg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="517.5" y="-72"/>
         </scene>
     </scenes>
     <resources>

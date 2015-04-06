@@ -21,6 +21,7 @@ class ChooseSongViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("loadded")
         let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
         navigationItem.leftBarButtonItem = backButton
         getSession()
