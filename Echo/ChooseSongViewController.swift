@@ -13,13 +13,14 @@ class ChooseSongViewController: ViewController {
 
     @IBOutlet weak var songTextField: UITextField!
     var songText: String!
-    var searchResults: NSArray!
+    var searchResults: [[String]]!
     var currentSession:SPTSession?
     var myScraper:Scrapper!
 
     @IBOutlet weak var songTableView: UITableView!
     
     override func viewDidLoad() {
+        println("View Did Load")
         super.viewDidLoad()
         println("loadded")
         let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
@@ -37,10 +38,9 @@ class ChooseSongViewController: ViewController {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        if self.searchResults == nil {
+        if self.searchResults == nil{
             return 0
         }
-        
         return Int(self.searchResults.count)
     
     }
@@ -48,14 +48,16 @@ class ChooseSongViewController: ViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.songTableView.dequeueReusableCellWithIdentifier("songCell") as UITableViewCell
         
-        cell.textLabel?.text = self.searchResults[indexPath.row] as String
+        cell.textLabel?.text = self.searchResults[indexPath.row][1] as String
         
         return cell
     }
     
     @IBAction func songTextFieldChanged(sender: AnyObject) {
         self.myScraper.querySong(self.songTextField.text, completion: {(data:AnyObject!) -> Void in
-            self.searchResults = data as NSArray!
+            println(data)
+            self.searchResults = data as [[String]]
+    
         })
     }
     
