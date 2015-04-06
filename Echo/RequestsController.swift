@@ -10,15 +10,13 @@ import UIKit
 
 class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableViewDelegate {
     var userList: [User] = []
-    var songRequests: [User: Message] = []:[]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         userList = appDelegate.user.messenger.getPeopleRequested()
-        songRequests = appDelegate.user.messenger.getRequests()
+        var songRequests: [User: Message] = appDelegate.user.messenger.getRequests()
         
     }
     
