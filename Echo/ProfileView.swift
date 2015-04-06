@@ -17,31 +17,8 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
     @IBOutlet weak var checkbox1: UIButton!
     @IBOutlet weak var checkbox2: UIButton!
     @IBOutlet weak var checkbox3: UIButton!
+    @IBOutlet weak var blurb: UITextView!
     
-    @IBAction func checkbox1(sender: AnyObject) {
-        doCheckboxPress(NEARBY, box: checkbox1)
-    }
-    
-    @IBAction func checkbox2(sender: AnyObject) {
-        doCheckboxPress(CONCERTS, box: checkbox2)
-    }
-    
-    @IBAction func checkbox3(sender: AnyObject) {
-        doCheckboxPress(MUSICIANS, box: checkbox3)
-    }
-    
-    func doCheckboxPress(boxId: Int, box: UIButton) {
-        box.selected = !box.selected
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        if (box.selected) {
-            appDelegate.user?.preferences.append(boxId)
-        } else {
-            if let index = find(appDelegate.user!.preferences, boxId) {
-                appDelegate.user?.preferences.removeAtIndex(index)
-            }
-        }
-    }
     
     override func viewDidLoad() {
         
@@ -71,6 +48,13 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
             
         }
         
+        if (user.blurb == nil) {
+            blurb.text = "Type here!"
+            blurb.textColor = UIColor.lightGrayColor()
+        } else {
+            blurb.text = user.blurb
+        }
+        
         if (user.country == nil) {
             locationField.placeholder = "Location"
         } else {
@@ -91,6 +75,31 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
             profPic.image = UIImage(data: data!)
         }
         
+    }
+    
+    @IBAction func checkbox1(sender: AnyObject) {
+        doCheckboxPress(NEARBY, box: checkbox1)
+    }
+    
+    @IBAction func checkbox2(sender: AnyObject) {
+        doCheckboxPress(CONCERTS, box: checkbox2)
+    }
+    
+    @IBAction func checkbox3(sender: AnyObject) {
+        doCheckboxPress(MUSICIANS, box: checkbox3)
+    }
+    
+    func doCheckboxPress(boxId: Int, box: UIButton) {
+        box.selected = !box.selected
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if (box.selected) {
+            appDelegate.user?.preferences.append(boxId)
+        } else {
+            if let index = find(appDelegate.user!.preferences, boxId) {
+                appDelegate.user?.preferences.removeAtIndex(index)
+            }
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
