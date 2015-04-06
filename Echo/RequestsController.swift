@@ -13,11 +13,16 @@ class RequestsController: ViewControllerWNav {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sideMenuController()?.sideMenu?.delegate = self
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var userList: [User] = appDelegate.user.messenger.getPeopleRequested()
+        var songRequests: [User: Message] = appDelegate.user.messenger.getRequests()
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
