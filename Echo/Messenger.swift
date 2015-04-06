@@ -11,28 +11,31 @@ import Foundation
 class Message {
     var text: String?
     var song: String?
-    var sender: User?
+    var mine: Bool
     
-    init(text: String, sender: User){
+    init(text: String?, song: String?, mine:Bool){
         self.text = text
-        self.sender = sender
-        self.song = nil
-    }
-    
-    init(song: String, sender:User){
-        self.text = nil
-        self.sender = sender
         self.song = song
+        self.mine = mine
     }
     
-    init(arr: [Any]){
+    convenience init(text: String, mine:Bool){
+        self.init(text: text, song: nil, mine: mine)
+    }
+    
+    convenience init(song: String, mine:Bool){
+        self.init(text: nil, song: song, mine: mine)
+    }
+    
+    init(arr: [Any], my_index: Int){
         self.text = arr[0] as? String
         self.song = arr[1] as? String
-        self.sender = User(pfo: arr[2] as PFObject)
+        self.mine = (arr[2] as Int) == my_index
     }
     
-    func toArr() -> [Any] {
-        return [self.text, self.song, self.sender?.parse]
+    func toArr(my_index: Int) -> [Any] {
+        var index = self.mine ? my_index : (my_index+1)%2
+        return [self.text, self.song, index]
     }
     
     func isSong() -> Bool {
@@ -40,22 +43,52 @@ class Message {
     }
 }
 
+
 class Messenger {
     var chats: [User: [Message]]
-    var requests: [User: Message]
-    
+    var requests: [User: String]
+    var my_indices: [User: Int]
     init(){
         self.chats = [User:[Message]]()
-        self.requests = [User:Message]()
+        self.requests = [User:String]()
+        self.my_indices = [User:Int]()
     }
     
+    init(user:User) {
+        var pfo = user.parse
+        var convs = pfo?.valueForKey("conversations") as [PFObject]
+        self.chats = [User:[Message]]()
+        self.requests = [User:String]()
+        self.my_indices = [User:Int]()
+        for convo in convs {
+            var users = convo.valueForKey("users") as [String]
+            var my_index = 0
+            var other_user = user
+            if (users[0] == user.id) {
+                my_index = 0
+                other_user = User.userFromID(users[1])!
+            } else {
+                my_index = 1
+                other_user = User.userFromID(users[0])!
+            }
+            self.chats[other_user] = [Message]()
+            self.my_indices[other_user] = my_index
+            var messages = convo.valueForKey("messages") as [[AnyObject]]
+            for message in messages {
+                
+            }
+        }
+        
+    }
     
-    func addRequest(user:User, request:Message){
-        self.requests[user] = request
+    func addRequest(user:User, song: String){
+        self.requests[user] = song
     }
     
     func approveRequest(user:User) {
-        self.addChat(user, request: self.requests.removeValueForKey(user)!)
+        var song = self.requests.removeValueForKey(user)!
+        self.addChat(user, song: Message(song: song, mine: false))
+        //CALL SENDER
     }
     
     func declieRequest(user:User){
@@ -63,12 +96,27 @@ class Messenger {
     }
     
     
-    func addChat(user:User, request:Message){
-        self.chats[user] = [request]
+    func addChat(user:User, song:Message){
+        self.chats[user] = [song]
     }
     
-    func addMessage(message:Message){
-        self.chats[message.sender!]?.append(message)
+    func addMessage(sender: String, text: String?, song: String?){
+        for (user, chat) in self.chats {
+            if user.id == sender {
+                self.chats[user]?.append(Message(text: text, song: song, mine: false))
+            }
+        }
+    }
+    
+    func sendRequest(to: User, song: String) {
+        self.requests[to] = song
+        // CALL SENDER
+        
+    }
+    
+    func sendMyMessage(user: User, text: String?, song: String?){
+        self.chats[user]?.append(Message(text: text, song: song, mine: true))
+        //CALL SENDER
     }
     
     func getMessages(user:User) -> [Message]{
@@ -86,9 +134,6 @@ class Messenger {
     func getPeopleRequested() -> [User]{
         return self.requests.keys.array
     }
-    
-    
-    
     
 }
 

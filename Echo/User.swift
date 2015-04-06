@@ -14,7 +14,7 @@ class User: Hashable {
     var musicCollection: MusicCollection?
     var preferences: [Int]
     var matches: [String: [String]]!
-    var messenger: Messenger?
+    var messenger: Messenger
     var parse: PFObject?
     
     var hashValue: Int {
@@ -27,7 +27,8 @@ class User: Hashable {
         matches: [String: [String]] = ["1":[], "2":[], "3":[], "4":[], "5":[]],
         birthdate: String? = nil,
         country: String? = nil,
-        picURL: NSURL? =  nil
+        picURL: NSURL? =  nil,
+        messenger: Messenger = Messenger()
     ){
         self.displayName = displayName
         self.email = email
@@ -36,6 +37,7 @@ class User: Hashable {
         self.picURL = picURL
         self.matches = matches
         self.preferences = preferences
+        self.messenger = Messenger()
     }
     
     func setMusicCollection(m:MusicCollection){
@@ -56,7 +58,7 @@ class User: Hashable {
         user.setObject([], forKey: "requests")
         user.setObject([], forKey: "conversations")
         user.setObject(Date.from(year: 2000, month: 1, day: 1), forKey: "lastTimeMatched")
-        var musicJSON = self.musicCollection.toObject()
+        var musicJSON = self.musicCollection?.toObject()
         
         user.setObject(musicJSON, forKey: "music")
         
@@ -133,7 +135,6 @@ class User: Hashable {
         var music = MusicCollection(obj: user.valueForKey("musicCollection") as [String:AnyObject])
         self.init(displayName: user.valueForKey("displayName") as String,
             email: user.valueForKey("email") as String,
-            musicCollection: music,
             preferences: user.valueForKey("preferences") as [Int],
             matches: user.valueForKey("matches") as [String:[String]],
             birthdate: user.valueForKey("birthdate") as String?,

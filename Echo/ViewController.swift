@@ -126,7 +126,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate {
                 } else {
                     username = self.user.displayName
                 }
-                appDelegate.user = User(displayName: username, email: self.user.emailAddress, musicCollection: musicCollec, preferences: prefs);
+                appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs);
                 
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL

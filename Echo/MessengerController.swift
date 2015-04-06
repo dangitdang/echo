@@ -9,3 +9,7 @@
 import Foundation
 
 
+func NEW_REQUEST(user:User, other_id: String, text:String?, song:String?){
+    var other_user = User.userFromID(other_id)
+    
+}
