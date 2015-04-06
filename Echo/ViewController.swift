@@ -105,6 +105,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
                 }
+<<<<<<< HEAD
                 
                 var userOb = User.checkIfUserExists(self.user.emailAddress) as User?
                 if (userOb == nil) {
@@ -125,6 +126,13 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     println(data as [[String]])
                 })
                 
+=======
+   //             self.setupSpotifyPlayer()
+                //println("after setup method")
+//                appDelegate.player = self.player
+                //println(self.session)
+ //               self.loginWithSpotifySession(self.session)
+>>>>>>> match view
             }
         })
     }
@@ -145,19 +153,33 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
     }
     
     func loginWithSpotifySession(session: SPTSession) {
+<<<<<<< HEAD
         println(player)
         player!.loginWithSession(session, callback: { (error: NSError!) in
+=======
+        println("beginning of login method")
+        println(self.player!)
+        self.player!.loginWithSession(session, callback: { (error: NSError!) in
+>>>>>>> match view
             if error != nil {
                 println("Couldn't login with session: \(error)")
                 return
             }
+<<<<<<< HEAD
             println("Logged in successful")
+=======
+            println("right before calling")
+>>>>>>> match view
             self.useLoggedInPermissions()
         })
     }
     
     func useLoggedInPermissions() {
+<<<<<<< HEAD
         println("L")
+=======
+        println("in useLoggedInPermissions")
+>>>>>>> match view
         let spotifyURI = "spotify:track:1WJk986df8mpqpktoktlce"
         player!.playURIs([NSURL(string: spotifyURI)!], withOptions: nil, callback: nil)
     }

@@ -17,6 +17,8 @@
 		3886CBEA1AD2436500826E9B /* Echo-Bridgin-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBDC1AD2426A00826E9B /* Echo-Bridgin-Header.m */; };
 		3886CBEE1AD2E32500826E9B /* ChooseSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */; };
 		3A5E5D271AD33715005C1383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E5D251AD33715005C1383 /* Main.storyboard */; };
+		38F8D4621AD31B8F004E3428 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */; };
+		38F8D4631AD31B95004E3428 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */; };
 		3A8133921AD1C596000D95D0 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
 		3A8133981AD1C5B3000D95D0 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */; };
 		3A8133991AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */; };
@@ -130,8 +132,6 @@
 		AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009261AA40D7B00E9BB8B /* ViewController.swift */; };
 		AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA20092B1AA40D7B00E9BB8B /* Images.xcassets */; };
 		AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */; };
-		AA2D5EEA1AD30AE2005B7121 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */; };
-		AA2D5EEC1AD30AF5005B7121 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */; };
 		AA4CBA501AB6A6A600AD6BCC /* SpotifyScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */; };
 		AA967B811AD3146B00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA967B821AD3158E00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
@@ -515,8 +515,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA2D5EEC1AD30AF5005B7121 /* MediaPlayer.framework in Frameworks */,
-				AA2D5EEA1AD30AE2005B7121 /* AVFoundation.framework in Frameworks */,
+				38F8D4631AD31B95004E3428 /* AVFoundation.framework in Frameworks */,
+				38F8D4621AD31B8F004E3428 /* MediaPlayer.framework in Frameworks */,
 				DC3FD5991AB4FF84005ED64D /* AudioToolbox.framework in Frameworks */,
 				DC3FD59A1AB4FF84005ED64D /* CFNetwork.framework in Frameworks */,
 				DC3FD59B1AB4FF84005ED64D /* CoreGraphics.framework in Frameworks */,
