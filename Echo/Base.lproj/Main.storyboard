@@ -52,6 +52,7 @@
                     </view>
                     <connections>
                         <segue destination="3d9-Xg-z6h" kind="show" identifier="leaveLogIn" id="LzK-H5-wwq"/>
+                        <segue destination="FZ7-nX-ehb" kind="show" identifier="ProfileSegue" id="OX2-qy-NqW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -127,7 +127,6 @@
 		3A8135231AD1CF40000D95D0 /* PNConnectionChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8134BA1AD1CF40000D95D0 /* PNConnectionChannel.m */; };
 		3A8135241AD1CF40000D95D0 /* PNLoggerSymbols.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A8134BC1AD1CF40000D95D0 /* PNLoggerSymbols.plist */; };
 		AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009261AA40D7B00E9BB8B /* ViewController.swift */; };
-		AA20092A1AA40D7B00E9BB8B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA2009281AA40D7B00E9BB8B /* Main.storyboard */; };
 		AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA20092B1AA40D7B00E9BB8B /* Images.xcassets */; };
 		AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */; };
 		AA2D5EEA1AD30AE2005B7121 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */; };
@@ -477,7 +476,6 @@
 		AA2009231AA40D7B00E9BB8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA2009261AA40D7B00E9BB8B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AA2009291AA40D7B00E9BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AA20092B1AA40D7B00E9BB8B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		AA20092E1AA40D7B00E9BB8B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AA2009341AA40D7B00E9BB8B /* EchoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EchoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -989,7 +987,6 @@
 				3A8133951AD1C5B3000D95D0 /* MyMenuTableViewController.swift */,
 				3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */,
 				3A8133971AD1C5B3000D95D0 /* ProfileView.swift */,
-				AA2009281AA40D7B00E9BB8B /* Main.storyboard */,
 				383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */,
 				3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */,
 				383C44081AD1FCA7002E2E38 /* MatchViewController.swift */,
@@ -1114,7 +1111,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA20092A1AA40D7B00E9BB8B /* Main.storyboard in Resources */,
 				AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */,
 				3A8135241AD1CF40000D95D0 /* PNLoggerSymbols.plist in Resources */,
 				AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */,
@@ -1300,14 +1296,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AA2009281AA40D7B00E9BB8B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AA2009291AA40D7B00E9BB8B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
