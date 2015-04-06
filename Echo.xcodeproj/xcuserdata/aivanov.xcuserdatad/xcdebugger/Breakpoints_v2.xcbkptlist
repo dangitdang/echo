@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/User.swift"
-            timestampString = "449908508.060599"
+            timestampString = "449973216.445823"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "User"
-            landmarkType = "3">
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "store()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -26,27 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/User.swift"
-            timestampString = "449908508.060599"
+            timestampString = "449974530.877511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "User"
             landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "EchoTests/MusicCollectionTests.swift"
-            timestampString = "449879589.836977"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -84,13 +70,175 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Echo/User.swift"
-            timestampString = "449949562.217717"
+            timestampString = "449974530.877511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "checkIfUserExists(_:)"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "init(pfo:)"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Echo/User.swift"
+            timestampString = "449971267.863319"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "User"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Echo.User.init (Echo.User.Type)(displayName : Swift.String, email : Swift.String, musicCollection : Echo.MusicCollection, preferences : Swift.Array&lt;Swift.Int&gt;, matches : Swift.Dictionary&lt;Swift.Int, Swift.Array&lt;Swift.String&gt;&gt;, birthdate : Swift.Optional&lt;Swift.String&gt;, country : Swift.Optional&lt;Swift.String&gt;, picURL : Swift.Optional&lt;ObjectiveC.NSURL&gt;) -&gt; Echo.User"
+                  moduleName = "Echo"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449971927.40212"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "640">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Echo.User.messenger.setter : Swift.Optional&lt;Echo.Messenger&gt;"
+                  moduleName = "Echo"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449971927.402416"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Echo.User.messenger.materializeForSet : Swift.Optional&lt;Echo.Messenger&gt;"
+                  moduleName = "Echo"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449971927.402641"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EchoTests.User.init (EchoTests.User.Type)(displayName : Swift.String, email : Swift.String, musicCollection : EchoTests.MusicCollection, preferences : Swift.Array&lt;Swift.Int&gt;, matches : Swift.Dictionary&lt;Swift.Int, Swift.Array&lt;Swift.String&gt;&gt;, birthdate : Swift.Optional&lt;Swift.String&gt;, country : Swift.Optional&lt;Swift.String&gt;, picURL : Swift.Optional&lt;ObjectiveC.NSURL&gt;) -&gt; EchoTests.User"
+                  moduleName = "EchoTests"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449971927.759223"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "640">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EchoTests.User.messenger.getter : Swift.Optional&lt;EchoTests.Messenger&gt;"
+                  moduleName = "EchoTests"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449971927.759377"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EchoTests.User.messenger.setter : Swift.Optional&lt;EchoTests.Messenger&gt;"
+                  moduleName = "EchoTests"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449971927.759465"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EchoTests.User.messenger.materializeForSet : Swift.Optional&lt;EchoTests.Messenger&gt;"
+                  moduleName = "EchoTests"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449971927.759552"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Echo/User.swift"
+            timestampString = "449971921.378642"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "store()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Echo.User.store (Echo.User)() -&gt; ()"
+                  moduleName = "Echo"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449972050.871235"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EchoTests.User.store (EchoTests.User)() -&gt; ()"
+                  moduleName = "EchoTests"
+                  urlString = "file:///Users/aivanov/Dropbox%20(Personal)/echo/Echo/User.swift"
+                  timestampString = "449972051.03815"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

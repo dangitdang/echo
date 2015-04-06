@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383C44051AD1FC92002E2E38 /* MatchesMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */; };
+		383C44071AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */; };
+		383C44091AD1FCA7002E2E38 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44081AD1FCA7002E2E38 /* MatchViewController.swift */; };
 		3A8133921AD1C596000D95D0 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
 		3A8133981AD1C5B3000D95D0 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */; };
 		3A8133991AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */; };
@@ -130,6 +133,24 @@
 		AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA31AD1D345008900B9 /* Alamofire.swift */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
+		DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
+		DC39B2A41AD1EE1000CEF932 /* MessengerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */; };
+		DC39B2A51AD2031E00CEF932 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
+		DC39B2A71AD2045000CEF932 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A71AB50BD3005ED64D /* User.swift */; };
+		DC39B2A81AD204B100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
+		DC39B2A91AD204B900CEF932 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
+		DC39B2AA1AD204CB00CEF932 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
+		DC39B2AB1AD204CB00CEF932 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A91AB50D68005ED64D /* Utils.swift */; };
+		DC39B2AC1AD204CB00CEF932 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009261AA40D7B00E9BB8B /* ViewController.swift */; };
+		DC39B2AD1AD204D000CEF932 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA31AD1D345008900B9 /* Alamofire.swift */; };
+		DC39B2AE1AD204D000CEF932 /* SpotifyScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */; };
+		DC39B2AF1AD204DD00CEF932 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */; };
+		DC39B2B01AD204DD00CEF932 /* MessengerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */; };
+		DC39B2B11AD204DD00CEF932 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */; };
+		DC39B2B21AD204DD00CEF932 /* MyMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133951AD1C5B3000D95D0 /* MyMenuTableViewController.swift */; };
+		DC39B2B31AD204DD00CEF932 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */; };
+		DC39B2B41AD204DD00CEF932 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133971AD1C5B3000D95D0 /* ProfileView.swift */; };
+		DC39B2B51AD204E100CEF932 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC3FD58C1AB4FF24005ED64D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58A1AB4FF24005ED64D /* Bolts.framework */; };
 		DC3FD58D1AB4FF24005ED64D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58B1AB4FF24005ED64D /* Parse.framework */; };
 		DC3FD5991AB4FF84005ED64D /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD58E1AB4FF84005ED64D /* AudioToolbox.framework */; };
@@ -159,6 +180,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewController.swift; sourceTree = "<group>"; };
+		383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewCell.swift; sourceTree = "<group>"; };
+		383C44081AD1FCA7002E2E38 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
 		3A8133911AD1C596000D95D0 /* MusicCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollection.swift; sourceTree = "<group>"; };
 		3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
@@ -458,6 +482,8 @@
 		AADEDBA31AD1D345008900B9 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
 		AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
+		DC39B2A11AD1DA6100CEF932 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
+		DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessengerController.swift; sourceTree = "<group>"; };
 		DC3FD58A1AB4FF24005ED64D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		DC3FD58B1AB4FF24005ED64D /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		DC3FD58E1AB4FF84005ED64D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -471,7 +497,7 @@
 		DC3FD5961AB4FF84005ED64D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		DC3FD5971AB4FF84005ED64D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DC3FD5981AB4FF84005ED64D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		DC3FD5A41AB4FFBB005ED64D /* Echo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Echo-Bridging-Header.h"; sourceTree = "<group>"; };
+		DC3FD5A41AB4FFBB005ED64D /* Echo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Echo-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		DC3FD5A51AB4FFBC005ED64D /* ParseImporter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ParseImporter.m; path = Echo/ParseImporter.m; sourceTree = "<group>"; };
 		DC3FD5A71AB50BD3005ED64D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DC3FD5A91AB50D68005ED64D /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -909,7 +935,6 @@
 				AA2009211AA40D7B00E9BB8B /* Echo */,
 				AA2009371AA40D7B00E9BB8B /* EchoTests */,
 				AA2009201AA40D7B00E9BB8B /* Products */,
-				DC3FD5A41AB4FFBB005ED64D /* Echo-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -925,6 +950,7 @@
 		AA2009211AA40D7B00E9BB8B /* Echo */ = {
 			isa = PBXGroup;
 			children = (
+				DC3FD5A41AB4FFBB005ED64D /* Echo-Bridging-Header.h */,
 				AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */,
 				DC3FD5A71AB50BD3005ED64D /* User.swift */,
 				DC3FD5A91AB50D68005ED64D /* Utils.swift */,
@@ -935,11 +961,16 @@
 				3A8133911AD1C596000D95D0 /* MusicCollection.swift */,
 				3A81339D1AD1CF40000D95D0 /* PubNub */,
 				3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */,
+				DC39B2A11AD1DA6100CEF932 /* Messenger.swift */,
+				DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */,
 				3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */,
+				383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */,
 				3A8133951AD1C5B3000D95D0 /* MyMenuTableViewController.swift */,
 				3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */,
 				3A8133971AD1C5B3000D95D0 /* ProfileView.swift */,
 				AA2009281AA40D7B00E9BB8B /* Main.storyboard */,
+				383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */,
+				383C44081AD1FCA7002E2E38 /* MatchViewController.swift */,
 				AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */,
 				AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */,
 				AA20092B1AA40D7B00E9BB8B /* Images.xcassets */,
@@ -1148,6 +1179,7 @@
 				3A8134EA1AD1CF40000D95D0 /* PNChannelGroupNamespace.m in Sources */,
 				3A81351D1AD1CF40000D95D0 /* PNWhereNowRequest.m in Sources */,
 				AA2009251AA40D7B00E9BB8B /* AppDelegate.swift in Sources */,
+				DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */,
 				3A8134C31AD1CF40000D95D0 /* PubNub+PAM.m in Sources */,
 				3A8135211AD1CF40000D95D0 /* PNServiceChannel.m in Sources */,
 				3A8134C11AD1CF40000D95D0 /* PubNub+History.m in Sources */,
@@ -1156,12 +1188,14 @@
 				3A8134E31AD1CF40000D95D0 /* PNAccessRightOptions.m in Sources */,
 				3A8135171AD1CF40000D95D0 /* PNMessagePostRequest.m in Sources */,
 				3A8134F61AD1CF40000D95D0 /* PNResponse.m in Sources */,
+				DC39B2A41AD1EE1000CEF932 /* MessengerController.swift in Sources */,
 				3A8135071AD1CF40000D95D0 /* PNAccessRightsAuditRequest.m in Sources */,
 				3A8134D91AD1CF40000D95D0 /* PNClientStateUpdateResponseParser.m in Sources */,
 				3A8134F91AD1CF40000D95D0 /* NSArray+PNAdditions.m in Sources */,
 				3A8134E21AD1CF40000D95D0 /* PNWhereNowResponseParser.m in Sources */,
 				3A8134D61AD1CF40000D95D0 /* PNChannelHistoryParser.m in Sources */,
 				3A8135021AD1CF40000D95D0 /* NSObject+PNAdditions.m in Sources */,
+				383C44091AD1FCA7002E2E38 /* MatchViewController.swift in Sources */,
 				AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */,
 				3A8134CA1AD1CF40000D95D0 /* PNWriteBuffer.m in Sources */,
 				3A8135121AD1CF40000D95D0 /* PNHeartbeatRequest.m in Sources */,
@@ -1175,6 +1209,7 @@
 				3A81351C1AD1CF40000D95D0 /* PNTimeTokenRequest.m in Sources */,
 				3A8135001AD1CF40000D95D0 /* NSMutableSet+PNAdditions.m in Sources */,
 				3A8134BF1AD1CF40000D95D0 /* PubNub+ChannelRegistry.m in Sources */,
+				383C44051AD1FC92002E2E38 /* MatchesMusicTableViewController.swift in Sources */,
 				3A8134C01AD1CF40000D95D0 /* PubNub+Cipher.m in Sources */,
 				3A8134C21AD1CF40000D95D0 /* PubNub+Messaging.m in Sources */,
 				3A8134CB1AD1CF40000D95D0 /* PNChannel.m in Sources */,
@@ -1198,6 +1233,7 @@
 				3A8134D41AD1CF40000D95D0 /* PNChannelGroupRemoveResponseParser.m in Sources */,
 				3A8134E41AD1CF40000D95D0 /* PNAccessRightsCollection.m in Sources */,
 				3A8134FD1AD1CF40000D95D0 /* NSError+PNAdditions.m in Sources */,
+				383C44071AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift in Sources */,
 				3A8134E91AD1CF40000D95D0 /* PNChannelGroupChange.m in Sources */,
 				3A8134C81AD1CF40000D95D0 /* PubNub+Time.m in Sources */,
 				3A81350D1AD1CF40000D95D0 /* PNChannelGroupsRequest.m in Sources */,
@@ -1225,8 +1261,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC39B2AC1AD204CB00CEF932 /* ViewController.swift in Sources */,
+				DC39B2B51AD204E100CEF932 /* ViewControllerWNav.swift in Sources */,
+				DC39B2B31AD204DD00CEF932 /* MyNavigationController.swift in Sources */,
+				DC39B2AA1AD204CB00CEF932 /* AppDelegate.swift in Sources */,
+				DC39B2AE1AD204D000CEF932 /* SpotifyScrapper.swift in Sources */,
+				DC39B2B11AD204DD00CEF932 /* ENSideMenuNavigationController.swift in Sources */,
+				DC39B2AF1AD204DD00CEF932 /* ENSideMenu.swift in Sources */,
 				AAAC43691AD0A6A200796CDB /* MusicCollectionTests.swift in Sources */,
+				DC39B2AB1AD204CB00CEF932 /* Utils.swift in Sources */,
+				DC39B2A81AD204B100CEF932 /* Messenger.swift in Sources */,
+				DC39B2A51AD2031E00CEF932 /* MusicCollection.swift in Sources */,
+				DC39B2B41AD204DD00CEF932 /* ProfileView.swift in Sources */,
 				AA20093B1AA40D7B00E9BB8B /* EchoTests.swift in Sources */,
+				DC39B2B01AD204DD00CEF932 /* MessengerController.swift in Sources */,
+				DC39B2A71AD2045000CEF932 /* User.swift in Sources */,
+				DC39B2B21AD204DD00CEF932 /* MyMenuTableViewController.swift in Sources */,
+				DC39B2AD1AD204D000CEF932 /* Alamofire.swift in Sources */,
+				DC39B2A91AD204B900CEF932 /* SwiftyJSON.swift in Sources */,
 				AAAC43641AD0A68F00796CDB /* Echo-Bridgin-Header.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
