@@ -19,15 +19,28 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
     @IBOutlet weak var checkbox3: UIButton!
     
     @IBAction func checkbox1(sender: AnyObject) {
-        checkbox1.selected = !checkbox1.selected
+        doCheckboxPress(NEARBY, box: checkbox1)
     }
     
     @IBAction func checkbox2(sender: AnyObject) {
-        checkbox2.selected = !checkbox2.selected
+        doCheckboxPress(CONCERTS, box: checkbox2)
     }
     
     @IBAction func checkbox3(sender: AnyObject) {
-        checkbox3.selected = !checkbox3.selected
+        doCheckboxPress(MUSICIANS, box: checkbox3)
+    }
+    
+    func doCheckboxPress(boxId: Int, box: UIButton) {
+        box.selected = !box.selected
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if (box.selected) {
+            appDelegate.user?.preferences.append(boxId)
+        } else {
+            if let index = find(appDelegate.user!.preferences, boxId) {
+                appDelegate.user?.preferences.removeAtIndex(index)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -40,6 +53,23 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate {
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
+        
+        for preference in appDelegate.user!.preferences {
+            switch (preference){
+            case 0:
+                checkbox3.selected = true
+                break
+            case 1:
+                checkbox1.selected = true
+                break
+            case 2:
+                checkbox2.selected = true
+                break
+            default:
+                break
+            }
+            
+        }
         
         if (user.country == nil) {
             locationField.placeholder = "Location"
