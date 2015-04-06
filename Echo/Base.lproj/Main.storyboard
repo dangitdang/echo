@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -186,6 +186,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="20" y="353" width="209" height="112"/>
+                                        </variation>
                                         <connections>
                                             <outlet property="delegate" destination="FZ7-nX-ehb" id="nJJ-wu-T9v"/>
                                         </connections>
@@ -418,7 +421,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGw-Zd-fg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2551.5" y="-469.5"/>
+            <point key="canvasLocation" x="2749.5" y="-706.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y33-Ad-UZ4">
@@ -436,7 +439,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yZ-ZE-QmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1681.5" y="-670.5"/>
+            <point key="canvasLocation" x="1687.5" y="-706.5"/>
         </scene>
         <!--Choose Song View Controller-->
         <scene sceneID="OYU-dW-jiv">
@@ -518,7 +521,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7z-BF-qPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1444.5" y="477.75"/>
+            <point key="canvasLocation" x="1969.5" y="305.25"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="dB2-gd-dgY">
@@ -623,7 +626,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="a0f-gw-3Ll" kind="presentation" id="pz1-f5-KEg"/>
+                                    <segue destination="a0f-gw-3Ll" kind="presentation" id="RqE-gi-Gop"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -784,7 +787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paj-0s-vIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="523.5" y="-93"/>
+            <point key="canvasLocation" x="622.5" y="-19.5"/>
         </scene>
     </scenes>
     <resources>
