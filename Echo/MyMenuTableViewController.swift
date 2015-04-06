@@ -39,7 +39,7 @@ class MyMenuTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 3
+        return 4
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -64,6 +64,9 @@ class MyMenuTableViewController: UITableViewController {
             cell!.textLabel?.text = "Messages"
             break
         case 2:
+            cell!.textLabel?.text = "Requests"
+            break
+        case 3:
             cell!.textLabel?.text = "Profile"
             break
         default:
@@ -101,6 +104,10 @@ class MyMenuTableViewController: UITableViewController {
             sideMenuController()?.setContentViewController(destViewController)
             break
         case 2:
+            destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Requests")as UIViewController
+            sideMenuController()?.setContentViewController(destViewController)
+            break
+        case 3:
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Profile")as UIViewController
             sideMenuController()?.setContentViewController(destViewController)
             break
