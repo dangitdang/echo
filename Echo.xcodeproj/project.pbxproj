@@ -20,6 +20,7 @@
 		38F8D4621AD31B8F004E3428 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */; };
 		38F8D4631AD31B95004E3428 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */; };
 		3A5E5D291AD34469005C1383 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D281AD34469005C1383 /* RequestsController.swift */; };
+		3A5E5D2B1AD3469F005C1383 /* MessageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */; };
 		3A8133921AD1C596000D95D0 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
 		3A8133981AD1C5B3000D95D0 /* ENSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */; };
 		3A8133991AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */; };
@@ -197,6 +198,7 @@
 		3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseSongViewController.swift; sourceTree = "<group>"; };
 		3A5E5D261AD33715005C1383 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3A5E5D281AD34469005C1383 /* RequestsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestsController.swift; sourceTree = "<group>"; };
+		3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageInterface.swift; sourceTree = "<group>"; };
 		3A8133911AD1C596000D95D0 /* MusicCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollection.swift; sourceTree = "<group>"; };
 		3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenu.swift; sourceTree = "<group>"; };
 		3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENSideMenuNavigationController.swift; sourceTree = "<group>"; };
@@ -984,6 +986,7 @@
 				3A8133911AD1C596000D95D0 /* MusicCollection.swift */,
 				3A81339D1AD1CF40000D95D0 /* PubNub */,
 				3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */,
+				3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */,
 				DC39B2A11AD1DA6100CEF932 /* Messenger.swift */,
 				DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */,
 				3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */,
@@ -1204,6 +1207,7 @@
 				3A8134D61AD1CF40000D95D0 /* PNChannelHistoryParser.m in Sources */,
 				3A8135021AD1CF40000D95D0 /* NSObject+PNAdditions.m in Sources */,
 				383C44091AD1FCA7002E2E38 /* MatchViewController.swift in Sources */,
+				3A5E5D2B1AD3469F005C1383 /* MessageInterface.swift in Sources */,
 				AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */,
 				3A8134CA1AD1CF40000D95D0 /* PNWriteBuffer.m in Sources */,
 				3A8135121AD1CF40000D95D0 /* PNHeartbeatRequest.m in Sources */,
