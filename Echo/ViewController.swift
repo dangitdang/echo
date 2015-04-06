@@ -115,11 +115,12 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 }
                 self.performSegueWithIdentifier("leaveLogIn", sender: nil)
                 
-                self.setupSpotifyPlayer()
-                appDelegate.player = self.player
-                self.loginWithSpotifySession(self.session)
-                
-                
+                println(self.user.product)
+                if self.user.product == SPTProduct.Premium {
+                    self.setupSpotifyPlayer()
+                    appDelegate.player = self.player
+                    self.loginWithSpotifySession(self.session)
+                }
                 scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
                     println(data as [[String]])
                 })
