@@ -162,7 +162,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 println("Couldn't login with session: \(error)")
                 return
             }
-            self.useLoggedInPermissions()
+            //self.useLoggedInPermissions()
         })
     }
     

@@ -36,13 +36,16 @@ class RequestsTableViewCell: UITableViewCell {
 
 class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableViewDelegate {
     var userList: [User] = []
+    var songList = [User: Message]()
+    
+    var player: SPTAudioStreamingController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         userList = appDelegate.user.messenger.getPeopleRequested()
-        var songRequests: [User: Message] = appDelegate.user.messenger.getRequests()
+        songList = appDelegate.user.messenger.getRequests()
         
         //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
         var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
@@ -50,10 +53,22 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         var dang = User.checkIfUserExists("dpham279@gmail.com") as User!
         var hansa = User.checkIfUserExists("agent.candykid@gmail.com") as User!
         
-        if (andrei != nil) { userList.append(andrei) }
-        if (harini != nil) { userList.append(harini) }
-        if (dang != nil) { userList.append(dang) }
-        if (hansa != nil) { userList.append(hansa) }
+        if (andrei != nil) {
+            userList.append(andrei)
+            songList[andrei] = Message(song: "4AILWMTyKIlicSfDVNtZQD", mine: false, time: NSDate())
+        }
+        if (harini != nil) {
+            userList.append(harini)
+            songList[harini] = Message(song: "3znPiywA0q1VK2jgAZFDoI", mine: false, time: NSDate())
+        }
+        if (dang != nil) {
+            userList.append(dang)
+            songList[dang] = Message(song: "5F0bmCjKUufNz1bHXfgRwe", mine: false, time: NSDate())
+        }
+        if (hansa != nil) {
+            userList.append(hansa)
+            songList[hansa] = Message(song: "0l2p5mDOP3czJ2FpD6zWie", mine: false, time: NSDate())
+        }
         
     }
     
@@ -84,6 +99,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         cell.playPauseButton.tag = row
         cell.playPauseButton.targetForAction("playOrPause", withSender: self)
         cell.playPauseButton.addTarget(self, action: "playOrPause:", forControlEvents: .TouchUpInside)
+        cell.playPauseButton.setImage(UIImage(named: "Pause"), forState: UIControlState.Selected);
 
         println(cell.playPauseButton.tag)
         
@@ -96,9 +112,24 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     func playOrPause(sender: UIButton!) {
         
         var buttonTag = sender.tag
-        var buttonId = sender.titleLabel?.text
         println(buttonTag)
-        println(buttonId)
+        sender.selected = !sender.selected
+        var songMessage = songList[userList[buttonTag]] as Message!
+        println(songMessage.song)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.player = appDelegate.player
+        if (sender.selected) {
+            var url = "spotify:track:" + songMessage.song
+            self.player.playURIs([NSURL(string: url)!], withOptions: nil, callback: nil)
+        } else {
+            self.player.stop({ (error:NSError!) -> Void in
+                if error != nil {
+                    println("error stopping")
+                }
+            })
+        }
+        
         
 //        var query = PFQuery(className:"Contacts")
 //        query.getObjectInBackgroundWithId(objectIDs[sender.tag]) {
