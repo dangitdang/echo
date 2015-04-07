@@ -145,6 +145,7 @@ class Scrapper {
         mutableURLRequest.HTTPMethod = "GET"
         mutableURLRequest.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
         request(mutableURLRequest).responseJSON{(request,response,data,error) in
+            println("error is \(error)")
             var raw = JSON(data!)
             if let songs=raw["items"].arrayValue as [JSON]? {
                 for song in songs {
@@ -153,7 +154,6 @@ class Scrapper {
                     var index = find(album,".")
                     while (index != nil) {
                         album.removeAtIndex(index!)
-                        println("there was a dot")
                         index = find(album,".")
                     }
                     var albumCover = song["track"]["album"]["images"][1]["url"].stringValue
@@ -206,6 +206,7 @@ class Scrapper {
                     println(self.albumCovers.count)
                     user.setMusicCollection(self.collection!)
                     let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                    println("SCRAPING DONE")
                     dispatch_semaphore_signal(appDelegate.semaphore);
                 }
                 
@@ -228,12 +229,12 @@ class Scrapper {
             var nextPlaylist = self.playlistStack.removeAtIndex(0)
             self.getTracks(nextPlaylist[0],owner: nextPlaylist[1],user: user)
         }
-//        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
-//
-//            dispatch_async(dispatch_get_main_queue()) {
-//
-//            }
-//        }
+        //        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+        //
+        //            dispatch_async(dispatch_get_main_queue()) {
+        //
+        //            }
+        //        }
         
     }
     func retrievePlaylistsHelper(url: NSURL, user:User) -> Void {
@@ -303,8 +304,6 @@ class Scrapper {
     func createCollection() -> MusicCollection{
         return MusicCollection(artists: artists, songCounts: songCounts, albums: albums)
     }
-    
-    
     func updateArtistCover() -> Void {
         for artist in self.artists {
             var album = albums[artist]?.last

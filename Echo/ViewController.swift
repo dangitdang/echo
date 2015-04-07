@@ -123,22 +123,12 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 self.performSegueWithIdentifier("leaveLogIn", sender: nil)
                 
                 println(self.user.product)
+                appDelegate.product = self.user.product
                 if self.user.product == SPTProduct.Premium {
                     self.setupSpotifyPlayer()
                     appDelegate.player = self.player
                     self.loginWithSpotifySession(self.session)
                 }
-                
-                scrapper.scrape(appDelegate.user)
-                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
-                    println(data as [[String]])
-                })
-                
-                //self.setupSpotifyPlayer()
-                //println("after setup method")
-                //appDelegate.player = self.player
-                //println(self.session)
-                //self.loginWithSpotifySession(self.session)
             }
         })
     }
@@ -165,7 +155,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 println("Couldn't login with session: \(error)")
                 return
             }
-            self.useLoggedInPermissions()
+            //self.useLoggedInPermissions()
         })
     }
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		383074831AD3752900006009 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383074821AD3752900006009 /* SongTableViewCell.swift */; };
+		383074851AD3B71700006009 /* SendSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383074841AD3B71700006009 /* SendSongViewController.swift */; };
 		383C44051AD1FC92002E2E38 /* MatchesMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */; };
 		383C44071AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */; };
 		383C44091AD1FCA7002E2E38 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44081AD1FCA7002E2E38 /* MatchViewController.swift */; };
@@ -18,6 +19,7 @@
 		3886CBEE1AD2E32500826E9B /* ChooseSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */; };
 		38F8D4621AD31B8F004E3428 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */; };
 		38F8D4631AD31B95004E3428 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */; };
+		3A25CBBF1AD3C29300BF45CB /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D281AD34469005C1383 /* RequestsController.swift */; };
 		3A5E5D291AD34469005C1383 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D281AD34469005C1383 /* RequestsController.swift */; };
 		3A5E5D2B1AD3469F005C1383 /* MessageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */; };
 		3A8133921AD1C596000D95D0 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
@@ -194,6 +196,7 @@
 
 /* Begin PBXFileReference section */
 		383074821AD3752900006009 /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
+		383074841AD3B71700006009 /* SendSongViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendSongViewController.swift; sourceTree = "<group>"; };
 		383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewController.swift; sourceTree = "<group>"; };
 		383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewCell.swift; sourceTree = "<group>"; };
 		383C44081AD1FCA7002E2E38 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
@@ -1006,6 +1009,7 @@
 				3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */,
 				383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */,
 				AA967B961AD37CA200A7C901 /* Main.storyboard */,
+				383074841AD3B71700006009 /* SendSongViewController.swift */,
 				3A8133951AD1C5B3000D95D0 /* MyMenuTableViewController.swift */,
 				383074821AD3752900006009 /* SongTableViewCell.swift */,
 				3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */,
@@ -1187,6 +1191,7 @@
 				3A8134CF1AD1CF40000D95D0 /* PNAccessRightsResponseParser.m in Sources */,
 				3A8134DA1AD1CF40000D95D0 /* PNErrorResponseParser.m in Sources */,
 				3A8134E61AD1CF40000D95D0 /* PNCache.m in Sources */,
+				383074851AD3B71700006009 /* SendSongViewController.swift in Sources */,
 				AA2009271AA40D7B00E9BB8B /* ViewController.swift in Sources */,
 				3A8134FB1AD1CF40000D95D0 /* NSDate+PNAdditions.m in Sources */,
 				3A8134D01AD1CF40000D95D0 /* PNActionResponseParser.m in Sources */,
@@ -1303,6 +1308,7 @@
 				AA4F88FA1AD3B2FF0089DDB3 /* DialogController.swift in Sources */,
 				DC39B2AF1AD204DD00CEF932 /* ENSideMenu.swift in Sources */,
 				3886CBEA1AD2436500826E9B /* Echo-Bridgin-Header.m in Sources */,
+				3A25CBBF1AD3C29300BF45CB /* RequestsController.swift in Sources */,
 				DC39B2AB1AD204CB00CEF932 /* Utils.swift in Sources */,
 				DC39B2A81AD204B100CEF932 /* Messenger.swift in Sources */,
 				AA4F88FB1AD3B3140089DDB3 /* MessageCell.swift in Sources */,

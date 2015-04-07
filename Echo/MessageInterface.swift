@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Quartet. All rights reserved.
 //
 
+
 func NEW_REQUEST(user:User, other_id: String, song:String, time:NSDate){
     var other_user = User.userFromID(other_id)!
     var message = user.messenger.addRequest(other_user, song: song, time:time)
@@ -13,7 +14,11 @@ func NEW_REQUEST(user:User, other_id: String, song:String, time:NSDate){
 }
 
 func newRequestUpdateUI(current_user: User, other_user: User, first_message:Message){
-    // UI FOLKS: TODO
+    //NSNotificationCenter.defaultCenter().postNotificationName(requestsNotificationKey, object: nil)
+    //println("sending out notification")
+    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+    var destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Requests") as RequestsController
+    destViewController.addRequest(other_user, m: first_message)
 }
 
 func APPROVED_REQUEST(user:User, other_id: String, song: String, time: NSDate){

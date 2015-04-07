@@ -41,7 +41,7 @@ class Message {
     }
     
     func isSong() -> Bool {
-        return self.text == ""
+        return self.song != ""
     }
 }
 
@@ -133,8 +133,8 @@ class Messenger {
         return []
     }
     
-    func sendRequest(to: User, song: String, time:NSDate) {
-        self.requests[to] = Message(song: song, mine: true, time:time)
+    func sendRequest(to: User, song: String, songName: String, time:NSDate) {
+        self.requests[to] = Message(text: songName, song: song, mine: true, time:time)
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
         var message = ["type": "request", "sender": self.user!.id, "song": song]
         self.pn.sendMessage(message, toChannel: user_channel)

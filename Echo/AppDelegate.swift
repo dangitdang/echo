@@ -16,17 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     var pubNub: PubNub?
     var session:SPTSession?
     var user: User!
+    var product: SPTProduct?
     var player: SPTAudioStreamingController?
     var scraper: Scrapper!
     var semaphore: dispatch_semaphore_t!
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
         self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("error")})
         PNLogger.loggerEnabled(false)
-        self.semaphore = dispatch_semaphore_create(0);
+        self.semaphore = dispatch_semaphore_create(0)
         return true
     }
 
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
         var sender = message.message.valueForKey("sender") as String
         var type = message.message.valueForKey("type") as String
         var song = message.message.valueForKey("song") as String
-        var time = message.message.valueForKey("timestamp") as NSDate
+        var time = NSDate()// message.message.valueForKey("timestamp") as NSDate
         if (type == "request") {
             NEW_REQUEST(self.user!, sender, song, time)
         } else if (type == "approve") {

@@ -16,6 +16,7 @@ class ChooseSongViewController: ViewController, UITableViewDelegate, UITableView
     var searchResults: [[String]]!
     var currentSession:SPTSession?
     var myScraper:Scrapper!
+    var match:User!
     
     @IBOutlet weak var songTableView: UITableView!
     
@@ -61,8 +62,21 @@ class ChooseSongViewController: ViewController, UITableViewDelegate, UITableView
     
     
     }
- 
     
+
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Segue is underway, update destination ViewController with value set earlier
+        if let vc = segue.destinationViewController as? UINavigationController {
+            if let v2 = vc.viewControllers[0] as? SendSongViewController {
+                if let index = songTableView.indexPathForSelectedRow()?.row {
+                    v2.songInfo = self.searchResults[index]
+                    v2.match = self.match
+                }
+
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

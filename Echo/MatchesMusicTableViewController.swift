@@ -17,11 +17,14 @@ class MatchesMusicTableViewController: UITableViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var matchesMusicData: [String] = []
     
+    var user:User!
+    var match:User!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.user = appDelegate.user as User!
         //let backButton = UIBarButtonItem(, style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
         //navigationItem.leftBarButtonItem = backButton
         backButton.action = "goBack"
@@ -68,14 +71,30 @@ class MatchesMusicTableViewController: UITableViewController {
     
     func loadInCommonMusic() {
         // makes some request, gets a response
+        if self.match == nil {
+            matchesMusicData = ["n/a"]
+        } else {
+            var matchMusic:MusicCollection = self.match.musicCollection!
+            var myMusic:MusicCollection = self.user.musicCollection!
+            
+            matchesMusicData = myMusic.artistsInCommon(matchMusic)
+            //self.user.musicCollection?.artistsInCommon(self.match.musicCollection!)!
+        }
         
-        matchesMusicData = ["Pink Floyd", "Taylor Swift", "Forence and the Machine", "Maroon 5"]
     }
 
     func loadUniqueMusic() {
         // makes some request, gets a response
         
-        matchesMusicData = ["Britney Spears", "Your Mom", "The Beatles", "Beyonce"]
+        if self.match == nil {
+            matchesMusicData = ["n/a"]
+        } else {
+            var matchMusic:MusicCollection = self.match.musicCollection!
+            var myMusic:MusicCollection = self.user.musicCollection!
+            
+            matchesMusicData = myMusic.artistsNotInCommon(matchMusic)
+            //self.user.musicCollection?.artistsInCommon(self.match.musicCollection!)!
+        }
     }
     
     override func didReceiveMemoryWarning() {
