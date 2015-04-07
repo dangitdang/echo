@@ -55,7 +55,7 @@ class Messenger {
     var user: User?
     let rootRefURL = "https://quartetecho.firebaseio.com/"
     let messagesRef = Firebase(url: "https://quartetecho.firebaseio.com/messages")
-    
+    let requestsRef =  Firebase(url: "https://quartetecho.firebaseio.com/requests")
     init(){
         self.chats = [User:[Message]]()
         self.requests = [User: Message]()
@@ -105,11 +105,16 @@ class Messenger {
         var user_channel = PNChannel.channelWithName(user.id) as PNChannel
         var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time.timeIntervalSince1970 as Double, "text": message.text]
         self.pn.sendMessage(pn_message, toChannel: user_channel)
+        var reqRef = Firebase(url: "\(rootRefURL)/requests/\(self.user!.id)/\(user.id)/")
+        reqRef.removeValue()
+        
     }
     
     func approvedRequest(user: User, song: String, songName:String, time: NSDate) -> Message {
         var message = Message(text: songName, song: song, mine: true, time:time)
         self.addChat(user, song: message)
+        
+        
         return message
     }
     
@@ -153,6 +158,11 @@ class Messenger {
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
         var message = ["type": "request", "sender": self.user!.id, "song": song, "text":songName,"time":time.timeIntervalSince1970 as Double]
         self.pn.sendMessage(message, toChannel: user_channel)
+        
+        var reqRef = Firebase(url: "\(rootRefURL)/requests/\(to.id)")
+        message = ["sender": self.user!.id, "songName" : songName, "song" : song, "time": FirebaseServerValue.timestamp()]
+        var updatedInfo = ["updated" : FirebaseServerValue.timestamp(), "last" : message]
+        reqRef.setValue([self.user!.id: message])
     }
     
     func sendMessage(to: User, text: String="", song: String = "", time:NSDate){
