@@ -105,6 +105,14 @@ class MatchViewController: ViewControllerWNav {
 
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Segue is underway, update destination ViewController with value set earlier
+        if let vc = segue.destinationViewController as? UINavigationController {
+            if let v2 = vc.viewControllers[0] as? MatchesMusicTableViewController {
+                v2.match = self.currentMatch;
+            }
+        }
+    }
     
     @IBAction func sendASong(sender: AnyObject) {
     }
