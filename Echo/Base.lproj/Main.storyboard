@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -123,15 +123,23 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4y-Ab-I45">
-                                                    <rect key="frame" x="8" y="86" width="100" height="30"/>
-                                                    <state key="normal" title="Accept">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l4y-Ab-I45">
+                                                    <rect key="frame" x="8" y="86" width="100" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="27" id="2Mv-WA-gSp"/>
+                                                        <constraint firstAttribute="width" constant="100" id="WC4-qQ-QkE"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Accept" image="Accept">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSf-HF-sjD">
-                                                    <rect key="frame" x="129" y="86" width="100" height="30"/>
-                                                    <state key="normal" title="Decline">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aSf-HF-sjD">
+                                                    <rect key="frame" x="129" y="86" width="101" height="26"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="101" id="kW1-H0-5Cb"/>
+                                                        <constraint firstAttribute="height" constant="26" id="qeg-If-13d"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Decline" image="Decline">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
@@ -468,7 +476,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-4N-xbI">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-4N-xbI">
                                                 <rect key="frame" x="8" y="562" width="60" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="119" id="c6Z-ei-mtz"/>
@@ -571,14 +579,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3Q-7t-0zv">
-                                <rect key="frame" x="149" y="20" width="78" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UYW-yQ-rOV">
-                                <rect key="frame" x="0.0" y="61" width="300" height="300"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UYW-yQ-rOV">
+                                <rect key="frame" x="16" y="85" width="568" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EchoMatchesCell" rowHeight="70" id="Vo5-C9-Qiw" customClass="EchoMatchesCell" customModule="Echo" customModuleProvider="target">
@@ -612,20 +614,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXq-Qr-P0F">
-                                <rect key="frame" x="0.0" y="380" width="126" height="30"/>
-                                <state key="normal" title="Too Little Too Late">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="songURI" value="spotify:track:5EsUREDLx9m60wzBhyo3Nj"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="playSong:" destination="9hL-yG-r5T" eventType="touchUpInside" id="VY6-uC-lgU"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Messages" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3Q-7t-0zv">
+                                <rect key="frame" x="56" y="41" width="120" height="31"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c3Q-7t-0zv" firstAttribute="leading" secondItem="ww8-lV-49c" secondAttribute="leadingMargin" constant="40" id="DCH-Hv-mdk"/>
+                            <constraint firstItem="UYW-yQ-rOV" firstAttribute="leading" secondItem="ww8-lV-49c" secondAttribute="leadingMargin" id="QOv-de-fhk"/>
+                            <constraint firstItem="c3Q-7t-0zv" firstAttribute="top" secondItem="nvH-Xd-4Y5" secondAttribute="bottom" constant="21" id="dPa-bI-kyk"/>
+                            <constraint firstItem="crZ-RC-72k" firstAttribute="top" secondItem="UYW-yQ-rOV" secondAttribute="bottom" id="nst-94-QbJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UYW-yQ-rOV" secondAttribute="trailing" id="qCf-oG-VFp"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Pjd-zA-wa5">
                         <barButtonItem key="leftBarButtonItem" image="Menu" id="h0z-kT-5az">
@@ -635,7 +638,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="Button1" destination="bXq-Qr-P0F" id="iHH-id-nKM"/>
                         <outlet property="Matches" destination="UYW-yQ-rOV" id="VB6-iC-ZmB"/>
                     </connections>
                 </viewController>
@@ -1016,12 +1018,6 @@
                                     </constraint>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Winkle Doodle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-jv-6ZE">
-                                <rect key="frame" x="428" y="114" width="94" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="agaetis-byrjun" translatesAutoresizingMaskIntoConstraints="NO" id="mqi-Vx-qYh">
                                 <rect key="frame" x="0.0" y="386" width="128" height="128"/>
                                 <constraints>
@@ -1100,6 +1096,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FpT-X9-CfS" secondAttribute="height" multiplier="270:80" id="hJT-oE-nh9"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                                 <state key="normal" image="SendSong">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1130,6 +1127,12 @@
                                     <segue destination="IRs-wC-Wqv" kind="presentation" id="IQr-bo-rK2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Winkle Doodle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-jv-6ZE">
+                                <rect key="frame" x="391" y="113" width="178" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -1162,16 +1165,17 @@
                             </constraint>
                             <constraint firstItem="FpT-X9-CfS" firstAttribute="width" secondItem="9gP-y6-70F" secondAttribute="width" id="Pjx-hq-7jL"/>
                             <constraint firstItem="9gP-y6-70F" firstAttribute="width" secondItem="nnb-JW-lb5" secondAttribute="width" multiplier="1:3" id="RhV-Bc-fSA"/>
-                            <constraint firstItem="xfV-jv-6ZE" firstAttribute="top" secondItem="pfL-b7-Lwh" secondAttribute="bottom" constant="50" id="TIQ-H0-YLi"/>
                             <constraint firstItem="OMF-dF-BWX" firstAttribute="top" secondItem="pfL-b7-Lwh" secondAttribute="bottom" id="V5F-iU-e2V"/>
                             <constraint firstItem="9gP-y6-70F" firstAttribute="top" secondItem="FpT-X9-CfS" secondAttribute="top" id="a4k-LV-8Q2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FpT-X9-CfS" secondAttribute="trailing" constant="5" id="aPb-yj-rKb">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
+                            <constraint firstItem="xfV-jv-6ZE" firstAttribute="top" secondItem="pfL-b7-Lwh" secondAttribute="bottom" constant="49" id="bPi-mf-zeu"/>
                             <constraint firstAttribute="trailingMargin" secondItem="FpT-X9-CfS" secondAttribute="trailing" constant="27" id="bRY-ot-iHP">
                                 <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                             </constraint>
                             <constraint firstItem="mqi-Vx-qYh" firstAttribute="leading" secondItem="nnb-JW-lb5" secondAttribute="leading" id="cSP-aI-SW4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xfV-jv-6ZE" secondAttribute="trailing" constant="45" id="fV5-zF-52B"/>
                             <constraint firstItem="FpT-X9-CfS" firstAttribute="height" secondItem="9gP-y6-70F" secondAttribute="height" id="gDV-kH-meJ"/>
                             <constraint firstItem="7ZJ-mm-8Bb" firstAttribute="trailing" secondItem="9gP-y6-70F" secondAttribute="trailing" id="gNq-2o-aUs"/>
                             <constraint firstItem="9gP-y6-70F" firstAttribute="height" secondItem="FpT-X9-CfS" secondAttribute="height" id="hWt-Px-4xb"/>
@@ -1302,7 +1306,6 @@
                                 <include reference="q1m-IH-OSa"/>
                                 <include reference="yas-8f-W5u"/>
                                 <include reference="AHC-qJ-uoJ"/>
-                                <exclude reference="TIQ-H0-YLi"/>
                                 <include reference="mEO-KY-vBf"/>
                                 <include reference="kF3-k4-HGU"/>
                             </mask>
@@ -1329,7 +1332,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paj-0s-vIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="363" y="481.5"/>
+            <point key="canvasLocation" x="363" y="481"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1CS-GL-JpA">
@@ -1369,8 +1372,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Accept" width="310" height="80"/>
         <image name="Backbutton" width="13" height="14"/>
         <image name="Checkbox" width="40" height="40"/>
+        <image name="Decline" width="310" height="80"/>
         <image name="Menu" width="15" height="10"/>
         <image name="PassButton" width="310" height="80"/>
         <image name="Play" width="50" height="50"/>
