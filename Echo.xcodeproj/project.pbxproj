@@ -231,6 +231,13 @@
 		AAEB28811AD3F0E90066EA0C /* JSQMessagesToolbarContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5DEA3F1AD3D384006FF5A1 /* JSQMessagesToolbarContentView.m */; };
 		AAEB28821AD3F0E90066EA0C /* JSQMessagesTypingIndicatorFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA5DEA421AD3D384006FF5A1 /* JSQMessagesTypingIndicatorFooterView.m */; };
 		AAEB28831AD3F0EF0066EA0C /* JSQSystemSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = AAEB285A1AD3E3A70066EA0C /* JSQSystemSoundPlayer.m */; };
+		AAEB28851AD3F9220066EA0C /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB28841AD3F9220066EA0C /* Firebase.framework */; };
+		AAEB28871AD400760066EA0C /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB28861AD400760066EA0C /* libicucore.dylib */; };
+		AAEB28891AD4007D0066EA0C /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB28881AD4007D0066EA0C /* libc++.dylib */; };
+		AAEB288A1AD4079B0066EA0C /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD5961AB4FF84005ED64D /* Security.framework */; };
+		AAEB288B1AD407AF0066EA0C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD5981AB4FF84005ED64D /* SystemConfiguration.framework */; };
+		AAEB288D1AD407F40066EA0C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB288C1AD407F40066EA0C /* Social.framework */; };
+		AAEB288F1AD408090066EA0C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB288E1AD408090066EA0C /* Accounts.framework */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
@@ -678,6 +685,11 @@
 		AADEDBA51AD24084008900B9 /* SongManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongManager.swift; sourceTree = "<group>"; };
 		AAEB28591AD3E3A70066EA0C /* JSQSystemSoundPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQSystemSoundPlayer.h; sourceTree = "<group>"; };
 		AAEB285A1AD3E3A70066EA0C /* JSQSystemSoundPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQSystemSoundPlayer.m; sourceTree = "<group>"; };
+		AAEB28841AD3F9220066EA0C /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		AAEB28861AD400760066EA0C /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		AAEB28881AD4007D0066EA0C /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		AAEB288C1AD407F40066EA0C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		AAEB288E1AD408090066EA0C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
 		DC39B2A11AD1DA6100CEF932 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
@@ -706,20 +718,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEB288F1AD408090066EA0C /* Accounts.framework in Frameworks */,
+				AAEB288D1AD407F40066EA0C /* Social.framework in Frameworks */,
+				DC3FD5A31AB4FF84005ED64D /* SystemConfiguration.framework in Frameworks */,
+				DC3FD5A11AB4FF84005ED64D /* Security.framework in Frameworks */,
+				DC3FD59A1AB4FF84005ED64D /* CFNetwork.framework in Frameworks */,
+				AAEB28891AD4007D0066EA0C /* libc++.dylib in Frameworks */,
+				AAEB28871AD400760066EA0C /* libicucore.dylib in Frameworks */,
 				38F8D4631AD31B95004E3428 /* AVFoundation.framework in Frameworks */,
 				38F8D4621AD31B8F004E3428 /* MediaPlayer.framework in Frameworks */,
 				DC3FD5991AB4FF84005ED64D /* AudioToolbox.framework in Frameworks */,
-				DC3FD59A1AB4FF84005ED64D /* CFNetwork.framework in Frameworks */,
 				DC3FD59B1AB4FF84005ED64D /* CoreGraphics.framework in Frameworks */,
 				DC3FD59C1AB4FF84005ED64D /* CoreLocation.framework in Frameworks */,
 				DC3FD59D1AB4FF84005ED64D /* libsqlite3.dylib in Frameworks */,
 				DC3FD59E1AB4FF84005ED64D /* libz.dylib in Frameworks */,
 				DC3FD59F1AB4FF84005ED64D /* MobileCoreServices.framework in Frameworks */,
 				DC3FD5A01AB4FF84005ED64D /* QuartzCore.framework in Frameworks */,
-				DC3FD5A11AB4FF84005ED64D /* Security.framework in Frameworks */,
 				3886CBDA1AD241B300826E9B /* Spotify.framework in Frameworks */,
 				DC3FD5A21AB4FF84005ED64D /* StoreKit.framework in Frameworks */,
-				DC3FD5A31AB4FF84005ED64D /* SystemConfiguration.framework in Frameworks */,
+				AAEB28851AD3F9220066EA0C /* Firebase.framework in Frameworks */,
 				DC3FD58D1AB4FF24005ED64D /* Parse.framework in Frameworks */,
 				DC3FD58C1AB4FF24005ED64D /* Bolts.framework in Frameworks */,
 			);
@@ -729,6 +746,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAEB288B1AD407AF0066EA0C /* SystemConfiguration.framework in Frameworks */,
+				AAEB288A1AD4079B0066EA0C /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1379,6 +1398,11 @@
 		DC3FD5891AB4FF0C005ED64D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AAEB288E1AD408090066EA0C /* Accounts.framework */,
+				AAEB288C1AD407F40066EA0C /* Social.framework */,
+				AAEB28881AD4007D0066EA0C /* libc++.dylib */,
+				AAEB28861AD400760066EA0C /* libicucore.dylib */,
+				AAEB28841AD3F9220066EA0C /* Firebase.framework */,
 				AAEB28571AD3E3A70066EA0C /* JSQSystemSoundPlayer */,
 				AA5DE9E61AD3D384006FF5A1 /* JSQMessagesViewController */,
 				AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */,
@@ -1871,6 +1895,7 @@
 				);
 				INFOPLIST_FILE = Echo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Echo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1890,6 +1915,7 @@
 				);
 				INFOPLIST_FILE = Echo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Echo-Bridging-Header.h";
 			};

@@ -16,6 +16,7 @@ class DialogController : UIViewController, UITableViewDataSource {
     var match: User!
     var messages: [Message]!
     var fakeMessages = [String:[Message]]()
+    var room: String!
     
     var activeTextField : UITextField!
     @IBOutlet weak var messagesView: UITableView!

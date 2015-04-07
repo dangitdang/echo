@@ -53,6 +53,9 @@ class Messenger {
     var requesters: [User]
     var pn: PubNub
     var user: User?
+    let rootRefURL = "https://quartetecho.firebaseio.com/"
+    let messagesRef = Firebase(url: "https://quartetecho.firebaseio.com/messages")
+    
     init(){
         self.chats = [User:[Message]]()
         self.requests = [User: Message]()
@@ -117,8 +120,18 @@ class Messenger {
     
     
     func addChat(user:User, song:Message){
-        self.chats[user] = [song]
-        self.chatters.append(user)
+        //self.chats[user] = [song]
+        //self.chatters.append(user)
+        var roomRef = messagesRef.childByAutoId()
+        var userRef = Firebase(url:"\(rootRefURL)/users/\(self.user!.id)/rooms/\(roomRef.key)")
+        var otherRef = Firebase(url:"\(rootRefURL)/users/\(user.id)/rooms/\(roomRef.key)")
+        let message = ["sender": user.id, "isSong": true, "text" : song.text, "song" : song.song, "time": FirebaseServerValue.timestamp(), "senderName" : user.displayName]
+        var roomInfo = ["updated":  FirebaseServerValue.timestamp(), "match" : user.id, "matchName" : user.displayName, "last" : message]
+        var roomInfoForOther = ["updated":  FirebaseServerValue.timestamp(), "match" : self.user!.id, "matchName" : self.user!.displayName, "last" : message]
+        userRef.updateChildValues(roomInfo)
+        otherRef.updateChildValues(roomInfoForOther)
+        var messageRef = roomRef.childByAutoId()
+        messageRef.setValue(message)
     }
     
     func addMessage(sender: String, text: String="", song: String="", time:NSDate) -> [AnyObject]{
@@ -148,6 +161,21 @@ class Messenger {
         var message = ["type": "message", "sender": self.user!.id, "song": song, "text":text, "time":time.timeIntervalSince1970 as Double]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
+    
+    func sendFirebaseMessage(to: User, room: String, text: String = "", song:String = ""){
+        var roomRef = messagesRef.childByAppendingPath(room)
+        var userRef = Firebase(url:"\(rootRefURL)/users/\(self.user!.id)/rooms/\(roomRef.key)")
+        var otherRef = Firebase(url:"\(rootRefURL)/users/\(to.id)/rooms/\(roomRef.key)")
+        
+        var messageRef = roomRef.childByAutoId()
+        var isSong = song == "" ? false : true
+        var message = ["sender": self.user!.id, "isSong": isSong, "text" : text, "song" : song, "time": FirebaseServerValue.timestamp(), "senderName" : self.user!.displayName ]
+        var updatedInfo = ["updated" : FirebaseServerValue.timestamp(), "last" : message]
+        messageRef.setValue(message)
+        userRef.updateChildValues(updatedInfo)
+        otherRef.updateChildValues(updatedInfo)
+    }
+    
     
     func getMessages(user:User) -> [Message]{
         return self.chats[user]!
