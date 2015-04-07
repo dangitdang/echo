@@ -146,7 +146,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         //println(obj)
         userList.append(user)
         songList[user] = m
-        self.view.subviews[1].reloadData() //this line doesnt actually work idk
+        //self.view.subviews[1].reloadData() //this line doesnt actually work idk
     }
     
     func playOrPause(sender: UIButton!) {
