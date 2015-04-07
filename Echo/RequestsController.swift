@@ -37,8 +37,9 @@ class RequestsTableViewCell: UITableViewCell {
 class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableViewDelegate {
     var userList: [User] = []
     var songList = [User: Message]()
-    
     var player: SPTAudioStreamingController!
+    
+    @IBOutlet weak var requestTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         if (appDelegate.product == SPTProduct.Premium) {
             self.player = appDelegate.player
         }
+        requestTable.dataSource = self
+        requestTable.delegate = self
+        println(requestTable)
         
 //        //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
 //        var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
@@ -124,6 +128,12 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     
     func addRequest(user: User, m: Message) {
         println("ADDING REQUEST")
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.userList = appDelegate.user.messenger.getPeopleRequested()
+        self.songList = appDelegate.user.messenger.getRequests()
+        println(requestTable)
+        //self.requestTable.reloadData()
+        
         //var obj = sender?
         //println(obj)
         //userList.append(user)
