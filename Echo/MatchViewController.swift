@@ -11,6 +11,7 @@ import UIKit
 class MatchViewController: ViewControllerWNav {
     
     
+    @IBOutlet weak var mainAlbum: UIImageView!
     @IBOutlet weak var albumOne: UIImageView!
     
     @IBOutlet weak var albumTwo: UIImageView!
@@ -31,9 +32,11 @@ class MatchViewController: ViewControllerWNav {
     @IBOutlet weak var musicButton: UIButton!
     
     var currentMatch: User!
+    var backgroundImages:[String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        backgroundImages = ["blur1", "blur2", "blur3", "blur4"]
         setUser()
         getCurrentMatch()
         println(self.user.matches)
@@ -51,6 +54,9 @@ class MatchViewController: ViewControllerWNav {
             if (url.description != "") {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
                 matchPicture.image = UIImage(data: data!)
+            } else {
+                
+                matchPicture.image = UIImage(named: "userIcon")
             }
         }
         
@@ -77,10 +83,16 @@ class MatchViewController: ViewControllerWNav {
     }
     
     
+    func getMatchFirstName() -> String {
+        var fullName = self.currentMatch.displayName
+        var fullNameArr = split(fullName) {$0 == " "}
+        var firstName: String = fullNameArr[0]
+        return firstName
+    }
+    
     @IBAction func passMatch(sender: AnyObject) {
         
         //getNextMatch
-        setAlbumArt()
         
         if self.currentMatch == nil {
             self.matchNameLabel.text = "No Match"
@@ -103,12 +115,17 @@ class MatchViewController: ViewControllerWNav {
             
             self.matchNameLabel.text = self.currentMatch.displayName
             self.matchBlurbLabel.text = self.currentMatch.blurb
-            self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
+            self.musicButton.setTitle(getMatchFirstName() + "'s Music", forState: UIControlState.Normal)
             let url = self.currentMatch.picURL as NSURL!
             if (url.description != "") {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
                 matchPicture.image = UIImage(data: data!)
+            } else {
+                
+                matchPicture.image = UIImage(named: "userIcon")
                 }
+            setAlbumArt()
+
             }
             
         }
@@ -121,6 +138,7 @@ class MatchViewController: ViewControllerWNav {
             if let v2 = vc.viewControllers[0] as? MatchesMusicTableViewController {
                 v2.match = self.currentMatch;
             } else if let v2 = vc.viewControllers[0] as? ChooseSongViewController {
+                self.user.removeLastMatch(self.currentMatch.id)
                 v2.match = self.currentMatch
                 println("here")
             }
@@ -128,8 +146,8 @@ class MatchViewController: ViewControllerWNav {
     }
     
     @IBAction func sendASong(sender: AnyObject) {
-        self.user.removeLastMatch(self.currentMatch.id)
-        self.currentMatch = self.user.getLatestMatch()
+        //self.user.removeLastMatch(self.currentMatch.id)
+        //self.currentMatch = self.user.getLatestMatch()
     }
     
     
@@ -155,8 +173,10 @@ class MatchViewController: ViewControllerWNav {
             albumOne.image = UIImage(named: "userIcon")
             albumTwo.image = UIImage(named: "userIcon")
             albumThree.image = UIImage(named: "userIcon")
+            mainAlbum.backgroundColor = UIColor.darkGrayColor()
+            
         } else {
-            var threeAlbums = self.currentMatch.musicCollection?.threeAlbumCovers()
+            var threeAlbums = self.currentMatch.musicCollection?.getAlbumCovers()
             let url = NSURL(string: threeAlbums![0])
             let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
             albumOne.image = UIImage(data: data!)
@@ -168,6 +188,9 @@ class MatchViewController: ViewControllerWNav {
             let url3 = NSURL(string: threeAlbums![2])
             let data3 = NSData(contentsOfURL: url3!) //make sure your image in this url does exist, otherwise unwrap in a if let check
             albumThree.image = UIImage(data: data3!)
+
+            let randomIndex = Int(arc4random_uniform(UInt32(backgroundImages.count)))
+            mainAlbum.image = UIImage(named: backgroundImages[randomIndex])
             
         }
         

@@ -102,14 +102,21 @@ class MusicCollection {
         return uncommon
     }
     
-    func threeAlbumCovers() -> [String] {
-        var threeAlbumURLs = [String]()
-        for i in 0...2 {
+    func getAlbumCovers() -> [String] {
+        var albumURLs = [String]()
+        var j = 0
+        var i = 0
+        while j < 4 {
             var artist = artists[i]
             var albumURL = artistPhotos![artist]
-            threeAlbumURLs.append(albumURL!)
+            if albumURL != "no pic" {
+                albumURLs.append(albumURL!)
+                j = j + 1
+            }
+            i = i + 1
         }
-        return threeAlbumURLs
+
+        return albumURLs
     }
     
     func albumsInCommon(other: MusicCollection) -> [String: [String]]{
