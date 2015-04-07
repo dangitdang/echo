@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class EchoMatchesCell: UITableViewCell {
+class EchoMatchesCell : UITableViewCell {
     
     @IBOutlet weak var matchName: UILabel!
     

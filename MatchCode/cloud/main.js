@@ -58,7 +58,7 @@ Parse.Cloud.define("findMatches", function(request, response) {
         for (var i=0; i<potential_matches.length; i++){
             var potential_match = potential_matches[i]
             var score = matchScore(user, potential_match)
-            console.log(potential_match.createdAt)
+            console.log("score", potential_match.display_name ,score)
             if (score>0 && potential_match.get("email")!=user.get("email")) {
                 matches.push([potential_match.id, String(score)])
             }
@@ -86,12 +86,12 @@ Parse.Cloud.define("findMatches", function(request, response) {
             //***
             query.find({
                 success: function(results) {
-                    console.log(results)
                     var output = findMatches(user, results)
                     
                     var matches = output[0]
                     var last_date = output[1]
                     console.log(matches)
+                    console.log(last_date)
                     response.success(matches)
                     user.set("lastTimeMatched", last_date)
                     user.save()

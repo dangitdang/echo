@@ -12,29 +12,32 @@ class Message {
     var text: String
     var song: String
     var mine: Bool
+    var time: NSDate
     
-    init(text: String, song: String, mine:Bool){
+    init(text: String, song: String, mine:Bool, time: NSDate){
         self.text = text
         self.song = song
         self.mine = mine
+        self.time = time
     }
     
-    convenience init(text: String, mine:Bool){
-        self.init(text: text, song: "", mine: mine)
+    convenience init(text: String, mine:Bool, time:NSDate){
+        self.init(text: text, song: "", mine: mine, time:time)
     }
     
-    convenience init(song: String, mine:Bool){
-        self.init(text: "", song: song, mine: mine)
+    convenience init(song: String, mine:Bool, time:NSDate){
+        self.init(text: "", song: song, mine: mine, time:time)
     }
     
-    init(arr: [Any], my_id: String){
+    init(arr: [Any], my_id: String, time:NSDate){
         self.text = arr[0] as String
         self.song = arr[1] as String
         self.mine = (arr[2] as String) == my_id
+        self.time = arr[3] as NSDate
     }
     
     func toArr(my_id: Int) -> [Any] {
-        return [self.text, self.song, my_id]
+        return [self.text, self.song, my_id, self.time]
     }
     
     func isSong() -> Bool {
@@ -85,8 +88,8 @@ class Messenger {
         
     }
     
-    func addRequest(user:User, song: String) -> Message {
-        var message = Message(song: song, mine: false)
+    func addRequest(user:User, song: String, time:NSDate) -> Message {
+        var message = Message(song: song, mine: false, time:time)
         self.requests[user] = message
         self.requesters.append(user)
         return message
@@ -97,12 +100,12 @@ class Messenger {
         self.requesters.removeObject(user)
         self.addChat(user, song: message)
         var user_channel = PNChannel.channelWithName(user.id) as PNChannel
-        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song]
+        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time]
         self.pn.sendMessage(pn_message, toChannel: user_channel)
     }
     
-    func approvedRequest(user: User, song: String) -> Message {
-        var message = Message(song: song, mine: true)
+    func approvedRequest(user: User, song: String, time: NSDate) -> Message {
+        var message = Message(song: song, mine: true, time:time)
         self.addChat(user, song: message)
         return message
     }
@@ -118,10 +121,10 @@ class Messenger {
         self.chatters.append(user)
     }
     
-    func addMessage(sender: String, text: String="", song: String="") -> [AnyObject]{
+    func addMessage(sender: String, text: String="", song: String="", time:NSDate) -> [AnyObject]{
         for (user, chat) in self.chats {
             if user.id == sender {
-                var message = Message(text: text, song: song, mine: false)
+                var message = Message(text: text, song: song, mine: false, time:time)
                 self.chats[user]?.append(message)
                 var arr = [user, message]
                 return arr
@@ -130,15 +133,15 @@ class Messenger {
         return []
     }
     
-    func sendRequest(to: User, song: String) {
-        self.requests[to] = Message(song: song, mine: true)
+    func sendRequest(to: User, song: String, time:NSDate) {
+        self.requests[to] = Message(song: song, mine: true, time:time)
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
         var message = ["type": "request", "sender": self.user!.id, "song": song]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
     
-    func sendMyMessage(to: User, text: String="", song: String = ""){
-        self.chats[to]!.append(Message(text: text, song: song, mine: true))
+    func sendMessage(to: User, text: String="", song: String = "", time:NSDate){
+        self.chats[to]!.append(Message(text: text, song: song, mine: true, time:time))
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
         var message = ["type": "message", "sender": self.user!.id, "song": song]
         self.pn.sendMessage(message, toChannel: user_channel)
@@ -189,6 +192,10 @@ class Messenger {
             for (user, chat) in self.chats {
                 if user.id == other_id {
                     foundUsers.append(user)
+                    var messages = []
+                    for message in chat{
+                        
+                    }
                 }
             var messages = convo.valueForKey("messages") as [[AnyObject]]
             for message in messages {
