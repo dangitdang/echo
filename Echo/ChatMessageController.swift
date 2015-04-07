@@ -95,11 +95,17 @@ class ChatMessageController : JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        match = User.userFromID(matchID)
+        self.title = match.displayName
         automaticallyScrollsToMostRecentMessage = true
         senderDisplayName = user.displayName
         senderId = user.id
-        //match = User.userFromID(matchID)
-        match = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983")!)
+        var sendSong = UIButton()
+        sendSong.setImage(UIImage(named: "sendSongChat") , forState: UIControlState.Normal)
+        sendSong.targetForAction("didPressAccessoryButton", withSender: self)
+        self.inputToolbar.contentView.leftBarButtonItem = sendSong
+        self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "sendMessage"), forState:UIControlState.Normal)
+        
         let profileImageUrl = user.picURL?.description
         if let urlString = profileImageUrl {
             setupAvatarImage(senderDisplayName, imageUrl: urlString, incoming: false)

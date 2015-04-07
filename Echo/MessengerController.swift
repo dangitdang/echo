@@ -24,7 +24,6 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
     let messagesRef = Firebase(url: "https://quartetecho.firebaseio.com/messages")
     var roomsRef : Firebase!
     override func viewDidLoad() {
-        
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.player = appDelegate.player
         self.user = appDelegate.user
