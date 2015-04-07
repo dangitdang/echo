@@ -53,10 +53,23 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userList.count
+        return 5//userList.count
     }
  
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell", forIndexPath: indexPath) as RequestsTableViewCell
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        let url = appDelegate.user.picURL as NSURL!
+        if (url != "") {
+            let dataForPic = NSData(contentsOfURL: url!)
+            var image = UIImage(data: dataForPic!)
+            if (image != nil) {
+              cell.personPic.image = image!
+            }
+        }
+        cell.personName.text = appDelegate.user.displayName
+        
+        
+        return cell
     }
 }
