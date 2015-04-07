@@ -17,6 +17,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
     let kTokenSwapURL = "http://mysterious-waters-9692.herokuapp.com/swap"
     let kTokenRefreshServiceURL = "http://mysterious-waters-9692.herokuapp.com/refresh"
     let auth = SPTAuth.defaultInstance()
+    
     @IBOutlet weak var loginButton: UIButton!
     
     
@@ -101,6 +102,8 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     username = self.user.displayName
                 }
                 
+                
+                
                 appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs)
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
@@ -127,9 +130,9 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 }
                 
                 scrapper.scrape(appDelegate.user)
-//                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
-//                    println(data as [[String]])
-//                })
+                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
+                    println(data as [[String]])
+                })
                 
                 //self.setupSpotifyPlayer()
                 //println("after setup method")

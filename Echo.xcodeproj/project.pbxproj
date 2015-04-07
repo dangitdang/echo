@@ -134,8 +134,10 @@
 		AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA20092B1AA40D7B00E9BB8B /* Images.xcassets */; };
 		AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */; };
 		AA4CBA501AB6A6A600AD6BCC /* SpotifyScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */; };
-		AA4F88F41AD3854F0089DDB3 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F31AD3854F0089DDB3 /* MessageCell.swift */; };
-		AA4F88F61AD386560089DDB3 /* DialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F51AD386560089DDB3 /* DialogController.swift */; };
+		AA4F88F81AD3B28E0089DDB3 /* DialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F51AD386560089DDB3 /* DialogController.swift */; };
+		AA4F88F91AD3B2A60089DDB3 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F31AD3854F0089DDB3 /* MessageCell.swift */; };
+		AA4F88FA1AD3B2FF0089DDB3 /* DialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F51AD386560089DDB3 /* DialogController.swift */; };
+		AA4F88FB1AD3B3140089DDB3 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F31AD3854F0089DDB3 /* MessageCell.swift */; };
 		AA967B811AD3146B00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA967B821AD3158E00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA967B941AD378F400A7C901 /* EchoMatchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */; };
@@ -1275,7 +1277,6 @@
 				3A8134F51AD1CF40000D95D0 /* PNRequestsQueue.m in Sources */,
 				3A8134FA1AD1CF40000D95D0 /* NSData+PNAdditions.m in Sources */,
 				3A8134CD1AD1CF40000D95D0 /* PNPresenceEvent.m in Sources */,
-				AA4F88F41AD3854F0089DDB3 /* MessageCell.swift in Sources */,
 				3A8134D51AD1CF40000D95D0 /* PNChannelGroupsResponseParser.m in Sources */,
 				DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */,
 				3A8134EE1AD1CF40000D95D0 /* PNDate.m in Sources */,
@@ -1283,8 +1284,9 @@
 				3A81350E1AD1CF40000D95D0 /* PNChannelsForGroupRequest.m in Sources */,
 				3A8134F41AD1CF40000D95D0 /* PNOperationStatus.m in Sources */,
 				3A8135201AD1CF40000D95D0 /* PNReachability.m in Sources */,
-				AA4F88F61AD386560089DDB3 /* DialogController.swift in Sources */,
+				AA4F88F81AD3B28E0089DDB3 /* DialogController.swift in Sources */,
 				3A8135031AD1CF40000D95D0 /* NSSet+PNAdditions.m in Sources */,
+				AA4F88F91AD3B2A60089DDB3 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1298,10 +1300,12 @@
 				DC39B2B11AD204DD00CEF932 /* ENSideMenuNavigationController.swift in Sources */,
 				AA967B941AD378F400A7C901 /* EchoMatchesCell.swift in Sources */,
 				3886CBE61AD2435000826E9B /* EchoTests.swift in Sources */,
+				AA4F88FA1AD3B2FF0089DDB3 /* DialogController.swift in Sources */,
 				DC39B2AF1AD204DD00CEF932 /* ENSideMenu.swift in Sources */,
 				3886CBEA1AD2436500826E9B /* Echo-Bridgin-Header.m in Sources */,
 				DC39B2AB1AD204CB00CEF932 /* Utils.swift in Sources */,
 				DC39B2A81AD204B100CEF932 /* Messenger.swift in Sources */,
+				AA4F88FB1AD3B3140089DDB3 /* MessageCell.swift in Sources */,
 				DC39B2A51AD2031E00CEF932 /* MusicCollection.swift in Sources */,
 				DC39B2B41AD204DD00CEF932 /* ProfileView.swift in Sources */,
 				DCB85D261AD34FE900064BBA /* MessageInterface.swift in Sources */,

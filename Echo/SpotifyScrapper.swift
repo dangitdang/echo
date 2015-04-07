@@ -40,6 +40,7 @@ class Scrapper {
         self.user = user
         self.accessToken = session.accessToken
         self.userID = user.canonicalUserName
+        
     }
     
     func getArtists() -> [String] {
@@ -183,7 +184,8 @@ class Scrapper {
                 self.collection?.addPhotos(self.artistCovers, albums: self.albumCovers)
                 println(self.albumCovers.count)
                 user.setMusicCollection(self.collection!)
-                user.store()
+                let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                dispatch_semaphore_signal(appDelegate.semaphore);
                 return
             }
             
@@ -203,7 +205,8 @@ class Scrapper {
                     self.collection?.addPhotos(self.artistCovers, albums: self.albumCovers)
                     println(self.albumCovers.count)
                     user.setMusicCollection(self.collection!)
-                    user.store()
+                    let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+                    dispatch_semaphore_signal(appDelegate.semaphore);
                 }
                 
             }
