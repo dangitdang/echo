@@ -397,8 +397,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="86f-Mf-v3w" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" id="2R1-EU-VHB"/>
+                            <constraint firstItem="86f-Mf-v3w" firstAttribute="top" secondItem="aKw-Cx-RLo" secondAttribute="bottom" id="ABF-n3-PVG"/>
                             <constraint firstItem="IpQ-7M-ghs" firstAttribute="top" secondItem="86f-Mf-v3w" secondAttribute="bottom" id="Mgh-W7-SX5"/>
+                            <constraint firstItem="IpQ-7M-ghs" firstAttribute="top" secondItem="86f-Mf-v3w" secondAttribute="bottom" id="Ov7-UV-uq8"/>
                             <constraint firstItem="86f-Mf-v3w" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leadingMargin" id="P4u-bW-Cnh"/>
+                            <constraint firstItem="86f-Mf-v3w" firstAttribute="leading" secondItem="rtB-pO-elO" secondAttribute="leadingMargin" id="pAF-HM-zVa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="foB-fC-t5m">
