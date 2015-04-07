@@ -81,7 +81,35 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         }
         cell.personName.text = currUser.displayName
         
+        cell.playPauseButton.tag = row
+        cell.playPauseButton.targetForAction("playOrPause", withSender: self)
+        cell.playPauseButton.addTarget(self, action: "playOrPause:", forControlEvents: .TouchUpInside)
+
+        println(cell.playPauseButton.tag)
+        
+        cell.acceptButton.tag = row
+        cell.declineButton.tag = row
         
         return cell
+    }
+    
+    func playOrPause(sender: UIButton!) {
+        
+        var buttonTag = sender.tag
+        var buttonId = sender.titleLabel?.text
+        println(buttonTag)
+        println(buttonId)
+        
+//        var query = PFQuery(className:"Contacts")
+//        query.getObjectInBackgroundWithId(objectIDs[sender.tag]) {
+//            (gameScore: PFObject!, error: NSError!) -> Void in
+//            if error != nil {
+//                NSLog("%@", error)
+//            } else {
+//                gameScore["connected"] = "yes"
+//                gameScore.save()
+//            }
+//        }
+        
     }
 }
