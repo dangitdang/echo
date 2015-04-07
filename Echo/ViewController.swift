@@ -126,10 +126,10 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     self.loginWithSpotifySession(self.session)
                 }
                 
-                scrapper.scrape(appDelegate.user)
-//                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
-//                    println(data as [[String]])
-//                })
+                //scrapper.scrape(appDelegate.user)
+                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
+                    println(data as [[String]])
+                })
                 
                 //self.setupSpotifyPlayer()
                 //println("after setup method")
