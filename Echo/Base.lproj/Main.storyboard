@@ -113,7 +113,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elE-bT-qid">
                                                     <rect key="frame" x="86" y="38" width="35" height="35"/>
-                                                    <state key="normal" title="Button" image="Play">
+                                                    <state key="normal" title="PlayPauseButton" image="Play">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
