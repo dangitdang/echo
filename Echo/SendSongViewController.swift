@@ -8,11 +8,12 @@
 
 import UIKit
 
-class SendSongViewController: ViewController {
+class SendSongViewController: UIViewController {
 
     @IBOutlet weak var songNameLabel: UILabel!
     var songInfo: [String]!
     var match: User!
+    var user: User!
     
     @IBOutlet weak var sendSongLabel: UILabel!
     
@@ -20,6 +21,8 @@ class SendSongViewController: ViewController {
         super.viewDidLoad()
         self.songNameLabel.text = songInfo[0]
         self.sendSongLabel.text = "Send Song to " + match.displayName + "?"
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        self.user = appDelegate.user
         // Do any additional setup after loading the view.
     }
 
@@ -30,8 +33,8 @@ class SendSongViewController: ViewController {
     
 
     @IBAction func sendSongButtonPressed(sender: AnyObject) {
-        let messenger = Messenger()
-        messenger.sendRequest(self.match, song: self.songInfo[2], songName: self.songInfo[0], time:NSDate())
+        self.user.messenger.sendRequest(self.match, song: self.songInfo[2], songName: self.songInfo[0], time:NSDate())
+        performSegueWithIdentifier("backToMatch", sender: self)
     }
     
     

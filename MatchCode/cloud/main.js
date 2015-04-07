@@ -93,7 +93,9 @@ Parse.Cloud.define("findMatches", function(request, response) {
                     console.log(matches)
                     console.log(last_date)
                     response.success(matches)
-                    user.set("lastTimeMatched", last_date)
+                    if (matches.length>0){
+                        user.set("lastTimeMatched", last_date)
+                    }
                     user.save()
                 },
                 error: function() {

@@ -88,8 +88,8 @@ class Messenger {
         
     }
     
-    func addRequest(user:User, song: String, time:NSDate) -> Message {
-        var message = Message(song: song, mine: false, time:time)
+    func addRequest(user:User, song: String, songName: String, time:NSDate) -> Message {
+        var message = Message(text: songName, song: song, mine: false, time:time)
         self.requests[user] = message
         self.requesters.append(user)
         return message
@@ -100,12 +100,12 @@ class Messenger {
         self.requesters.removeObject(user)
         self.addChat(user, song: message)
         var user_channel = PNChannel.channelWithName(user.id) as PNChannel
-        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time]
+        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time, "text": message.text]
         self.pn.sendMessage(pn_message, toChannel: user_channel)
     }
     
-    func approvedRequest(user: User, song: String, time: NSDate) -> Message {
-        var message = Message(song: song, mine: true, time:time)
+    func approvedRequest(user: User, song: String, songName:String, time: NSDate) -> Message {
+        var message = Message(text: songName, song: song, mine: true, time:time)
         self.addChat(user, song: message)
         return message
     }
@@ -133,17 +133,19 @@ class Messenger {
         return []
     }
     
-    func sendRequest(to: User, song: String, songName: String, time:NSDate) {
+    func sendRequest(to: User, song: String, songName: String, time:NSDate)
+    {
+        println("here")
         self.requests[to] = Message(text: songName, song: song, mine: true, time:time)
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
-        var message = ["type": "request", "sender": self.user!.id, "song": song]
+        var message = ["type": "request", "sender": self.user!.id, "song": song, "text":songName,"time":time]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
     
     func sendMessage(to: User, text: String="", song: String = "", time:NSDate){
         self.chats[to]!.append(Message(text: text, song: song, mine: true, time:time))
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
-        var message = ["type": "message", "sender": self.user!.id, "song": song]
+        var message = ["type": "message", "sender": self.user!.id, "song": song, "text":text, "time":time]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
     
