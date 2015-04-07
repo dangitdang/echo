@@ -39,22 +39,20 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
         self.matchesArr = []
         roomsRef = Firebase(url: "\(rootRefURL)/users/\(self.user!.id)/rooms")
         roomsRef.queryOrderedByChild("updated").queryLimitedToLast(25).observeSingleEventOfType(FEventType.Value, withBlock: { snapshot in
-                println(snapshot)
-                println("hello")
                 var childs = snapshot.children
                 for snap in childs.allObjects {
                     var tempSnap = snap as FDataSnapshot
                     var roomID = tempSnap.key
                     var messageSnapshot = tempSnap.childSnapshotForPath("last")
-                    var senderID = messageSnapshot.value["sender"] as? String
-                    var mineBool = senderID == self.user!.id ? true : false
+                    var matchID = tempSnap.value["match"] as? String
                     let timestamp = messageSnapshot.value["time"] as? Double
                     let text = messageSnapshot.value["text"] as? String
                     let song = messageSnapshot.value["song"] as? String
-                    var message = Message(text: text!, song: song!, mine: mineBool, time: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
-                    var name = messageSnapshot.value["senderName"] as String!
-                    self.messages[name] = message
-                    self.matchesArr.insert([senderID!, name!, roomID!], atIndex: 0)
+                    let senderName = messageSnapshot.value["senderName"] as? String
+                    var message = Message(text: text!, song: song!, mine: false, time: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
+                    var name = tempSnap.value["matchName"] as? String
+                    self.messages[name!] = message
+                    self.matchesArr.insert([matchID!, name!, roomID!], atIndex: 0)
                 }
                 self.Matches.reloadData()
         })

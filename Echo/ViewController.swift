@@ -121,7 +121,6 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     appDelegate.user = userOb
                 }
                 self.performSegueWithIdentifier("leaveLogIn", sender: nil)
-                self.fireBaseTester(appDelegate.user)
                 println(self.user.product)
                 appDelegate.product = self.user.product
                 if self.user.product == SPTProduct.Premium {
@@ -165,15 +164,5 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
         let spotifyURI = "spotify:track:1WJk986df8mpqpktoktlce"
         player!.playURIs([NSURL(string: spotifyURI)!], withOptions: nil, callback: nil)
     }
-    
-    func fireBaseTester(user: User) {
-        var song = Message(text: "I told you so", song: "iuasdlaksjdlaskjdlijad", mine: false, time: NSDate())
-        var dang_user = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983")!)
-        dang_user.id = "alkdlqwieq"
-        user.messenger.sendFirebaseMessage(dang_user, room: "-JmJ2E7PwnUzxzHfjlgG", text: "hello nigga", song: "")
-       
-        
-    }
-
 }
 
