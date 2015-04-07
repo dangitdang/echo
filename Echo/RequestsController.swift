@@ -45,8 +45,8 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     var player: SPTAudioStreamingController!
     
 
-   override func viewWillAppear(animated: Bool){
-        super.viewWillAppear(animated)
+   override func viewDidLoad(){
+        super.viewDidLoad()
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
@@ -56,6 +56,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         if (appDelegate.product == SPTProduct.Premium) {
             self.player = appDelegate.player
         }
+    
         
         //        //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
         //        var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
@@ -79,13 +80,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         //            userList.append(hansa)
         //            songList[hansa] = Message(text: "Just One Yesterday", song: "0l2p5mDOP3czJ2FpD6zWie", mine: false, time: NSDate())
         //        }
-        
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         setupFirebase(appDelegate.user)
     }
+    
     
     func setupFirebase(user:User) {
         var reqRef = Firebase(url: "\(rootRefURL)/requests/\(user.id)")
