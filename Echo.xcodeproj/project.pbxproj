@@ -15,9 +15,9 @@
 		3886CBE61AD2435000826E9B /* EchoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBDE1AD2426A00826E9B /* EchoTests.swift */; };
 		3886CBEA1AD2436500826E9B /* Echo-Bridgin-Header.m in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBDC1AD2426A00826E9B /* Echo-Bridgin-Header.m */; };
 		3886CBEE1AD2E32500826E9B /* ChooseSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */; };
-		3A5E5D271AD33715005C1383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E5D251AD33715005C1383 /* Main.storyboard */; };
 		38F8D4621AD31B8F004E3428 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */; };
 		38F8D4631AD31B95004E3428 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */; };
+		3A5E5D271AD33715005C1383 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A5E5D251AD33715005C1383 /* Main.storyboard */; };
 		3A5E5D291AD34469005C1383 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D281AD34469005C1383 /* RequestsController.swift */; };
 		3A5E5D2B1AD3469F005C1383 /* MessageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */; };
 		3A8133921AD1C596000D95D0 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
@@ -172,6 +172,7 @@
 		DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A51AB4FFBC005ED64D /* ParseImporter.m */; };
 		DC3FD5A81AB50BD3005ED64D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A71AB50BD3005ED64D /* User.swift */; };
 		DC3FD5AA1AB50D68005ED64D /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3FD5A91AB50D68005ED64D /* Utils.swift */; };
+		DCB85D261AD34FE900064BBA /* MessageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1285,6 +1286,7 @@
 				DC39B2A81AD204B100CEF932 /* Messenger.swift in Sources */,
 				DC39B2A51AD2031E00CEF932 /* MusicCollection.swift in Sources */,
 				DC39B2B41AD204DD00CEF932 /* ProfileView.swift in Sources */,
+				DCB85D261AD34FE900064BBA /* MessageInterface.swift in Sources */,
 				DC39B2B01AD204DD00CEF932 /* MessengerController.swift in Sources */,
 				AA967B821AD3158E00A7C901 /* AppDelegate.swift in Sources */,
 				DC39B2A71AD2045000CEF932 /* User.swift in Sources */,

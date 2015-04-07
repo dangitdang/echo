@@ -58,11 +58,12 @@ class MusicCollectionTests: XCTestCase {
     }
     
     func testMatches(){
-        dang_user.getMatches()
+        dang_user.getLatestMatch()
         println(dang_user.matches)
     }
     
     func testPulling(){
+        println("started test")
         var user: User = User.checkIfUserExists("aivanov@mit.edu")!
         println(user.displayName)
         var match = user.getLatestMatch()

@@ -86,6 +86,7 @@ Parse.Cloud.define("findMatches", function(request, response) {
             //***
             query.find({
                 success: function(results) {
+                    console.log(results)
                     var output = findMatches(user, results)
                     
                     var matches = output[0]

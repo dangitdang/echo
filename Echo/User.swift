@@ -52,7 +52,7 @@ class User: Hashable {
         var user = pfo
         println(user.objectId)
         var music = MusicCollection(obj: user.valueForKey("music") as [String:AnyObject])
-        var obj = user["mathces"] as [String:AnyObject]
+        var obj = user["matches"] as [String:AnyObject]
         var matches = [String:[String]]()
         for (score, p) in obj {
             matches[score] = p as? [String]
@@ -87,7 +87,7 @@ class User: Hashable {
         user.setObject(self.email, forKey: "email")
         user.setObject(self.birthdate, forKey: "birthdate")
         user.setObject(self.country, forKey: "country")
-        user.setObject(self.matches, forKey: "mathces")
+        user.setObject(self.matches, forKey: "matches")
         user.setObject(self.preferences, forKey: "preferences")
         user.setObject([], forKey: "requests")
         user.setObject([], forKey: "conversations")
@@ -129,11 +129,13 @@ class User: Hashable {
     }
     
     func getLatestMatch() -> User? {
+        self.pullMatches()
         var scores = ["5","4","3","2","1"]
         for score in scores {
             var arr = self.matches[score]!
-            if let id = arr[0] as String? {
-                return User.userFromID(id)            }
+            if arr.count > 0 {
+                return User.userFromID(arr[0])
+            }
         }
         return nil
     }
@@ -145,7 +147,7 @@ class User: Hashable {
         }
     }
     
-    func getMatches() -> Void {
+    func pullMatches() -> Void {
         var output: NSArray = PFCloud.callFunction("findMatches", withParameters: ["email": self.email]) as NSArray
        
         for element in output {
