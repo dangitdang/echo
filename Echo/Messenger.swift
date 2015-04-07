@@ -138,14 +138,14 @@ class Messenger {
         println("here")
         self.requests[to] = Message(text: songName, song: song, mine: true, time:time)
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
-        var message = ["type": "request", "sender": self.user!.id, "song": song, "text":songName]
+        var message = ["type": "request", "sender": self.user!.id, "song": song, "text":songName,"time":time]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
     
     func sendMessage(to: User, text: String="", song: String = "", time:NSDate){
         self.chats[to]!.append(Message(text: text, song: song, mine: true, time:time))
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
-        var message = ["type": "message", "sender": self.user!.id, "song": song, "text":text]
+        var message = ["type": "message", "sender": self.user!.id, "song": song, "text":text, "time":time]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
     
