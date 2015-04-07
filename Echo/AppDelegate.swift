@@ -56,13 +56,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
         var sender = message.message.valueForKey("sender") as String
         var type = message.message.valueForKey("type") as String
         var song = message.message.valueForKey("song") as String
+        var time = message.message.valueForKey("timestamp") as NSDate
         if (type == "request") {
-            NEW_REQUEST(self.user!, sender, song)
+            NEW_REQUEST(self.user!, sender, song, time)
         } else if (type == "approve") {
-            APPROVED_REQUEST(self.user!, sender, song)
+            APPROVED_REQUEST(self.user!, sender, song, time)
         } else if (type == "message") {
             var text = message.message.valueForKey("text") as String
-            RECEIVED_MESSAGE(self.user!, sender, song, text)
+            RECEIVED_MESSAGE(self.user!, sender, song, text, time)
         }
     }
 

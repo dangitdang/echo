@@ -64,7 +64,7 @@ class MusicCollectionTests: XCTestCase {
     
     func testPulling(){
         println("started test")
-        var user: User = User.checkIfUserExists("aivanov@mit.edu")!
+        var user: User = User.checkIfUserExists("harinisuresh94@yahoo.com")!
         println(user.displayName)
         var match = user.getLatestMatch()
         println(user.matches)

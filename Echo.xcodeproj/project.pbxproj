@@ -134,6 +134,8 @@
 		AA20092C1AA40D7B00E9BB8B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA20092B1AA40D7B00E9BB8B /* Images.xcassets */; };
 		AA20092F1AA40D7B00E9BB8B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA20092D1AA40D7B00E9BB8B /* LaunchScreen.xib */; };
 		AA4CBA501AB6A6A600AD6BCC /* SpotifyScrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */; };
+		AA4F88F41AD3854F0089DDB3 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F31AD3854F0089DDB3 /* MessageCell.swift */; };
+		AA4F88F61AD386560089DDB3 /* DialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F88F51AD386560089DDB3 /* DialogController.swift */; };
 		AA967B811AD3146B00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA967B821AD3158E00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA967B941AD378F400A7C901 /* EchoMatchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */; };
@@ -492,6 +494,8 @@
 		AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotifyScrapper.swift; sourceTree = "<group>"; };
+		AA4F88F31AD3854F0089DDB3 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		AA4F88F51AD386560089DDB3 /* DialogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogController.swift; sourceTree = "<group>"; };
 		AA967B971AD37CA200A7C901 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AADEDBA21AD1D345008900B9 /* Alamofire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alamofire.h; sourceTree = "<group>"; };
 		AADEDBA31AD1D345008900B9 /* Alamofire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alamofire.swift; sourceTree = "<group>"; };
@@ -986,15 +990,17 @@
 				DC3FD5A91AB50D68005ED64D /* Utils.swift */,
 				AA2009261AA40D7B00E9BB8B /* ViewController.swift */,
 				AADEDBA21AD1D345008900B9 /* Alamofire.h */,
-				3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */,
 				AADEDBA31AD1D345008900B9 /* Alamofire.swift */,
 				AA4CBA4F1AB6A6A600AD6BCC /* SpotifyScrapper.swift */,
 				3A8133911AD1C596000D95D0 /* MusicCollection.swift */,
 				3A81339D1AD1CF40000D95D0 /* PubNub */,
 				3A8133931AD1C5B3000D95D0 /* ENSideMenu.swift */,
-				3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */,
 				DC39B2A11AD1DA6100CEF932 /* Messenger.swift */,
+				3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */,
+				AA4F88F31AD3854F0089DDB3 /* MessageCell.swift */,
+				AA4F88F51AD386560089DDB3 /* DialogController.swift */,
 				DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */,
+				3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */,
 				3A8133941AD1C5B3000D95D0 /* ENSideMenuNavigationController.swift */,
 				383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */,
 				AA967B961AD37CA200A7C901 /* Main.storyboard */,
@@ -1269,6 +1275,7 @@
 				3A8134F51AD1CF40000D95D0 /* PNRequestsQueue.m in Sources */,
 				3A8134FA1AD1CF40000D95D0 /* NSData+PNAdditions.m in Sources */,
 				3A8134CD1AD1CF40000D95D0 /* PNPresenceEvent.m in Sources */,
+				AA4F88F41AD3854F0089DDB3 /* MessageCell.swift in Sources */,
 				3A8134D51AD1CF40000D95D0 /* PNChannelGroupsResponseParser.m in Sources */,
 				DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */,
 				3A8134EE1AD1CF40000D95D0 /* PNDate.m in Sources */,
@@ -1276,6 +1283,7 @@
 				3A81350E1AD1CF40000D95D0 /* PNChannelsForGroupRequest.m in Sources */,
 				3A8134F41AD1CF40000D95D0 /* PNOperationStatus.m in Sources */,
 				3A8135201AD1CF40000D95D0 /* PNReachability.m in Sources */,
+				AA4F88F61AD386560089DDB3 /* DialogController.swift in Sources */,
 				3A8135031AD1CF40000D95D0 /* NSSet+PNAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

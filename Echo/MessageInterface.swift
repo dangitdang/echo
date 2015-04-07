@@ -6,20 +6,19 @@
 //  Copyright (c) 2015 Quartet. All rights reserved.
 //
 
-func NEW_REQUEST(user:User, other_id: String, song:String){
+func NEW_REQUEST(user:User, other_id: String, song:String, time:NSDate){
     var other_user = User.userFromID(other_id)!
-    user.messenger.addRequest(other_user, song: song)
-    var messages = user.messenger.chats[other_user]!
-    newRequestUpdateUI(user, other_user, user.messenger.chats[other_user]![0])
+    var message = user.messenger.addRequest(other_user, song: song, time:time)
+    newRequestUpdateUI(user, other_user, message)
 }
 
 func newRequestUpdateUI(current_user: User, other_user: User, first_message:Message){
     // UI FOLKS: TODO
 }
 
-func APPROVED_REQUEST(user:User, other_id: String, song: String){
+func APPROVED_REQUEST(user:User, other_id: String, song: String, time: NSDate){
     var other_user = User.userFromID(other_id)!
-    var message = user.messenger.approvedRequest(other_user, song: song)
+    var message = user.messenger.approvedRequest(other_user, song: song, time:time)
     println(user.messenger.chats)
     approvedRequestUpdateUI(user, other_user, message)
 }
@@ -28,8 +27,8 @@ func approvedRequestUpdateUI(current_user: User, other_user: User, first_message
     //UI FOLKS: TODO
 }
 
-func RECEIVED_MESSAGE(user:User, other_id: String, song: String, text:String){
-    var out = user.messenger.addMessage(other_id, text: text, song: song)
+func RECEIVED_MESSAGE(user:User, other_id: String, song: String, text:String, time: NSDate){
+    var out = user.messenger.addMessage(other_id, text: text, song: song, time: time)
     var other_user = out[0] as User
     var message = out[1] as Message
     receivedMessageUpdateUI(user, other_user, message)
