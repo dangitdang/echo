@@ -44,6 +44,17 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         userList = appDelegate.user.messenger.getPeopleRequested()
         var songRequests: [User: Message] = appDelegate.user.messenger.getRequests()
         
+        //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
+        var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
+        var harini = User.checkIfUserExists("harinisuresh94@yahoo.com") as User!
+        var dang = User.checkIfUserExists("dpham279@gmail.com") as User!
+        var hansa = User.checkIfUserExists("agent.candykid@gmail.com") as User!
+        
+        if (andrei != nil) { userList.append(andrei) }
+        if (harini != nil) { userList.append(harini) }
+        if (dang != nil) { userList.append(dang) }
+        if (hansa != nil) { userList.append(hansa) }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,16 +64,14 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        println("RETURNING # of CELLS")
-        return 5//userList.count
+        return userList.count
     }
  
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        println("MAKING CELLS")
-        //let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell", forIndexPath: indexPath) as RequestsTableViewCell
+        var row = indexPath.row
         let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell") as RequestsTableViewCell
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        let url = appDelegate.user.picURL as NSURL!
+        var currUser = userList[row]
+        let url = currUser.picURL as NSURL!
         if (url != "") {
             let dataForPic = NSData(contentsOfURL: url!)
             var image = UIImage(data: dataForPic!)
@@ -70,7 +79,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
               cell.personPic.image = image!
             }
         }
-        cell.personName.text = appDelegate.user.displayName
+        cell.personName.text = currUser.displayName
         
         
         return cell
