@@ -18,7 +18,7 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
     var player: SPTAudioStreamingController!
     var user: User!
     var matchesArr : [User]!
-    var activeDialogViewController : DialogController!
+    var activeDialogViewController : ChatMessageController!
     
     override func viewDidLoad() {
         
@@ -70,9 +70,10 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
     
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "OpenDialogSegue"){
-            self.activeDialogViewController = segue.destinationViewController as DialogController;
+            self.activeDialogViewController = segue.destinationViewController as ChatMessageController;
             var matchIndex = Matches.indexPathForCell(sender as EchoMatchesCell)?.row
             self.activeDialogViewController.match = self.matchesArr[matchIndex!]
+            self.activeDialogViewController.user = self.user!
         }
 //        if ([segue.identifier isEqualToString:@"OpenDialogSegue"]) {
 //            self.activeDialogViewController = segue.destinationViewController;
