@@ -109,8 +109,11 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 
                 var userOb = User.checkIfUserExists(self.user.emailAddress) as User?
                 if (userOb == nil) {
+                    println("DOESNT EXIST")
                     appDelegate.user?.newUser = true
+                    scrapper.scrape(appDelegate.user)
                 } else {
+                    println("Exists")
                     appDelegate.user?.newUser = false
                     appDelegate.user = userOb
                 }

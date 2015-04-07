@@ -30,6 +30,7 @@ class MatchViewController: ViewControllerWNav {
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
 
         if (appDelegate.user.newUser) {
+            println("CAME HERE")
             appDelegate.user.newUser = false
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Profile") as UIViewController
             sideMenuController()?.setContentViewController(destViewController)

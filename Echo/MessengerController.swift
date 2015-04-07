@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Quartet. All rights reserved.
 //
 
+
 import UIKit
 
 class MessengerController: ViewControllerWNav, UITableViewDataSource {
@@ -44,8 +45,17 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var row = indexPath.row
         var match = self.matchesArr[row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("EchoMatches", forIndexPath: indexPath) as MatchesMusicTableViewCell
-        return cell
+        //var messages = self.user.messenger.getMessages(match)
+        var lastMessage = "Fuck this nigga"
+        //        if messages.last?.isSong() != true {
+        //            lastMessage = messages.last!.text
+        //        }
+        //var cell = tableView.dequeueReusableCellWithIdentifier("EchoMatchesCell", forIndexPath: indexPath) as EchoMatchesCell
+        //cell.matchName.text = match.displayName
+        //cell.lastMessage.text = lastMessage
+        //return cell
+        return UITableViewCell()
     }
 
 }
+
