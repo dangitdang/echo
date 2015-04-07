@@ -18,6 +18,8 @@ class MatchViewController: ViewControllerWNav {
     
     var user: User!
     
+    @IBOutlet weak var matchBlurbLabel: UILabel!
+    
     @IBOutlet weak var matchPicture: UIImageView!
     
     @IBOutlet weak var musicButton: UIButton!
@@ -26,9 +28,10 @@ class MatchViewController: ViewControllerWNav {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //setUser()
+        setUser()
         getCurrentMatch()
         self.matchNameLabel.text = self.currentMatch.displayName
+        self.matchBlurbLabel.text = self.currentMatch.blurb
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -67,8 +70,8 @@ class MatchViewController: ViewControllerWNav {
     
     
     func getCurrentMatch() {
-        //self.currentMatch = self.user.getLatestMatch()
-        self.currentMatch = User.checkIfUserExists("aivanov@mit.edu")
+        self.currentMatch = self.user.getLatestMatch()
+        //self.currentMatch = User.checkIfUserExists("aivanov@mit.edu")
     }
     
     func setUser() {
