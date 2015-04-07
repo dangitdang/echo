@@ -31,26 +31,45 @@ class MatchViewController: ViewControllerWNav {
     
     @IBOutlet weak var musicButton: UIButton!
     
+    @IBOutlet weak var matchValBar: UIProgressView!
+    
+    @IBOutlet weak var matchValLabel: UILabel!
+    
+    
     var currentMatch: User!
     var backgroundImages:[String]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        matchValBar.progressTintColor = UIColor(red: 0.9, green: 0.2, blue: 0.2, alpha: 1.0)
+        matchValBar.trackTintColor = UIColor.darkGrayColor()
+        
+        
+        
         backgroundImages = ["blur1", "blur2", "blur3", "blur4"]
         setUser()
         getCurrentMatch()
+        var score = self.user.getScore(self.currentMatch)
+        println("SCORE" + score)
+        var scoreFlt = (score as NSString).floatValue
         println(self.user.matches)
         setAlbumArt()
         if self.currentMatch == nil {
             self.matchNameLabel.text = "No Match"
             self.matchBlurbLabel.text = "No Match"
             self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
+            self.matchValBar.progress = 0.0
+            self.matchValLabel.text = "No Match"
 
         } else{
+            self.matchValBar.progress = (scoreFlt/5.0)
+            var myIntValue:Int = Int(scoreFlt)
+            var stringForm = String(myIntValue)
+            self.matchValLabel.text = "Match: " + stringForm + "/5"
+            println(self.matchValLabel.text)
             self.matchNameLabel.text = self.currentMatch.displayName
             self.matchBlurbLabel.text = self.currentMatch.blurb
-            self.musicButton.titleLabel?.font = UIFont(name:
-                "Helvetica Neue Thin", size: CGFloat(24.0))
             self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
             let url = self.currentMatch.picURL as NSURL!
             if (url.description != "") {
@@ -100,12 +119,18 @@ class MatchViewController: ViewControllerWNav {
             self.matchNameLabel.text = "No Match"
             self.matchBlurbLabel.text = "No Match"
             self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
-            
+            self.matchValBar.progress = 0.0
+            self.matchValLabel.text = "No Match"
         } else {
             self.user.removeLastMatch(self.currentMatch.id)
             self.currentMatch = self.user.getLatestMatch()
+            var score = self.user.getScore(self.currentMatch)
+            println("SCORE" + score)
+            var scoreFlt = (score as NSString).floatValue
             
             if self.currentMatch == nil {
+                self.matchValBar.progress = 0.0
+                self.matchValLabel.text = "No Match"
                 self.matchNameLabel.text = "No Match"
                 self.matchBlurbLabel.text = "No Match"
                 self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
@@ -114,7 +139,11 @@ class MatchViewController: ViewControllerWNav {
                 
             } else {
             
-            
+            self.matchValBar.progress = (scoreFlt/5.0)
+            var myIntValue:Int = Int(scoreFlt)
+            var stringForm = String(myIntValue)
+            self.matchValLabel.text = "Match: " + stringForm + "/5"
+            println(self.matchValLabel.text)
             self.matchNameLabel.text = self.currentMatch.displayName
             self.matchBlurbLabel.text = self.currentMatch.blurb
             self.musicButton.setTitle(getMatchFirstName() + "'s Music", forState: UIControlState.Normal)
