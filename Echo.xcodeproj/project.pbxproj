@@ -238,6 +238,7 @@
 		AAEB288B1AD407AF0066EA0C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3FD5981AB4FF84005ED64D /* SystemConfiguration.framework */; };
 		AAEB288D1AD407F40066EA0C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB288C1AD407F40066EA0C /* Social.framework */; };
 		AAEB288F1AD408090066EA0C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB288E1AD408090066EA0C /* Accounts.framework */; };
+		AAEB28911AD44E810066EA0C /* SongMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB28901AD44E810066EA0C /* SongMessage.swift */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
@@ -690,6 +691,7 @@
 		AAEB28881AD4007D0066EA0C /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 		AAEB288C1AD407F40066EA0C /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		AAEB288E1AD408090066EA0C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		AAEB28901AD44E810066EA0C /* SongMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongMessage.swift; sourceTree = "<group>"; };
 		AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerWNav.swift; sourceTree = "<group>"; };
 		DC39B2A11AD1DA6100CEF932 /* Messenger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messenger.swift; sourceTree = "<group>"; };
@@ -1196,6 +1198,7 @@
 				3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */,
 				AA4F88F31AD3854F0089DDB3 /* MessageCell.swift */,
 				AA5DEA741AD3D593006FF5A1 /* ChatMessageController.swift */,
+				AAEB28901AD44E810066EA0C /* SongMessage.swift */,
 				AA4F88F51AD386560089DDB3 /* DialogController.swift */,
 				DC39B2A31AD1EE1000CEF932 /* MessengerController.swift */,
 				3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */,
@@ -1690,6 +1693,7 @@
 				AA5DEA661AD3D384006FF5A1 /* JSQMessagesInputToolbar.m in Sources */,
 				3A8134D51AD1CF40000D95D0 /* PNChannelGroupsResponseParser.m in Sources */,
 				AA5DEA481AD3D384006FF5A1 /* UIColor+JSQMessages.m in Sources */,
+				AAEB28911AD44E810066EA0C /* SongMessage.swift in Sources */,
 				AA5DEA5A1AD3D384006FF5A1 /* JSQMessagesAvatarImage.m in Sources */,
 				DC3FD5A61AB4FFBC005ED64D /* ParseImporter.m in Sources */,
 				3A8135031AD1CF40000D95D0 /* NSSet+PNAdditions.m in Sources */,

@@ -52,6 +52,7 @@ class ChatMessageController : JSQMessagesViewController {
             let senderName = snapshot.value["senderName"] as? String
             let timestamp = snapshot.value["time"] as? Double
             let song = snapshot.value["song"] as? String
+            let isSong = snapshot.value["isSong"] as? Bool
             var convertedMessage = JSQMessage(senderId: sender, senderDisplayName: senderName, date: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)), text: text)
             self.messages.append(convertedMessage)
             self.finishReceivingMessage()
@@ -112,12 +113,6 @@ class ChatMessageController : JSQMessagesViewController {
         } else {
             setupAvatarColor(senderDisplayName, incoming: false)
         }
-//        var message1 = Message(text: "Hello Hansa!", mine: true, time: NSDate())
-//        var message2 = Message(text: "Sup my nigga", mine: false, time: NSDate())
-//        var message3 = Message(text: "OMG YOU BITCH", mine:false, time: NSDate())
-//        var message4 = Message(text: "haha yup", mine: true, time: NSDate())
-//        self.fakeMessages["Hansa"] = [message1,message2]
-//        self.fakeMessages["Dang"] = [message3,message4]
         setupFirebase()
         
     }
@@ -138,6 +133,7 @@ class ChatMessageController : JSQMessagesViewController {
     
     override func didPressAccessoryButton(sender: UIButton!) {
         //TODO Music button pressed!
+        println("pressed!")
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
