@@ -23,8 +23,8 @@ class ChooseSongViewController: ViewController, UITableViewDelegate, UITableView
         println("View Did Load")
         super.viewDidLoad()
         println("loadded")
-        //let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
-        //navigationItem.leftBarButtonItem = backButton
+        let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        navigationItem.leftBarButtonItem = backButton
         getSession()
 //        self.songTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SongMusicTableViewCell")
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -58,8 +58,10 @@ class ChooseSongViewController: ViewController, UITableViewDelegate, UITableView
             self.searchResults = data as [[String]]
             self.songTableView.reloadData()
         })
-    }
     
+    
+    }
+ 
     
     
     override func didReceiveMemoryWarning() {

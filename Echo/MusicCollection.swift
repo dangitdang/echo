@@ -91,6 +91,16 @@ class MusicCollection {
         }
         return common
     }
+
+    func artistsNotInCommon(other: MusicCollection) -> [String]{
+        var uncommon: [String] = []
+        for artist in other.artists{
+            if !contains(self.artists, artist){
+                uncommon.append(artist)
+            }
+        }
+        return uncommon
+    }
     
     func albumsInCommon(other: MusicCollection) -> [String: [String]]{
         var commonAlbums = [String: [String]]()

@@ -129,8 +129,15 @@ class User: Hashable {
     }
     
     func getLatestMatch() -> User? {
-        self.pullMatches()
         var scores = ["5","4","3","2","1"]
+        for score in scores {
+            var arr = self.matches[score]!
+            if arr.count > 0 {
+                return User.userFromID(arr[0])
+            }
+        }
+        self.pullMatches()
+        //var scores = ["5","4","3","2","1"]
         for score in scores {
             var arr = self.matches[score]!
             if arr.count > 0 {
@@ -140,13 +147,13 @@ class User: Hashable {
         return nil
     }
     
-    func removeLastMatch(user:User){
+    func removeLastMatch(user:String){
         var scores = ["5","4","3","2","1"]
         for score in self.matches.keys.array {
             self.matches[score]!.removeObject(user)
         }
     }
-    
+
     func pullMatches() -> Void {
         var output: NSArray = PFCloud.callFunction("findMatches", withParameters: ["email": self.email]) as NSArray
        
@@ -181,7 +188,12 @@ class User: Hashable {
     class func userFromID(id: String) -> User? {
         var query = PFQuery(className: "EchoUser")
         var user = query.getObjectWithId(id)
-        return User(pfo:user)
+        if user == nil {
+            return nil
+        } else {
+            return User(pfo:user)
+        }
+        
     }
     
     

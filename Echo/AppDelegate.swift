@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     var pubNub: PubNub?
     var session:SPTSession?
     var user: User!
+    var product: SPTProduct?
     var player: SPTAudioStreamingController?
     var scraper: Scrapper!
     var semaphore: dispatch_semaphore_t!

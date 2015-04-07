@@ -41,7 +41,7 @@ class Message {
     }
     
     func isSong() -> Bool {
-        return self.text == ""
+        return self.song != ""
     }
 }
 
