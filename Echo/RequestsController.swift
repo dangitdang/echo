@@ -44,8 +44,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     
     var player: SPTAudioStreamingController!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+   override func viewWillAppear(animated: Bool){
+        super.viewWillAppear(animated)
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
@@ -146,7 +147,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         //println(obj)
         userList.append(user)
         songList[user] = m
-        self.view.subviews[1].reloadData() //this line doesnt actually work idk
+        //self.tableView.reloadData() //this line doesnt actually work idk
     }
     
     func playOrPause(sender: UIButton!) {

@@ -107,11 +107,16 @@ class MusicCollection {
         var j = 0
         var i = 0
         while j < 4 {
+            if artists.count <= i {
+                albumURLs.append(albumURLs[j-1])
+                j = j+1
+            } else {
             var artist = artists[i]
             var albumURL = artistPhotos![artist]
-            if albumURL != "no pic" {
+            if countElements(albumURL!)>10 {
                 albumURLs.append(albumURL!)
                 j = j + 1
+            }
             }
             i = i + 1
         }
