@@ -7,9 +7,9 @@
 //
 
 
-func NEW_REQUEST(user:User, other_id: String, song:String, time:NSDate){
+func NEW_REQUEST(user:User, other_id: String, song:String, songName: String, time:NSDate){
     var other_user = User.userFromID(other_id)!
-    var message = user.messenger.addRequest(other_user, song: song, time:time)
+    var message = user.messenger.addRequest(other_user, song: song, songName: songName, time:time)
     newRequestUpdateUI(user, other_user, message)
 }
 
@@ -21,9 +21,9 @@ func newRequestUpdateUI(current_user: User, other_user: User, first_message:Mess
     destViewController.addRequest(other_user, m: first_message)
 }
 
-func APPROVED_REQUEST(user:User, other_id: String, song: String, time: NSDate){
+func APPROVED_REQUEST(user:User, other_id: String, song: String, songName: String, time: NSDate){
     var other_user = User.userFromID(other_id)!
-    var message = user.messenger.approvedRequest(other_user, song: song, time:time)
+    var message = user.messenger.approvedRequest(other_user, song: song, songName: songName, time:time)
     println(user.messenger.chats)
     approvedRequestUpdateUI(user, other_user, message)
 }
