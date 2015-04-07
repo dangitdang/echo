@@ -28,7 +28,9 @@ class MatchViewController: ViewControllerWNav {
         super.viewDidLoad()
         //setUser()
         getCurrentMatch()
-        self.matchNameLabel.text = self.currentMatch.displayName
+        //self.matchNameLabel.text = self.currentMatch.displayName
+        
+        
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -40,18 +42,17 @@ class MatchViewController: ViewControllerWNav {
             sideMenuController()?.sideMenu?.hideSideMenu()
         }
         
-        
-        self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
-        
-        //self.matchNameLabel.text = "Match's Name"
-        //self.musicButton.setTitle("Match's Music", forState: UIControlState.Normal)
-        // Do any additional setup after loading the view.
-        
-        let url = self.currentMatch.picURL as NSURL!
-        if (url.description != "") {
-            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
-            matchPicture.image = UIImage(data: data!)
-        }
+//        self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
+//        
+//        //self.matchNameLabel.text = "Match's Name"
+//        //self.musicButton.setTitle("Match's Music", forState: UIControlState.Normal)
+//        // Do any additional setup after loading the view.
+//        
+//        let url = self.currentMatch.picURL as NSURL!
+//        if (url.description != "") {
+//            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
+//            matchPicture.image = UIImage(data: data!)
+//        }
     }
     
     

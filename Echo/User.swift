@@ -140,10 +140,10 @@ class User: Hashable {
         return nil
     }
     
-    func removeLastMatch(){
+    func removeLastMatch(user:User){
         var scores = ["5","4","3","2","1"]
-        for score in scores {
-            self.matches[score]!.removeAtIndex(0)
+        for score in self.matches.keys.array {
+            self.matches[score]!.removeObject(user)
         }
     }
     

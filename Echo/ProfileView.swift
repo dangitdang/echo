@@ -116,6 +116,10 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         }
         
         appDelegate.user.preferences = currentPreferences
+        println("BEFORE SEMAPHORE")
+        dispatch_semaphore_wait(appDelegate.semaphore, DISPATCH_TIME_FOREVER)
+        println("AFTER_SEMAPHORE")
+        appDelegate.user.store()
     }
     
     @IBAction func checkbox1(sender: AnyObject) {
