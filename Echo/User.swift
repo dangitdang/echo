@@ -102,6 +102,8 @@ class User: Hashable {
         
         user.save()
         self.id = user.objectId
+        println("YOOOOOOOOOOOOOOOOO")
+        println(self.id)
         self.parse = user
         self.messenger.setUser(self)
     }
