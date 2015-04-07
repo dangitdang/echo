@@ -49,10 +49,11 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
         //        if messages.last?.isSong() != true {
         //            lastMessage = messages.last!.text
         //        }
-        var cell = tableView.dequeueReusableCellWithIdentifier("EchoMatchesCell", forIndexPath: indexPath) as EchoMatchesCell
-        cell.matchName.text = match.displayName
-        cell.lastMessage.text = lastMessage
-        return cell
+        //var cell = tableView.dequeueReusableCellWithIdentifier("EchoMatchesCell", forIndexPath: indexPath) as EchoMatchesCell
+        //cell.matchName.text = match.displayName
+        //cell.lastMessage.text = lastMessage
+        //return cell
+        return UITableViewCell()
     }
 
 }
