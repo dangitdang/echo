@@ -138,7 +138,12 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="acceptButton" destination="l4y-Ab-I45" id="oAm-ox-8NE"/>
+                                            <outlet property="declineButton" destination="aSf-HF-sjD" id="YQ3-7i-5FY"/>
+                                            <outlet property="personName" destination="5Wo-xf-kbx" id="8wW-UD-xj2"/>
                                             <outlet property="personPic" destination="9l0-1c-tCJ" id="pgw-7z-4bK"/>
+                                            <outlet property="playPauseButton" destination="elE-bT-qid" id="caO-3l-vIA"/>
+                                            <outlet property="songName" destination="37O-uy-H2j" id="nub-CQ-e2B"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

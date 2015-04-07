@@ -12,6 +12,16 @@ class RequestsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var personPic: UIImageView!
     
+    @IBOutlet weak var personName: UILabel!
+    
+    @IBOutlet weak var playPauseButton: UIButton!
+    
+    @IBOutlet weak var songName: UILabel!
+    
+    @IBOutlet weak var acceptButton: UIButton!
+    
+    @IBOutlet weak var declineButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
