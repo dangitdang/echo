@@ -53,12 +53,11 @@ class ChatMessageController : JSQMessagesViewController {
             let timestamp = snapshot.value["time"] as? Double
             let song = snapshot.value["song"] as? String
             let isSong = snapshot.value["isSong"] as? Bool
-            var convertedMessage :JSQMessage
-            if isSong == true {
-                convertedMessage = JSQMessage(senderId: sender, displayName: senderName, media: SongMessage(uri: song!, name: text!))
-            } else {
-                convertedMessage = JSQMessage(senderId: sender, senderDisplayName: senderName, date: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)), text: text)
-            }
+//            if isSong == true {
+//                convertedMessage = JSQMessage(senderId: sender, displayName: senderName, media: SongMessage(uri: song!, name: text!))
+//            } else {
+            var convertedMessage = JSQMessage(senderId: sender, senderDisplayName: senderName, date: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)), text: text)
+            
             self.messages.append(convertedMessage)
             self.finishReceivingMessage()
         })

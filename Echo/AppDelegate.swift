@@ -55,6 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
         self.user?.save()
         println("saving user")
     }
+    func playSong(uri: String) {
+        var url = "spotify:track:" + uri
+        player?.playURIs([NSURL(string: url)!], withOptions: nil, callback: nil)
+    }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
 //        println("GOOOOOOOOOOOOOOT A MESSAAAAAAAAGE####$$!!!!!!!!")

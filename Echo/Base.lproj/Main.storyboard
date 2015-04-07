@@ -494,7 +494,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-4N-xbI">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-4N-xbI">
                                                 <rect key="frame" x="8" y="562" width="60" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="119" id="c6Z-ei-mtz"/>
@@ -626,6 +626,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="lastMessage" destination="xXx-GC-RGx" id="hFd-wi-VJL"/>
+                                            <outlet property="matchIMG" destination="FZU-ta-G42" id="KnT-EW-tFM"/>
                                             <outlet property="matchName" destination="nMo-FM-kIP" id="51f-8a-GSz"/>
                                             <segue destination="ke9-Qq-ewU" kind="show" identifier="OpenDialogSegue" id="5kv-MY-dFA"/>
                                         </connections>

@@ -130,7 +130,7 @@ class Messenger {
         var roomRef = messagesRef.childByAutoId()
         var userRef = Firebase(url:"\(rootRefURL)/users/\(self.user!.id)/rooms/\(roomRef.key)")
         var otherRef = Firebase(url:"\(rootRefURL)/users/\(user.id)/rooms/\(roomRef.key)")
-        let message = ["sender": user.id, "isSong": true, "text" : "\(self.user?.displayName) liked your choice of \(song.text)", "song" : song.song, "time": FirebaseServerValue.timestamp(), "senderName" : user.displayName]
+        let message = ["sender": user.id, "isSong": true, "text" : "\(self.user!.displayName) liked your choice of \(song.text)", "song" : song.song, "time": FirebaseServerValue.timestamp(), "senderName" : user.displayName]
         var roomInfo = ["updated":  FirebaseServerValue.timestamp(), "match" : user.id, "matchName" : user.displayName, "last" : message]
         var roomInfoForOther = ["updated":  FirebaseServerValue.timestamp(), "match" : self.user!.id, "matchName" : self.user!.displayName, "last" : message]
         userRef.updateChildValues(roomInfo)

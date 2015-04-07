@@ -55,7 +55,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         if (appDelegate.product == SPTProduct.Premium) {
             self.player = appDelegate.player
         }
-        setupFirebase(appDelegate.user)
+        
         //        //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
         //        var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
         //        var harini = User.checkIfUserExists("harinisuresh94@yahoo.com") as User!
@@ -81,6 +81,11 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        setupFirebase(appDelegate.user)
+    }
+    
     func setupFirebase(user:User) {
         var reqRef = Firebase(url: "\(rootRefURL)/requests/\(user.id)")
         reqRef.queryLimitedToLast(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
@@ -90,6 +95,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
             let song = snapshot.value["song"] as? String
             println("FIREBASE BABYYYY")
             NEW_REQUEST(user, sender!, song!, songName!, NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
+            self.tableView.reloadData()
         })
     }
     
@@ -147,6 +153,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         userList.append(user)
         songList[user] = m
         //self.view.subviews[1].reloadData() //this line doesnt actually work idk
+        
     }
     
     func playOrPause(sender: UIButton!) {

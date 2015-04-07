@@ -12,9 +12,9 @@ class SongMessage : JSQMediaItem, JSQMessageMediaData {
     var songName : String!
     
     init(uri:String, name : String) {
+        super.init()
         self.songURI = uri
         self.songName = name
-        super.init()
         
     }
     
@@ -27,6 +27,10 @@ class SongMessage : JSQMediaItem, JSQMessageMediaData {
         super.init(coder: aDecoder)
     }
 
+    func playSong() {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.playSong(self.songURI)
+    }
     
     func setAppliesMediaViewMaskAsOutgoing(appliesMediaViewMaskAsOutgoing : Bool) {
         super.appliesMediaViewMaskAsOutgoing = appliesMediaViewMaskAsOutgoing

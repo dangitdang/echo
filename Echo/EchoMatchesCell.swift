@@ -15,6 +15,8 @@ class EchoMatchesCell : UITableViewCell {
     
     @IBOutlet weak var lastMessage: UILabel!
     
+    @IBOutlet weak var matchIMG: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

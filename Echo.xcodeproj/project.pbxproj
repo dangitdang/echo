@@ -187,7 +187,6 @@
 		AA5DEA761AD3D6A0006FF5A1 /* ChatMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5DEA741AD3D593006FF5A1 /* ChatMessageController.swift */; };
 		AA967B811AD3146B00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
 		AA967B821AD3158E00A7C901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2009241AA40D7B00E9BB8B /* AppDelegate.swift */; };
-		AA967B941AD378F400A7C901 /* EchoMatchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */; };
 		AA967B951AD3795100A7C901 /* EchoMatchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */; };
 		AA967B981AD37CA200A7C901 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA967B961AD37CA200A7C901 /* Main.storyboard */; };
 		AADEDBA41AD1D345008900B9 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADEDBA31AD1D345008900B9 /* Alamofire.swift */; };
@@ -240,6 +239,7 @@
 		AAEB288F1AD408090066EA0C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB288E1AD408090066EA0C /* Accounts.framework */; };
 		AAEB28911AD44E810066EA0C /* SongMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB28901AD44E810066EA0C /* SongMessage.swift */; };
 		AAEB28921AD4611C0066EA0C /* SongMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB28901AD44E810066EA0C /* SongMessage.swift */; };
+		AAEB28931AD484030066EA0C /* EchoMatchesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFC07231AD36C0300DD6F63 /* EchoMatchesCell.swift */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
@@ -1727,7 +1727,6 @@
 				DC39B2B11AD204DD00CEF932 /* ENSideMenuNavigationController.swift in Sources */,
 				AAEB28601AD3E4D70066EA0C /* JSQMessagesToolbarButtonFactory.m in Sources */,
 				AAEB286F1AD3F0C00066EA0C /* JSQMessagesCollectionViewLayoutAttributes.m in Sources */,
-				AA967B941AD378F400A7C901 /* EchoMatchesCell.swift in Sources */,
 				AAEB28701AD3F0D60066EA0C /* JSQLocationMediaItem.m in Sources */,
 				AAEB28681AD3F0830066EA0C /* UIImage+JSQMessages.m in Sources */,
 				AAEB286D1AD3F0C00066EA0C /* JSQMessagesCollectionViewFlowLayout.m in Sources */,
@@ -1735,6 +1734,7 @@
 				AA4F88FA1AD3B2FF0089DDB3 /* DialogController.swift in Sources */,
 				AAEB287A1AD3F0E90066EA0C /* JSQMessagesCollectionViewCellIncoming.m in Sources */,
 				AA5DEA761AD3D6A0006FF5A1 /* ChatMessageController.swift in Sources */,
+				AAEB28931AD484030066EA0C /* EchoMatchesCell.swift in Sources */,
 				AAEB286E1AD3F0C00066EA0C /* JSQMessagesCollectionViewFlowLayoutInvalidationContext.m in Sources */,
 				AAEB28661AD3F0830066EA0C /* UIColor+JSQMessages.m in Sources */,
 				AAEB28761AD3F0D60066EA0C /* JSQVideoMediaItem.m in Sources */,
