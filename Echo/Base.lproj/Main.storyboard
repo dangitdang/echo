@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -20,13 +20,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo1" translatesAutoresizingMaskIntoConstraints="NO" id="mRV-lO-4aZ">
-                                <rect key="frame" x="152" y="76" width="297" height="160"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="297" id="LMQ-Zq-XgO"/>
-                                    <constraint firstAttribute="width" secondItem="mRV-lO-4aZ" secondAttribute="height" multiplier="297:160" id="vrM-ri-vub"/>
-                                </constraints>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvU-Jk-rBj">
                                 <rect key="frame" x="194" y="314" width="213" height="43"/>
                                 <constraints>
@@ -41,14 +34,53 @@
                                     <action selector="loginWithSpotify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="L0q-fY-ylo"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-trans" translatesAutoresizingMaskIntoConstraints="NO" id="mRV-lO-4aZ">
+                                <rect key="frame" x="152" y="76" width="297" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="292" id="S2n-cE-Pe7"/>
+                                    <constraint firstAttribute="width" secondItem="mRV-lO-4aZ" secondAttribute="height" multiplier="379:347" id="ZEw-me-SE2"/>
+                                    <constraint firstAttribute="width" constant="318" id="ymn-iz-FHE"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="S2n-cE-Pe7"/>
+                                        <exclude reference="ZEw-me-SE2"/>
+                                        <exclude reference="ymn-iz-FHE"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="27" y="60" width="318" height="292"/>
+                                    <mask key="constraints">
+                                        <include reference="S2n-cE-Pe7"/>
+                                        <include reference="ZEw-me-SE2"/>
+                                        <include reference="ymn-iz-FHE"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mRV-lO-4aZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="105" id="7xl-0p-U4F"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CvU-Jk-rBj" secondAttribute="bottom" constant="189" id="MiH-lY-0Ue"/>
-                            <constraint firstItem="mRV-lO-4aZ" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="iJQ-Oc-TeC"/>
-                            <constraint firstItem="CvU-Jk-rBj" firstAttribute="centerX" secondItem="mRV-lO-4aZ" secondAttribute="centerX" id="z7z-vQ-AhM"/>
+                            <constraint firstItem="mRV-lO-4aZ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="40" id="PMt-1n-x8a"/>
+                            <constraint firstAttribute="centerX" secondItem="CvU-Jk-rBj" secondAttribute="centerX" constant="-0.5" id="gEU-hQ-4ct"/>
+                            <constraint firstAttribute="centerX" secondItem="mRV-lO-4aZ" secondAttribute="centerX" constant="-0.5" id="jjG-cQ-wGd"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="CvU-Jk-rBj" secondAttribute="bottom" constant="90" id="tJ8-wN-5s2"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PMt-1n-x8a"/>
+                                <exclude reference="jjG-cQ-wGd"/>
+                                <exclude reference="gEU-hQ-4ct"/>
+                                <exclude reference="tJ8-wN-5s2"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="PMt-1n-x8a"/>
+                                <include reference="jjG-cQ-wGd"/>
+                                <include reference="gEU-hQ-4ct"/>
+                                <include reference="tJ8-wN-5s2"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <segue destination="3d9-Xg-z6h" kind="show" identifier="leaveLogIn" id="LzK-H5-wwq"/>
@@ -1157,9 +1189,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="184" y="362" width="109" height="21"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1251,36 +1280,16 @@
                                 <exclude reference="v9T-km-rNF"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="0VN-ij-Gw1"/>
-                                <exclude reference="9UF-HG-OGS"/>
-                                <exclude reference="PBo-Rx-7OA"/>
-                                <exclude reference="V5F-iU-e2V"/>
-                                <exclude reference="pl0-Fg-L6s"/>
-                                <exclude reference="2tv-Eh-J1h"/>
-                                <exclude reference="Oma-mN-nqQ"/>
-                                <exclude reference="gNq-2o-aUs"/>
-                                <exclude reference="AHC-qJ-uoJ"/>
-                                <exclude reference="mEO-KY-vBf"/>
                                 <exclude reference="8cV-Yy-aHW"/>
                                 <exclude reference="o4B-Dg-vYf"/>
                                 <exclude reference="gqF-1b-zwL"/>
                                 <exclude reference="ysc-KC-Idy"/>
-                                <exclude reference="3mC-gd-wzO"/>
-                                <exclude reference="9d3-Z0-dDR"/>
-                                <exclude reference="FhZ-Y9-aEN"/>
-                                <exclude reference="NpY-b7-6rC"/>
-                                <exclude reference="q1m-IH-OSa"/>
-                                <exclude reference="yas-8f-W5u"/>
                                 <exclude reference="5mt-rf-ZEF"/>
                                 <exclude reference="wVW-1S-3xc"/>
-                                <exclude reference="JVq-D0-ZDT"/>
-                                <exclude reference="kM7-oa-Gae"/>
                                 <exclude reference="6ur-Br-mtq"/>
                                 <exclude reference="Ip4-kl-3Th"/>
                                 <exclude reference="sbp-hC-9gL"/>
                                 <exclude reference="xKA-fe-c0E"/>
-                                <exclude reference="cSP-aI-SW4"/>
-                                <exclude reference="uyG-u0-jIb"/>
                                 <exclude reference="RhV-Bc-fSA"/>
                                 <exclude reference="a4k-LV-8Q2"/>
                                 <exclude reference="hWt-Px-4xb"/>
@@ -1292,6 +1301,26 @@
                                 <exclude reference="bRY-ot-iHP"/>
                                 <exclude reference="gDV-kH-meJ"/>
                                 <exclude reference="jjq-94-twd"/>
+                                <exclude reference="0VN-ij-Gw1"/>
+                                <exclude reference="9UF-HG-OGS"/>
+                                <exclude reference="PBo-Rx-7OA"/>
+                                <exclude reference="V5F-iU-e2V"/>
+                                <exclude reference="pl0-Fg-L6s"/>
+                                <exclude reference="2tv-Eh-J1h"/>
+                                <exclude reference="Oma-mN-nqQ"/>
+                                <exclude reference="gNq-2o-aUs"/>
+                                <exclude reference="cSP-aI-SW4"/>
+                                <exclude reference="uyG-u0-jIb"/>
+                                <exclude reference="JVq-D0-ZDT"/>
+                                <exclude reference="kM7-oa-Gae"/>
+                                <exclude reference="3mC-gd-wzO"/>
+                                <exclude reference="9d3-Z0-dDR"/>
+                                <exclude reference="FhZ-Y9-aEN"/>
+                                <exclude reference="NpY-b7-6rC"/>
+                                <exclude reference="q1m-IH-OSa"/>
+                                <exclude reference="yas-8f-W5u"/>
+                                <exclude reference="AHC-qJ-uoJ"/>
+                                <exclude reference="mEO-KY-vBf"/>
                                 <exclude reference="kF3-k4-HGU"/>
                             </mask>
                         </variation>
@@ -1308,38 +1337,16 @@
                                 <include reference="v9T-km-rNF"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="0VN-ij-Gw1"/>
-                                <include reference="9UF-HG-OGS"/>
-                                <exclude reference="PBo-Rx-7OA"/>
-                                <exclude reference="V5F-iU-e2V"/>
-                                <include reference="pl0-Fg-L6s"/>
-                                <include reference="2tv-Eh-J1h"/>
-                                <include reference="Oma-mN-nqQ"/>
-                                <exclude reference="gNq-2o-aUs"/>
-                                <include reference="AHC-qJ-uoJ"/>
-                                <include reference="mEO-KY-vBf"/>
                                 <include reference="8cV-Yy-aHW"/>
                                 <include reference="o4B-Dg-vYf"/>
                                 <include reference="gqF-1b-zwL"/>
                                 <include reference="ysc-KC-Idy"/>
-                                <include reference="3mC-gd-wzO"/>
-                                <include reference="9d3-Z0-dDR"/>
-                                <exclude reference="FhZ-Y9-aEN"/>
-                                <include reference="NpY-b7-6rC"/>
-                                <include reference="q1m-IH-OSa"/>
-                                <include reference="yas-8f-W5u"/>
                                 <include reference="5mt-rf-ZEF"/>
                                 <include reference="wVW-1S-3xc"/>
-                                <exclude reference="JVq-D0-ZDT"/>
-                                <include reference="kM7-oa-Gae"/>
                                 <include reference="6ur-Br-mtq"/>
                                 <include reference="Ip4-kl-3Th"/>
                                 <include reference="sbp-hC-9gL"/>
                                 <include reference="xKA-fe-c0E"/>
-                                <exclude reference="4Zl-av-adn"/>
-                                <include reference="cSP-aI-SW4"/>
-                                <exclude reference="kJe-gO-8Lq"/>
-                                <include reference="uyG-u0-jIb"/>
                                 <include reference="RhV-Bc-fSA"/>
                                 <exclude reference="a4k-LV-8Q2"/>
                                 <exclude reference="hWt-Px-4xb"/>
@@ -1351,6 +1358,28 @@
                                 <include reference="bRY-ot-iHP"/>
                                 <exclude reference="gDV-kH-meJ"/>
                                 <exclude reference="jjq-94-twd"/>
+                                <include reference="0VN-ij-Gw1"/>
+                                <include reference="9UF-HG-OGS"/>
+                                <exclude reference="PBo-Rx-7OA"/>
+                                <exclude reference="V5F-iU-e2V"/>
+                                <include reference="pl0-Fg-L6s"/>
+                                <include reference="2tv-Eh-J1h"/>
+                                <include reference="Oma-mN-nqQ"/>
+                                <exclude reference="gNq-2o-aUs"/>
+                                <exclude reference="4Zl-av-adn"/>
+                                <include reference="cSP-aI-SW4"/>
+                                <exclude reference="kJe-gO-8Lq"/>
+                                <include reference="uyG-u0-jIb"/>
+                                <exclude reference="JVq-D0-ZDT"/>
+                                <include reference="kM7-oa-Gae"/>
+                                <include reference="3mC-gd-wzO"/>
+                                <include reference="9d3-Z0-dDR"/>
+                                <exclude reference="FhZ-Y9-aEN"/>
+                                <include reference="NpY-b7-6rC"/>
+                                <include reference="q1m-IH-OSa"/>
+                                <include reference="yas-8f-W5u"/>
+                                <include reference="AHC-qJ-uoJ"/>
+                                <include reference="mEO-KY-vBf"/>
                                 <include reference="kF3-k4-HGU"/>
                             </mask>
                         </variation>
@@ -1431,10 +1460,10 @@
         <image name="SendSong-1" width="115" height="60"/>
         <image name="agaetis-byrjun" width="333" height="500"/>
         <image name="log_in_spotify" width="488" height="88"/>
-        <image name="logo1" width="1283" height="705"/>
+        <image name="logo-trans" width="758" height="694"/>
         <image name="userIcon" width="264" height="280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p9J-ac-n3N"/>
+        <segue reference="LzK-H5-wwq"/>
     </inferredMetricsTieBreakers>
 </document>
