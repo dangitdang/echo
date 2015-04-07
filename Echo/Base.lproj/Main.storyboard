@@ -536,7 +536,7 @@
                                                 <state key="normal" image="SendMessage">
                                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                                     <rect key="frame" x="0.0" y="0.0" width="116" height="60"/>
                                                 </variation>
                                             </button>
@@ -960,12 +960,12 @@
                     <connections>
                         <outlet property="sendSongLabel" destination="6YW-hB-35q" id="QaI-Q6-Gzf"/>
                         <outlet property="songNameLabel" destination="8m6-UR-qsB" id="bdp-Fe-9Af"/>
-                        <segue destination="F8Q-9z-ORo" kind="presentation" identifier="backToMatch" id="PCh-Ob-Wit"/>
+                        <segue destination="3d9-Xg-z6h" kind="show" identifier="backToMatch" id="p9J-ac-n3N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPI-zG-Veh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1785" y="1703.25"/>
+            <point key="canvasLocation" x="1203" y="1430.25"/>
         </scene>
         <!--Matches-->
         <scene sceneID="dB2-gd-dgY">
@@ -1380,6 +1380,6 @@
         <image name="userIcon" width="264" height="280"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="PCh-Ob-Wit"/>
+        <segue reference="p9J-ac-n3N"/>
     </inferredMetricsTieBreakers>
 </document>
