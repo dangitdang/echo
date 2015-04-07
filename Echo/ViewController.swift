@@ -126,6 +126,17 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     appDelegate.player = self.player
                     self.loginWithSpotifySession(self.session)
                 }
+                
+                //scrapper.scrape(appDelegate.user)
+                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
+                    println(data as [[String]])
+                })
+                
+                //self.setupSpotifyPlayer()
+                //println("after setup method")
+                //appDelegate.player = self.player
+                //println(self.session)
+                //self.loginWithSpotifySession(self.session)
             }
         })
     }
