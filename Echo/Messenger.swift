@@ -122,7 +122,6 @@ class Messenger {
     func addChat(user:User, song:Message){
         //self.chats[user] = [song]
         //self.chatters.append(user)
-
         var roomRef = messagesRef.childByAutoId()
         var userRef = Firebase(url:"\(rootRefURL)/users/\(self.user!.id)/rooms/\(roomRef.key)")
         var otherRef = Firebase(url:"\(rootRefURL)/users/\(user.id)/rooms/\(roomRef.key)")

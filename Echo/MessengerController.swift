@@ -32,11 +32,11 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
         var hansa_user = User(displayName: "Hansa", email: "hansa@gay.com",  preferences: [0,1],  birthdate: "02/11/1994", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/555962_316795711748415_1804005466_n.jpg?oh=d271e112f4e7680d88e2ada9ea30ea7c&oe=559CF53F")!)
         //self.matchesArr = self.user.messenger.getPeopleTalkingTo()
         self.activeDialogViewController = nil
-        setupFirebase()
         Matches.dataSource = self
     }
-    
     func setupFirebase() {
+        self.messages.removeAll(keepCapacity: false)
+        self.matchesArr = []
         roomsRef = Firebase(url: "\(rootRefURL)/users/\(self.user!.id)/rooms")
         roomsRef.queryOrderedByChild("updated").queryLimitedToLast(25).observeSingleEventOfType(FEventType.Value, withBlock: { snapshot in
                 println(snapshot)
@@ -61,7 +61,7 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        setupFirebase()
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
