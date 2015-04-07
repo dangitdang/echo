@@ -110,6 +110,9 @@ class MatchViewController: ViewControllerWNav {
         if let vc = segue.destinationViewController as? UINavigationController {
             if let v2 = vc.viewControllers[0] as? MatchesMusicTableViewController {
                 v2.match = self.currentMatch;
+            } else if let v2 = vc.viewControllers[0] as? ChooseSongViewController {
+                v2.match = self.currentMatch
+                println("here")
             }
         }
     }
