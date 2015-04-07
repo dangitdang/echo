@@ -16,10 +16,14 @@ class ChatMessageController : JSQMessagesViewController {
     var outgoingBubbleImageView = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleLightGrayColor())
     var incomingBubbleImageView = JSQMessagesBubbleImageFactory().incomingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
     var senderImage: String!
-    var match : User!
+    var matchID : String!
+    var match: User!
+    var room : String!
     var batchMessages = true
     var fakeMessages = [String:[Message]]()
+    let rootRefURL = "https://quartetecho.firebaseio.com/"
     
+    var roomRef : Firebase!
     
     func setupAvatarImage(name: String, imageUrl: String?, incoming: Bool) {
         if let stringUrl = imageUrl {
@@ -37,16 +41,42 @@ class ChatMessageController : JSQMessagesViewController {
         // At some point, we failed at getting the image (probably broken URL), so default to avatarColor
         setupAvatarColor(name, incoming: incoming)
     }
-    func getMessages() {
-        //var rawMessages = user.messenger.getMessages(match)
-        var rawMessages = fakeMessages[match.displayName]
-        for message in rawMessages! {
-            var tempSender = message.mine ? user : match
-            var convertedMessage = JSQMessage(senderId: tempSender.id, senderDisplayName: tempSender.displayName, date: message.time, text: message.text)
+    
+    func setupFirebase() {
+        var userRef = Firebase(url:"\(rootRefURL)/user/\(user.id)")
+        var messageRef = Firebase(url: "\(rootRefURL)/messages")
+        var roomRef = messageRef.childByAppendingPath(room)
+        roomRef.queryLimitedToLast(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+            let text = snapshot.value["text"] as? String
+            let sender = snapshot.value["sender"] as? String
+            let senderName = snapshot.value["senderName"] as? String
+            let timestamp = snapshot.value["time"] as? Double
+            let song = snapshot.value["song"] as? String
+            var convertedMessage = JSQMessage(senderId: sender, senderDisplayName: senderName, date: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)), text: text)
             self.messages.append(convertedMessage)
-        }
-        self.finishReceivingMessage()
+            self.finishReceivingMessage()
+        })
     }
+    
+    func sendMessage(text: String = "", song: String = "") {
+        user.messenger.sendFirebaseMessage(match, room: room, text: text, song: song)
+    }
+    
+    func tempSendMessage(text: String = "", song: String = "") {
+        let tempMess = JSQMessage(senderId: user.id, senderDisplayName: user.displayName, date: NSDate() , text: text)
+        messages.append(tempMess)
+    }
+    
+//    func getMessages() {
+//        //var rawMessages = user.messenger.getMessages(match)
+//        var rawMessages = messages[match.displayName]
+//        for message in rawMessages! {
+//            var tempSender = message.mine ? user : match
+//            var convertedMessage = JSQMessage(senderId: tempSender.id, senderDisplayName: tempSender.displayName, date: message.time, text: message.text)
+//            self.messages.append(convertedMessage)
+//        }
+//        self.finishReceivingMessage()
+//    }
     func setupAvatarColor(name: String, incoming: Bool) {
         let diameter = incoming ? UInt(collectionView.collectionViewLayout.incomingAvatarViewSize.width) : UInt(collectionView.collectionViewLayout.outgoingAvatarViewSize.width)
         
@@ -68,19 +98,21 @@ class ChatMessageController : JSQMessagesViewController {
         automaticallyScrollsToMostRecentMessage = true
         senderDisplayName = user.displayName
         senderId = user.id
+        //match = User.userFromID(matchID)
+        match = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983")!)
         let profileImageUrl = user.picURL?.description
         if let urlString = profileImageUrl {
             setupAvatarImage(senderDisplayName, imageUrl: urlString, incoming: false)
         } else {
             setupAvatarColor(senderDisplayName, incoming: false)
         }
-        var message1 = Message(text: "Hello Hansa!", mine: true, time: NSDate())
-        var message2 = Message(text: "Sup my nigga", mine: false, time: NSDate())
-        var message3 = Message(text: "OMG YOU BITCH", mine:false, time: NSDate())
-        var message4 = Message(text: "haha yup", mine: true, time: NSDate())
-        self.fakeMessages["Hansa"] = [message1,message2]
-        self.fakeMessages["Dang"] = [message3,message4]
-        getMessages()
+//        var message1 = Message(text: "Hello Hansa!", mine: true, time: NSDate())
+//        var message2 = Message(text: "Sup my nigga", mine: false, time: NSDate())
+//        var message3 = Message(text: "OMG YOU BITCH", mine:false, time: NSDate())
+//        var message4 = Message(text: "haha yup", mine: true, time: NSDate())
+//        self.fakeMessages["Hansa"] = [message1,message2]
+//        self.fakeMessages["Dang"] = [message3,message4]
+        setupFirebase()
         
     }
     
@@ -94,7 +126,8 @@ class ChatMessageController : JSQMessagesViewController {
     }
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        //TODO Send message method
+        sendMessage(text: text)
+        finishSendingMessage()
     }
     
     override func didPressAccessoryButton(sender: UIButton!) {

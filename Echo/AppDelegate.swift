@@ -24,8 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
-        self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("error")})
-        self.pubNub?.connect()
+
+        self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("pubNub error")})
+
         PNLogger.loggerEnabled(false)
         self.semaphore = dispatch_semaphore_create(0)
         return true

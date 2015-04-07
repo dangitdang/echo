@@ -19,7 +19,7 @@ class User: Hashable {
     var blurb: String
     var lastLogOut: NSDate
     var newUser: Bool
-    
+    let rootRefURL = "https://quartetecho.firebaseio.com/"
     var hashValue: Int {
         get{ return id.hashValue}
     }
@@ -76,6 +76,12 @@ class User: Hashable {
     func setMusicCollection(m:MusicCollection){
         self.musicCollection = m
     }
+    
+    func saveToFirebase() {
+        var ref = Firebase(url: "\(rootRefURL)/users")
+        var userData = ["id" : self.id]
+        ref.setValue([self.id: userData])
+    }
     /*
     Saves the user to the 
         database
@@ -106,6 +112,7 @@ class User: Hashable {
         println(self.id)
         self.parse = user
         self.messenger.setUser(self)
+        self.saveToFirebase()
     }
     
     func save() {
