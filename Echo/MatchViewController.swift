@@ -30,8 +30,24 @@ class MatchViewController: ViewControllerWNav {
         super.viewDidLoad()
         setUser()
         getCurrentMatch()
-        self.matchNameLabel.text = self.currentMatch.displayName
-        self.matchBlurbLabel.text = self.currentMatch.blurb
+        println(self.user.matches)
+        
+        if self.currentMatch == nil {
+            self.matchNameLabel.text = "No Match"
+            self.matchBlurbLabel.text = "No Match"
+            self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
+            
+        } else{
+            self.matchNameLabel.text = self.currentMatch.displayName
+            self.matchBlurbLabel.text = self.currentMatch.blurb
+            self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
+            let url = self.currentMatch.picURL as NSURL!
+            if (url.description != "") {
+                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
+                matchPicture.image = UIImage(data: data!)
+        }
+        
+        
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
@@ -44,16 +60,13 @@ class MatchViewController: ViewControllerWNav {
         }
         
         
-        self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
+        
         
         //self.matchNameLabel.text = "Match's Name"
         //self.musicButton.setTitle("Match's Music", forState: UIControlState.Normal)
         // Do any additional setup after loading the view.
         
-        let url = self.currentMatch.picURL as NSURL!
-        if (url.description != "") {
-            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
-            matchPicture.image = UIImage(data: data!)
+
         }
     }
     
@@ -62,6 +75,34 @@ class MatchViewController: ViewControllerWNav {
         
         //getNextMatch
         
+        if self.currentMatch == nil {
+            self.matchNameLabel.text = "No Match"
+            self.matchBlurbLabel.text = "No Match"
+            self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
+            
+        } else {
+            self.user.removeLastMatch(self.currentMatch.id)
+            self.currentMatch = self.user.getLatestMatch()
+            
+            if self.currentMatch == nil {
+                self.matchNameLabel.text = "No Match"
+                self.matchBlurbLabel.text = "No Match"
+                self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
+            } else {
+            
+            
+            self.matchNameLabel.text = self.currentMatch.displayName
+            self.matchBlurbLabel.text = self.currentMatch.blurb
+            self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
+            let url = self.currentMatch.picURL as NSURL!
+            if (url.description != "") {
+                let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
+                matchPicture.image = UIImage(data: data!)
+                }
+            }
+            
+        }
+
     }
     
     
@@ -71,7 +112,7 @@ class MatchViewController: ViewControllerWNav {
     
     func getCurrentMatch() {
         self.currentMatch = self.user.getLatestMatch()
-        //self.currentMatch = User.checkIfUserExists("aivanov@mit.edu")
+        
     }
     
     func setUser() {
