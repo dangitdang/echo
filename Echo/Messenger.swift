@@ -100,7 +100,7 @@ class Messenger {
         self.requesters.removeObject(user)
         self.addChat(user, song: message)
         var user_channel = PNChannel.channelWithName(user.id) as PNChannel
-        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time]
+        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time, "text": message.text]
         self.pn.sendMessage(pn_message, toChannel: user_channel)
     }
     
