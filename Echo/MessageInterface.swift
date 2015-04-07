@@ -13,7 +13,10 @@ func NEW_REQUEST(user:User, other_id: String, song:String, time:NSDate){
 }
 
 func newRequestUpdateUI(current_user: User, other_user: User, first_message:Message){
-    // UI FOLKS: TODO
+//    let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+//    var destViewController : UIViewController
+//    destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Requests") as RequestsController
+//    destViewController.addRequest(user: other_user, message: first_message);
 }
 
 func APPROVED_REQUEST(user:User, other_id: String, song: String, time: NSDate){
