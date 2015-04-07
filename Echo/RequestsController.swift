@@ -44,6 +44,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         super.viewDidLoad()
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        
         userList = appDelegate.user.messenger.getPeopleRequested()
         songList = appDelegate.user.messenger.getRequests()
         
@@ -121,9 +122,12 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         return cell
     }
     
-    func addRequest(user: User, message: Message) {
-        userList.append(user)
-        songList[user] = message
+    func addRequest(user: User, m: Message) {
+        println("ADDING REQUEST")
+        //var obj = sender?
+        //println(obj)
+        //userList.append(user)
+        //songList[user] = message
     }
     
     func playOrPause(sender: UIButton!) {

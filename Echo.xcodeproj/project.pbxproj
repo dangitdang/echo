@@ -19,6 +19,7 @@
 		3886CBEE1AD2E32500826E9B /* ChooseSongViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3886CBED1AD2E32500826E9B /* ChooseSongViewController.swift */; };
 		38F8D4621AD31B8F004E3428 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EEB1AD30AF5005B7121 /* MediaPlayer.framework */; };
 		38F8D4631AD31B95004E3428 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA2D5EE91AD30AE2005B7121 /* AVFoundation.framework */; };
+		3A25CBBF1AD3C29300BF45CB /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D281AD34469005C1383 /* RequestsController.swift */; };
 		3A5E5D291AD34469005C1383 /* RequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D281AD34469005C1383 /* RequestsController.swift */; };
 		3A5E5D2B1AD3469F005C1383 /* MessageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A5E5D2A1AD3469F005C1383 /* MessageInterface.swift */; };
 		3A8133921AD1C596000D95D0 /* MusicCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8133911AD1C596000D95D0 /* MusicCollection.swift */; };
@@ -1304,6 +1305,7 @@
 				3886CBE61AD2435000826E9B /* EchoTests.swift in Sources */,
 				DC39B2AF1AD204DD00CEF932 /* ENSideMenu.swift in Sources */,
 				3886CBEA1AD2436500826E9B /* Echo-Bridgin-Header.m in Sources */,
+				3A25CBBF1AD3C29300BF45CB /* RequestsController.swift in Sources */,
 				DC39B2AB1AD204CB00CEF932 /* Utils.swift in Sources */,
 				DC39B2A81AD204B100CEF932 /* Messenger.swift in Sources */,
 				DC39B2A51AD2031E00CEF932 /* MusicCollection.swift in Sources */,

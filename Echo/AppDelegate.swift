@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     var semaphore: dispatch_semaphore_t!
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
         self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("error")})
@@ -58,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
         var sender = message.message.valueForKey("sender") as String
         var type = message.message.valueForKey("type") as String
         var song = message.message.valueForKey("song") as String
-        var time = message.message.valueForKey("timestamp") as NSDate
+        var time = NSDate()// message.message.valueForKey("timestamp") as NSDate
         if (type == "request") {
             NEW_REQUEST(self.user!, sender, song, time)
         } else if (type == "approve") {
