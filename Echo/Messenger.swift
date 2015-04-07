@@ -100,7 +100,7 @@ class Messenger {
         self.requesters.removeObject(user)
         self.addChat(user, song: message)
         var user_channel = PNChannel.channelWithName(user.id) as PNChannel
-        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time, "text": message.text]
+        var pn_message = ["type": "approve", "sender": self.user!.id, "song":message.song, "time": message.time.timeIntervalSince1970 as Double, "text": message.text]
         self.pn.sendMessage(pn_message, toChannel: user_channel)
     }
     
@@ -138,14 +138,14 @@ class Messenger {
         println("here")
         self.requests[to] = Message(text: songName, song: song, mine: true, time:time)
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
-        var message = ["type": "request", "sender": self.user!.id, "song": song, "text":songName,"time":time]
+        var message = ["type": "request", "sender": self.user!.id, "song": song, "text":songName,"time":time.timeIntervalSince1970 as Double]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
     
     func sendMessage(to: User, text: String="", song: String = "", time:NSDate){
         self.chats[to]!.append(Message(text: text, song: song, mine: true, time:time))
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
-        var message = ["type": "message", "sender": self.user!.id, "song": song, "text":text, "time":time]
+        var message = ["type": "message", "sender": self.user!.id, "song": song, "text":text, "time":time.timeIntervalSince1970 as Double]
         self.pn.sendMessage(message, toChannel: user_channel)
     }
     

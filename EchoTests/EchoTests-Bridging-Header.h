@@ -7,4 +7,7 @@
 #import <Parse/Parse.h>
 #import <Bolts/Bolts.h>
 #import <Spotify/Spotify.h>
+#import "JSQSystemSoundPlayer.h"
+#import "JSQMessages.h"
+#import "JSQMessageData.h"
 #import "PNImports.h"

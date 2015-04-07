@@ -38,6 +38,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     var userList: [User] = []
     var songList = [User: Message]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     var player: SPTAudioStreamingController!
     
     override func viewDidLoad() {
@@ -84,10 +87,12 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println("RE-ESTABLISHING NUMBER OF CELLS")
         return userList.count
     }
- 
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        println("CONSTRUCTING CELLS")
         var row = indexPath.row
         let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell") as RequestsTableViewCell
         var currUser = userList[row]
@@ -111,13 +116,13 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         //println(cell.playPauseButton.tag)
         
         cell.acceptButton.tag = row
-        cell.playPauseButton.targetForAction("acceptRequest", withSender: self)
-        cell.playPauseButton.addTarget(self, action: "acceptRequest:", forControlEvents: .TouchUpInside)
+        cell.acceptButton.targetForAction("acceptRequest", withSender: self)
+        cell.acceptButton.addTarget(self, action: "acceptRequest:", forControlEvents: .TouchUpInside)
         
         
         cell.declineButton.tag = row
-        cell.playPauseButton.targetForAction("declineRequest", withSender: self)
-        cell.playPauseButton.addTarget(self, action: "declineRequest:", forControlEvents: .TouchUpInside)
+        cell.declineButton.targetForAction("declineRequest", withSender: self)
+        cell.declineButton.addTarget(self, action: "declineRequest:", forControlEvents: .TouchUpInside)
         
         return cell
     }
@@ -126,8 +131,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         println("ADDING REQUEST")
         //var obj = sender?
         //println(obj)
-        //userList.append(user)
-        //songList[user] = message
+        userList.append(user)
+        songList[user] = m
+        self.view.subviews[1].reloadData() //this line doesnt actually work idk
     }
     
     func playOrPause(sender: UIButton!) {
@@ -154,18 +160,57 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func acceptRequest(sender: UIButton!) {
-        var buttonTag = sender.tag
+        var TV: UITableView
+        if (tableView == nil) {
+            TV = self.view.subviews[1] as UITableView
+        } else {
+            TV = tableView
+        }
+        //println("DECLINEREQUEST")
+        //println(TV)
+        
+        var buttonTag = sender.tag as Int
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         appDelegate.user.messenger.approveRequest(userList[buttonTag])
+        let indexPath = NSIndexPath(forRow: buttonTag,inSection:0)
+        let cell = TV.cellForRowAtIndexPath(indexPath) as RequestsTableViewCell!
+        var aButton = cell.acceptButton as UIButton
+        aButton.removeFromSuperview()
+        cell.declineButton.removeFromSuperview()
+        cell.personPic.removeFromSuperview()
+        cell.personName.removeFromSuperview()
+        cell.playPauseButton.removeFromSuperview()
+        cell.songName.removeFromSuperview()
+        
         songList.removeValueForKey(userList[buttonTag])
         userList.removeObject(userList[buttonTag])
         
     }
     
     func declineRequest(sender: UIButton!) {
-        var buttonTag = sender.tag
+        
+        var TV: UITableView
+        if (tableView == nil) {
+            TV = self.view.subviews[1] as UITableView
+        } else {
+            TV = tableView
+        }
+        //println("DECLINEREQUEST")
+        //println(TV)
+
+        var buttonTag = sender.tag as Int
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        appDelegate.user.messenger.approveRequest(userList[buttonTag])
+        appDelegate.user.messenger.declineRequest(userList[buttonTag])
+        let indexPath = NSIndexPath(forRow: buttonTag,inSection:0)
+        let cell = TV.cellForRowAtIndexPath(indexPath) as RequestsTableViewCell!
+        var aButton = cell.acceptButton as UIButton
+        aButton.removeFromSuperview()
+        cell.declineButton.removeFromSuperview()
+        cell.personPic.removeFromSuperview()
+        cell.personName.removeFromSuperview()
+        cell.playPauseButton.removeFromSuperview()
+        cell.songName.removeFromSuperview()
+        
         songList.removeValueForKey(userList[buttonTag])
         userList.removeObject(userList[buttonTag])
     }
