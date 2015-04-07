@@ -109,8 +109,11 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 
                 var userOb = User.checkIfUserExists(self.user.emailAddress) as User?
                 if (userOb == nil) {
+                    println("DOESNT EXIST")
                     appDelegate.user?.newUser = true
+                    scrapper.scrape(appDelegate.user)
                 } else {
+                    println("Exists")
                     appDelegate.user?.newUser = false
                     appDelegate.user = userOb
                 }
@@ -122,9 +125,11 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     appDelegate.player = self.player
                     self.loginWithSpotifySession(self.session)
                 }
-                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
-                    println(data as [[String]])
-                })
+                
+                scrapper.scrape(appDelegate.user)
+//                scrapper.querySong("I want you back", completion: {(data:AnyObject!) -> Void in
+//                    println(data as [[String]])
+//                })
                 
                 //self.setupSpotifyPlayer()
                 //println("after setup method")

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		383074831AD3752900006009 /* SongTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383074821AD3752900006009 /* SongTableViewCell.swift */; };
 		383C44051AD1FC92002E2E38 /* MatchesMusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */; };
 		383C44071AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */; };
 		383C44091AD1FCA7002E2E38 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383C44081AD1FCA7002E2E38 /* MatchViewController.swift */; };
@@ -187,6 +188,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		383074821AD3752900006009 /* SongTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongTableViewCell.swift; sourceTree = "<group>"; };
 		383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewController.swift; sourceTree = "<group>"; };
 		383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesMusicTableViewCell.swift; sourceTree = "<group>"; };
 		383C44081AD1FCA7002E2E38 /* MatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
@@ -996,6 +998,7 @@
 				3A5E5D251AD33715005C1383 /* Main.storyboard */,
 				383C44061AD1FC9D002E2E38 /* MatchesMusicTableViewCell.swift */,
 				3A8133951AD1C5B3000D95D0 /* MyMenuTableViewController.swift */,
+				383074821AD3752900006009 /* SongTableViewCell.swift */,
 				3A8133961AD1C5B3000D95D0 /* MyNavigationController.swift */,
 				3A8133971AD1C5B3000D95D0 /* ProfileView.swift */,
 				383C44041AD1FC92002E2E38 /* MatchesMusicTableViewController.swift */,
@@ -1246,6 +1249,7 @@
 				3A8134FC1AD1CF40000D95D0 /* NSDictionary+PNAdditions.m in Sources */,
 				3A8134D21AD1CF40000D95D0 /* PNChannelGroupNamespaceRemoveResponseParser.m in Sources */,
 				3A8135161AD1CF40000D95D0 /* PNMessageHistoryRequest.m in Sources */,
+				383074831AD3752900006009 /* SongTableViewCell.swift in Sources */,
 				3A8135191AD1CF40000D95D0 /* PNPushNotificationsRemoveRequest.m in Sources */,
 				3A8134D41AD1CF40000D95D0 /* PNChannelGroupRemoveResponseParser.m in Sources */,
 				3A8134E41AD1CF40000D95D0 /* PNAccessRightsCollection.m in Sources */,

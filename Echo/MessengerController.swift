@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Quartet. All rights reserved.
 //
 
+
 import UIKit
 
 class MessengerController: ViewControllerWNav, UITableViewDataSource {
@@ -57,3 +58,4 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
     }
 
 }
+
