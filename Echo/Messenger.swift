@@ -133,7 +133,9 @@ class Messenger {
         return []
     }
     
-    func sendRequest(to: User, song: String, songName: String, time:NSDate) {
+    func sendRequest(to: User, song: String, songName: String, time:NSDate)
+    {
+        println("here")
         self.requests[to] = Message(text: songName, song: song, mine: true, time:time)
         var user_channel = PNChannel.channelWithName(to.id) as PNChannel
         var message = ["type": "request", "sender": self.user!.id, "song": song, "text":songName,"time":time.timeIntervalSince1970 as Double]

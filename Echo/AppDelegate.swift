@@ -55,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
         println("GOOOOOOOOOOOOOOT A MESSAAAAAAAAGE####$$!!!!!!!!")
+        println(message.message)
         var sender = message.message.valueForKey("sender") as String
         var type = message.message.valueForKey("type") as String
         var song = message.message.valueForKey("song") as String
