@@ -16,6 +16,7 @@ class MessageCell : UITableViewCell {
     
     @IBOutlet weak var userPic: UIImageView!
     @IBOutlet weak var otherPic: UIView!
+    var user : User!
     
     override func awakeFromNib() {
         super.awakeFromNib()
