@@ -53,11 +53,14 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        println("RETURNING # of CELLS")
         return 5//userList.count
     }
  
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell", forIndexPath: indexPath) as RequestsTableViewCell
+        println("MAKING CELLS")
+        //let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell", forIndexPath: indexPath) as RequestsTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell") as RequestsTableViewCell
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let url = appDelegate.user.picURL as NSURL!
         if (url != "") {
