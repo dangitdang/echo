@@ -34,6 +34,7 @@ class SendSongViewController: UIViewController {
 
     @IBAction func sendSongButtonPressed(sender: AnyObject) {
         self.user.messenger.sendRequest(self.match, song: self.songInfo[2], songName: self.songInfo[0], time:NSDate())
+        performSegueWithIdentifier("backToMatch", sender: self)
     }
     
     
