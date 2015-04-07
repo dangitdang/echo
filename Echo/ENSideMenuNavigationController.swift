@@ -41,13 +41,17 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
     
     // MARK: - Navigation
     public func setContentViewController(contentViewController: UIViewController) {
+        println("made it into SETCONTENTVIEWCONTROLLER")
         self.sideMenu?.toggleMenu()
         switch sideMenuAnimationType {
         case .None:
+            println("in the switch")
             self.viewControllers = [contentViewController]
             break
         default:
+            println("in the other switch")
             contentViewController.navigationItem.hidesBackButton = true
+            println(contentViewController)
             self.setViewControllers([contentViewController], animated: true)
             break
         }

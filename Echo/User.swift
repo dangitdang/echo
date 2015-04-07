@@ -156,6 +156,14 @@ class User: Hashable {
         return nil
     }
     
+    func getScore(user:User) -> String {
+        for (score, users) in self.matches {
+            if find(users, user.id) != nil{
+                return score
+            }}
+        return "1"
+    }
+    
     func removeLastMatch(user:String){
         var scores = ["5","4","3","2","1"]
         for score in self.matches.keys.array {
