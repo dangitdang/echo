@@ -239,6 +239,7 @@
 		AAEB288D1AD407F40066EA0C /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB288C1AD407F40066EA0C /* Social.framework */; };
 		AAEB288F1AD408090066EA0C /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAEB288E1AD408090066EA0C /* Accounts.framework */; };
 		AAEB28911AD44E810066EA0C /* SongMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB28901AD44E810066EA0C /* SongMessage.swift */; };
+		AAEB28921AD4611C0066EA0C /* SongMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEB28901AD44E810066EA0C /* SongMessage.swift */; };
 		AAF16E501AD0A56A009AB8B4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E4F1AD0A56A009AB8B4 /* SwiftyJSON.swift */; };
 		AAF16E521AD0A5CE009AB8B4 /* ViewControllerWNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF16E511AD0A5CE009AB8B4 /* ViewControllerWNav.swift */; };
 		DC39B2A21AD1DA6100CEF932 /* Messenger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC39B2A11AD1DA6100CEF932 /* Messenger.swift */; };
@@ -1747,6 +1748,7 @@
 				AAEB287E1AD3F0E90066EA0C /* JSQMessagesLabel.m in Sources */,
 				AAEB28691AD3F0830066EA0C /* UIView+JSQMessages.m in Sources */,
 				DC39B2A81AD204B100CEF932 /* Messenger.swift in Sources */,
+				AAEB28921AD4611C0066EA0C /* SongMessage.swift in Sources */,
 				AA4F88FB1AD3B3140089DDB3 /* MessageCell.swift in Sources */,
 				DC39B2A51AD2031E00CEF932 /* MusicCollection.swift in Sources */,
 				DC39B2B41AD204DD00CEF932 /* ProfileView.swift in Sources */,

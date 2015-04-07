@@ -45,10 +45,12 @@ class MatchViewController: ViewControllerWNav {
             self.matchNameLabel.text = "No Match"
             self.matchBlurbLabel.text = "No Match"
             self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
-            
+
         } else{
             self.matchNameLabel.text = self.currentMatch.displayName
             self.matchBlurbLabel.text = self.currentMatch.blurb
+            self.musicButton.titleLabel?.font = UIFont(name:
+                "Helvetica Neue Thin", size: CGFloat(24.0))
             self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
             let url = self.currentMatch.picURL as NSURL!
             if (url.description != "") {
