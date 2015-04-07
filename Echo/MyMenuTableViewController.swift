@@ -86,7 +86,10 @@ class MyMenuTableViewController: UITableViewController {
         
         println("did select row: \(indexPath.row)")
         
+        println(indexPath.row)
+        println(selectedMenuItem)
         if (indexPath.row == selectedMenuItem) {
+            println("in NOT GONNA DO SHIT")
             sideMenuController()?.sideMenu?.hideSideMenu()
             return
         }

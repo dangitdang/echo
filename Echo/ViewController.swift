@@ -25,8 +25,11 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
     var user: SPTUser!
     var collection: MusicCollection!
     var player: SPTAudioStreamingController!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "back.png")!)
     }
     
     func updateAfterFirstLogin () {

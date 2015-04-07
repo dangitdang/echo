@@ -44,8 +44,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     
     var player: SPTAudioStreamingController!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+
+   override func viewWillAppear(animated: Bool){
+        super.viewWillAppear(animated)
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
