@@ -53,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         self.user?.save()
+        println("saving user")
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {

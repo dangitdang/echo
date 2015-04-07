@@ -180,7 +180,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
             textView.text = "Type here!"
             blurb.textColor = UIColor.lightGrayColor()
         }
-        var point = CGPoint(x: 0.0, y: 0.0)
+        var point = CGPoint(x: 20.0, y: 10.0)
         scrollView.contentOffset = point
     }
     

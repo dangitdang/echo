@@ -161,6 +161,7 @@ class User: Hashable {
         for score in self.matches.keys.array {
             self.matches[score]!.removeObject(user)
         }
+        println(self.matches)
     }
 
     func pullMatches() -> Void {
