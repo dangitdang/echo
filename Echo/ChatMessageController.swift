@@ -52,6 +52,7 @@ class ChatMessageController : JSQMessagesViewController {
             let senderName = snapshot.value["senderName"] as? String
             let timestamp = snapshot.value["time"] as? Double
             let song = snapshot.value["song"] as? String
+            let isSong = snapshot.value["isSong"] as? Bool
             var convertedMessage = JSQMessage(senderId: sender, senderDisplayName: senderName, date: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)), text: text)
             self.messages.append(convertedMessage)
             self.finishReceivingMessage()
@@ -95,23 +96,23 @@ class ChatMessageController : JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        match = User.userFromID(matchID)
+        self.title = match.displayName
         automaticallyScrollsToMostRecentMessage = true
         senderDisplayName = user.displayName
         senderId = user.id
-        //match = User.userFromID(matchID)
-        match = User(displayName: "Dang", email: "dang@gay.com", preferences: [1,2], birthdate: "05/13/1993", country: "USA", picURL: NSURL(string:"https://scontent-ord.xx.fbcdn.net/hphotos-prn2/v/t1.0-9/45948_1264372869465_1329212_n.jpg?oh=c6872f6a9101e56fc9a0381f14b584f8&oe=55A21983")!)
+        var sendSong = UIButton()
+        sendSong.setImage(UIImage(named: "sendSongChat") , forState: UIControlState.Normal)
+        sendSong.targetForAction("didPressAccessoryButton", withSender: self)
+        self.inputToolbar.contentView.leftBarButtonItem = sendSong
+        self.inputToolbar.contentView.rightBarButtonItem.setImage(UIImage(named: "sendMessage"), forState:UIControlState.Normal)
+        
         let profileImageUrl = user.picURL?.description
         if let urlString = profileImageUrl {
             setupAvatarImage(senderDisplayName, imageUrl: urlString, incoming: false)
         } else {
             setupAvatarColor(senderDisplayName, incoming: false)
         }
-//        var message1 = Message(text: "Hello Hansa!", mine: true, time: NSDate())
-//        var message2 = Message(text: "Sup my nigga", mine: false, time: NSDate())
-//        var message3 = Message(text: "OMG YOU BITCH", mine:false, time: NSDate())
-//        var message4 = Message(text: "haha yup", mine: true, time: NSDate())
-//        self.fakeMessages["Hansa"] = [message1,message2]
-//        self.fakeMessages["Dang"] = [message3,message4]
         setupFirebase()
         
     }
@@ -132,6 +133,7 @@ class ChatMessageController : JSQMessagesViewController {
     
     override func didPressAccessoryButton(sender: UIButton!) {
         //TODO Music button pressed!
+        println("pressed!")
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageData! {
