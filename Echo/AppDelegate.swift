@@ -57,23 +57,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     }
     
     func pubnubClient(client: PubNub!, didReceiveMessage message: PNMessage!) {
-        println("GOOOOOOOOOOOOOOT A MESSAAAAAAAAGE####$$!!!!!!!!")
-        if (self.user != nil && message.channel.name == self.user.id) {
-            println(message.message)
-            var sender = message.message.valueForKey("sender") as String
-            var type = message.message.valueForKey("type") as String
-            var song = message.message.valueForKey("song") as String
-            var text = message.message.valueForKey("text") as String
-            var time = NSDate(timeIntervalSince1970: message.message.valueForKey("time") as Double)
-            if (type == "request") {
-                NEW_REQUEST(self.user!, sender, song, text, time)
-            } else if (type == "approve") {
-                APPROVED_REQUEST(self.user!, sender, song, text, time)
-            } else if (type == "message") {
-                
-                RECEIVED_MESSAGE(self.user!, sender, song, text, time)
-            }
-        }
+//        println("GOOOOOOOOOOOOOOT A MESSAAAAAAAAGE####$$!!!!!!!!")
+//        if (self.user != nil && message.channel.name == self.user.id) {
+//            println(message.message)
+//            var sender = message.message.valueForKey("sender") as String
+//            var type = message.message.valueForKey("type") as String
+//            var song = message.message.valueForKey("song") as String
+//            var text = message.message.valueForKey("text") as String
+//            var time = NSDate(timeIntervalSince1970: message.message.valueForKey("time") as Double)
+//            if (type == "request") {
+//                NEW_REQUEST(self.user!, sender, song, text, time)
+//            } else if (type == "approve") {
+//                APPROVED_REQUEST(self.user!, sender, song, text, time)
+//            } else if (type == "message") {
+//                
+//                RECEIVED_MESSAGE(self.user!, sender, song, text, time)
+//            }
+//        }
     }
 
 }

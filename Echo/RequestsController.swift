@@ -32,12 +32,13 @@ class RequestsTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
+    
 }
 
 class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableViewDelegate {
     var userList: [User] = []
     var songList = [User: Message]()
-    
+    let rootRefURL = "https://quartetecho.firebaseio.com/"
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -54,7 +55,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         if (appDelegate.product == SPTProduct.Premium) {
             self.player = appDelegate.player
         }
-        
+        setupFirebase(appDelegate.user)
         //        //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
         //        var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
         //        var harini = User.checkIfUserExists("harinisuresh94@yahoo.com") as User!
@@ -78,6 +79,18 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         //            songList[hansa] = Message(text: "Just One Yesterday", song: "0l2p5mDOP3czJ2FpD6zWie", mine: false, time: NSDate())
         //        }
         
+    }
+    
+    func setupFirebase(user:User) {
+        var reqRef = Firebase(url: "\(rootRefURL)/requests/\(user.id)")
+        reqRef.queryLimitedToLast(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+            let songName = snapshot.value["songName"] as? String
+            let sender = snapshot.value["sender"] as? String
+            let timestamp = snapshot.value["time"] as? Double
+            let song = snapshot.value["song"] as? String
+            println("FIREBASE BABYYYY")
+            NEW_REQUEST(user, sender!, song!, songName!, NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
+        })
     }
     
     override func didReceiveMemoryWarning() {
