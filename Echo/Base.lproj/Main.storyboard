@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -989,15 +989,21 @@
                                     <constraint firstAttribute="height" constant="224" id="6nb-F2-8IG">
                                         <variation key="heightClass=regular-widthClass=compact" constant="250"/>
                                     </constraint>
+                                    <constraint firstAttribute="width" secondItem="OMF-dF-BWX" secondAttribute="height" multiplier="1:1" id="ELf-Rr-mFp"/>
+                                    <constraint firstAttribute="width" secondItem="OMF-dF-BWX" secondAttribute="height" multiplier="50:35" id="OgY-Wg-xmz"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="6nb-F2-8IG"/>
+                                        <exclude reference="ELf-Rr-mFp"/>
+                                        <exclude reference="OgY-Wg-xmz"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="6nb-F2-8IG"/>
+                                        <exclude reference="6nb-F2-8IG"/>
+                                        <exclude reference="ELf-Rr-mFp"/>
+                                        <include reference="OgY-Wg-xmz"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -1009,18 +1015,12 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="100"/>
                                     </constraint>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="40" y="134" width="100" height="100"/>
-                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Winkle Doodle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-jv-6ZE">
                                 <rect key="frame" x="428" y="114" width="94" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="170" y="134" width="97" height="19"/>
-                                </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="agaetis-byrjun" translatesAutoresizingMaskIntoConstraints="NO" id="mqi-Vx-qYh">
                                 <rect key="frame" x="0.0" y="386" width="128" height="128"/>
@@ -1319,6 +1319,7 @@
                         <outlet property="albumOne" destination="mqi-Vx-qYh" id="c2n-dP-a3o"/>
                         <outlet property="albumThree" destination="5vZ-tO-aJg" id="LPM-As-zid"/>
                         <outlet property="albumTwo" destination="qcU-OQ-dCB" id="2i4-Sq-XAm"/>
+                        <outlet property="mainAlbum" destination="OMF-dF-BWX" id="TU7-G8-oeJ"/>
                         <outlet property="matchBlurbLabel" destination="Dg7-bP-uOs" id="XfR-Ei-4m1"/>
                         <outlet property="matchNameLabel" destination="xfV-jv-6ZE" id="XCv-vk-Nb7"/>
                         <outlet property="matchPicture" destination="7ZJ-mm-8Bb" id="MCx-U3-H3w"/>
@@ -1328,7 +1329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paj-0s-vIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="482"/>
+            <point key="canvasLocation" x="363" y="481.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1CS-GL-JpA">
