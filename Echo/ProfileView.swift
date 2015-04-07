@@ -34,7 +34,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
     @IBOutlet weak var blurb: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
 
-    
+    var currentPreferences: [Int] = []
     
     override func viewDidLoad() {
         
@@ -54,6 +54,8 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         let user = appDelegate.user as User!
+        
+        currentPreferences = appDelegate.user.preferences
         
         for preference in appDelegate.user!.preferences {
             switch (preference){
@@ -101,6 +103,20 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         
     }
     
+    @IBAction func saveAllpreferences(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if (blurb.text != "Type here!") {
+            appDelegate.user.blurb = blurb.text
+        }
+        if (ageField.text != "Age") {
+            appDelegate.user.birthdate = ageField.text
+        }
+        if (locationField.text != "Location") {
+            appDelegate.user.country = locationField.text
+        }
+        
+        appDelegate.user.preferences = currentPreferences
+    }
     
     @IBAction func checkbox1(sender: AnyObject) {
         doCheckboxPress(NEARBY, box: checkbox1)
@@ -118,12 +134,11 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
     func doCheckboxPress(boxId: Int, box: UIButton) {
         box.selected = !box.selected
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         if (box.selected) {
-            appDelegate.user?.preferences.append(boxId)
+            currentPreferences.append(boxId)
         } else {
-            if let index = find(appDelegate.user!.preferences, boxId) {
-                appDelegate.user?.preferences.removeAtIndex(index)
+            if let index = find(currentPreferences, boxId) {
+                currentPreferences.removeAtIndex(index)
             }
         }
     }
@@ -138,18 +153,11 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         //let user = appDelegate.user as User!
         
         if (textField == locationField) {
-            println("LOCATIONFIELD")
-            println(textField.text)
-            locationField.placeholder = textField.text
-            appDelegate.user?.country = textField.text
-            println(appDelegate.user?.country)
+            locationField.text = textField.text
         }
         if (textField == ageField) {
-            println("AGEFIELD")
-            println(textField.text)
-            ageField.placeholder = textField.text
-            appDelegate.user?.birthdate = textField.text
-            println(appDelegate.user?.birthdate)
+            ageField.text = textField.text
+
         }
         return false
     }
@@ -167,9 +175,6 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         if (textView.text == ""){
             textView.text = "Type here!"
             blurb.textColor = UIColor.lightGrayColor()
-        } else {
-            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-            appDelegate.user?.blurb = textView.text
         }
         var point = CGPoint(x: 0.0, y: 0.0)
         scrollView.contentOffset = point
