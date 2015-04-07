@@ -128,20 +128,12 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func addRequest(user: User, m: Message) {
-        println("ADDING REQUEST poop")
+        println("ADDING REQUEST")
         //var obj = sender?
         //println(obj)
         userList.append(user)
         songList[user] = m
-        self.view.subviews[1].reloadData()
-//        var tV: UITableView
-//        tV = self.view.subviews[1] as UITableView
-//        tableView(tV)cellForRowAtIndexPath: [0...userList.count]
-        //self.view.setNeedsDisplay()
-//        if (self.isViewLoaded()) {
-//            println("I AM LOADED SO RELOAD")
-//            self.tableView.reloadData()
-//        }
+        self.view.subviews[1].reloadData() //this line doesnt actually work idk
     }
     
     func playOrPause(sender: UIButton!) {
@@ -168,20 +160,57 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func acceptRequest(sender: UIButton!) {
-        println("ACCEPTREQUEST")
-        var buttonTag = sender.tag
+        var TV: UITableView
+        if (tableView == nil) {
+            TV = self.view.subviews[1] as UITableView
+        } else {
+            TV = tableView
+        }
+        //println("DECLINEREQUEST")
+        //println(TV)
+        
+        var buttonTag = sender.tag as Int
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         appDelegate.user.messenger.approveRequest(userList[buttonTag])
+        let indexPath = NSIndexPath(forRow: buttonTag,inSection:0)
+        let cell = TV.cellForRowAtIndexPath(indexPath) as RequestsTableViewCell!
+        var aButton = cell.acceptButton as UIButton
+        aButton.removeFromSuperview()
+        cell.declineButton.removeFromSuperview()
+        cell.personPic.removeFromSuperview()
+        cell.personName.removeFromSuperview()
+        cell.playPauseButton.removeFromSuperview()
+        cell.songName.removeFromSuperview()
+        
         songList.removeValueForKey(userList[buttonTag])
         userList.removeObject(userList[buttonTag])
         
     }
     
     func declineRequest(sender: UIButton!) {
-        println("DECLINEREQUEST")
-        var buttonTag = sender.tag
+        
+        var TV: UITableView
+        if (tableView == nil) {
+            TV = self.view.subviews[1] as UITableView
+        } else {
+            TV = tableView
+        }
+        //println("DECLINEREQUEST")
+        //println(TV)
+
+        var buttonTag = sender.tag as Int
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         appDelegate.user.messenger.declineRequest(userList[buttonTag])
+        let indexPath = NSIndexPath(forRow: buttonTag,inSection:0)
+        let cell = TV.cellForRowAtIndexPath(indexPath) as RequestsTableViewCell!
+        var aButton = cell.acceptButton as UIButton
+        aButton.removeFromSuperview()
+        cell.declineButton.removeFromSuperview()
+        cell.personPic.removeFromSuperview()
+        cell.personName.removeFromSuperview()
+        cell.playPauseButton.removeFromSuperview()
+        cell.songName.removeFromSuperview()
+        
         songList.removeValueForKey(userList[buttonTag])
         userList.removeObject(userList[buttonTag])
     }
