@@ -120,6 +120,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 self.performSegueWithIdentifier("leaveLogIn", sender: nil)
                 
                 println(self.user.product)
+                appDelegate.product = self.user.product
                 if self.user.product == SPTProduct.Premium {
                     self.setupSpotifyPlayer()
                     appDelegate.player = self.player

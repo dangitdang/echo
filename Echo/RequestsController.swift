@@ -47,6 +47,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         userList = appDelegate.user.messenger.getPeopleRequested()
         songList = appDelegate.user.messenger.getRequests()
         
+        if ()
+        self.player = appDelegate.player
+        
         //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
         var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
         var harini = User.checkIfUserExists("harinisuresh94@yahoo.com") as User!
@@ -101,7 +104,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         cell.playPauseButton.addTarget(self, action: "playOrPause:", forControlEvents: .TouchUpInside)
         cell.playPauseButton.setImage(UIImage(named: "Pause"), forState: UIControlState.Selected);
 
-        println(cell.playPauseButton.tag)
+        //println(cell.playPauseButton.tag)
         
         cell.acceptButton.tag = row
         cell.declineButton.tag = row
@@ -112,13 +115,11 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     func playOrPause(sender: UIButton!) {
         
         var buttonTag = sender.tag
-        println(buttonTag)
+        //println(buttonTag)
         sender.selected = !sender.selected
         var songMessage = songList[userList[buttonTag]] as Message!
-        println(songMessage.song)
+        //println(songMessage.song)
         
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        self.player = appDelegate.player
         if (sender.selected) {
             var url = "spotify:track:" + songMessage.song
             self.player.playURIs([NSURL(string: url)!], withOptions: nil, callback: nil)
