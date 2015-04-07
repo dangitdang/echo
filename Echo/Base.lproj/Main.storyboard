@@ -96,7 +96,7 @@
                                 <rect key="frame" x="16" y="77" width="568" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="124" id="Czy-aq-3BL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="124" id="Czy-aq-3BL" customClass="RequestsTableViewCell" customModule="Echo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Czy-aq-3BL" id="1Ec-rS-t1y">
@@ -137,6 +137,9 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="personPic" destination="9l0-1c-tCJ" id="pgw-7z-4bK"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
