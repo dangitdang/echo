@@ -32,8 +32,7 @@ class User: Hashable {
         country: String = "",
         picURL: NSURL =  NSURL(string:"")!,
         blurb: String = "",
-        lastLogOut: NSDate = Date.from(year: 2000, month: 1, day: 1)!,
-        newUser: Bool = true
+        lastLogOut: NSDate = Date.from(year: 2000, month: 1, day: 1)!
     ){
         self.displayName = displayName
         self.email = email
@@ -45,7 +44,7 @@ class User: Hashable {
         self.messenger = Messenger()
         self.blurb = blurb
         self.lastLogOut = lastLogOut
-        self.newUser = newUser
+        self.newUser = false
     }
     
     convenience init(pfo: PFObject) {
@@ -82,6 +81,7 @@ class User: Hashable {
         database
     */
     func store() -> Void {
+        println("STORE")
         var user = PFObject(className: "EchoUser")
         user.setObject(self.displayName, forKey: "display_name")
         user.setObject(self.email, forKey: "email")
