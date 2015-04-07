@@ -831,12 +831,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7z-BF-qPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="880"/>
+            <point key="canvasLocation" x="2434.5" y="602.25"/>
         </scene>
-        <!--Match View Controller-->
+        <!--Matches-->
         <scene sceneID="dB2-gd-dgY">
             <objects>
-                <viewController storyboardIdentifier="Matches" id="F8Q-9z-ORo" customClass="MatchViewController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Matches" title="Matches" id="F8Q-9z-ORo" customClass="MatchViewController" customModule="Echo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pfL-b7-Lwh"/>
                         <viewControllerLayoutGuide type="bottom" id="lRz-9o-dgO"/>
@@ -847,7 +847,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMF-dF-BWX">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.3552984414" green="0.81887231689999995" blue="0.70641667659999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="224" id="6nb-F2-8IG">
                                         <variation key="heightClass=regular-widthClass=compact" constant="250"/>
@@ -1160,7 +1160,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" id="dQM-L8-gyS">
+                    <navigationItem key="navigationItem" title="Matches" id="dQM-L8-gyS">
                         <barButtonItem key="leftBarButtonItem" image="Menu" id="itR-6l-26N">
                             <connections>
                                 <action selector="toggleSideMenu:" destination="F8Q-9z-ORo" id="mQG-Uw-vXf"/>
@@ -1195,7 +1195,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FeT-aF-Nv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2073" y="66.75"/>
+            <point key="canvasLocation" x="1407" y="657.75"/>
         </scene>
     </scenes>
     <resources>
@@ -1204,7 +1204,8 @@
         <image name="Checkbox" width="40" height="40"/>
         <image name="Menu" width="15" height="10"/>
         <image name="PassButton" width="310" height="80"/>
-        <image name="Play" width="1283" height="705"/>
+        <image name="Play" width="93" height="91"/>
+        <image name="SendMessage" width="115" height="60"/>
         <image name="SendSong" width="310" height="80"/>
         <image name="SendSong-1" width="115" height="60"/>
         <image name="agaetis-byrjun" width="333" height="500"/>
