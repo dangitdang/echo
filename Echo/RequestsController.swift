@@ -47,8 +47,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         userList = appDelegate.user.messenger.getPeopleRequested()
         songList = appDelegate.user.messenger.getRequests()
         
-        if ()
-        self.player = appDelegate.player
+        if (appDelegate.product == SPTProduct.Premium) {
+            self.player = appDelegate.player
+        }
         
         //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
         var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
@@ -120,15 +121,18 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         var songMessage = songList[userList[buttonTag]] as Message!
         //println(songMessage.song)
         
-        if (sender.selected) {
-            var url = "spotify:track:" + songMessage.song
-            self.player.playURIs([NSURL(string: url)!], withOptions: nil, callback: nil)
-        } else {
-            self.player.stop({ (error:NSError!) -> Void in
-                if error != nil {
-                    println("error stopping")
-                }
-            })
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        if (appDelegate.product == SPTProduct.Premium) {
+            if (sender.selected) {
+                var url = "spotify:track:" + songMessage.song
+                self.player.playURIs([NSURL(string: url)!], withOptions: nil, callback: nil)
+            } else {
+                self.player.stop({ (error:NSError!) -> Void in
+                    if error != nil {
+                        println("error stopping")
+                    }
+                })
+            }
         }
         
         
