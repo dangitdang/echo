@@ -11,6 +11,12 @@ import UIKit
 class MatchViewController: ViewControllerWNav {
     
     
+    @IBOutlet weak var albumOne: UIImageView!
+    
+    @IBOutlet weak var albumTwo: UIImageView!
+    
+    
+    @IBOutlet weak var albumThree: UIImageView!
     
     @IBOutlet weak var passButton: UIButton!
     
@@ -31,7 +37,7 @@ class MatchViewController: ViewControllerWNav {
         setUser()
         getCurrentMatch()
         println(self.user.matches)
-        
+        setAlbumArt()
         if self.currentMatch == nil {
             self.matchNameLabel.text = "No Match"
             self.matchBlurbLabel.text = "No Match"
@@ -74,6 +80,7 @@ class MatchViewController: ViewControllerWNav {
     @IBAction func passMatch(sender: AnyObject) {
         
         //getNextMatch
+        setAlbumArt()
         
         if self.currentMatch == nil {
             self.matchNameLabel.text = "No Match"
@@ -88,6 +95,9 @@ class MatchViewController: ViewControllerWNav {
                 self.matchNameLabel.text = "No Match"
                 self.matchBlurbLabel.text = "No Match"
                 self.musicButton.setTitle("No Match", forState: UIControlState.Normal)
+                matchPicture.image = UIImage(named: "userIcon")
+                
+                
             } else {
             
             
@@ -118,6 +128,8 @@ class MatchViewController: ViewControllerWNav {
     }
     
     @IBAction func sendASong(sender: AnyObject) {
+        self.user.removeLastMatch(self.currentMatch.id)
+        self.currentMatch = self.user.getLatestMatch()
     }
     
     
@@ -135,6 +147,30 @@ class MatchViewController: ViewControllerWNav {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func setAlbumArt() {
+        if self.currentMatch == nil {
+            albumOne.image = UIImage(named: "userIcon")
+            albumTwo.image = UIImage(named: "userIcon")
+            albumThree.image = UIImage(named: "userIcon")
+        } else {
+            var threeAlbums = self.currentMatch.musicCollection?.threeAlbumCovers()
+            let url = NSURL(string: threeAlbums![0])
+            let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            albumOne.image = UIImage(data: data!)
+            
+            let url2 = NSURL(string: threeAlbums![1])
+            let data2 = NSData(contentsOfURL: url2!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            albumTwo.image = UIImage(data: data2!)
+            
+            let url3 = NSURL(string: threeAlbums![2])
+            let data3 = NSData(contentsOfURL: url3!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+            albumThree.image = UIImage(data: data3!)
+            
+        }
+        
     }
     
     

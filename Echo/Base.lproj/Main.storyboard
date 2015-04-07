@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -427,7 +427,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-4N-xbI">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmR-4N-xbI">
                                                 <rect key="frame" x="8" y="562" width="60" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="119" id="c6Z-ei-mtz"/>
@@ -441,6 +441,9 @@
                                                     <mask key="constraints">
                                                         <exclude reference="c6Z-ei-mtz"/>
                                                     </mask>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="30"/>
                                                 </variation>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ekd-ks-JbI">
@@ -490,7 +493,7 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elz-Vj-2X9">
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elz-Vj-2X9">
                                                 <rect key="frame" x="375" y="562" width="57.5" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="elz-Vj-2X9" secondAttribute="height" multiplier="23:12" id="G69-vF-Dj1"/>
@@ -498,6 +501,9 @@
                                                 <state key="normal" image="SendMessage">
                                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                                    <rect key="frame" x="0.0" y="0.0" width="116" height="60"/>
+                                                </variation>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -855,18 +861,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="37" y="188" width="354" height="21"/>
-                                </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-IX-ovv">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="SEND!">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="37" y="270" width="45" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="sendSongButtonPressed:" destination="rFI-kT-6BE" eventType="touchUpInside" id="Qtc-zL-KWL"/>
                                 </connections>
@@ -876,9 +876,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="37" y="123" width="93" height="18"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -928,11 +925,12 @@
                     <connections>
                         <outlet property="sendSongLabel" destination="6YW-hB-35q" id="QaI-Q6-Gzf"/>
                         <outlet property="songNameLabel" destination="8m6-UR-qsB" id="bdp-Fe-9Af"/>
+                        <segue destination="F8Q-9z-ORo" kind="presentation" identifier="backToMatch" id="PCh-Ob-Wit"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPI-zG-Veh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4341" y="593.25"/>
+            <point key="canvasLocation" x="1785" y="1703.25"/>
         </scene>
         <!--Matches-->
         <scene sceneID="dB2-gd-dgY">
@@ -965,7 +963,7 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="1984" translatesAutoresizingMaskIntoConstraints="NO" id="7ZJ-mm-8Bb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="7ZJ-mm-8Bb">
                                 <rect key="frame" x="61" y="94" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="7ZJ-mm-8Bb" secondAttribute="height" multiplier="1:1" id="BTb-7s-2Am"/>
@@ -973,6 +971,9 @@
                                         <variation key="heightClass=regular-widthClass=compact" constant="100"/>
                                     </constraint>
                                 </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="40" y="134" width="100" height="100"/>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Winkle Doodle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfV-jv-6ZE">
                                 <rect key="frame" x="428" y="114" width="94" height="21"/>
@@ -1010,19 +1011,6 @@
                                     <rect key="frame" x="0.0" y="578" width="128" height="128"/>
                                 </variation>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hZ-RW-M8V">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="37"/>
-                                <state key="normal" title="MATCH'S MUSIC">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="musicButtonPressed:" destination="F8Q-9z-ORo" eventType="touchUpInside" id="v59-eD-gAC"/>
-                                    <segue destination="IRs-wC-Wqv" kind="presentation" id="IQr-bo-rK2"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gP-y6-70F">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
@@ -1089,6 +1077,19 @@
                                 </variation>
                                 <connections>
                                     <segue destination="ZjJ-w0-gXT" kind="presentation" id="lj0-jd-SDW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hZ-RW-M8V">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.52000000000000002" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="37"/>
+                                <state key="normal" title="MATCH'S MUSIC">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="musicButtonPressed:" destination="F8Q-9z-ORo" eventType="touchUpInside" id="v59-eD-gAC"/>
+                                    <segue destination="IRs-wC-Wqv" kind="presentation" id="IQr-bo-rK2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1168,10 +1169,10 @@
                                 <exclude reference="OMF-dF-BWX"/>
                                 <exclude reference="qcU-OQ-dCB"/>
                                 <exclude reference="5vZ-tO-aJg"/>
-                                <exclude reference="7hZ-RW-M8V"/>
                                 <exclude reference="9gP-y6-70F"/>
                                 <exclude reference="Dg7-bP-uOs"/>
                                 <exclude reference="FpT-X9-CfS"/>
+                                <exclude reference="7hZ-RW-M8V"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="8cV-Yy-aHW"/>
@@ -1219,10 +1220,10 @@
                                 <include reference="OMF-dF-BWX"/>
                                 <include reference="qcU-OQ-dCB"/>
                                 <include reference="5vZ-tO-aJg"/>
-                                <include reference="7hZ-RW-M8V"/>
                                 <include reference="9gP-y6-70F"/>
                                 <include reference="Dg7-bP-uOs"/>
                                 <include reference="FpT-X9-CfS"/>
+                                <include reference="7hZ-RW-M8V"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="8cV-Yy-aHW"/>
@@ -1277,6 +1278,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="albumOne" destination="mqi-Vx-qYh" id="c2n-dP-a3o"/>
+                        <outlet property="albumThree" destination="5vZ-tO-aJg" id="LPM-As-zid"/>
+                        <outlet property="albumTwo" destination="qcU-OQ-dCB" id="2i4-Sq-XAm"/>
                         <outlet property="matchBlurbLabel" destination="Dg7-bP-uOs" id="XfR-Ei-4m1"/>
                         <outlet property="matchNameLabel" destination="xfV-jv-6ZE" id="XCv-vk-Nb7"/>
                         <outlet property="matchPicture" destination="7ZJ-mm-8Bb" id="MCx-U3-H3w"/>
@@ -1326,7 +1330,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1984" width="333" height="500"/>
         <image name="Backbutton" width="13" height="14"/>
         <image name="Checkbox" width="40" height="40"/>
         <image name="Menu" width="15" height="10"/>
@@ -1340,4 +1343,7 @@
         <image name="logo1" width="1283" height="705"/>
         <image name="userIcon" width="264" height="280"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PCh-Ob-Wit"/>
+    </inferredMetricsTieBreakers>
 </document>
