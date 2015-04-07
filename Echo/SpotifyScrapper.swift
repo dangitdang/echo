@@ -26,6 +26,7 @@ class Scrapper {
     var albums: [String: [String]] = [String: [String]]() // Artist -> albums
     var albumCovers: [String : String] = [String : String]() // Album -> imageURL
     var artistCovers: [String: String] = [String : String]()
+    var playlistStack: [[String]] = []
     var JSONSerializationError: NSError? = nil
     var accessToken :String
     var userID:String
@@ -33,7 +34,7 @@ class Scrapper {
     var collection: MusicCollection?
     let spotifyURL = NSURL(string: "https://api.spotify.com/v1/")!
     
-
+    
     init(session: SPTSession, user:SPTUser){
         self.session = session
         self.user = user
@@ -54,8 +55,8 @@ class Scrapper {
         var albumsList = self.albums[artist]
         if albumsList != nil {
             if !contains(albumsList!, album) {
-            albumsList?.append(album)
-            self.albums[artist] = albumsList
+                albumsList?.append(album)
+                self.albums[artist] = albumsList
             }
         } else {
             self.albums[artist] = [album]
@@ -80,9 +81,9 @@ class Scrapper {
                     var album = song["track"]["album"]["name"].stringValue
                     var index = find(album,".")
                     while (index != nil) {
-                            album.removeAtIndex(index!)
-                            println("there was a dot")
-                            index = find(album,".")
+                        album.removeAtIndex(index!)
+                        println("there was a dot")
+                        index = find(album,".")
                     }
                     album = album.replace("$", withString:"S")
                     var albumCover = song["track"]["album"]["images"][1]["url"].stringValue
@@ -93,9 +94,9 @@ class Scrapper {
                             var artistName = artist["name"].stringValue
                             var index = find(artistName,".")
                             while (index != nil) {
-                                    artistName.removeAtIndex(index!)
-                                    println("there was a dot")
-                                    index = find(artistName,".")
+                                artistName.removeAtIndex(index!)
+                                println("there was a dot")
+                                index = find(artistName,".")
                             }
                             artistName = artistName.replace("$", withString:"S")
                             allArtists.append(artistName)
@@ -120,7 +121,7 @@ class Scrapper {
         var savedSongsURL = NSURL(string: "me/tracks", relativeToURL: spotifyURL)
         retrieveSavedSongsHelper(savedSongsURL!, user: user)
     }
-
+    
     func updateSongsCount(artistsArr: [String]) -> Void {
         objc_sync_enter(artists)
         for artist in artistsArr {
@@ -135,7 +136,7 @@ class Scrapper {
             }
         }
         objc_sync_exit(artists)
-
+        
     }
     
     func getTracksHelper(url: NSURL, ID: String,user:User) ->Void {
@@ -150,9 +151,9 @@ class Scrapper {
                     var album = song["track"]["album"]["name"].stringValue
                     var index = find(album,".")
                     while (index != nil) {
-                            album.removeAtIndex(index!)
-                            println("there was a dot")
-                            index = find(album,".")
+                        album.removeAtIndex(index!)
+                        println("there was a dot")
+                        index = find(album,".")
                     }
                     var albumCover = song["track"]["album"]["images"][1]["url"].stringValue
                     album = album.replace("$", withString:"S")
@@ -164,7 +165,6 @@ class Scrapper {
                             var index = find(artistName,".")
                             while (index != nil) {
                                 artistName.removeAtIndex(index!)
-                                println("there was a dot")
                                 index = find(artistName,".")
                             }
                             artistName = artistName.replace("$", withString:"S")
@@ -176,35 +176,62 @@ class Scrapper {
                     self.updateSongsCount(allArtists)
                 }
             }
+            if self.albumCovers.count > 500 {
+                println("more album")
+                self.collection = self.createCollection()
+                self.updateArtistCover()
+                self.collection?.addPhotos(self.artistCovers, albums: self.albumCovers)
+                println(self.albumCovers.count)
+                user.setMusicCollection(self.collection!)
+                user.store()
+                return
+            }
+            
             if raw["next"].stringValue != "" {
                 var nextString = raw["next"].stringValue
                 var nextURL = NSURL(string: nextString)
-                    self.getTracksHelper(nextURL!, ID: ID,user :user)
+                self.getTracksHelper(nextURL!, ID: ID,user :user)
             } else {
-                    if ID == self.lastKey {
-                        self.collection = self.createCollection()
-                        self.updateArtistCover()
-                        self.collection?.addPhotos(self.artistCovers, albums: self.albumCovers)
-                        println(self.artists)
-                        println("Done with collection")
-                        user.setMusicCollection(self.collection!)
-                        user.store()
-                        println(self.albumCovers)
-                    }
+                println("Finish playlist \(ID)")
+                if self.playlistStack.count > 0 {
+                    var nextPlaylist = self.playlistStack.removeAtIndex(0)
+                    self.getTracks(nextPlaylist[0],owner: nextPlaylist[1],user: user)
+                } else {
+                    println("done with collection")
+                    self.collection = self.createCollection()
+                    self.updateArtistCover()
+                    self.collection?.addPhotos(self.artistCovers, albums: self.albumCovers)
+                    println(self.albumCovers.count)
+                    user.setMusicCollection(self.collection!)
+                    user.store()
+                }
+                
             }
-
+            
         }
         
     }
-
+    
     func getTracks(id: String, owner: String, user:User) -> Void {
+        
         var playlistTracksURL = NSURL(string: "users/\(owner)/playlists/\(id)/tracks", relativeToURL: spotifyURL)
         self.getTracksHelper(playlistTracksURL!, ID: id, user: user)
     }
     func updateCollectionFromPlaylist(user: User) -> Void {
         for key in self.playlists.keys {
-            getTracks(key, owner: self.playlists[key]!,user: user)
+            self.playlistStack.append([key,self.playlists[key]!])
         }
+        if self.playlistStack.count > 0 {
+            var nextPlaylist = self.playlistStack.removeAtIndex(0)
+            self.getTracks(nextPlaylist[0],owner: nextPlaylist[1],user: user)
+        }
+//        dispatch_async(dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)) {
+//
+//            dispatch_async(dispatch_get_main_queue()) {
+//
+//            }
+//        }
+        
     }
     func retrievePlaylistsHelper(url: NSURL, user:User) -> Void {
         var mutableURLRequest = NSMutableURLRequest(URL: url)
@@ -230,7 +257,7 @@ class Scrapper {
                 self.updateCollectionFromPlaylist(user)
             }
         }
-
+        
     }
     
     func scrape(user: User) -> Void {
@@ -271,7 +298,7 @@ class Scrapper {
         retrievePlaylistsHelper(playlistsURL!, user: user)
     }
     func createCollection() -> MusicCollection{
-            return MusicCollection(artists: artists, songCounts: songCounts, albums: albums)
+        return MusicCollection(artists: artists, songCounts: songCounts, albums: albums)
     }
     
     

@@ -9,32 +9,32 @@
 import UIKit
 import Foundation
 
-class ChooseSongViewController: ViewController {
-
+class ChooseSongViewController: ViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var songTextField: UITextField!
     var songText: String!
     var searchResults: [[String]]!
     var currentSession:SPTSession?
     var myScraper:Scrapper!
-
+    
     @IBOutlet weak var songTableView: UITableView!
     
     override func viewDidLoad() {
         println("View Did Load")
         super.viewDidLoad()
         println("loadded")
-        let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
-        navigationItem.leftBarButtonItem = backButton
+        //let backButton = UIBarButtonItem(title: "<", style: UIBarButtonItemStyle.Plain, target: self, action: "goBack")
+        //navigationItem.leftBarButtonItem = backButton
         getSession()
-        self.songTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "songCell")
+//        self.songTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "SongMusicTableViewCell")
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         self.myScraper = appDelegate.scraper
         
         //self.songText = self.songTextField.text
         // Do any additional setup after loading the view.
     }
-
-
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
@@ -42,13 +42,12 @@ class ChooseSongViewController: ViewController {
             return 0
         }
         return Int(self.searchResults.count)
-    
-    }
-
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.songTableView.dequeueReusableCellWithIdentifier("songCell") as UITableViewCell
         
-        cell.textLabel?.text = self.searchResults[indexPath.row][1] as String
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("SongMusicTableViewCell", forIndexPath: indexPath) as SongTableViewCell
+        cell.songLabel.text = self.searchResults[indexPath.row][0] as String
         
         return cell
     }
@@ -57,11 +56,11 @@ class ChooseSongViewController: ViewController {
         self.myScraper.querySong(self.songTextField.text, completion: {(data:AnyObject!) -> Void in
             println(data)
             self.searchResults = data as [[String]]
-    
+            self.songTableView.reloadData()
         })
     }
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,12 +79,12 @@ class ChooseSongViewController: ViewController {
     }
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
