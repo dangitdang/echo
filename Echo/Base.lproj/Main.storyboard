@@ -349,6 +349,82 @@
             </objects>
             <point key="canvasLocation" x="431" y="-1582"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="2cP-bQ-X7l">
+            <objects>
+                <viewController id="Nkl-sF-5jl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vDj-ZF-1lD"/>
+                        <viewControllerLayoutGuide type="bottom" id="TuY-R2-gVz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jhd-7i-4UD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lhR-E0-FA6">
+                                <rect key="frame" x="-5" y="556" width="605" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="idv-bf-rgE">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="IbX-fs-Fjg">
+                                            <rect key="frame" x="16" y="7" width="481" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Item" width="43" id="C3N-TG-PaK"/>
+                                    <barButtonItem title="Item" id="SyE-QO-dIT"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ekd-ks-JbI">
+                                <rect key="frame" x="0.0" y="48" width="600" height="508"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="g7k-sT-TGj" customClass="MessageCell" customModule="Echo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g7k-sT-TGj" id="CDA-c4-g21">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84S-Za-Ktt">
+                                                    <rect key="frame" x="78" y="14" width="199" height="71"/>
+                                                    <color key="backgroundColor" red="0.73815272249150166" green="0.7575116788060936" blue="0.80046559343434343" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-AK-TEH">
+                                                    <rect key="frame" x="16" y="23" width="54" height="54"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="userIcon" translatesAutoresizingMaskIntoConstraints="NO" id="2sk-Zf-rgH">
+                                                    <rect key="frame" x="532" y="23" width="54" height="54"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5v-ml-M0f">
+                                                    <rect key="frame" x="326" y="14" width="198" height="71"/>
+                                                    <color key="backgroundColor" red="0.34092979743851259" green="0.88399621212121215" blue="0.33770286038069214" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="otherMessage" destination="84S-Za-Ktt" id="qUj-zN-lnq"/>
+                                            <outlet property="otherPic" destination="CDA-c4-g21" id="uRb-6M-NKO"/>
+                                            <outlet property="userMessage" destination="U5v-ml-M0f" id="M3s-6I-urv"/>
+                                            <outlet property="userPic" destination="2sk-Zf-rgH" id="d40-gU-7M2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSr-DQ-L2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1307" y="-890"/>
+        </scene>
         <!--Messenger Controller-->
         <scene sceneID="Js1-SD-hAE">
             <objects>
@@ -397,6 +473,7 @@
                                         <connections>
                                             <outlet property="lastMessage" destination="xXx-GC-RGx" id="hFd-wi-VJL"/>
                                             <outlet property="matchName" destination="nMo-FM-kIP" id="51f-8a-GSz"/>
+                                            <segue destination="Nkl-sF-5jl" kind="show" id="XLQ-rW-eQe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -490,7 +567,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" image="Backbutton" id="q9t-mn-Fyq"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="ha6-Ir-3uH">
-                            <rect key="frame" x="159" y="8" width="283" height="28"/>
+                            <rect key="frame" x="158.5" y="8" width="283" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="In Common With You"/>
@@ -509,7 +586,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGw-Zd-fg2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2749.5" y="-706.5"/>
+            <point key="canvasLocation" x="2693" y="-99"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y33-Ad-UZ4">
@@ -527,7 +604,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yZ-ZE-QmN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1687.5" y="-706.5"/>
+            <point key="canvasLocation" x="1607" y="-99"/>
         </scene>
         <!--Choose Song View Controller-->
         <scene sceneID="OYU-dW-jiv">
@@ -642,7 +719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7z-BF-qPp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2098.5" y="120"/>
+            <point key="canvasLocation" x="1622" y="880"/>
         </scene>
         <!--Match View Controller-->
         <scene sceneID="dB2-gd-dgY">
@@ -909,7 +986,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Paj-0s-vIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="736.5" y="-109.5"/>
+            <point key="canvasLocation" x="364" y="482"/>
         </scene>
     </scenes>
     <resources>
