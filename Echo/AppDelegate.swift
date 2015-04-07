@@ -16,9 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     var pubNub: PubNub?
     var session:SPTSession?
     var user: User!
+    var product: SPTProduct?
     var player: SPTAudioStreamingController?
     var scraper: Scrapper!
-    
+    var semaphore: dispatch_semaphore_t!
     var window: UIWindow?
 
 
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
         Parse.setApplicationId("MUJzfsX8Y7z6xm4PsXrwyr3GTCRHPnJmVOF4lhDf", clientKey: "ywrNxXXEcg2gUnbSgZJwozopJfWRjyGp1fdUONfk")
         self.pubNub = PubNub.connectingClientWithConfiguration(PNConfiguration.defaultConfiguration(), delegate: self, andSuccessBlock: {(orign) -> Void in println("connected to Pubnub")}, errorBlock: {(error) -> Void in println("error")})
         PNLogger.loggerEnabled(false)
+        self.semaphore = dispatch_semaphore_create(0)
         return true
     }
     

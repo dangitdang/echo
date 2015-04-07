@@ -45,8 +45,8 @@ class MatchViewController: ViewControllerWNav {
             if (url.description != "") {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
                 matchPicture.image = UIImage(data: data!)
+            }
         }
-        
         
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
         var destViewController : UIViewController
@@ -59,7 +59,7 @@ class MatchViewController: ViewControllerWNav {
             sideMenuController()?.sideMenu?.hideSideMenu()
         }
         
-        
+
         
         
         //self.matchNameLabel.text = "Match's Name"
@@ -67,7 +67,7 @@ class MatchViewController: ViewControllerWNav {
         // Do any additional setup after loading the view.
         
 
-        }
+        
     }
     
     
