@@ -88,6 +88,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
             let sender = snapshot.value["sender"] as? String
             let timestamp = snapshot.value["time"] as? Double
             let song = snapshot.value["song"] as? String
+            println("FIREBASE BABYYYY")
             NEW_REQUEST(user, sender!, song!, songName!, NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
         })
     }
