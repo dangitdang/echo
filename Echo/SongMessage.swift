@@ -34,8 +34,10 @@ class SongMessage : JSQMediaItem, JSQMessageMediaData {
     
     override func mediaView() -> UIView! {
         var view = UIView()
-        var size = CGSize(width: 100, height: 50)
-        view.frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+        var size = CGSize(width: 150, height: 50)
+        view.frame = CGRectMake(CGFloat(0.0), CGFloat(0.0), size.width, size.height)
+        view.contentMode = UIViewContentMode.Center
+        view.clipsToBounds = true
         let button = UIButton()
         button.setTitle("PlayButton", forState: UIControlState.Normal)
         button.addTarget(self, action: "PlaySong", forControlEvents: UIControlEvents.TouchUpInside)
