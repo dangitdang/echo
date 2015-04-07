@@ -53,7 +53,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userList.count
+        return 5//userList.count
     }
  
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -67,6 +67,8 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
               cell.personPic.image = image!
             }
         }
+        cell.personName.text = appDelegate.user.displayName
+        
         
         return cell
     }
