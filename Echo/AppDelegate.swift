@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
         var type = message.message.valueForKey("type") as String
         var song = message.message.valueForKey("song") as String
         var text = message.message.valueForKey("text") as String
-        var time = message.message.valueForKey("time") as NSDate
+        var time = NSDate(timeIntervalSince1970: message.message.valueForKey("time") as Double)
         if (type == "request") {
             NEW_REQUEST(self.user!, sender, song, text, time)
         } else if (type == "approve") {
