@@ -46,7 +46,6 @@ class MatchViewController: ViewControllerWNav {
         matchValBar.trackTintColor = UIColor.darkGrayColor()
         
         
-        
         backgroundImages = ["blur1", "blur2", "blur3", "blur4"]
         setUser()
         getCurrentMatch()

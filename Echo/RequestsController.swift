@@ -47,6 +47,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
 
    override func viewDidLoad(){
         super.viewDidLoad()
+        self.title = "Requests"
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         

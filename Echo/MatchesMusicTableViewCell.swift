@@ -12,6 +12,8 @@ class MatchesMusicTableViewCell: UITableViewCell {
 
     @IBOutlet weak var artistNameLabel: UILabel!
     
+    @IBOutlet weak var artistImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

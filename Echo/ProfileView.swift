@@ -41,6 +41,7 @@ class ProfileView: ViewControllerWNav, UITextFieldDelegate, UITextViewDelegate, 
         super.viewDidLoad()
         var point = CGPoint(x: 0.0, y: 0.0)
         scrollView.contentOffset = point
+        self.title = "Profile"
 
         checkbox1.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);
         checkbox2.setImage(UIImage(named: "CheckedCheckbox"), forState: UIControlState.Selected);

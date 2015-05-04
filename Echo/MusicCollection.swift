@@ -16,7 +16,7 @@ class MusicCollection {
     var albumCovers: [String: String]?
     var artistPhotos: [String:String]?
     init(artists: [String], songCounts: [String: Int], albums: [String: [String]]){
-        self.artists = artists
+        self.artists = sorted(artists, <)
         self.songCounts = songCounts
         self.albums = albums
         self.weights =  [String: Float?]()

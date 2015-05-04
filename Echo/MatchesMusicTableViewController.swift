@@ -93,6 +93,7 @@ class MatchesMusicTableViewController: UITableViewController {
             var myMusic:MusicCollection = self.user.musicCollection!
             
             matchesMusicData = myMusic.artistsNotInCommon(matchMusic)
+            songTableView.reloadData()
             //self.user.musicCollection?.artistsInCommon(self.match.musicCollection!)!
         }
     }
@@ -123,8 +124,15 @@ class MatchesMusicTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("MatchesMusicTableViewCell", forIndexPath: indexPath) as MatchesMusicTableViewCell
         
         cell.artistNameLabel.text = musicString
+        cell.artistImage.frame = CGRectMake(0, 0, 128,128)
+        cell.artistImage.contentMode = .ScaleAspectFit
+        var picture = (self.user.musicCollection?.artistPhotos![musicString] != nil) ?  self.user.musicCollection?.artistPhotos![musicString] : match.musicCollection?.artistPhotos![musicString]
+        if (picture?.utf16Count > 15) {
+            var imgData = NSData(contentsOfURL: NSURL(string: picture!)!)
+            cell.artistImage.image = UIImage(data: imgData!)
+        }
         
-        
+        println("\(musicString) \(picture)")
         return cell
     }
 
