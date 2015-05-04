@@ -10,7 +10,7 @@
 func NEW_REQUEST(user:User, other_id: String, song:String, songName: String, time:NSDate){
     var other_user = User.userFromID(other_id)!
     var message = user.messenger.addRequest(other_user, song: song, songName: songName, time:time)
-    newRequestUpdateUI(user, other_user, message)
+    //newRequestUpdateUI(user, other_user, message)
 }
 
 func newRequestUpdateUI(current_user: User, other_user: User, first_message:Message){
@@ -18,7 +18,7 @@ func newRequestUpdateUI(current_user: User, other_user: User, first_message:Mess
     //println("sending out notification")
     let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
     var destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Requests") as RequestsController
-    destViewController.addRequest(other_user, m: first_message)
+    //destViewController.addRequest(other_user, m: first_message)
 }
 
 func APPROVED_REQUEST(user:User, other_id: String, song: String, songName: String, time: NSDate){
