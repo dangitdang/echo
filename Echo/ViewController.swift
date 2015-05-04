@@ -47,6 +47,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     println(self.user.followerCount)
                     //println(self.user.largestImage.imageURL)
                     
+                    
                     })
             
         }
@@ -132,6 +133,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     self.loginWithSpotifySession(self.session)
                 }
                 
+                setupFirebase(appDelegate.user)
                 
             }
         })

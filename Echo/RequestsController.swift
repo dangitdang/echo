@@ -53,7 +53,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
-        setupFirebase(appDelegate.user)
+        //setupFirebase(appDelegate.user)
         
         println("END of viewWillAppear")
 
@@ -102,25 +102,6 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
 
     }
     
-    
-    func setupFirebase(user:User) {
-        var reqRef = Firebase(url: "\(rootRefURL)/requests/\(user.id)")
-        reqRef.queryLimitedToLast(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-            let songName = snapshot.value["songName"] as? String
-            let sender = snapshot.value["sender"] as? String
-            let timestamp = snapshot.value["time"] as? Double
-            let song = snapshot.value["song"] as? String
-            println("FIREBASE BABYYYY !@!@#")
-            NEW_REQUEST(user, sender!, song!, songName!, NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
-            //var message = Message(text: songName, song: song, mine: false, time:time)
-            var message = Message(text: songName!, song: song!, mine: false, time: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
-            var other_user = User.userFromID(sender!)!
-            self.addRequest(other_user, m: message)
-            println("NEW_REQUEST done")
-            
-            self.tableView.reloadData()
-        })
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -198,11 +179,11 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         if (appDelegate.product == SPTProduct.Premium) {
             if (sender.selected) {
-                //var url = "spotify:track:" + songMessage.song
+                var url = "spotify:track:" + songMessage.song
                 println("SONG: ")
                 println(songMessage.song)
                 appDelegate.playSong(songMessage.song)
-                self.player.playURIs([NSURL(string: songMessage.song)!], withOptions: nil, callback: nil)
+                self.player.playURIs([NSURL(string: url)!], withOptions: nil, callback: nil)
             } else {
                 self.player.stop({ (error:NSError!) -> Void in
                     if error != nil {
