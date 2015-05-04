@@ -34,7 +34,14 @@ class SendSongViewController: UIViewController {
 
     @IBAction func sendSongButtonPressed(sender: AnyObject) {
         self.user.messenger.sendRequest(self.match, song: self.songInfo[2], songName: self.songInfo[0], time:NSDate())
-        performSegueWithIdentifier("backToMatch", sender: self)
+        //performSegueWithIdentifier("backToMatch", sender: self)
+        let currentNavController : UIViewController = self.navigationController!
+        let topLevelController : UINavigationController = currentNavController.navigationController!
+        let toptopLevelController : UINavigationController = topLevelController.presentingViewController! as UINavigationController
+
+        topLevelController.popToRootViewControllerAnimated(false)
+        toptopLevelController.dismissViewControllerAnimated(true, completion: { () -> Void in
+        })
     }
     
     
