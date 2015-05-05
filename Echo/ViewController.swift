@@ -133,7 +133,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     self.loginWithSpotifySession(self.session)
                 }
                 
-                setupFirebase(appDelegate.user)
+                //setupFirebase(appDelegate.user)
                 
             }
         })

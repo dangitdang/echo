@@ -47,23 +47,14 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     
     
     var player: SPTAudioStreamingController!
-    
-    override func viewWillAppear(animated: Bool) {
-        println ("BEGIN of viewWillAppear")
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-        
-        //setupFirebase(appDelegate.user)
-        
-        println("END of viewWillAppear")
-
-    }
 
    override func viewDidLoad(){
         println("BEGIN of viewDidLoad")
     
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
-
+    
+        setupFirebase(appDelegate.user)
+    
         userList = appDelegate.user.messenger.getPeopleRequested()
         println(userList.count)
         songList = appDelegate.user.messenger.getRequests()
@@ -100,6 +91,26 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     
         println("END of viewDidLoad")
 
+    }
+    
+    func setupFirebase(user:User) {
+        let rootRefURL = "https://quartetecho.firebaseio.com/"
+        var reqRef = Firebase(url: "\(rootRefURL)/requests/\(user.id)")
+        reqRef.queryLimitedToLast(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
+            let songName = snapshot.value["songName"] as? String
+            let sender = snapshot.value["sender"] as? String
+            let timestamp = snapshot.value["time"] as? Double
+            let song = snapshot.value["song"] as? String
+            println("FIREBASE BABYYYY !@!@#")
+            NEW_REQUEST(user, sender!, song!, songName!, NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
+            //var message = Message(text: songName, song: song, mine: false, time:time)
+            var message = Message(text: songName!, song: song!, mine: false, time: NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
+            var other_user = User.userFromID(sender!)!
+            self.addRequest(other_user, m: message)
+            println("NEW_REQUEST done")
+            
+            self.tableView.reloadData()
+        })
     }
     
     
