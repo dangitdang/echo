@@ -36,28 +36,45 @@ class RequestsTableViewCell: UITableViewCell {
 }
 
 class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    
     var userList: [User] = []
     var songList = [User: Message]()
     let rootRefURL = "https://quartetecho.firebaseio.com/"
     @IBOutlet weak var tableView: UITableView!
+    //let appDelegate: AppDelegate?
     
     
     var player: SPTAudioStreamingController!
     
-
-   override func viewDidLoad(){
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        println ("BEGIN of viewWillAppear")
         
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         
+        //setupFirebase(appDelegate.user)
+        
+        println("END of viewWillAppear")
+
+    }
+
+   override func viewDidLoad(){
+        println("BEGIN of viewDidLoad")
+    
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+
         userList = appDelegate.user.messenger.getPeopleRequested()
+        println(userList.count)
         songList = appDelegate.user.messenger.getRequests()
         
         if (appDelegate.product == SPTProduct.Premium) {
             self.player = appDelegate.player
         }
     
-        
+        super.viewDidLoad()
+
+    
         //        //andrei: aivanov@mit.edu harini: harinisuresh94@yahoo.com dang: dpham279@gmail.com hansa: agent.candykid@gmail.com
         //        var andrei = User.checkIfUserExists("aivanov@mit.edu") as User!
         //        var harini = User.checkIfUserExists("harinisuresh94@yahoo.com") as User!
@@ -80,22 +97,11 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         //            userList.append(hansa)
         //            songList[hansa] = Message(text: "Just One Yesterday", song: "0l2p5mDOP3czJ2FpD6zWie", mine: false, time: NSDate())
         //        }
-        setupFirebase(appDelegate.user)
+    
+        println("END of viewDidLoad")
+
     }
     
-    
-    func setupFirebase(user:User) {
-        var reqRef = Firebase(url: "\(rootRefURL)/requests/\(user.id)")
-        reqRef.queryLimitedToLast(25).observeEventType(FEventType.ChildAdded, withBlock: { (snapshot) in
-            let songName = snapshot.value["songName"] as? String
-            let sender = snapshot.value["sender"] as? String
-            let timestamp = snapshot.value["time"] as? Double
-            let song = snapshot.value["song"] as? String
-            println("FIREBASE BABYYYY")
-            NEW_REQUEST(user, sender!, song!, songName!, NSDate(timeIntervalSince1970: NSTimeInterval(timestamp!)))
-            self.tableView.reloadData()
-        })
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -105,6 +111,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println("RE-ESTABLISHING NUMBER OF CELLS")
+        println(userList.count)
         return userList.count
     }
     
@@ -114,7 +121,7 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("RequestsTableViewCell") as RequestsTableViewCell
         var currUser = userList[row]
         let url = currUser.picURL as NSURL!
-        if (url != "") {
+        if (url.description != "") {
             let dataForPic = NSData(contentsOfURL: url!)
             var image = UIImage(data: dataForPic!)
             if (image != nil) {
@@ -140,7 +147,8 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         cell.declineButton.tag = row
         cell.declineButton.targetForAction("declineRequest", withSender: self)
         cell.declineButton.addTarget(self, action: "declineRequest:", forControlEvents: .TouchUpInside)
-        
+        println("CONSTRUCTING CELLS")
+
         return cell
     }
     
@@ -150,12 +158,24 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         //println(obj)
         userList.append(user)
         songList[user] = m
+        
+        println(userList)
+        println("userlist size: ")
+        println(userList.count)
+        println(songList)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.notification = true
+        
+        println("APPDEL notification")
+        println(appDelegate.notification)
         //self.view.subviews[1].reloadData() //this line doesnt actually work idk
+        
+        //self.tableView.reloadData()
         
     }
     
     func playOrPause(sender: UIButton!) {
-        
         var buttonTag = sender.tag
         //println(buttonTag)
         sender.selected = !sender.selected
@@ -166,6 +186,9 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         if (appDelegate.product == SPTProduct.Premium) {
             if (sender.selected) {
                 var url = "spotify:track:" + songMessage.song
+                println("SONG: ")
+                println(songMessage.song)
+                appDelegate.playSong(songMessage.song)
                 self.player.playURIs([NSURL(string: url)!], withOptions: nil, callback: nil)
             } else {
                 self.player.stop({ (error:NSError!) -> Void in

@@ -47,6 +47,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     println(self.user.followerCount)
                     //println(self.user.largestImage.imageURL)
                     
+                    
                     })
             
         }
@@ -106,7 +107,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 }
                 
                 
-                
+                appDelegate.notification = false
                 appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs)
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL
@@ -132,6 +133,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                     self.loginWithSpotifySession(self.session)
                 }
                 
+                setupFirebase(appDelegate.user)
                 
             }
         })

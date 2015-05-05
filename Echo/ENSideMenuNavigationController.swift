@@ -47,6 +47,7 @@ public class ENSideMenuNavigationController: UINavigationController, ENSideMenuP
         case .None:
             println("in the switch")
             self.viewControllers = [contentViewController]
+            contentViewController.reloadInputViews()
             break
         default:
             println("in the other switch")

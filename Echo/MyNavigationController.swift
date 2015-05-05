@@ -9,14 +9,18 @@
 import UIKit
 
 class MyNavigationController: ENSideMenuNavigationController, ENSideMenuDelegate {
-
+    
+    var vc: MyMenuTableViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        vc = MyMenuTableViewController()
         
-        sideMenu = ENSideMenu(sourceView: self.view, menuTableViewController: MyMenuTableViewController(), menuPosition:.Left)
+        sideMenu = ENSideMenu(sourceView: self.view, menuTableViewController: vc, menuPosition:.Left)
         //sideMenu?.delegate = self //optional
         sideMenu?.menuWidth = 180.0 // optional, default is 160
         //sideMenu?.bouncingEnabled = false
+        
         
         // make navigation bar showing over side menu
         view.bringSubviewToFront(navigationBar)
@@ -29,6 +33,7 @@ class MyNavigationController: ENSideMenuNavigationController, ENSideMenuDelegate
     
     // MARK: - ENSideMenu Delegate
     func sideMenuWillOpen() {
+        vc.reloadInputViews()
         println("sideMenuWillOpen")
     }
     
