@@ -77,7 +77,6 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
         var row = indexPath.row
         var match = matchesArr[row]
         //var messages = self.user.messenger.getMessages(match)
-        var lastMessage = "Fuck this nigga"
         //        if messages.last?.isSong() != true {
         //            lastMessage = messages.last!.text
         //        }
@@ -87,7 +86,17 @@ class MessengerController: ViewControllerWNav, UITableViewDataSource {
         if matchPics[match[1]] == "" {
             cell.matchIMG.image = UIImage(named: "userIcon")
         } else {
-            cell.matchIMG.image = UIImage(data: NSData(contentsOfURL: matchPics[match[1]]!)!)
+            let dataPic = NSData(contentsOfURL: matchPics[match[1]]!)
+            if dataPic == nil {
+                cell.matchIMG.image = UIImage(named: "userIcon")
+                return cell
+            }
+            var img = UIImage(data: dataPic!)
+            if (img != nil){
+                cell.matchIMG.image = UIImage(data: NSData(contentsOfURL: self.matchPics[match[1]]!)!)
+            } else {
+                cell.matchIMG.image = UIImage(named: "userIcon")
+            }
         }
         return cell
     }
