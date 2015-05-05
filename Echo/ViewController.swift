@@ -107,7 +107,7 @@ class ViewController: UIViewController, SPTAuthViewDelegate, SPTAudioStreamingPl
                 }
                 
                 
-                
+                appDelegate.notification = false
                 appDelegate.user = User(displayName: username, email: self.user.emailAddress, preferences: prefs)
                 if (self.user.largestImage != nil){
                     appDelegate.user?.picURL = self.user.largestImage.imageURL

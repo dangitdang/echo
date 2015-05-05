@@ -13,6 +13,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, PNDelegate {
     
+    var notification: Bool!
     var pubNub: PubNub?
     var session:SPTSession?
     var user: User!

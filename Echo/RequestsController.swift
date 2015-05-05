@@ -163,6 +163,12 @@ class RequestsController: ViewControllerWNav, UITableViewDataSource, UITableView
         println("userlist size: ")
         println(userList.count)
         println(songList)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.notification = true
+        
+        println("APPDEL notification")
+        println(appDelegate.notification)
         //self.view.subviews[1].reloadData() //this line doesnt actually work idk
         
         //self.tableView.reloadData()

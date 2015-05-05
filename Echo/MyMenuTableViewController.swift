@@ -10,8 +10,16 @@ import UIKit
 
 class MyMenuTableViewController: UITableViewController {
     var selectedMenuItem : Int = 0
+    ///var refreshControl:UIRefreshControl!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl)
         
         // Customize apperance of table view
         tableView.contentInset = UIEdgeInsetsMake(64.0, 0, 0, 0) //
@@ -55,8 +63,8 @@ class MyMenuTableViewController: UITableViewController {
             cell!.selectedBackgroundView = selectedBackgroundView
         }
         
-        
         switch (indexPath.row) {
+            
         case 0:
             cell!.textLabel?.text = "Matches"
             break
@@ -64,6 +72,12 @@ class MyMenuTableViewController: UITableViewController {
             cell!.textLabel?.text = "Messages"
             break
         case 2:
+            //cell!.imageView?.image = UIImage(named: "notification")
+            //let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            //println(appDelegate.notification)
+            //if (appDelegate.notification.boolValue == true) {
+            //    cell!.imageView?.image = UIImage(named: "notification")
+            //}
             cell!.textLabel?.text = "Requests"
             break
         case 3:
@@ -108,6 +122,8 @@ class MyMenuTableViewController: UITableViewController {
             sideMenuController()?.setContentViewController(destViewController)
             break
         case 2:
+            let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+            appDelegate.notification = false
             destViewController = mainStoryboard.instantiateViewControllerWithIdentifier("Requests")as UIViewController
             sideMenuController()?.setContentViewController(destViewController)
             break
