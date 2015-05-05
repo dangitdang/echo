@@ -70,7 +70,7 @@ class MatchViewController: ViewControllerWNav {
             println(self.matchValLabel.text)
             self.matchNameLabel.text = self.currentMatch.displayName
             self.matchBlurbLabel.text = self.currentMatch.blurb
-            self.musicButton.setTitle(self.currentMatch.displayName + "'s Music", forState: UIControlState.Normal)
+            self.musicButton.setTitle(self.getMatchFirstName() + "'s Music", forState: UIControlState.Normal)
             let url = self.currentMatch.picURL as NSURL!
             if (url.description != "") {
                 let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if letcheck
